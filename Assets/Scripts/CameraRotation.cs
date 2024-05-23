@@ -13,9 +13,24 @@ public class CameraRotation : MonoBehaviour
     InputAction rotateAction;
     InputAction unpossessAction;
 
-    bool isCursorPosInitialised = false;
-    [SerializeField] float cameraSpeed = 0.025f;
-    Vector2 prevPos;
+    bool isCursorPosInitialised = false;            // Initialises when the player clicks on the screen
+    
+    [SerializeField]
+    [Tooltip("Controls the speed of the camera's rotation.")]
+    float cameraSpeed = 0.025f;
+
+    
+    [Header("Camera Angle Limits")]
+
+    [SerializeField]
+    [Tooltip("The lowest angle the camera's X rotation can reach.")]
+    float pitchLowerLimit = 0f;
+
+    [SerializeField]
+    [Tooltip("The highest angle the camera's X rotation can reach.")]
+    float pitchUpperLimit = 55f;
+    
+    Vector2 prevPos;    // Used to determine the direction of the camera's rotation
 
     /** Set all action variables and required callbacks */
     void Start()
@@ -47,6 +62,7 @@ public class CameraRotation : MonoBehaviour
         }
     }
 
+    /** Rotates the camera when the player taps and drags the screen */
     void RotateCamera(InputAction.CallbackContext context)
     {
         Vector2 currentPos = context.ReadValue<Vector2>();
@@ -56,8 +72,10 @@ public class CameraRotation : MonoBehaviour
             Vector2 deltaPos = currentPos - prevPos;
             deltaPos *= cameraSpeed;
 
+            // Rotate around the centre of the world
             gameObject.transform.RotateAround(Vector3.zero, gameObject.transform.right, -deltaPos.y);
             gameObject.transform.RotateAround(Vector3.zero, Vector3.up, deltaPos.x);
+            ClampRotation(deltaPos);
         }
         else
         {
@@ -65,6 +83,17 @@ public class CameraRotation : MonoBehaviour
         }
 
         prevPos = currentPos;
+    }
+
+    /** Clamps the camera's rotation to keep the camera from being turned upside down or moving underground */
+    void ClampRotation(Vector2 delta)
+    {
+        float rotX = gameObject.transform.rotation.eulerAngles.x;
+
+        if (rotX < pitchLowerLimit || rotX > pitchUpperLimit)
+        {
+            gameObject.transform.RotateAround(Vector3.zero, gameObject.transform.right, delta.y);
+        }
     }
 
     /** When the player lifts their finger from the screen, the camera stops moving */

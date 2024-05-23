@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class CameraRotation : MonoBehaviour
+public class CameraPan : MonoBehaviour
 {
     // The input action asset containing all actions related to camera movement
     [SerializeField] InputActionAsset cameraActions;
@@ -13,13 +13,13 @@ public class CameraRotation : MonoBehaviour
     InputAction rotateAction;
     InputAction unpossessAction;
 
-    bool isCursorPosInitialised = false;            // Initialises when the player clicks on the screen
-    
+    bool isCursorPosInitialised = false;    // Initialises when the player clicks on the screen
+
     [SerializeField]
     [Tooltip("Controls the speed of the camera's rotation.")]
     float cameraSpeed = 0.025f;
 
-    
+
     [Header("Camera Angle Limits")]
 
     [SerializeField]
@@ -29,7 +29,7 @@ public class CameraRotation : MonoBehaviour
     [SerializeField]
     [Tooltip("The highest angle the camera's X rotation can reach.")]
     float pitchUpperLimit = 55f;
-    
+
     Vector2 prevPos;    // Used to determine the direction of the camera's rotation
 
     /** Set all action variables and required callbacks */
@@ -58,12 +58,12 @@ public class CameraRotation : MonoBehaviour
     {
         if (rotateAction != null)
         {
-            rotateAction.performed += RotateCamera;
+            rotateAction.performed += PanCamera;
         }
     }
 
-    /** Rotates the camera when the player taps and drags the screen */
-    void RotateCamera(InputAction.CallbackContext context)
+    /** Pan the camera when the player taps and drags the screen */
+    void PanCamera(InputAction.CallbackContext context)
     {
         Vector2 currentPos = context.ReadValue<Vector2>();
 
@@ -71,11 +71,11 @@ public class CameraRotation : MonoBehaviour
         {
             Vector2 deltaPos = currentPos - prevPos;
             deltaPos *= cameraSpeed;
+            print(deltaPos);
+            Vector3 newCameraPos = new Vector3(transform.localPosition.x + deltaPos.x, transform.localPosition.y + deltaPos.y, transform.localPosition.z);
 
-            // Rotate around the centre of the world
-            gameObject.transform.RotateAround(Vector3.zero, gameObject.transform.right, -deltaPos.y);
-            gameObject.transform.RotateAround(Vector3.zero, Vector3.up, deltaPos.x);
-            ClampRotation(deltaPos);
+            // Pan the camera across the screen
+            transform.localPosition = newCameraPos;
         }
         else
         {
@@ -98,10 +98,10 @@ public class CameraRotation : MonoBehaviour
 
     /** When the player lifts their finger from the screen, the camera stops moving */
     void UnpossessCamera()
-    { 
+    {
         if (rotateAction != null)
         {
-            rotateAction.performed -= RotateCamera;
+            rotateAction.performed -= PanCamera;
             isCursorPosInitialised = false;
         }
     }

@@ -6,13 +6,16 @@ using UnityEngine.InputSystem;
 public class CameraRotation : MonoBehaviour
 {
     // The input action asset containing all actions related to camera movement
-    [SerializeField]
-    InputActionAsset cameraActions;
+    [SerializeField] InputActionAsset cameraActions;
 
     // The actions
     InputAction possessAction;
     InputAction rotateAction;
     InputAction unpossessAction;
+
+    bool isCursorPosInitialised = false;
+    [SerializeField] float cameraSpeed = 0.025f;
+    Vector2 prevPos;
 
     /** Set all action variables and required callbacks */
     void Start()
@@ -36,7 +39,7 @@ public class CameraRotation : MonoBehaviour
     }
 
     /** While the player is touching the screen, they can rotate the camera */
-    public void PossessCamera()
+    void PossessCamera()
     {
         if (rotateAction != null)
         {
@@ -44,17 +47,33 @@ public class CameraRotation : MonoBehaviour
         }
     }
 
-    public void RotateCamera(InputAction.CallbackContext ctx)
+    void RotateCamera(InputAction.CallbackContext context)
     {
+        Vector2 currentPos = context.ReadValue<Vector2>();
 
+        if (isCursorPosInitialised)
+        {
+            Vector2 deltaPos = currentPos - prevPos;
+            deltaPos *= cameraSpeed;
+
+            gameObject.transform.RotateAround(Vector3.zero, gameObject.transform.right, -deltaPos.y);
+            gameObject.transform.RotateAround(Vector3.zero, Vector3.up, deltaPos.x);
+        }
+        else
+        {
+            isCursorPosInitialised = true;
+        }
+
+        prevPos = currentPos;
     }
 
     /** When the player lifts their finger from the screen, the camera stops moving */
-    public void UnpossessCamera()
+    void UnpossessCamera()
     { 
         if (rotateAction != null)
         {
             rotateAction.performed -= RotateCamera;
+            isCursorPosInitialised = false;
         }
     }
 }

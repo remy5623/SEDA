@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class CameraPan : MonoBehaviour
 {
@@ -15,6 +16,13 @@ public class CameraPan : MonoBehaviour
     InputAction mouseWheelAction;
 
     bool isCursorPosInitialised = false;    // Initialises when the player clicks on the screen
+        Camera orthoCam;
+    float initialOrthoSize;
+    Vector2 prevPos;                // Used to determine the direction of the camera's movement
+    Vector2 panDistance;
+
+
+    [Header("Camera Movement Speed")]
 
     [SerializeField]
     [Tooltip("Controls the camera's pan speed.")]
@@ -22,26 +30,24 @@ public class CameraPan : MonoBehaviour
 
     [SerializeField]
     [Tooltip("Controls the camera's zoom speed.")]
-    float zoomSpeed = 0.025f;
+    float zoomSpeed = 0.5f;
 
 
-    [Header("Camera Angle Limits")]
+    [Header("Camera Limits")]
 
     [SerializeField]
     [Tooltip("The distance the camera is allowed to pan.")]
     Vector2 panLimit = new Vector2(10, 10);
 
     [SerializeField]
+    [Tooltip("The distance the camera is allowed to zoom in.")]
+    float minZoomDistance = 3.5f;
+
+    [SerializeField]
     [Tooltip("The distance the camera is allowed to zoom out.")]
     float maxZoomDistance = 10f;
 
-    Camera orthoCam;
-    float initialOrthoSize;
-    Vector2 prevPos;                // Used to determine the direction of the camera's movement
-    Vector2 panDistance;
-    Vector3 initialLocalPosition;
-
-    /** Set all action variables and required callbacks */
+    /** Set all initial variables and required callbacks */
     void Start()
     {
         if (cameraActions)
@@ -67,8 +73,6 @@ public class CameraPan : MonoBehaviour
             mouseWheelAction.performed += MouseWheelZoom;
         }
 
-        initialLocalPosition = transform.position;
-
         if (orthoCam = FindAnyObjectByType<Camera>())
         {
             initialOrthoSize = orthoCam.orthographicSize;
@@ -92,10 +96,11 @@ public class CameraPan : MonoBehaviour
         if (isCursorPosInitialised)
         {
             Vector3 deltaPos = currentPos - prevPos;
-            deltaPos *= panSpeed;
-
+            // panning movement is scaled by a global speed as well as a ratio of the screen size
+            deltaPos *= panSpeed * (orthoCam.orthographicSize / initialOrthoSize);
             deltaPos = ClampedPan(deltaPos);
 
+            // Transform.Translate applies the tranformation to local space by default
             transform.Translate(deltaPos);
         }
         else
@@ -106,7 +111,7 @@ public class CameraPan : MonoBehaviour
         prevPos = currentPos;
     }
 
-    /** Clamps the camera's panning movement */
+    /** Clamps the camera's panning movement and returns an adjusted deltaPos */
     Vector2 ClampedPan(Vector2 deltaPos)
     {
         panDistance += deltaPos;
@@ -146,6 +151,7 @@ public class CameraPan : MonoBehaviour
         }
     }
 
+    /** Applies camera zoom based on input from the mouse wheel */
     void MouseWheelZoom(InputAction.CallbackContext context)
     {
         float mouseWheelDirection = context.ReadValue<float>();
@@ -160,6 +166,10 @@ public class CameraPan : MonoBehaviour
         }
     }
 
+    /** Zooms the camera in and out
+     *  This is for an orthographic camera
+     *  Changes the size of the orthographic viewport
+     */
     void Zoom(bool isZoomForward)
     {
         Camera orthoCam;
@@ -170,7 +180,8 @@ public class CameraPan : MonoBehaviour
             {
                 orthoCam.orthographicSize -= zoomSpeed;
                 
-                if (orthoCam.orthographicSize <= 0)
+                // Clamped min zoom distance
+                if (orthoCam.orthographicSize < minZoomDistance)
                 {
                     orthoCam.orthographicSize += zoomSpeed;
                 }
@@ -179,6 +190,7 @@ public class CameraPan : MonoBehaviour
             {
                 orthoCam.orthographicSize += zoomSpeed;
 
+                // Clamped max zoom distance
                 if (orthoCam.orthographicSize > maxZoomDistance)
                 {
                     orthoCam.orthographicSize = maxZoomDistance;

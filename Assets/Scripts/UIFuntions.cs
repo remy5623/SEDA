@@ -16,6 +16,8 @@ public class UIFuntions : MonoBehaviour
     public GameObject Level1_Info;
     public GameObject ACInfo;
 
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,8 @@ public class UIFuntions : MonoBehaviour
 
         LevelSelection.enabled = false;
         MapOverview.SetActive(false);
+        
+      
     }
 
     public void Load_clickhere()
@@ -64,6 +68,11 @@ public class UIFuntions : MonoBehaviour
         PauseMenuCanvas.enabled = true;
         //MainMenuCanvas.enabled = false;
         LoadMenuCanvas.enabled = false;
+    }
+
+    public void PlayGame()
+    {
+        SceneManager.LoadScene("Blockout_Island_A_1");
     }
 
     public void QuitGame()

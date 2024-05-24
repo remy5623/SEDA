@@ -5,31 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class SettingsMenu : MonoBehaviour
 {
-    [SerializeField] public Canvas Pause;
+    [SerializeField]
+    [Tooltip("Put a reference to the Pause_Settings Menu prefab here.")]
+    PauseMenu PauseMenuPrefab;
 
-    private void Start()
+    /** Instantiates a new Pause Menu
+     *  The Pause Menu will handle its own destruction
+     */
+    public void OpenPauseMenu()
     {
-        if(Pause != null)
-            Pause.enabled = false;    
-    }
-
-    public void MainM()
-    {
-        SceneManager.LoadScene("UI Screen");
-    }
-
-    public void QuitM()
-    {
-        Application.Quit();
-    }
-
-    public void Settings_clickhere()
-    {
-        Pause.enabled = false;
-    }
-
-    public void Settings()
-    {
-        Pause.enabled = true;
+        if (PauseMenuPrefab)
+        {
+            Instantiate(PauseMenuPrefab.gameObject);
+        }
     }
 }

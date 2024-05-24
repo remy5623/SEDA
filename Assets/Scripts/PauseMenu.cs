@@ -1,6 +1,7 @@
 // Remy Pijuan
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -10,6 +11,10 @@ public class PauseMenu : MonoBehaviour
     /** The static property GameIsPaused can be accessed by any class to determine whether the game is paused. */
     private static bool gameIsPaused = false;
     public static bool GameIsPaused { get { return gameIsPaused; } }
+
+    [SerializeField]
+    [Tooltip("The name of the Main Menu scene.")]
+    public string mainMenuSceneName = "UI Screen";
 
     /** The pause menu is a singleton
      *  There is only one pause menu active at any given time
@@ -36,6 +41,21 @@ public class PauseMenu : MonoBehaviour
     public void ClosePauseMenu()
     {
         Destroy(gameObject);
+    }
+
+    /** Exit the current scene and load the the Main Menu
+     *  If the pause menu has been opened inside the Main Menu, simply close the pause menu
+     */
+    public void ReturnToMainMenu()
+    {
+        if (SceneManager.GetActiveScene().name == mainMenuSceneName)
+        {
+            ClosePauseMenu();
+        }
+        else
+        {
+            SceneManager.LoadSceneAsync(mainMenuSceneName);
+        }
     }
 
     /** Quit the game */

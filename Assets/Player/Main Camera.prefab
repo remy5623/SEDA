@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2256069412103142307}
   - component: {fileID: 9166301667502255693}
   - component: {fileID: 5611501984820414187}
-  - component: {fileID: 8493943777352259570}
+  - component: {fileID: 427194203050079870}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -29,13 +29,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6230094191815337267}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0.35355338, y: -0.35355338, z: 0.1464466, w: 0.8535535}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 45, y: -45, z: 0}
 --- !u!20 &2896313026146313298
 Camera:
   m_ObjectHideFlags: 0
@@ -70,7 +70,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -174,7 +174,7 @@ MonoBehaviour:
   m_DefaultActionMap: Camera
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &8493943777352259570
+--- !u!114 &427194203050079870
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -183,8 +183,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6230094191815337267}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fdf30bfadb0f5340bf72c8f462b7d36, type: 3}
+  m_Script: {fileID: 11500000, guid: 59708160fc32b7744ab496524668b1b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cameraActions: {fileID: -944628639613478452, guid: 67f30afa779e22942afacb4ae4197719,
     type: 3}
+  cameraSpeed: 0.001
+  pitchLowerLimit: 0
+  pitchUpperLimit: 55

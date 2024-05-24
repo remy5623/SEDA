@@ -28,20 +28,17 @@ public class CameraPan : MonoBehaviour
     [Header("Camera Angle Limits")]
 
     [SerializeField]
-    [Tooltip("The distance the camera is allowed to pan from left to right.")]
-    float panLimitX = 20f;
-
-    [SerializeField]
-    [Tooltip("The distance the camera is allowed to pan up/down.")]
-    float panLimitY = 20f;
+    [Tooltip("The distance the camera is allowed to pan.")]
+    Vector2 panLimit = new Vector2(10, 10);
 
     [SerializeField]
     [Tooltip("The distance the camera is allowed to zoom out.")]
-    float zoomLimit = 10f;
+    float maxZoomDistance = 10f;
 
     Camera orthoCam;
     float initialOrthoSize;
-    Vector2 prevPos;                // Used to determine the direction of the camera's rotation
+    Vector2 prevPos;                // Used to determine the direction of the camera's movement
+    Vector2 panDistance;
     Vector3 initialLocalPosition;
 
     /** Set all action variables and required callbacks */
@@ -70,7 +67,7 @@ public class CameraPan : MonoBehaviour
             mouseWheelAction.performed += MouseWheelZoom;
         }
 
-        initialLocalPosition = gameObject.transform.localPosition;
+        initialLocalPosition = transform.position;
 
         if (orthoCam = FindAnyObjectByType<Camera>())
         {
@@ -94,13 +91,12 @@ public class CameraPan : MonoBehaviour
 
         if (isCursorPosInitialised)
         {
-            Vector2 deltaPos = currentPos - prevPos;
+            Vector3 deltaPos = currentPos - prevPos;
             deltaPos *= panSpeed;
-            Vector3 newCameraPos = new Vector3(transform.localPosition.x + deltaPos.x, transform.localPosition.y + deltaPos.y, transform.localPosition.z);
 
-            // Pan the camera across the screen
-            transform.localPosition = newCameraPos;
-            ClampPan();
+            deltaPos = ClampedPan(deltaPos);
+
+            transform.Translate(deltaPos);
         }
         else
         {
@@ -111,30 +107,33 @@ public class CameraPan : MonoBehaviour
     }
 
     /** Clamps the camera's panning movement */
-    void ClampPan()
+    Vector2 ClampedPan(Vector2 deltaPos)
     {
-        Vector3 deltaPosition = gameObject.transform.localPosition - initialLocalPosition;
-        Vector3 adjustedPosition = gameObject.transform.localPosition;
+        panDistance += deltaPos;
 
-        // Clamp X
-        if (deltaPosition.x > panLimitX)
+        if (panDistance.x > panLimit.x)
         {
-            adjustedPosition.x += panLimitX;
+            deltaPos.x -= panDistance.x - panLimit.x;
+            panDistance.x = panLimit.x;
         }
-        else if (deltaPosition.x < panLimitX)
+        else if (panDistance.x < -panLimit.x)
         {
-            adjustedPosition.x -= panLimitX;
+            deltaPos.x += -panDistance.x - panLimit.x;
+            panDistance.x = -panLimit.x;
         }
         
-        // Clamp Y
-        if (deltaPosition.y > panLimitY)
+        if (panDistance.y > panLimit.y)
         {
-            adjustedPosition.y += panLimitY;
+            deltaPos.y -= panDistance.y - panLimit.y;
+            panDistance.y = panLimit.y;
         }
-        else if (deltaPosition.y < panLimitY)
+        else if (panDistance.y < -panLimit.y)
         {
-            adjustedPosition.y -= panLimitY;
+            deltaPos.y += -panDistance.y - panLimit.y;
+            panDistance.y = -panLimit.y;
         }
+
+        return deltaPos;
     }
 
     /** When the player lifts their finger from the screen, the camera stops moving */
@@ -171,7 +170,7 @@ public class CameraPan : MonoBehaviour
             {
                 orthoCam.orthographicSize -= zoomSpeed;
                 
-                if (orthoCam.orthographicSize < 0)
+                if (orthoCam.orthographicSize <= 0)
                 {
                     orthoCam.orthographicSize += zoomSpeed;
                 }
@@ -179,6 +178,11 @@ public class CameraPan : MonoBehaviour
             else
             {
                 orthoCam.orthographicSize += zoomSpeed;
+
+                if (orthoCam.orthographicSize > maxZoomDistance)
+                {
+                    orthoCam.orthographicSize = maxZoomDistance;
+                }
             }
         }
     }

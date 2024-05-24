@@ -1,5 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
+// Remy Pijuan
+
 using UnityEngine;
 
 public class PauseMenu : MonoBehaviour

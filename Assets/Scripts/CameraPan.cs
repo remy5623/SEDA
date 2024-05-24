@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
+// Remy Pijuan
+
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
 
 public class CameraPan : MonoBehaviour
 {
@@ -16,10 +15,19 @@ public class CameraPan : MonoBehaviour
     InputAction mouseWheelAction;
 
     bool isCursorPosInitialised = false;    // Initialises when the player clicks on the screen
-        Camera orthoCam;
+    Camera orthoCam;
     float initialOrthoSize;
     Vector2 prevPos;                // Used to determine the direction of the camera's movement
     Vector2 panDistance;
+
+    [Header("Invert Camera Controls")]
+
+    [SerializeField]
+    [Tooltip("Invert Camera Controls when panning on the x-axis.")]
+    bool InvertX = true;
+    [SerializeField]
+    [Tooltip("InvertCameraControls when panningn on the y-axis.")]
+    bool InvertY = true;
 
 
     [Header("Camera Movement Speed")]
@@ -96,6 +104,18 @@ public class CameraPan : MonoBehaviour
         if (isCursorPosInitialised)
         {
             Vector3 deltaPos = currentPos - prevPos;
+
+            // Invert controls as needed
+            if (InvertX)
+            {
+                deltaPos.x = prevPos.x - currentPos.x;
+            }
+            
+            if (InvertY)
+            {
+                deltaPos.y = prevPos.y - currentPos.y;
+            }
+
             // panning movement is scaled by a global speed as well as a ratio of the screen size
             deltaPos *= panSpeed * (orthoCam.orthographicSize / initialOrthoSize);
             deltaPos = ClampedPan(deltaPos);

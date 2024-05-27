@@ -121,7 +121,11 @@ public class CameraPan : MonoBehaviour
             deltaPos = ClampedPan(deltaPos);
 
             // Transform.Translate applies the tranformation to local space by default
-            transform.Translate(deltaPos);
+            // Movement along the X direction in screen space translates directly to movement along the X axis in local space
+            transform.Translate(new Vector2(deltaPos.x, 0));
+            
+            // Apply screen space Y translate
+            transform.Translate(GetMovementAlongPlaneXZ(deltaPos.y), Space.World);
         }
         else
         {
@@ -159,6 +163,17 @@ public class CameraPan : MonoBehaviour
         }
 
         return deltaPos;
+    }
+
+    /** Translates movement along the Y direction in screen space to movement along the XZ plane in world space */
+    Vector3 GetMovementAlongPlaneXZ(float deltaPosY)
+    {
+        Vector3 PlaneVectorXZ = Vector3.zero;
+
+        PlaneVectorXZ.x = deltaPosY * -1;
+        PlaneVectorXZ.z = deltaPosY;
+
+        return PlaneVectorXZ;
     }
 
     /** When the player lifts their finger from the screen, the camera stops moving */

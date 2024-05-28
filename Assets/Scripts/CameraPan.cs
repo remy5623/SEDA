@@ -166,12 +166,13 @@ public class CameraPan : MonoBehaviour
     }
 
     /** Translates movement along the Y direction in screen space to movement along the XZ plane in world space */
-    Vector3 GetMovementAlongPlaneXZ(float deltaPosY)
+    Vector3 GetMovementAlongPlaneXZ(float deltaScreenSpaceY)
     {
-        Vector3 PlaneVectorXZ = Vector3.zero;
+        // Rotate the vector along the X axis
+        Vector3 PlaneVectorXZ = new Vector3(0, 0, deltaScreenSpaceY);
 
-        PlaneVectorXZ.x = deltaPosY * -1;
-        PlaneVectorXZ.z = deltaPosY;
+        // Then rotate along the Y axis
+        PlaneVectorXZ = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0) * PlaneVectorXZ;
 
         return PlaneVectorXZ;
     }

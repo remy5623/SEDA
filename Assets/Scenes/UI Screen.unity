@@ -175,7 +175,6 @@ MonoBehaviour:
   MapOverview: {fileID: 1563503339}
   Level1_Info: {fileID: 851814587}
   ACInfo: {fileID: 1731042248}
-  LEvel: {fileID: 0}
 --- !u!223 &67444329 stripped
 Canvas:
   m_CorrespondingSourceObject: {fileID: 8205706553050437416, guid: b5d8b6b368989da40ac6aa0b4a4ad963,
@@ -292,6 +291,74 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 8342209671794501786}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &616142527
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4243698057844539372, guid: adc9a14856a1a87448b473cf8881296f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1280
+      objectReference: {fileID: 0}
+    - target: {fileID: 4243698057844539372, guid: adc9a14856a1a87448b473cf8881296f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 4243698057844539372, guid: adc9a14856a1a87448b473cf8881296f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4243698057844539372, guid: adc9a14856a1a87448b473cf8881296f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4243698057844539372, guid: adc9a14856a1a87448b473cf8881296f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4243698057844539372, guid: adc9a14856a1a87448b473cf8881296f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4243698057844539372, guid: adc9a14856a1a87448b473cf8881296f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4243698057844539372, guid: adc9a14856a1a87448b473cf8881296f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4243698057844539372, guid: adc9a14856a1a87448b473cf8881296f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4243698057844539372, guid: adc9a14856a1a87448b473cf8881296f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7470658185403674231, guid: adc9a14856a1a87448b473cf8881296f,
+        type: 3}
+      propertyPath: m_Name
+      value: SceneManager (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: adc9a14856a1a87448b473cf8881296f, type: 3}
 --- !u!1001 &752273271
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -690,74 +757,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1696145915301475831}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1987393885
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1987393888}
-  - component: {fileID: 1987393887}
-  - component: {fileID: 1987393886}
-  m_Layer: 0
-  m_Name: EventSystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1987393886
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1987393885}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
---- !u!114 &1987393887
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1987393885}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 10
---- !u!4 &1987393888
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1987393885}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1696145915301475831
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -770,6 +769,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Main Menu Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 824070534350470676, guid: a2ada996c5f6b3440aea834a0d945858,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2650624639957663615, guid: a2ada996c5f6b3440aea834a0d945858,
         type: 3}
@@ -933,6 +937,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Level Selection Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173627645841210842, guid: 48ac44b5a574f9b4d8033e0774c9dad1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4177271377027480333, guid: 48ac44b5a574f9b4d8033e0774c9dad1,
         type: 3}
@@ -1102,6 +1111,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Load Game Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 686686342531370339, guid: b5d8b6b368989da40ac6aa0b4a4ad963,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1693494217858282631, guid: b5d8b6b368989da40ac6aa0b4a4ad963,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1219,4 +1233,4 @@ SceneRoots:
   - {fileID: 308442827}
   - {fileID: 1648626131}
   - {fileID: 55837927}
-  - {fileID: 1987393888}
+  - {fileID: 616142527}

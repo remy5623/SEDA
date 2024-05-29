@@ -192,6 +192,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Pause Menu",
+            "id": "5b45386c-1a9e-42fd-a44f-c599777a975b",
+            "actions": [
+                {
+                    "name": "Clicks",
+                    "type": "Button",
+                    "id": "b10c6f17-6568-40f0-9093-1069b456ae83",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "333168f7-d46e-4863-88f6-e10a711c99e2",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Clicks",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

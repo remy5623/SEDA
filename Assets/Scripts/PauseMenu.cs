@@ -1,6 +1,7 @@
 // Remy Pijuan
 
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
@@ -16,6 +17,16 @@ public class PauseMenu : MonoBehaviour
     [Tooltip("The name of the Main Menu scene.")]
     public string mainMenuSceneName = "UI Screen";
 
+    //[SerializeField]
+    //PlayerInput PlayerInput;
+
+    InputAction PossessCameraAction;
+    InputAction RotateCameraAction;
+    InputAction UnpossessCameraAction;
+    InputAction ZoomAction;
+    
+    public InputActionAsset action;
+
     /** The pause menu is a singleton
      *  There is only one pause menu active at any given time
      */
@@ -24,6 +35,8 @@ public class PauseMenu : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+
+            
         }
         else
         {
@@ -35,6 +48,22 @@ public class PauseMenu : MonoBehaviour
     {
         gameIsPaused = true;
         Time.timeScale = 0f;    // Pause the game when the pause menu is opened
+
+        PossessCameraAction = action.FindAction("PossessCamera");
+        RotateCameraAction = action.FindAction("RotateCamera");
+        UnpossessCameraAction = action.FindAction("UnpossessCamera");
+        ZoomAction = action.FindAction("MouseWheelZoom");
+
+        if(PossessCameraAction != null)
+            PossessCameraAction.Disable();
+        if(RotateCameraAction != null)
+            RotateCameraAction.Disable();
+        if(UnpossessCameraAction != null)
+            UnpossessCameraAction.Disable();
+        if(ZoomAction != null)
+            ZoomAction.Disable();
+
+        //PlayerInput.SwitchCurrentActionMap("Pause Menu");
     }
 
     /** Destroy the pause menu object */
@@ -75,6 +104,12 @@ public class PauseMenu : MonoBehaviour
         {
             gameIsPaused = false;
             Time.timeScale = 1f;    // Unpause when the pause menu is closed
+
+            PossessCameraAction.Enable();
+            RotateCameraAction.Enable();
+            UnpossessCameraAction.Enable();
+            ZoomAction.Enable();
+            //PlayerInput.SwitchCurrentActionMap("Camera");
         }
     }
 }

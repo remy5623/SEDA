@@ -8,7 +8,7 @@ public class UIFuntions : MonoBehaviour
     //Main Menu Canvases
     public Canvas MainMenuCanvas;
     public Canvas LoadMenuCanvas;
-    public Canvas PauseMenuCanvas;
+    //public Canvas PauseMenuCanvas;
 
     //Level Selection Canvases
     public Canvas LevelSelection;
@@ -23,7 +23,7 @@ public class UIFuntions : MonoBehaviour
     {
         MainMenuCanvas.enabled = true;
         LoadMenuCanvas.enabled = false;
-        PauseMenuCanvas.enabled = false;
+        //PauseMenuCanvas.enabled = false;
 
         LevelSelection.enabled = false;
         MapOverview.SetActive(false);
@@ -35,7 +35,7 @@ public class UIFuntions : MonoBehaviour
     {
         MainMenuCanvas.enabled = true;
         LoadMenuCanvas.enabled = false;
-        PauseMenuCanvas.enabled = false;
+        //PauseMenuCanvas.enabled = false;
 
         LevelSelection.enabled = false;
         MapOverview.SetActive(false);
@@ -43,7 +43,7 @@ public class UIFuntions : MonoBehaviour
 
     public void Settings_clickhere()
     {
-        PauseMenuCanvas.enabled = false;
+        //PauseMenuCanvas.enabled = false;
     }
     
     public void NewLevel()
@@ -61,11 +61,11 @@ public class UIFuntions : MonoBehaviour
     {
         MainMenuCanvas.enabled = false ;
         LoadMenuCanvas.enabled = true ;
-        PauseMenuCanvas.enabled = false ;
+        //PauseMenuCanvas.enabled = false ;
     }
     public void Settings()
     {
-        PauseMenuCanvas.enabled = true;
+       // PauseMenuCanvas.enabled = true;
         //MainMenuCanvas.enabled = false;
         LoadMenuCanvas.enabled = false;
     }

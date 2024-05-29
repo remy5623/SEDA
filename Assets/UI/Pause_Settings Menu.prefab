@@ -388,7 +388,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainMenuSceneName: UI Screen
-  PlayerInput: {fileID: 0}
   action: {fileID: -944628639613478452, guid: 67f30afa779e22942afacb4ae4197719, type: 3}
 --- !u!1 &306895729923237173
 GameObject:
@@ -754,7 +753,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.01690993, g: 0.7169812, b: 0.0793815, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1309,6 +1308,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2928741264233837119}
   - component: {fileID: 5790355471431215905}
+  - component: {fileID: 615100873672058135}
   m_Layer: 5
   m_Name: Volume Slider
   m_TagString: Untagged
@@ -1382,13 +1382,38 @@ MonoBehaviour:
   m_FillRect: {fileID: 3989445367330751988}
   m_HandleRect: {fileID: 7964679257417368983}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.0001
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 615100873672058135}
+        m_TargetAssemblyTypeName: AudioSlidert, Assembly-CSharp
+        m_MethodName: ChangeVolume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &615100873672058135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7904668691073102710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f743b082787428d48ba5def450e6aec5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeSlider: {fileID: 5790355471431215905}
 --- !u!1 &9051615426025408843
 GameObject:
   m_ObjectHideFlags: 0

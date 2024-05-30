@@ -37,11 +37,6 @@ public class General : MonoBehaviour
     [Tooltip(" List of tileTerrainTypes this structure can be placed on.")]
     public List<GameObject> tileTerrainTypes;                      
 
-    public void Start() 
-    {
-        
-    }
-
 
 
 

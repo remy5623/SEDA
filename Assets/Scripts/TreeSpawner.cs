@@ -15,7 +15,6 @@ public class TreeSpawner : MonoBehaviour
     Vector3 Rotation;
 
     int widthLimit = 13;
-    int currentWidth = 1;
 
     private void Awake()
     {

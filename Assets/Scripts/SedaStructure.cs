@@ -1,26 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEditor;
+using UnityEditor.TerrainTools;
 using UnityEngine;
 
-[CreateAssetMenu(fileName ="General",menuName ="SEDA_Asset/General")]
-public class GeneralStructure : ScriptableObject
+[CreateAssetMenu(fileName ="General",menuName ="GeneralStructure")]
+public class SedaStructure : ScriptableObject
 {
-    [Header("General")]
     //GeneralBase
+    [Header("General")]
     [Tooltip("(currently unused) Will be used if we swap to a database structure rather than manual creation.")]
-    public int unitsID;                                          
+    public int iD;                                          
     [Tooltip("Name of the object that will be displayed in-game e.g. on hover over via UI.")]
-    public string unitsName;                                       
+    public string names;                                       
     [Tooltip("Image (drag and drop to here) (Resolution of Images in UI Spec Sheet")]
-    public Sprite unitsIcon;                                       
+    public Sprite icon;                                       
     [Tooltip("GameObject with 3D static Mesh (Drag and Drop) (Scale See Metrics & Scale(See Grid scale)")]
-    public GameObject unitsMesh;                                  
-    public Vector3 buildSize;                                     
+    public GameObject mesh;    
+    [Tooltip("Number of Tiles on grid Width")]                              
+    public int sizeWidth;     
+    [Tooltip("number of Tiles on grid Length")]
+    public int sizeLength;                                
     [Tooltip("Structure Types")]
-    public UnitsTypes unitsTypes;                                 
-
-    public enum UnitsTypes
+    public StructureTypes structureTypes;                                 
+    public enum StructureTypes
     {
         Creature,
         Building,
@@ -28,45 +32,50 @@ public class GeneralStructure : ScriptableObject
         Farm,
         Restoration
     }
-
-    //GeneralTile
     [Tooltip("Grab reference and information of the tile under the structure/ the tile this structure is placed on top of.")]
     public GameObject tileUnder;                                  
     public List<GameObject> biomesTypes;                          
     [Tooltip(" List of tileTerrainTypes this structure can be placed on.")]
-    public List<GameObject> tileTerrainTypes;   
-    [Header("Build")]
+    public List<GameObject> tileTerrainTypes; 
+
+    
     //BuildBase
+    [Header("Build")]
     [Tooltip("Checks if a tile is buildable, if not it hides the Building section inengine and in the hierarchy.")]
-    public bool canBuild;                   
+    public bool canBuild;
     [Tooltip("Number of Days this structure takes to build (See time(1day=1sec)")]                                
-    public int buildTime;                  
+    public int buildTime;  
 
     //BuildCost
     [Tooltip("Building cost of constructing the building.-Energy")]
-    public int costEnergy;                  
+    public int buildingCostEnergy;  
     [Tooltip("Building cost of constructing the building.-Food")]
-    public int costFood;                   
+    public int buildingCostFood; 
     [Tooltip("Building cost of constructing the building.-Construction")]
-    public int costConstruction;            
+    public int buildingCostConstruction;            
 
     //BuildingUpgradeCost
     [Tooltip("Building Upgrade cost-Energy")]
-    public int buildUpgradeCostEnergy;      
+    public int buildingUpgradeCostEnergy; 
     [Tooltip("Building Upgrade cost-Food")]
-    public int buildUpgradeCostFood;       
+    public int buildingUpgradeCostFood;  
     [Tooltip("Building Upgrade cost-Construction")]
-    public int buildUpgradeCostConstruction;
+    public int buildingUpgradeCostConstruction;
     [Tooltip("Increases the upgrade cost per level ")]
-    public float buildUpgradeCostMult; 
+    public float buildingUpgradeCostMulti; 
 
     //BuildingsLevel
     [Tooltip("Building upgrade icon per level(could be static and hidden or a fixed.")]
     public List<Sprite> buildingLevelIcon;
+
     [Tooltip("current level of the building")]
-    public int currentLevel;              
+    public int buildingCurrentlevel; 
+
     [Tooltip("Maximum number of upgrades for building")]
-    public int MAX_LEVEL;
+    public int buildingLevelMax;
+
+
+
     [Header("Resource")]
     //ResourceBase
     [Tooltip("checks if the resource will be added to the monthly output (some structures need to be tapped to receive the base output")]
@@ -101,8 +110,9 @@ public class GeneralStructure : ScriptableObject
     [Tooltip("Transfers the output Resource and applies it to the output of the ?")]
     public int transferResources;                    
     [Tooltip("the object will be impacted.")]
-    public GameObject effectiveGameObjects;
+    public GameObject structureOfTypeInRadius;
     [Header("Impact")]
+
     //Impact
     [Tooltip("Is this a source of Buffs or nerfs for other structures?")]
     public bool impactSource;
@@ -113,5 +123,5 @@ public class GeneralStructure : ScriptableObject
     [Tooltip("list of objects this applies the buff to if insideImpactRadius")]
     public List<GameObject> tileImpactBuff;                            
     [Tooltip("list of objects this applies the nerf to if insideImpactRadius")]
-    public List<GameObject> tileImapctNerf;    
+    public List<GameObject> tileImpactNerf;    
 }

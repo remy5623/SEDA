@@ -34,7 +34,7 @@ public class TimeSystem : MonoBehaviour
     void Update()
     {
         // Timer
-        timeElapsed += Time.deltaTime * 20;
+        timeElapsed += Time.deltaTime;
 
         // Set day
         day = Mathf.FloorToInt(timeElapsed) + 1;    // Day starts at 1

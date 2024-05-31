@@ -116,7 +116,7 @@ public class CameraPan : MonoBehaviour
         zoomSpeedMouse = zoomSpeed * 0.5f;
 
         panSpeedTouch = panSpeed * .5f;
-        panSpeedMouse = panSpeed;
+        panSpeedMouse = panSpeed * .25f;
     }
 
     /** While the player is touching the screen, they can rotate the camera */
@@ -125,6 +125,7 @@ public class CameraPan : MonoBehaviour
         if (cameraPanAction != null)
         {
             cameraPanAction.performed += PanCamera;
+            print("Camera Possessed");
         }
     }
 
@@ -223,6 +224,7 @@ public class CameraPan : MonoBehaviour
         {
             cameraPanAction.performed -= PanCamera;
             isCursorPosInitialised = false;
+            print("Camera Unpossessed");
         }
     }
 
@@ -326,5 +328,30 @@ public class CameraPan : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void OnDestroy()
+    {
+        if (possessAction != null)
+        {
+            possessAction.performed -= ctx => PossessCamera();
+        }
+
+        if (unpossessAction != null)
+        {
+            unpossessAction.performed -= ctx => UnpossessCamera();
+        }
+
+        if (mouseWheelAction != null)
+        {
+            mouseWheelAction.performed -= MouseWheelZoom;
+        }
+
+        if (touchContactAction != null)
+        {
+            touchContactAction.performed -= ctx => StartPinchZoom();
+            touchContactAction.canceled -= ctx => StopPinchZoom();
+        }
+
     }
 }

@@ -71,8 +71,14 @@ public class CameraPan : MonoBehaviour
     [Tooltip("The distance the camera is allowed to zoom out.")]
     float maxZoomDistance = 10f;
 
+    // These function references are necessary for callback registering/deregistering to work properly
+    Action<InputAction.CallbackContext> possessCamera;
+    Action<InputAction.CallbackContext> unpossessCamera;
+    Action<InputAction.CallbackContext> startPinchZoom;
+    Action<InputAction.CallbackContext> stopPinchZoom;
+
     /** Set all initial variables and required callbacks */
-    void Start()
+    void Awake()
     {
         if (cameraActions)
         {
@@ -85,30 +91,18 @@ public class CameraPan : MonoBehaviour
             secondaryFingerPosAction = cameraActions.FindAction("SecondaryFingerPosition");
         }
 
-        if (possessAction != null)
+        if (gameObject != null)
         {
-            possessAction.performed += ctx => PossessCamera();
-        }
+            possessCamera = ctx => PossessCamera();
+            unpossessCamera = ctx => UnpossessCamera();
+            startPinchZoom = ctx => StartPinchZoom();
+            stopPinchZoom = ctx => StopPinchZoom();
 
-        if (unpossessAction != null)
-        {
-            unpossessAction.performed += ctx => UnpossessCamera();
-        }
-
-        if (mouseWheelAction != null)
-        {
+            possessAction.performed += possessCamera;
+            unpossessAction.performed += unpossessCamera;
             mouseWheelAction.performed += MouseWheelZoom;
-        }
-
-        if (touchContactAction != null)
-        {
-            touchContactAction.performed += ctx => StartPinchZoom();
-            touchContactAction.canceled += ctx => StopPinchZoom();
-        }
-
-        if (orthoCam = FindAnyObjectByType<Camera>())
-        {
-            initialOrthoSize = orthoCam.orthographicSize;
+            touchContactAction.performed += startPinchZoom;
+            touchContactAction.canceled += stopPinchZoom;
         }
 
         // Set device-dependent Zoom and Pan speeds
@@ -119,13 +113,20 @@ public class CameraPan : MonoBehaviour
         panSpeedMouse = panSpeed * .25f;
     }
 
+    void Start()
+    {
+        if (orthoCam = FindAnyObjectByType<Camera>())
+        {
+            initialOrthoSize = orthoCam.orthographicSize;
+        }
+    }
+
     /** While the player is touching the screen, they can rotate the camera */
     void PossessCamera()
     {
-        if (cameraPanAction != null)
+        if (gameObject != null)
         {
             cameraPanAction.performed += PanCamera;
-            print("Camera Possessed");
         }
     }
 
@@ -220,11 +221,10 @@ public class CameraPan : MonoBehaviour
     /** When the player lifts their finger from the screen, the camera stops moving */
     void UnpossessCamera()
     {
-        if (cameraPanAction != null)
+        if (gameObject != null)
         {
             cameraPanAction.performed -= PanCamera;
             isCursorPosInitialised = false;
-            print("Camera Unpossessed");
         }
     }
 
@@ -303,9 +303,7 @@ public class CameraPan : MonoBehaviour
      */
     void Zoom(bool isZoomIn, float zoomSpeed)
     {
-        Camera orthoCam;
-
-        if (orthoCam = FindAnyObjectByType<Camera>())
+        if (orthoCam)
         {
             if (isZoomIn)
             {
@@ -334,12 +332,12 @@ public class CameraPan : MonoBehaviour
     {
         if (possessAction != null)
         {
-            possessAction.performed -= ctx => PossessCamera();
+            possessAction.performed -= possessCamera;
         }
 
         if (unpossessAction != null)
         {
-            unpossessAction.performed -= ctx => UnpossessCamera();
+            unpossessAction.performed -= unpossessCamera;
         }
 
         if (mouseWheelAction != null)
@@ -349,9 +347,11 @@ public class CameraPan : MonoBehaviour
 
         if (touchContactAction != null)
         {
-            touchContactAction.performed -= ctx => StartPinchZoom();
-            touchContactAction.canceled -= ctx => StopPinchZoom();
+            touchContactAction.performed -= startPinchZoom;
+            touchContactAction.canceled -= stopPinchZoom;
         }
 
+        UnpossessCamera();
+        StopPinchZoom();
     }
 }

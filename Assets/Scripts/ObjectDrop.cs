@@ -14,6 +14,6 @@ public class ObjectDrop : MonoBehaviour
     private void OnMouseDrag()
     {
         Vector3 pos = BuildingSystem.GetMouseWorldPosition() + offset;
-
+        transform.position = BuildingSystem.instance.SnapCoordinateToGrid(pos);
     }
 }

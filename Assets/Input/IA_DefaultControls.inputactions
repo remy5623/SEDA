@@ -247,23 +247,23 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "2e2067a0-25eb-42c7-82cd-92cdc94051ea",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "A",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "85ffaef4-30ea-4c7e-a088-2f539adb6f01",
                     "path": "<Keyboard>/b",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
                     "action": "B",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2e2067a0-25eb-42c7-82cd-92cdc94051ea",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Mouse",
+                    "action": "A",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

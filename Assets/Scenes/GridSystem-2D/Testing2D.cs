@@ -1,12 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Testing : MonoBehaviour
+public class Testing2D : MonoBehaviour
 {
-    
     // The input action asset containing all actions related to interaction
     [SerializeField] InputActionAsset interactActions;
 
@@ -14,13 +12,14 @@ public class Testing : MonoBehaviour
     InputAction A;
     InputAction mousePos;
 
-
+    //[SerializeField] private HeatMapVisual heatMapVisual;
     private Grid<bool> grid;
 
     // Start is called before the first frame update
     private void Start()
     {
-         grid = new Grid<bool>(4, 2, 10f);
+        grid = new Grid<bool>(20, 100, 6f, Vector3.zero);
+       //heatMapVisual.SetGrid(grid);
 
         interactActions.FindActionMap("Interaction").Enable();
         interactActions.FindActionMap("Camera").Disable();
@@ -33,13 +32,13 @@ public class Testing : MonoBehaviour
             A.performed += ctx => Ainput();
         }
 
-       
     }
 
     void Ainput()
     {
         mousePos.ReadValue<Vector2>();
-        grid.SetValue(GetMouseWorldPosition(), 56);
+        Vector3 position = GetMouseWorldPosition();
+        grid.AddValue(position, 100, 2, 25);
     }
 
     public Vector3 GetMouseWorldPosition()
@@ -49,12 +48,12 @@ public class Testing : MonoBehaviour
         return vec;
     }
 
-    public  Vector3 GetMouseWorldPositionWithZ()
+    public Vector3 GetMouseWorldPositionWithZ()
     {
         return GetMouseWorldPositionWithZ(mousePos.ReadValue<Vector2>(), Camera.main);
     }
 
-    
+
 
     public static Vector3 GetMouseWorldPositionWithZ(Vector3 screenPosition, Camera worldCamera)
     {
@@ -67,7 +66,5 @@ public class Testing : MonoBehaviour
         Vector3 mouseWorldPosition = GetMouseWorldPosition();
         return (mouseWorldPosition - fromPosition).normalized;
     }
-
-
 
 }

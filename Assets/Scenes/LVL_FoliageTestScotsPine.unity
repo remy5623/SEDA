@@ -245,7 +245,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -333,7 +333,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1258
+  m_Name: pb_Mesh-1370
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -661,7 +661,7 @@ PrefabInstance:
     - target: {fileID: 6474044116842145997, guid: ea1adf0e30f27f145b0d8a906fc45cbc,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 761
+      value: 788
       objectReference: {fileID: 0}
     - target: {fileID: 7861344135571840596, guid: ea1adf0e30f27f145b0d8a906fc45cbc,
         type: 3}

@@ -121,9 +121,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UIFuntions, Assembly-CSharp
-        m_MethodName: Settings
+      - m_Target: {fileID: 1948279206342232483, guid: 95d5840097b068945818e1bcd3b9036f,
+          type: 3}
+        m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
+        m_MethodName: OpenPauseMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

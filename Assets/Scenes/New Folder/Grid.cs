@@ -39,7 +39,7 @@ public class Grid
 
     private Vector3 GetWorldPosition(int x, int y)
     {
-        return new Vector3(x,y) * cellsize;
+        return new Vector3(x,0,y) * cellsize;
     }
 
     private void GetXY(Vector3 worldPosition, out int x, out int y)

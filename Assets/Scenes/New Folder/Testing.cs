@@ -12,6 +12,7 @@ public class Testing : MonoBehaviour
 
     //The actions to get the test buildings
     InputAction A;
+    InputAction mousePos;
 
 
     private Grid grid;
@@ -25,34 +26,34 @@ public class Testing : MonoBehaviour
         interactActions.FindActionMap("Camera").Disable();
 
         A = interactActions.FindAction("A");
+        mousePos = interactActions.FindAction("mousePos");
 
         if (A != null)
         {
             A.performed += ctx => Ainput();
         }
+
     }
 
     void Ainput()
     {
+        mousePos.ReadValue<Vector2>();
         grid.SetValue(GetMouseWorldPosition(), 56);
     }
 
-    public static Vector3 GetMouseWorldPosition()
+    public Vector3 GetMouseWorldPosition()
     {
-        Vector3 vec = GetMouseWorldPositionWithZ(A.ReadValue<Vector2>(), Camera.main);
+        Vector3 vec = GetMouseWorldPositionWithZ(mousePos.ReadValue<Vector2>(), Camera.main);
         vec.z = 0f;
         return vec;
     }
 
-    public static Vector3 GetMouseWorldPositionWithZ()
+    public  Vector3 GetMouseWorldPositionWithZ()
     {
-        return GetMouseWorldPositionWithZ(Input.mousePosition, Camera.main);
+        return GetMouseWorldPositionWithZ(mousePos.ReadValue<Vector2>(), Camera.main);
     }
 
-    public static Vector3 GetMouseWorldPositionWithZ(Camera worldCamera)
-    {
-        return GetMouseWorldPositionWithZ(Input.mousePosition, worldCamera);
-    }
+    
 
     public static Vector3 GetMouseWorldPositionWithZ(Vector3 screenPosition, Camera worldCamera)
     {
@@ -60,7 +61,7 @@ public class Testing : MonoBehaviour
         return worldPosition;
     }
 
-    public static Vector3 GetDirToMouse(Vector3 fromPosition)
+    public Vector3 GetDirToMouse(Vector3 fromPosition)
     {
         Vector3 mouseWorldPosition = GetMouseWorldPosition();
         return (mouseWorldPosition - fromPosition).normalized;

@@ -1,24 +1,36 @@
 // Remy Pijuan
 
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class CameraPan : MonoBehaviour
 {
     // The input action asset containing all actions related to camera movement
     [SerializeField] InputActionAsset cameraActions;
 
-    // The actions
+    // Camera pan actions
     InputAction possessAction;
-    InputAction rotateAction;
+    InputAction cameraPanAction;
     InputAction unpossessAction;
+    
+    // Camera zoom actions
     InputAction mouseWheelAction;
+    InputAction touchContactAction;
+    InputAction primaryFingerPosAction;
+    InputAction secondaryFingerPosAction;
 
     bool isCursorPosInitialised = false;    // Initialises when the player clicks on the screen
     Camera orthoCam;
     float initialOrthoSize;
     Vector2 prevPos;                // Used to determine the direction of the camera's movement
     Vector2 panDistance;
+
+    Vector2 primaryFingerPosition;
+    Vector2 secondaryFingerPosition;
+    float prevPinchDistance;
+    float currentPinchDistance;
 
     [Header("Invert Camera Controls")]
 
@@ -34,11 +46,15 @@ public class CameraPan : MonoBehaviour
 
     [SerializeField]
     [Tooltip("Controls the camera's pan speed.")]
-    float panSpeed = 0.025f;
+    float panSpeed = 0.25f;
+    float panSpeedTouch;
+    float panSpeedMouse;
 
     [SerializeField]
     [Tooltip("Controls the camera's zoom speed.")]
-    float zoomSpeed = 0.5f;
+    float zoomSpeed = 1f;
+    float zoomSpeedTouch;
+    float zoomSpeedMouse;
 
 
     [Header("Camera Limits")]
@@ -55,32 +71,50 @@ public class CameraPan : MonoBehaviour
     [Tooltip("The distance the camera is allowed to zoom out.")]
     float maxZoomDistance = 10f;
 
+    // These function references are necessary for callback registering/deregistering to work properly
+    Action<InputAction.CallbackContext> possessCamera;
+    Action<InputAction.CallbackContext> unpossessCamera;
+    Action<InputAction.CallbackContext> startPinchZoom;
+    Action<InputAction.CallbackContext> stopPinchZoom;
+
     /** Set all initial variables and required callbacks */
-    void Start()
+    void Awake()
     {
         if (cameraActions)
         {
             possessAction = cameraActions.FindAction("PossessCamera");
-            rotateAction = cameraActions.FindAction("RotateCamera");
+            cameraPanAction = cameraActions.FindAction("PanCamera");
             unpossessAction = cameraActions.FindAction("UnpossessCamera");
             mouseWheelAction = cameraActions.FindAction("MouseWheelZoom");
+            touchContactAction = cameraActions.FindAction("SecondaryTouchContact");
+            primaryFingerPosAction = cameraActions.FindAction("PrimaryFingerPosition");
+            secondaryFingerPosAction = cameraActions.FindAction("SecondaryFingerPosition");
         }
 
-        if (possessAction != null)
+        if (gameObject != null)
         {
-            possessAction.performed += ctx => PossessCamera();
-        }
+            possessCamera = ctx => PossessCamera();
+            unpossessCamera = ctx => UnpossessCamera();
+            startPinchZoom = ctx => StartPinchZoom();
+            stopPinchZoom = ctx => StopPinchZoom();
 
-        if (unpossessAction != null)
-        {
-            unpossessAction.performed += ctx => UnpossessCamera();
-        }
-
-        if (mouseWheelAction != null)
-        {
+            possessAction.performed += possessCamera;
+            unpossessAction.performed += unpossessCamera;
             mouseWheelAction.performed += MouseWheelZoom;
+            touchContactAction.performed += startPinchZoom;
+            touchContactAction.canceled += stopPinchZoom;
         }
 
+        // Set device-dependent Zoom and Pan speeds
+        zoomSpeedTouch = zoomSpeed * 0.2f;
+        zoomSpeedMouse = zoomSpeed * 0.5f;
+
+        panSpeedTouch = panSpeed * .5f;
+        panSpeedMouse = panSpeed * .25f;
+    }
+
+    void Start()
+    {
         if (orthoCam = FindAnyObjectByType<Camera>())
         {
             initialOrthoSize = orthoCam.orthographicSize;
@@ -90,9 +124,9 @@ public class CameraPan : MonoBehaviour
     /** While the player is touching the screen, they can rotate the camera */
     void PossessCamera()
     {
-        if (rotateAction != null)
+        if (gameObject != null)
         {
-            rotateAction.performed += PanCamera;
+            cameraPanAction.performed += PanCamera;
         }
     }
 
@@ -116,8 +150,15 @@ public class CameraPan : MonoBehaviour
                 deltaPos.y = prevPos.y - currentPos.y;
             }
 
-            // panning movement is scaled by a global speed as well as a ratio of the screen size
-            deltaPos *= panSpeed * (orthoCam.orthographicSize / initialOrthoSize);
+            // Change Panning Speed based on device
+            float deviceBasedPanSpeed = panSpeed;
+            if (context.control.device.name == "Mouse")
+                deviceBasedPanSpeed = panSpeedMouse;
+            else if (context.control.device.name == "Touchscreen")
+                deviceBasedPanSpeed = panSpeedTouch;
+
+            // panning movement is scaled by a device-based speed as well as a ratio of the camera size
+            deltaPos *= deviceBasedPanSpeed * (orthoCam.orthographicSize / initialOrthoSize);
             deltaPos = ClampedPan(deltaPos);
 
             // Transform.Translate applies the tranformation to local space by default
@@ -180,9 +221,9 @@ public class CameraPan : MonoBehaviour
     /** When the player lifts their finger from the screen, the camera stops moving */
     void UnpossessCamera()
     {
-        if (rotateAction != null)
+        if (gameObject != null)
         {
-            rotateAction.performed -= PanCamera;
+            cameraPanAction.performed -= PanCamera;
             isCursorPosInitialised = false;
         }
     }
@@ -194,11 +235,65 @@ public class CameraPan : MonoBehaviour
 
         if (mouseWheelDirection > 0)
         {
-            Zoom(true);
+            Zoom(true, zoomSpeedMouse);
         }
         else if (mouseWheelDirection < 0)
         {
-            Zoom(false);
+            Zoom(false, zoomSpeedMouse);
+        }
+    }
+
+    void StartPinchZoom()
+    {
+        // Disable Camera Pan
+        UnpossessCamera();
+
+        // Enable Pinch Zoom
+        if (primaryFingerPosAction != null && secondaryFingerPosAction != null)
+        {
+            primaryFingerPosAction.performed += ReadPrimaryFingerPosition;
+            secondaryFingerPosAction.performed += ReadSecondaryFingerPosition;
+        }
+    }
+
+    void StopPinchZoom()
+    {
+        // Disable Pinch Zoom
+        if (primaryFingerPosAction !=null && secondaryFingerPosAction != null)
+        {
+            primaryFingerPosAction.performed -= ReadPrimaryFingerPosition;
+            secondaryFingerPosAction.performed -= ReadSecondaryFingerPosition;
+        }
+    }
+
+    /** Get the distance between the two fingers on the screen
+    *   Compare to the last time distance was taken
+    */
+    void ReadPrimaryFingerPosition(InputAction.CallbackContext context)
+    {
+        prevPinchDistance = currentPinchDistance;
+        primaryFingerPosition = context.ReadValue<Vector2>();
+        currentPinchDistance = Vector2.Distance(primaryFingerPosition, secondaryFingerPosition);
+        Zoom(IsPinchZoomIn(prevPinchDistance, currentPinchDistance), zoomSpeedTouch);
+    }
+
+    void ReadSecondaryFingerPosition(InputAction.CallbackContext context)
+    {
+        prevPinchDistance = currentPinchDistance;
+        secondaryFingerPosition = context.ReadValue<Vector2>();
+        currentPinchDistance = Vector2.Distance(primaryFingerPosition, secondaryFingerPosition);
+        Zoom(IsPinchZoomIn(prevPinchDistance, currentPinchDistance), zoomSpeedTouch);
+    }
+
+    bool IsPinchZoomIn(float prevDistance, float currentDistance)
+    {
+        if (currentDistance - prevDistance < 0)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
         }
     }
 
@@ -206,13 +301,11 @@ public class CameraPan : MonoBehaviour
      *  This is for an orthographic camera
      *  Changes the size of the orthographic viewport
      */
-    void Zoom(bool isZoomForward)
+    void Zoom(bool isZoomIn, float zoomSpeed)
     {
-        Camera orthoCam;
-
-        if (orthoCam = FindAnyObjectByType<Camera>())
+        if (orthoCam)
         {
-            if (isZoomForward)
+            if (isZoomIn)
             {
                 orthoCam.orthographicSize -= zoomSpeed;
                 
@@ -233,5 +326,32 @@ public class CameraPan : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void OnDestroy()
+    {
+        if (possessAction != null)
+        {
+            possessAction.performed -= possessCamera;
+        }
+
+        if (unpossessAction != null)
+        {
+            unpossessAction.performed -= unpossessCamera;
+        }
+
+        if (mouseWheelAction != null)
+        {
+            mouseWheelAction.performed -= MouseWheelZoom;
+        }
+
+        if (touchContactAction != null)
+        {
+            touchContactAction.performed -= startPinchZoom;
+            touchContactAction.canceled -= stopPinchZoom;
+        }
+
+        UnpossessCamera();
+        StopPinchZoom();
     }
 }

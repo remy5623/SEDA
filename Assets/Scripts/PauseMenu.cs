@@ -1,6 +1,7 @@
 // Remy Pijuan
 
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
@@ -16,6 +17,16 @@ public class PauseMenu : MonoBehaviour
     [Tooltip("The name of the Main Menu scene.")]
     public string mainMenuSceneName = "UI Screen";
 
+    //[SerializeField]
+    //PlayerInput PlayerInput;
+
+    InputAction possessCameraAction;
+    InputAction cameraPanAction;
+    InputAction unpossessCameraAction;
+    InputAction zoomAction;
+    
+    public InputActionAsset action;
+
     /** The pause menu is a singleton
      *  There is only one pause menu active at any given time
      */
@@ -24,6 +35,8 @@ public class PauseMenu : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+
+            
         }
         else
         {
@@ -35,6 +48,22 @@ public class PauseMenu : MonoBehaviour
     {
         gameIsPaused = true;
         Time.timeScale = 0f;    // Pause the game when the pause menu is opened
+
+        possessCameraAction = action.FindAction("PossessCamera");
+        cameraPanAction = action.FindAction("PanCamera");
+        unpossessCameraAction = action.FindAction("UnpossessCamera");
+        zoomAction = action.FindAction("MouseWheelZoom");
+
+        if(possessCameraAction != null)
+            possessCameraAction.Disable();
+        if(cameraPanAction != null)
+            cameraPanAction.Disable();
+        if(unpossessCameraAction != null)
+            unpossessCameraAction.Disable();
+        if(zoomAction != null)
+            zoomAction.Disable();
+
+        //PlayerInput.SwitchCurrentActionMap("Pause Menu");
     }
 
     /** Destroy the pause menu object */
@@ -48,24 +77,17 @@ public class PauseMenu : MonoBehaviour
      */
     public void ReturnToMainMenu()
     {
-        if (SceneManager.GetActiveScene().name == mainMenuSceneName)
-        {
-            ClosePauseMenu();
-        }
-        else
-        {
             SceneManager.LoadSceneAsync(mainMenuSceneName);
-        }
     }
 
     /** Quit the game */
     public void QuitGame()
     {
-        #if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-        #else
-            Application.Quit();
-        #endif
+    #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+    #else
+        Application.Quit();
+    #endif
     }
 
     /** When the active instance of the pause menu is closed, the game will unpause */
@@ -75,6 +97,12 @@ public class PauseMenu : MonoBehaviour
         {
             gameIsPaused = false;
             Time.timeScale = 1f;    // Unpause when the pause menu is closed
+
+            possessCameraAction.Enable();
+            cameraPanAction.Enable();
+            unpossessCameraAction.Enable();
+            zoomAction.Enable();
+            //PlayerInput.SwitchCurrentActionMap("Camera");
         }
     }
 }

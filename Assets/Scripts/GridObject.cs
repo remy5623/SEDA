@@ -6,12 +6,12 @@ public class GridObject : MonoBehaviour
 {
     private GridPosition gridPosition;
     private GridSystem gridSystem;
-    private List<SedaStructure> structureList;
+    private List<TileBase> structureList;
 
     public GridObject(GridPosition gridPosition,GridSystem gridSystem)
     {
         this.gridPosition = gridPosition;
         this.gridSystem = gridSystem;
-        structureList = new List<SedaStructure>();
+        structureList = new List<TileBase>();
     }
 }

@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEditor.Rendering;
 using UnityEngine;
-[CustomEditor(typeof(SedaStructure))]
-public class SedaStructureEditor : Editor
+[CustomEditor(typeof(TileBase))]
+public class TileBaseEditor : Editor
 {
     //general
     SerializedProperty iD;
@@ -130,7 +130,7 @@ public class SedaStructureEditor : Editor
         EditorGUILayout.PropertyField(canBuild);
 
         // Conditional visible properties
-        if(canBuild.boolValue)
+        if (canBuild.boolValue)
         {
             //build
             EditorGUILayout.PropertyField(buildTime,true);
@@ -143,12 +143,13 @@ public class SedaStructureEditor : Editor
             EditorGUILayout.PropertyField(buildingUpgradeCostMulti,true);
             EditorGUILayout.PropertyField(buildingLevelIcon,true);
             EditorGUILayout.PropertyField(buildingCurrentLevel,true);
-            EditorGUILayout.PropertyField(buildingLevelMax,true);
-
-            EditorGUILayout.PropertyField(hasResourceOutput);
+            EditorGUILayout.PropertyField(buildingLevelMax,true);            
         }
-            //Resource
-        if(hasResourceOutput.boolValue)
+
+        EditorGUILayout.PropertyField(hasResourceOutput);
+
+        //Resource
+        if (hasResourceOutput.boolValue)
         {
             EditorGUILayout.PropertyField(isResourceTapped,true);
             EditorGUILayout.PropertyField(baseOutputEnergy,true);
@@ -161,10 +162,11 @@ public class SedaStructureEditor : Editor
             EditorGUILayout.PropertyField(buildingLevelMulti,true);
             EditorGUILayout.PropertyField(buildingOutputStage,true);
             EditorGUILayout.PropertyField(buildingCalcOutput,true);
-
-            EditorGUILayout.PropertyField(hasTileImpact);
         }
-        if(hasTileImpact.boolValue)
+
+        EditorGUILayout.PropertyField(hasTileImpact);
+
+        if (hasTileImpact.boolValue)
         {
             EditorGUILayout.PropertyField(impactRadiusTiles,true);
             EditorGUILayout.PropertyField(structureOfTypeInRadius,true);

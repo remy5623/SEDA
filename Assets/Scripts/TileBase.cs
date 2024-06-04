@@ -5,8 +5,8 @@ using UnityEditor;
 using UnityEditor.TerrainTools;
 using UnityEngine;
 
-[CreateAssetMenu(fileName ="General",menuName ="GeneralStructure")]
-public class SedaStructure : ScriptableObject
+[CreateAssetMenu(fileName ="TileBase",menuName ="TileBase")]
+public class TileBase : ScriptableObject
 {
     //GeneralBase
     [Header("General")]
@@ -132,7 +132,7 @@ public class SedaStructure : ScriptableObject
     [Tooltip("multiplier to output from the nerf Source")]                                               
     public float nerfAmount;                                          
     [Tooltip("list of objects this applies the buff to if insideImpactRadius")]
-    public List<SedaStructure> tileImpactBuff;                            
+    public List<TileBase> tileImpactBuff;                            
     [Tooltip("list of objects this applies the nerf to if insideImpactRadius")]
-    public List<SedaStructure> tileImpactNerf;    
+    public List<TileBase> tileImpactNerf;    
 }

@@ -40,7 +40,8 @@ public class TileBase : ScriptableObject
     {
         Marsh,
         Forest,
-        Island
+        Island,
+        Highland
     }
 
     [Tooltip(" List of tileTerrainTypes this structure can be placed on.")]

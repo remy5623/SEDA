@@ -8,7 +8,7 @@ public class TileBaseEditor : Editor
 {
     //general
     SerializedProperty iD;
-    SerializedProperty names;
+    SerializedProperty tileName;
     SerializedProperty icon;
     SerializedProperty mesh;
     SerializedProperty sizeWidth;
@@ -64,7 +64,7 @@ public class TileBaseEditor : Editor
         //pre-loading the properties
         //General
         iD = serializedObject.FindProperty("iD");
-        names = serializedObject.FindProperty("names");
+        tileName = serializedObject.FindProperty("tileName");
         icon = serializedObject.FindProperty("icon");
         mesh = serializedObject.FindProperty("mesh");
         sizeWidth = serializedObject.FindProperty("sizeWidth");
@@ -117,7 +117,7 @@ public class TileBaseEditor : Editor
         serializedObject.Update();
         // Always visible properties
         EditorGUILayout.PropertyField(iD);
-        EditorGUILayout.PropertyField(names);
+        EditorGUILayout.PropertyField(tileName);
         EditorGUILayout.PropertyField(icon);
         EditorGUILayout.PropertyField(mesh);
         EditorGUILayout.PropertyField(sizeWidth);

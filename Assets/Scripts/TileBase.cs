@@ -13,7 +13,7 @@ public class TileBase : ScriptableObject
     [Tooltip("(currently unused) Will be used if we swap to a database structure rather than manual creation.")]
     public int iD;                                          
     [Tooltip("Name of the object that will be displayed in-game e.g. on hover over via UI.")]
-    public string names;                                       
+    public string tileName;                                       
     [Tooltip("Image (drag and drop to here) (Resolution of Images in UI Spec Sheet")]
     public Sprite icon;                                       
     [Tooltip("GameObject with 3D static Mesh (Drag and Drop) (Scale See Metrics & Scale(See Grid scale)")]

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.InputSystem;
 
 public class CameraControl : MonoBehaviour
 {
@@ -27,19 +28,19 @@ public class CameraControl : MonoBehaviour
     {
         Vector3 inputMoveDir = new Vector3(0,0,0);
 
-        if(Input.GetKey(KeyCode.W))
+        if(Keyboard.current.wKey.isPressed)
         {
             inputMoveDir.z = +1f;
         }        
-        if(Input.GetKey(KeyCode.S))
+        if(Keyboard.current.sKey.isPressed)
         {
             inputMoveDir.z = -1f;
         }   
-        if(Input.GetKey(KeyCode.A))
+        if(Keyboard.current.aKey.isPressed)
         {
             inputMoveDir.x = -1f;
         }    
-        if(Input.GetKey(KeyCode.D))
+        if(Keyboard.current.dKey.isPressed)
         {
             inputMoveDir.x = +1f;
         }          
@@ -53,11 +54,12 @@ public class CameraControl : MonoBehaviour
     private void CameraRotation()
     {
          Vector3 rotateVector = new Vector3(0,0,0);
-        if(Input.GetKey(KeyCode.Q))
+         
+        if(Keyboard.current.qKey.isPressed)
         {
             rotateVector.y = +1f;
         }    
-        if(Input.GetKey(KeyCode.E))
+        if(Keyboard.current.eKey.isPressed)
         {
             rotateVector.y = -1f;
         }      
@@ -68,11 +70,11 @@ public class CameraControl : MonoBehaviour
     private void CameraZoom()
     {
          float zoomAmount = 1f;
-        if (Input.mouseScrollDelta.y >0)
+        if (Mouse.current.scroll.y.ReadValue()>0)
         {
             targetFollowOffset.y -= zoomAmount;
         }
-        if (Input.mouseScrollDelta.y <0)
+        if (Mouse.current.scroll.y.ReadValue()<0)
         {
             targetFollowOffset.y += zoomAmount;
         }

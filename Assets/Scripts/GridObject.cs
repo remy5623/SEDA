@@ -6,12 +6,17 @@ public class GridObject : MonoBehaviour
 {
     private GridPosition gridPosition;
     private GridSystem gridSystem;
-    private List<TileBase> structureList;
+    private List<TileBase> tileBaseList;
 
     public GridObject(GridPosition gridPosition,GridSystem gridSystem)
     {
         this.gridPosition = gridPosition;
         this.gridSystem = gridSystem;
-        structureList = new List<TileBase>();
+        tileBaseList = new List<TileBase>();
+    }
+
+    public override string ToString()
+    {
+        return gridPosition.ToString();
     }
 }

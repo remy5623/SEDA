@@ -22,25 +22,29 @@ public class CameraControl : MonoBehaviour
         CameraMovement();
         CameraRotation();
         CameraZoom();
+
+        Debug.Log(Mouse.current.position.ReadValue());
     }
 
     private void CameraMovement()
     {
         Vector3 inputMoveDir = new Vector3(0,0,0);
 
-        if(Keyboard.current.wKey.isPressed)
+        if(Keyboard.current.wKey.isPressed || ((Mouse.current.position.ReadValue().x>300 && Mouse.current.position.ReadValue().x<900)&&
+                                                (Mouse.current.position.ReadValue().y<300 && Mouse.current.position.ReadValue().y<500)))
         {
             inputMoveDir.z = +1f;
         }        
-        if(Keyboard.current.sKey.isPressed)
+        if(Keyboard.current.sKey.isPressed  /*((Mouse.current.position.ReadValue().y<0 && Mouse.current.position.ReadValue().y>-1)&&
+                                                (Mouse.current.position.ReadValue().x<0 && Mouse.current.position.ReadValue().y<0))*/)
         {
             inputMoveDir.z = -1f;
         }   
-        if(Keyboard.current.aKey.isPressed)
+        if(Keyboard.current.aKey.isPressed || Mouse.current.position.ReadValue().x<0 && Mouse.current.position.ReadValue().x>-1)
         {
             inputMoveDir.x = -1f;
         }    
-        if(Keyboard.current.dKey.isPressed)
+        if(Keyboard.current.dKey.isPressed || (Mouse.current.position.ReadValue().x>0 && Mouse.current.position.ReadValue().x<1))
         {
             inputMoveDir.x = +1f;
         }          
@@ -51,10 +55,11 @@ public class CameraControl : MonoBehaviour
 
         transform.position += moveVector * moveSpeed * Time.deltaTime;
     }
+
     private void CameraRotation()
     {
          Vector3 rotateVector = new Vector3(0,0,0);
-         
+
         if(Keyboard.current.qKey.isPressed)
         {
             rotateVector.y = +1f;

@@ -14,7 +14,7 @@ public struct GridPosition : IEquatable<GridPosition>
     }
     public override string ToString()
     {
-        return "x: " + x + "\n" + "z: " + z;
+        return "x: " + x + "   " + "z: " + z;
     }
 
      public override bool Equals(object obj)

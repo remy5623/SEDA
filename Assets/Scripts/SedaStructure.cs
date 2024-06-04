@@ -87,7 +87,7 @@ public class SedaStructure : ScriptableObject
 
 
     [Header("ResourceBase")]
-    [Tooltip("Check if it is a Resource")]
+    [Tooltip("checks if hasResourceOutput, else it hides in edit/inspector.")]
     public bool hasResourceOutput;
     //ResourceBase
     [Tooltip("checks if the resource will be added to the monthly output (some structures need to be tapped to receive the base output")]

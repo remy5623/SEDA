@@ -33,6 +33,7 @@ public class SedaStructureEditor : Editor
     SerializedProperty buildingLevelMax;
 
     //Resource
+    SerializedProperty hasResourceOutput;
     SerializedProperty isResourceTapped;
     SerializedProperty baseOutputEnergy;
 
@@ -41,10 +42,10 @@ public class SedaStructureEditor : Editor
     SerializedProperty upKeepCostEnergy;
     SerializedProperty upKeepCostFood;
     SerializedProperty upKeepCostConstruction;
+    SerializedProperty hasTileImpact;
     SerializedProperty impactRadiusTiles;
     SerializedProperty structureOfTypeInRadius;
     SerializedProperty transferResources;
-    SerializedProperty StructureOfTypeInRadius;
     SerializedProperty buildingOutputMulti;
     SerializedProperty buildingLevelMulti;
     SerializedProperty buildingOutputStage;
@@ -86,6 +87,8 @@ public class SedaStructureEditor : Editor
         buildingCurrentLevel = serializedObject.FindProperty("buildingCurrentlevel");
         buildingLevelMax = serializedObject.FindProperty("buildingLevelMax");
         //Resource
+        hasResourceOutput = serializedObject.FindProperty("hasResourceOutput");
+        hasTileImpact = serializedObject.FindProperty("hasTileImpact");
         isResourceTapped = serializedObject.FindProperty("isResourceTapped");
         baseOutputEnergy = serializedObject.FindProperty("baseOutputEnergy");
         baseOutputFood = serializedObject.FindProperty("baseOutputFood");
@@ -119,13 +122,11 @@ public class SedaStructureEditor : Editor
         EditorGUILayout.PropertyField(mesh);
         EditorGUILayout.PropertyField(sizeWidth);
         EditorGUILayout.PropertyField(sizeLength);
-
         EditorGUILayout.PropertyField(structureTypes);
-
         EditorGUILayout.PropertyField(tileUnder);
         EditorGUILayout.PropertyField(biomesTypes);
         EditorGUILayout.PropertyField(tileTerrainTypes);
-
+        //BoolValue
         EditorGUILayout.PropertyField(canBuild);
 
         // Conditional visible properties
@@ -143,7 +144,12 @@ public class SedaStructureEditor : Editor
             EditorGUILayout.PropertyField(buildingLevelIcon,true);
             EditorGUILayout.PropertyField(buildingCurrentLevel,true);
             EditorGUILayout.PropertyField(buildingLevelMax,true);
+
+            EditorGUILayout.PropertyField(hasResourceOutput);
+        }
             //Resource
+        if(hasResourceOutput.boolValue)
+        {
             EditorGUILayout.PropertyField(isResourceTapped,true);
             EditorGUILayout.PropertyField(baseOutputEnergy,true);
             EditorGUILayout.PropertyField(baseOutputFood,true);
@@ -151,22 +157,27 @@ public class SedaStructureEditor : Editor
             EditorGUILayout.PropertyField(upKeepCostEnergy,true);
             EditorGUILayout.PropertyField(upKeepCostFood,true);
             EditorGUILayout.PropertyField(upKeepCostConstruction,true);
-            EditorGUILayout.PropertyField(impactRadiusTiles,true);
-            EditorGUILayout.PropertyField(structureOfTypeInRadius,true);
-            EditorGUILayout.PropertyField(transferResources,true);
             EditorGUILayout.PropertyField(buildingOutputMulti,true);
             EditorGUILayout.PropertyField(buildingLevelMulti,true);
             EditorGUILayout.PropertyField(buildingOutputStage,true);
             EditorGUILayout.PropertyField(buildingCalcOutput,true);
-            EditorGUILayout.PropertyField(buildingLevelIcon,true);
-            //Impact
-            EditorGUILayout.PropertyField(impactSource,true);
-            EditorGUILayout.PropertyField(buffAmount,true);
-            EditorGUILayout.PropertyField(nerfAmount,true);
-            EditorGUILayout.PropertyField(tileImpactBuff,true);
-            EditorGUILayout.PropertyField(tileImpactNerf,true);
-        }
 
+            EditorGUILayout.PropertyField(hasTileImpact);
+        }
+        if(hasTileImpact.boolValue)
+        {
+            EditorGUILayout.PropertyField(impactRadiusTiles,true);
+            EditorGUILayout.PropertyField(structureOfTypeInRadius,true);
+            EditorGUILayout.PropertyField(transferResources,true);
+            EditorGUILayout.PropertyField(impactSource,true);
+            if(impactSource.boolValue)
+            {
+                EditorGUILayout.PropertyField(buffAmount,true);
+                EditorGUILayout.PropertyField(nerfAmount,true);
+                EditorGUILayout.PropertyField(tileImpactBuff,true);
+                EditorGUILayout.PropertyField(tileImpactNerf,true);
+            }
+        }
         serializedObject.ApplyModifiedProperties();
     }
 }

@@ -20,8 +20,8 @@ MonoBehaviour:
   sizeLength: 0
   structureTypes: 0
   tileUnder: {fileID: 0}
-  biomesTypes: []
-  tileTerrainTypes: []
+  biomesTypes: 
+  tileTerrainTypes: 
   canBuild: 0
   buildTime: 0
   buildingCostEnergy: 0
@@ -34,6 +34,7 @@ MonoBehaviour:
   buildingLevelIcon: []
   buildingCurrentlevel: 0
   buildingLevelMax: 0
+  hasResourceOutput: 1
   isResourceTapped: 0
   baseOutputEnergy: 0
   baseOutputFood: 0
@@ -45,11 +46,13 @@ MonoBehaviour:
   upKeepCostEnergy: 0
   upKeepCostFood: 0
   upKeepCostConstruction: 0
+  hasTileImpact: 1
   impactRadiusTiles: 0
   transferResources: 0
   structureOfTypeInRadius: {fileID: 0}
-  impactSource: 0
+  impactSource: 1
   buffAmount: 0
   nerfAmount: 0
-  tileImpactBuff: []
+  tileImpactBuff:
+  - {fileID: 0}
   tileImpactNerf: []

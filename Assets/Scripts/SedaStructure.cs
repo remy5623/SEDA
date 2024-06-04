@@ -33,28 +33,41 @@ public class SedaStructure : ScriptableObject
         Restoration
     }
     [Tooltip("Grab reference and information of the tile under the structure/ the tile this structure is placed on top of.")]
-    public GameObject tileUnder;                                  
-    public List<GameObject> biomesTypes;                          
+    public GameObject tileUnder; 
+    [Tooltip("List of biomesTypes(levels) this structure can be build within.")]                                 
+    public List<BiomeType> biomesTypes;
+    public enum BiomeType
+    {
+        Marsh,
+        Forest,
+        Island
+    }
+
     [Tooltip(" List of tileTerrainTypes this structure can be placed on.")]
-    public List<GameObject> tileTerrainTypes; 
+    public List<TileTerrainTypes> tileTerrainTypes;
+    public enum TileTerrainTypes
+    {
+        TypeA,
+        TypeB,
+        TypeC
+    }
 
     
     //BuildBase
-    [Header("Build")]
+    [Header("BuildBase")]
     [Tooltip("Checks if a tile is buildable, if not it hides the Building section inengine and in the hierarchy.")]
     public bool canBuild;
     [Tooltip("Number of Days this structure takes to build (See time(1day=1sec)")]                                
     public int buildTime;  
 
-    //BuildCost
+    [Header("BuildCost")]
     [Tooltip("Building cost of constructing the building.-Energy")]
     public int buildingCostEnergy;  
     [Tooltip("Building cost of constructing the building.-Food")]
     public int buildingCostFood; 
     [Tooltip("Building cost of constructing the building.-Construction")]
-    public int buildingCostConstruction;            
+    public int buildingCostConstruction;
 
-    //BuildingUpgradeCost
     [Tooltip("Building Upgrade cost-Energy")]
     public int buildingUpgradeCostEnergy; 
     [Tooltip("Building Upgrade cost-Food")]
@@ -63,20 +76,19 @@ public class SedaStructure : ScriptableObject
     public int buildingUpgradeCostConstruction;
     [Tooltip("Increases the upgrade cost per level ")]
     public float buildingUpgradeCostMulti; 
-
-    //BuildingsLevel
+    [Header("BuildLevel")]
     [Tooltip("Building upgrade icon per level(could be static and hidden or a fixed.")]
     public List<Sprite> buildingLevelIcon;
-
     [Tooltip("current level of the building")]
     public int buildingCurrentlevel; 
-
     [Tooltip("Maximum number of upgrades for building")]
     public int buildingLevelMax;
 
 
 
-    [Header("Resource")]
+    [Header("ResourceBase")]
+    [Tooltip("Check if it is a Resource")]
+    public bool hasResourceOutput;
     //ResourceBase
     [Tooltip("checks if the resource will be added to the monthly output (some structures need to be tapped to receive the base output")]
     public bool isResourceTapped;                   
@@ -96,7 +108,7 @@ public class SedaStructure : ScriptableObject
     [Tooltip("Full output of resources after the full calculation is done.")]
     public int buildingCalcOutput;                  
 
-    //ResourceCost
+    [Header("ResourceCost")]
     [Tooltip("Monthly upkeep cost of sustaining building-Energy?")]
     public int upKeepCostEnergy;                      
     [Tooltip("Monthly upkeep cost of sustaining building-Food")]
@@ -104,16 +116,15 @@ public class SedaStructure : ScriptableObject
     [Tooltip("Monthly upkeep cost of sustaining building-Construction")]
     public int upKeepCostConstruction;                
 
-    //ResourceImpact
+    [Header("ResourceImpact")]
+     [Tooltip("Check if it is a Resource")]
+    public bool hasTileImpact;
     [Tooltip("Number of tiles in each direction that this building can Impact. (all 8 directions from centre).")]
     public int impactRadiusTiles;                
     [Tooltip("Transfers the output Resource and applies it to the output of the ?")]
     public int transferResources;                    
     [Tooltip("the object will be impacted.")]
     public GameObject structureOfTypeInRadius;
-    [Header("Impact")]
-
-    //Impact
     [Tooltip("Is this a source of Buffs or nerfs for other structures?")]
     public bool impactSource;
     [Tooltip("multiplier to output from the buff Source")]                                                                                                                                       
@@ -121,7 +132,7 @@ public class SedaStructure : ScriptableObject
     [Tooltip("multiplier to output from the nerf Source")]                                               
     public float nerfAmount;                                          
     [Tooltip("list of objects this applies the buff to if insideImpactRadius")]
-    public List<GameObject> tileImpactBuff;                            
+    public List<SedaStructure> tileImpactBuff;                            
     [Tooltip("list of objects this applies the nerf to if insideImpactRadius")]
-    public List<GameObject> tileImpactNerf;    
+    public List<SedaStructure> tileImpactNerf;    
 }

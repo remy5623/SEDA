@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Giant : MonoBehaviour
+public class Kelpie : MonoBehaviour
 {
     public TileBase Creature;
     //REFERENCE FOR GRID
@@ -16,38 +16,22 @@ public class Giant : MonoBehaviour
         //GIANT.WIDTH = Creature.width;
         //GIANT.LENGTH = Creature.length;
 
-
-        if (Creature.hasTileImpact)
-        {
-            //GRID.LENGTH += CREATURE.IMPACTRADIUSTILE
-            //GRID.WIDTH += CREATURE.IMPACTRADIUSTILE
-        }
     }
-
-    void GiantCreature()
+    void KulpieCreature()
     {
         /*for (int i = 0; i < GRID.WIDTH; i++)
         {
             for (int y = 0; y < GRID.LENGTH; y++)
             {
-               if(Creature.tileName = "Giant")
+               if(Creature.tileName = "Kulpie")
                 {
-                    RADIUS = cREATURE.GRIDIIII[,] = Grid[i, y];
+                    RIVERBED.allTiles = false;
                 }
             }
-        }
-
-        for (int u = 0; u < Grid.i; u++)
-        {
-            for (int t = 0; t < Grid.y; t++)
-            {
-                GRIDIIII.BOOL = false;
-            }
         }*/
-
     }
 
-    void GoawayGiant()
+    void GoawayKelpie()
     {
 
     }

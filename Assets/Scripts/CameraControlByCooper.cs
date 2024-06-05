@@ -22,8 +22,6 @@ public class CameraControl : MonoBehaviour
         CameraMovement();
         CameraRotation();
         CameraZoom();
-
-        Debug.Log(Mouse.current.position.ReadValue());
     }
 
     private void CameraMovement()

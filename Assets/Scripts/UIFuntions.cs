@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,6 +17,9 @@ public class UIFuntions : MonoBehaviour
     public GameObject Level1_Info;
     public GameObject ACInfo;
 
+    // Text boxes
+    public TextMeshProUGUI timeResource;
+
     
 
     // Start is called before the first frame update
@@ -27,8 +31,6 @@ public class UIFuntions : MonoBehaviour
 
         LevelSelection.enabled = false;
         MapOverview.SetActive(false);
-        
-      
     }
 
     public void Load_clickhere()
@@ -55,6 +57,7 @@ public class UIFuntions : MonoBehaviour
         Level1_Info.SetActive(false);
         ACInfo.SetActive(false);
 
+        
     }
 
     public void LoadLevel()

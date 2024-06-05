@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 618247658809804314}
   - component: {fileID: 955000512113533449}
   - component: {fileID: 5174487396240086442}
+  - component: {fileID: 6269042737626205228}
   m_Layer: 7
   m_Name: Quad
-  m_TagString: Untagged
+  m_TagString: Gird
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,6 +107,20 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &6269042737626205228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1911782528239905290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ab1b1873fb3ff349943ba6e8cc4d2b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canBuild: 0
+  canBuildStatus: 0
 --- !u!1 &3533410657059249375
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,7 +133,7 @@ GameObject:
   - component: {fileID: 271987136696459044}
   m_Layer: 7
   m_Name: GridDebugObject
-  m_TagString: Untagged
+  m_TagString: Gird
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,7 +149,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5624655757520328068}
   - {fileID: 6057890416343540228}
@@ -152,6 +167,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c5e63ef8e7d0d242a696a8de0a5837a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canBuild: 0
+  canBuildStatus: 0
   textMeshPro: {fileID: 9012438476803015128}
 --- !u!1 &5320785216153729655
 GameObject:

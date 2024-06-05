@@ -11,7 +11,7 @@ public class GridSystem
     private int width;
     private int Length;
     private float cellSize;
-    private GridObject[,] gridObjectsArray;
+    public GridObject[,] gridObjectsArray;
 
     public GridSystem(int width, int Length, float cellSize)
     {
@@ -72,5 +72,10 @@ public class GridSystem
             Mathf.RoundToInt(worldPosition.x/cellSize),
             Mathf.RoundToInt(worldPosition.z/cellSize)
         );        
+    }
+
+    public GridObject[,] GetGrids()
+    {
+        return gridObjectsArray;
     }
 }

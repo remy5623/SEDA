@@ -32,4 +32,10 @@ public class GridSystemTest : MonoBehaviour
     {
         return gridSystem.GetWorldPosition(gridPosition);
     }
+
+    public GridSystem GetGridSystem()
+    {
+        Debug.Log("work");
+        return gridSystem;
+    }
 }

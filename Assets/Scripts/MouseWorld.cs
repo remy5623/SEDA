@@ -9,6 +9,7 @@ public class MouseWorld : MonoBehaviour
     private static MouseWorld instance;
 
     private GridPosition gridPosition;
+
     [SerializeField] private LayerMask mousePlaneLayerMask;
 
     private void Awake() 

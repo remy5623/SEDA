@@ -4,7 +4,7 @@ using System.Numerics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Build : MonoBehaviour
+public class BuildSystem : MonoBehaviour
 {
     public GameObject ab;
     public GameObject aa;
@@ -19,7 +19,7 @@ public class Build : MonoBehaviour
         {      
             Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
             RaycastHit hit;
-            if (Physics.Raycast(ray, out hit)&&hit.collider.gameObject.tag == "Gird"&& GameObject.Find("Canvas").GetComponent<Gied>().isSetB1)
+            if (Physics.Raycast(ray, out hit)&&hit.collider.gameObject.tag == "Gird"&& GameObject.Find("Canvas").GetComponent<BuildingTypeSelect>().isSetB1)
             {
                 if(hit.collider.gameObject.GetComponent<GirdStatus>().canBuild)
                 {
@@ -28,7 +28,7 @@ public class Build : MonoBehaviour
                     hit.collider.gameObject.GetComponent<GirdStatus>().canBuild = false;
                 }
             }
-           else if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag == "Gird" && GameObject.Find("Canvas").GetComponent<Gied>().isSetB2)
+           else if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag == "Gird" && GameObject.Find("Canvas").GetComponent<BuildingTypeSelect>().isSetB2)
             {
                 if (hit.collider.gameObject.GetComponent<GirdStatus>().canBuild)
                 {
@@ -38,7 +38,7 @@ public class Build : MonoBehaviour
                     hit.collider.gameObject.GetComponent<GirdStatus>().canBuild = false;
                 }
             }
-           else if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag == "Gird" && GameObject.Find("Canvas").GetComponent<Gied>().isSetB3)
+           else if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag == "Gird" && GameObject.Find("Canvas").GetComponent<BuildingTypeSelect>().isSetB3)
             {
                 if (hit.collider.gameObject.GetComponent<GirdStatus>().canBuild)
                 {

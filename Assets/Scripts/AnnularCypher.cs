@@ -73,11 +73,11 @@ public class AnnularCypher : MonoBehaviour
     {
         float rot = objectToRotate.transform.eulerAngles.z;
 
-        if(rot > 0 && rot <= 20f)
+        if(rot > 0 && rot <= 120f)
         {
             Win(90);
         }
-        else if(rot > 20 && rot <=40f)
+        else if(rot > 120 && rot <=240f)
         {
             Win(100);
         }

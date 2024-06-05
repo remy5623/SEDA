@@ -1229,12 +1229,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5efde3c8221efd846a64fb779e621998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CypherDisks:
-  - {fileID: 93143252}
-  - {fileID: 1467870924}
-  - {fileID: 2144952850}
-  - {fileID: 301955216}
-  - {fileID: 1135486318}
+  rotateSpeed: 150
+  stopSpeed: 10
+  inRotate: 0
+  cypherDisks: []
+  objectToRotate: {fileID: 93143252}
 --- !u!114 &1528931593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1498,7 +1497,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1694704259}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1528931592}
+        m_TargetAssemblyTypeName: AnnularCypher, Assembly-CSharp
+        m_MethodName: Rotate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1694704259
 MonoBehaviour:
   m_ObjectHideFlags: 0

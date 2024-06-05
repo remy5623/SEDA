@@ -17,14 +17,14 @@ public class MouseWorld : MonoBehaviour
     }
     private void Update()
     {
-        transform.position = MouseWorld.GetPostion();
+        transform.position = Mouse.current.position.ReadValue();
 
         DebugMouseClick();
     }
     //
-    public static Vector3 GetPostion()
+    public static Vector3 GetPosition()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
         Physics.Raycast(ray, out RaycastHit raycastHit, float.MaxValue, instance.mousePlaneLayerMask);
         return raycastHit.point;
     }
@@ -34,7 +34,7 @@ public class MouseWorld : MonoBehaviour
     {
         if(Mouse.current.leftButton.isPressed)
         {
-            gridPosition= GridSystemTest.Instance.GetGridPosition(MouseWorld.GetPostion());
+            gridPosition= GridSystemTest.Instance.GetGridPosition(MouseWorld.GetPosition());
             Debug.Log(gridPosition);
         }
     

@@ -18,6 +18,7 @@ public class GridSystemTest : MonoBehaviour
         Instance = this;
 
         gridSystem = new GridSystem(10,10,2);
+        
         gridSystem.CreateDebugOjbects(debugObject);
 
     }

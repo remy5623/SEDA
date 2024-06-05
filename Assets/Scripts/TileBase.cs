@@ -95,7 +95,7 @@ public class TileBase : ScriptableObject
     public bool isResourceTapped;                   
     //ResourceOutput
     [Tooltip("BaseOutput-Energy")]
-    public int baseOutputEnergy;                     
+    public bool baseOutputEnergy;                     
     [Tooltip("BaseOutput-Food")]
     public int baseOutputFood;                        
     [Tooltip("BaseOutput-Construction")]

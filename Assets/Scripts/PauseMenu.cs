@@ -35,8 +35,6 @@ public class PauseMenu : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-
-            
         }
         else
         {

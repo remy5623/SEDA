@@ -5,46 +5,36 @@ using UnityEngine;
 public class Giant : MonoBehaviour
 {
     public TileBase Creature;
-    //REFERENCE FOR GRID
-    //REFERENCE FOR RIVERBED
+    public Grid grid;
 
-    //public GIANT.WIDTH;
-    //public GIANT.LENGTH;
+    //public ResurceSystem;
+    //public TileSystem;
+
+    public int Giant_width;
+    public int Giant_length;
+
+    //REFERENCE FOR RIVERBED
 
     private void Start()
     {
-        //GIANT.WIDTH = Creature.width;
-        //GIANT.LENGTH = Creature.length;
+        Giant_width = Creature.sizeWidth;
+        Giant_length = Creature.sizeLength;
 
-
-        if (Creature.hasTileImpact)
-        {
-            //GRID.LENGTH += CREATURE.IMPACTRADIUSTILE
-            //GRID.WIDTH += CREATURE.IMPACTRADIUSTILE
-        }
+       
     }
 
     void GiantCreature()
     {
-        /*for (int i = 0; i < GRID.WIDTH; i++)
+        /*for (int i = 0; i < grid.width; i++)
         {
-            for (int y = 0; y < GRID.LENGTH; y++)
+            for (int y = 0; y < grid.length; y++)
             {
-               if(Creature.tileName = "Giant")
+                if (Creature.tileName = "Giant")
                 {
-                    RADIUS = cREATURE.GRIDIIII[,] = Grid[i, y];
+                    grid.boolean = false;
                 }
             }
-        }
-
-        for (int u = 0; u < Grid.i; u++)
-        {
-            for (int t = 0; t < Grid.y; t++)
-            {
-                GRIDIIII.BOOL = false;
-            }
         }*/
-
     }
 
     void GoawayGiant()

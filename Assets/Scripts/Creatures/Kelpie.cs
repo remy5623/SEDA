@@ -5,27 +5,32 @@ using UnityEngine;
 public class Kelpie : MonoBehaviour
 {
     public TileBase Creature;
-    //REFERENCE FOR GRID
+
+    public Grid grid;
+
+    //public ResurceSystem;
+    //public TileSystem;
+
+    public int Kelpie_width;
+    public int Kelpie_length;
+    
     //REFERENCE FOR RIVERBED
 
-    //public GIANT.WIDTH;
-    //public GIANT.LENGTH;
 
     private void Start()
     {
-        //GIANT.WIDTH = Creature.width;
-        //GIANT.LENGTH = Creature.length;
-
+        Kelpie_width = Creature.sizeWidth;
+        Kelpie_length = Creature.sizeLength;
     }
     void KulpieCreature()
     {
-        /*for (int i = 0; i < GRID.WIDTH; i++)
+        /*for (int i = 0; i < grid.width; i++)
         {
-            for (int y = 0; y < GRID.LENGTH; y++)
+            for (int y = 0; y < grid.length; y++)
             {
-               if(Creature.tileName = "Kulpie")
+               if(Creature.tileName = "Water")
                 {
-                    RIVERBED.allTiles = false;
+                    RIVERBED.allTiles.boolean = false;
                 }
             }
         }*/
@@ -33,6 +38,11 @@ public class Kelpie : MonoBehaviour
 
     void GoawayKelpie()
     {
-
+       /* if (ResourceSystem.energy > 60 && ResourceSystem.food > 70 && ResourceSystem.constructionMat > 100)
+        {
+            ResourceSystem.energy -= 60;
+            ResourceSystem.energy -= 70;
+            ResourceSystem.constructionMat -= 100;
+        }*/
     }
 }

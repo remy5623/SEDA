@@ -30,8 +30,7 @@ public class CameraControl : MonoBehaviour
     {
         Vector3 inputMoveDir = new Vector3(0,0,0);
 
-        if(Keyboard.current.wKey.isPressed || ((Mouse.current.position.ReadValue().x>300 && Mouse.current.position.ReadValue().x<900)&&
-                                                (Mouse.current.position.ReadValue().y<300 && Mouse.current.position.ReadValue().y<500)))
+        if(Keyboard.current.wKey.isPressed )
         {
             inputMoveDir.z = +1f;
         }        

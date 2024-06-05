@@ -17,6 +17,7 @@ public class InventoryEditor : Editor
     {
         EditorGUIUtility.labelWidth = 200;
         EditorGUILayout.PropertyField(overworldTime, new GUIContent("Initial Overworld Time (years)"));
+        serializedObject.ApplyModifiedProperties();
     }
 }
 
@@ -25,6 +26,7 @@ public class Inventory : MonoBehaviour
     private static Inventory instance;
 
     public static int overworldTime;
+    public static int levelTime;
 
     public static int food;
     public static int constructionMaterials;
@@ -42,10 +44,17 @@ public class Inventory : MonoBehaviour
         {
             instance = this;
             overworldTime = initialOverworldTime;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
             Destroy(this);
         }
+    }
+
+    // uncomment for quick debug
+    private void Update()
+    {
+        print(overworldTime);
     }
 }

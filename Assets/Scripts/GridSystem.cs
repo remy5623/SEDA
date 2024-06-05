@@ -50,7 +50,7 @@ public class GridSystem
 
                 GridPosition gridPosition = new GridPosition(x,z);
                 //create transform
-                Transform debugTransform = GameObject.Instantiate(debugObject,GetWorldPosition(gridPosition) + Vector3.up *.8f,quaternion.identity);
+                Transform debugTransform = GameObject.Instantiate(debugObject,GetWorldPosition(gridPosition) + Vector3.up *.5f,quaternion.identity);
                 GridDebugObject gridDebugObject = debugTransform.GetComponent<GridDebugObject>();
                 //put transform into the position
                 gridDebugObject.SetGridObject(GetGridObject(gridPosition));

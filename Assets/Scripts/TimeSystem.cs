@@ -136,11 +136,6 @@ public class TimeSystem : MonoBehaviour
         }
     }
 
-    void MonthlyTick()
-    {
-        RunEvents(monthlyEvents);
-    }
-
     /** Set day, based on timeElapsed, and  */
     void SetDay()
     {
@@ -199,6 +194,16 @@ public class TimeSystem : MonoBehaviour
         else
         {
             numOfDaysInMonth = 31;
+        }
+    }
+
+    void CountDownLevelTime()
+    {
+        Inventory.levelTime--;
+
+        if (Inventory.levelTime < 1 )
+        {
+            
         }
     }
 }

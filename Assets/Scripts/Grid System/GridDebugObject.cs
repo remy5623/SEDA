@@ -7,6 +7,7 @@ public class GridDebugObject : MonoBehaviour
 {
     [SerializeField] private TextMeshPro textMeshPro;
     private GridObject gridObject;
+    public TileBase tilebase;
 
     public void SetGridObject(GridObject gridObject)
     {

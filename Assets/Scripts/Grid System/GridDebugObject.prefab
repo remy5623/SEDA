@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 33e2c35de8a15604d8f8d5433effb6e7, type: 2}
+  - {fileID: 2100000, guid: adc763a6c475c5249b17e415efd9cb62, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -167,9 +167,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c5e63ef8e7d0d242a696a8de0a5837a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBuild: 0
-  canBuildStatus: 0
   textMeshPro: {fileID: 9012438476803015128}
+  tilebase: {fileID: 11400000, guid: d4dc5fcd7ffb0eb409b00f32cfa2bf0a, type: 2}
 --- !u!1 &5320785216153729655
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,13 +8,22 @@ public class AnnularCypher : MonoBehaviour
     public float stopThreshold = 1f; // Threshold to consider the disk as stopped
 
     private Rigidbody2D rbody;
-    public bool inRotate;
+    private bool inRotate;
 
     public List<GameObject> cypherDisks;
+    
 
-    public GameObject objectToRotate;
+    private GameObject objectToRotate;
 
     private bool spinning;
+
+    public List<GameObject> cropType;
+    private GameObject selectedCrop;
+
+    public Sprite plantPeriod;
+
+    public Sprite harvestPeriod;
+
 
     public enum WaterGradeLocationsToStop
     {
@@ -278,6 +287,20 @@ public class AnnularCypher : MonoBehaviour
             spinning = true;
             StartCoroutine(SpinDisks());
             spinning = false;
+        }
+    }
+
+    public void SelectCrop(int cropIndex)
+    {
+        if (cropType != null && cropType.Count > 0)
+        {
+            // Here we select the first crop for simplicity, but you can implement your own selection logic
+            selectedCrop = cropType[cropIndex];
+            Debug.Log($"Selected crop: {selectedCrop.name}");
+        }
+        else
+        {
+            Debug.LogWarning("No crops available to select.");
         }
     }
 }

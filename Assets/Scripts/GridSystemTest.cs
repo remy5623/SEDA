@@ -6,7 +6,7 @@ using UnityEngine;
 public class GridSystemTest : MonoBehaviour
 {
     public static GridSystemTest Instance {get; private set;}
-    private GridSystem gridSystem;
+    public GridSystem gridSystem;
     public Transform debugObject;
     public void Start()
     {
@@ -15,11 +15,14 @@ public class GridSystemTest : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+
         Instance = this;
 
         gridSystem = new GridSystem(12,12,2);
         
         gridSystem.CreateDebugOjbects(debugObject);
+
+        Debug.Log(gridSystem.GetGridGameObjectsArray()[1, 1].ToString());
 
     }
 
@@ -36,6 +39,6 @@ public class GridSystemTest : MonoBehaviour
     public GridSystem GetGridSystem()
     {
         Debug.Log("work");
-        return gridSystem;
+        return this.gridSystem;
     }
 }

@@ -77,5 +77,5 @@ public class GameManager : MonoBehaviour
         bb = gameData.b;
         cc = gameData.c;
         dd = gameData.d;    
-}
+    }
 }

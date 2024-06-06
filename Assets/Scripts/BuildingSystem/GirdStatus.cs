@@ -15,7 +15,7 @@ public class GirdStatus : MonoBehaviour
     }
     private void Awake()
     {
-        canBuild = GetComponentInParent<GridDebugObject>().tilebase.canBuild;
+        //canBuild = GetComponentInParent<GridDebugObject>().tilebase.canBuild;
     }
     // Update is called once per frame
     void Update()

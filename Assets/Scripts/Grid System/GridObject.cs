@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GridObject : MonoBehaviour
+
+public class GridObject : UnityEngine.Object
 {
     private GridPosition gridPosition;
     private GridSystem gridSystem;

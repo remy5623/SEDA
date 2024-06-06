@@ -16,11 +16,11 @@ public class TileBase : ScriptableObject
     public string tileName;                                       
     [Tooltip("Image (drag and drop to here) (Resolution of Images in UI Spec Sheet")]
     public Sprite icon;                                       
-    [Tooltip("GameObject with 3D static Mesh (Drag and Drop) (Scale See Metrics & Scale(See Grid scale)")]
+    [Tooltip("GameObject with 3D static Mesh (Drag and Drop) (Scale See Metrics & Scale (See Grid scale)")]
     public GameObject mesh;    
     [Tooltip("Number of Tiles on grid Width")]                              
     public int sizeWidth;     
-    [Tooltip("number of Tiles on grid Length")]
+    [Tooltip("Number of Tiles on grid Length")]
     public int sizeLength;                                
     [Tooltip("Structure Types")]
     public StructureTypes structureTypes;                                 
@@ -33,7 +33,7 @@ public class TileBase : ScriptableObject
         Restoration
     }
     [Tooltip("Grab reference and information of the tile under the structure/ the tile this structure is placed on top of.")]
-    public GameObject tileUnder; 
+    public GridObject tileUnder; 
     [Tooltip("List of biomesTypes(levels) this structure can be build within.")]                                 
     public List<BiomeType> biomesTypes;
     public enum BiomeType
@@ -44,7 +44,7 @@ public class TileBase : ScriptableObject
         Highland
     }
 
-    [Tooltip(" List of tileTerrainTypes this structure can be placed on.")]
+    [Tooltip("List of tileTerrainTypes this structure can be placed on.")]
     public List<TileTerrainTypes> tileTerrainTypes;
     public enum TileTerrainTypes
     {
@@ -107,7 +107,7 @@ public class TileBase : ScriptableObject
     [Tooltip("What stage of production is this structure (1- earliest to 3 latest) Cannot transfer to lower stages.")]
     public int buildingOutputStage;              
     [Tooltip("Full output of resources after the full calculation is done.")]
-    public int buildingCalcOutput;                  
+    public int buildingCalcOutput;
 
     [Header("ResourceCost")]
     [Tooltip("Monthly upkeep cost of sustaining building-Energy?")]

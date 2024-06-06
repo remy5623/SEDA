@@ -1,24 +1,41 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Resource : MonoBehaviour
+public class Resource : PlaceableObject
 {
     [SerializeField]
     TileBase resourceData;
 
     private void Start()
     {
-        TimeSystem.AddMonthlyEvent(UpdateResources);
+        TimeSystem.AddMonthlyEvent(PayUpkeep);
+
+        if ( !resourceData.isResourceTapped )
+        {
+            TimeSystem.AddMonthlyEvent(UpdateResources);
+        }
     }
 
     public void UpdateResources()
     {
-        Inventory.food += resourceData.baseOutputFood;
-        Inventory.constructionMaterials += resourceData.baseOutputConstruction;
-        print(Inventory.constructionMaterials);
+        Inventory.food += Mathf.FloorToInt(resourceData.baseOutputFood * resourceData.buildingLevelMulti);
+        Inventory.constructionMaterials += Mathf.FloorToInt(resourceData.baseOutputConstruction * resourceData.buildingLevelMulti);
+    }
+    
+    public void PayUpkeep()
+    {
+        Inventory.food -= resourceData.upKeepCostFood;
+        Inventory.constructionMaterials -= resourceData.baseOutputConstruction;
     }
 
-    // TODO: Get reference to underlying tile (when Grid System is implemented)
-    // TODO: Transfer resources in Impact Radius (when Grid System is implemented)
+    public override void SetGridObject(GridObject gridObject)
+    {
+        base.SetGridObject(gridObject);
+        resourceData.tileUnder = gridObject;
+    }
+
+    public void SetImpact()
+    {
+        //GridPosition pos = owningGridObject.GetPo
+        //for ()
+    }
 }

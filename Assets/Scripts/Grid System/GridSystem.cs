@@ -87,6 +87,7 @@ public class GridSystem
 
     public GridObject GetGridObject(GridPosition gridPosition)
     {
+        Debug.Log("X: " + gridPosition.x + width + ", Y: " + gridPosition.z + Length);
         return gridObjectsArray[gridPosition.x+width,gridPosition.z + Length];
     }
     public Vector3 GetWorldPosition(GridPosition gridPosition)

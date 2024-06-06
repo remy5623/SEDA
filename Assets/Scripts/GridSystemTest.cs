@@ -8,6 +8,8 @@ public class GridSystemTest : MonoBehaviour
     public static GridSystemTest Instance {get; private set;}
     public GridSystem gridSystem;
     public Transform debugObject;
+    public int GridLength;
+    public int GridWidth;
     public void Start()
     {
         if(Instance!=null)
@@ -18,7 +20,7 @@ public class GridSystemTest : MonoBehaviour
 
         Instance = this;
 
-        gridSystem = new GridSystem(12,12,2);
+        gridSystem = new GridSystem(GridLength, GridWidth, 2);
         
         gridSystem.CreateDebugOjbects(debugObject);
 

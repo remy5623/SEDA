@@ -83,6 +83,8 @@ public class GridSystem
     {
         return gridGameObjectsArray;
     }
+
+
     public GridObject GetGridObject(GridPosition gridPosition)
     {
         return gridObjectsArray[gridPosition.x+width,gridPosition.z + Length];

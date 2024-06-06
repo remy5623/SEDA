@@ -12,6 +12,7 @@ public class GridObject : MonoBehaviour
     {
         this.gridPosition = gridPosition;
         this.gridSystem = gridSystem;
+
         tileBaseList = new List<TileBase>();
     }
 

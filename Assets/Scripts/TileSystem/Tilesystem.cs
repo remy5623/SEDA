@@ -26,13 +26,15 @@ public class Terrainsystem : MonoBehaviour
     [SerializeField] public TerrainTypes TerrainTypes;
     //if the tile has energy
     public bool energy = false;
+    public GridObject Terain_gridObject;
+    public GridSystemTest gridSystem;
 
     //the radius in which it gives off energy
     public int radius;
 
     //the total health of the soil (A to E grade)
     int health;
-    
+
     //boolean to determine if the building can be build on that terrain
     bool build;
 
@@ -67,21 +69,27 @@ public class Terrainsystem : MonoBehaviour
         E = 90
     }
 
+
     private void Start()
     {
         energy = TerrainTile.baseOutputEnergy;
         radius = TerrainTile.impactRadiusTiles;
+        //idPosition gridPosition = new GridPosition
+        GridPosition position = gridSystem.GetGridSystem().GetGridPosition(transform.position);
+
+        Terain_gridObject = gridSystem.GetGridSystem().GetGridObject(position);
     }
 
     private void TriggerEnergy()
     {
         //if the terrain has energy being emitted, then set all the terraintiles' energy bool true.
-        if(energy)
+        if (energy)
         {
             for (int x = -(radius); x != radius; x++)
             {
-                for(int y = -radius;y!= radius;y++)
+                for (int y = -radius; y != radius; y++)
                 {
+                    Debug.Log(radius);
                     //Tile[x,y].energy = true;
                 }
             }
@@ -94,10 +102,11 @@ public class Terrainsystem : MonoBehaviour
         health = (int)soilType;
 
         //reference to Resource, to reduce it by (health)
-        switch(health)
+        switch (health)
         {
             case int n when (n >= 105 && n <= 110):
                 Debug.Log("A grade soil");
+
                 break;
             case int n when (n >= 100 && n <= 105):
                 Debug.Log("B grade soil");
@@ -112,6 +121,19 @@ public class Terrainsystem : MonoBehaviour
                 Debug.Log("E grade soil");
                 break;
         }
-    
+
+    }
+
+    /*public override void SetGridObject(GridObject gridObject)
+    {
+        base.SetGridObject(gridObject);
+        TerrainTile.tileUnder = gridObject;
+        gridObject.objectOnTile = this;
+        Debug.LogWarning(TerrainTile.tileUnder);
+    }*/
+
+    private void TerrainTileObject()
+    {
+        //Terain_gridObject.
     }
 }

@@ -13,7 +13,7 @@ public class GridSystem
     private float cellSize;
     public GridObject[,] gridObjectsArray;
     public Transform[,] gridGameObjectsArray;
-
+    
     public GridSystem(int width, int Length, float cellSize)
     {
         this.width = width;

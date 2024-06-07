@@ -54,7 +54,8 @@ public class GridSystem
 
                 GridPosition gridPosition = new GridPosition(x,z);
 
-                gridGameObjectsArray[arrayX, arrayY] = GameObject.Instantiate(debugObject,GetWorldPosition(gridPosition) + Vector3.up *.5f,quaternion.identity);
+                //gridGameObjectsArray[arrayX, arrayY] = GameObject.Instantiate(debugObject,GetWorldPosition(gridPosition) + Vector3.up, quaternion.identity);
+                gridGameObjectsArray[arrayX, arrayY] = GameObject.Instantiate(debugObject,GetWorldPosition(gridPosition) + Vector3.up * 0.5f, quaternion.identity);
 
                 GridDebugObject gridDebugObject = gridGameObjectsArray[arrayX, arrayY].GetComponent<GridDebugObject>();
 

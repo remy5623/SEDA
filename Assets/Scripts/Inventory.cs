@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
@@ -8,6 +9,9 @@ public class Inventory : MonoBehaviour
 
     public static int food;
     public static int constructionMaterials;
+
+    [SerializeField] TextMeshProUGUI foodDisplay;
+    [SerializeField] TextMeshProUGUI constructionMaterialDisplay;
 
 
     /** The Inventory is a singleton
@@ -27,8 +31,8 @@ public class Inventory : MonoBehaviour
 
     private void Update()
     {
-        print("Food: " + food);
-        print("Mats: " + constructionMaterials);
+        foodDisplay.text = "Food: " + food;
+        constructionMaterialDisplay.text = "Construction Materials: " + constructionMaterials;
     }
 
     public static void SpendFood(int foodSpent)

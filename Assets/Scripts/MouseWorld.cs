@@ -9,6 +9,7 @@ public class MouseWorld : MonoBehaviour
     private static MouseWorld instance;
 
     private GridPosition gridPosition;
+    private Transform[,] grid;
 
     [SerializeField] private LayerMask mousePlaneLayerMask;
 
@@ -36,7 +37,25 @@ public class MouseWorld : MonoBehaviour
         if(Mouse.current.leftButton.isPressed)
         {
             gridPosition= GridSystemTest.Instance.GetGridPosition(MouseWorld.GetPosition());
-            Debug.Log(gridPosition);
+            grid = GridSystemTest.Instance.GetGridGameOjbectsArray();
+
+            
+            Debug.Log
+            ( 
+                "Grid:  " + grid[gridPosition.x,gridPosition.z] + "\n" + 
+                "InArrayPosition: " + gridPosition
+            );
+        }
+        else if(Mouse.current.rightButton.isPressed)
+        {
+            gridPosition= GridSystemTest.Instance.GetGridPosition(MouseWorld.GetPosition());
+            grid = GridSystemTest.Instance.GetGridGameOjbectsArray();
+
+            grid[1,1].name += "sss";
+
+            GridSystemTest.Instance.GetGridSystem().SetGridGameObjectsArray(grid);
+            
+            Debug.Log(GridSystemTest.Instance.GetGridGameOjbectsArray()[1,1].ToString());
         }
     
     }

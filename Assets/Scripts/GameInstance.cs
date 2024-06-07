@@ -1,12 +1,19 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameInstance : MonoBehaviour
 {
+    //The gameInstance should be connected to all the independent systems aothernd store their meaningful variables
+    //so that each system can easily read variables ​​they need in other systems.
+
     public static GameInstance instance { get; set; }
-    //Test
-    [SerializeField] private GameObject Test;
+    
+    [Header("Systems")]
+    [SerializeField] private GameObject gridSystemInGame;
+    [SerializeField] private GameObject BuildSystemInGame;
     //GridSystem
     public  GridSystem gridSystem;
     public  Transform[,] gridGameObjectsArray;
@@ -17,34 +24,32 @@ public class GameInstance : MonoBehaviour
 
     public void Start()
     {
+        //singleton
         if (instance != null)
         {
             Destroy(gameObject);
             return;
         }
         instance = this;
-        GridSystemTest gridSystemTestInstance = GridSystemTest.Instance;
+        
+        //gridSystem
+        gridSystem = gridSystemInGame.GetComponent<GridSystemTest>().GetGridSystem();
 
-        gridSystem = gridSystemTestInstance.gridSystem;
+        gridObjectsArray = gridSystem.GetGridObjectArray();
+        gridGameObjectsArray = gridSystem.GetGridGameObjectsArray();
+        //every time gridsystem changed, refresh.
+        gridSystem.OnGridSystemChanged += OnGridSystemChanged_UpdateGridSystem;
+        
 
-        Debug.Log(gridSystem);
+        //Debug.Log(gridGameObjectsArray[1,1].GetComponent<GridDebugObject>().GetGridObject());
+        //Debug.Log(gridObjectsArray[1,1]);
 
-        //this.gridGameObjectsArray = gridSystemTest.gridSystem.GetGridGameObjectsArray();
-
-        //this.gridObjectsArray = gridSystemTest.gridSystem.GetGridObjectArray();
     }
 
-    public void Update()
+
+    private void OnGridSystemChanged_UpdateGridSystem(object sender,EventArgs e)
     {
-        /*
-       if(gridSystem.gridObjectsArray != gridObjectsArray)
-        {
-            this.gridObjectsArray = gridSystem.GetGridObjectArray();
-        }
-        if (gridSystem.gridGameObjectsArray != gridGameObjectsArray)
-        {
-            this.gridGameObjectsArray = gridSystem.GetGridGameObjectsArray();
-        }
-        */
+        this.gridObjectsArray = gridSystemInGame.GetComponent<GridSystemTest>().GetGridSystem().GetGridObjectArray();
+        this.gridGameObjectsArray = gridSystemInGame.GetComponent<GridSystemTest>().GetGridSystem().GetGridGameObjectsArray();
     }
 }

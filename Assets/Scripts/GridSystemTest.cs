@@ -6,7 +6,7 @@ using UnityEngine;
 public class GridSystemTest : MonoBehaviour
 {
     public static GridSystemTest Instance {get; private set;}
-    public GridSystem gridSystem;
+    private GridSystem gridSystem;
     public Transform debugObject;
     public int GridLength;
     public int GridWidth;
@@ -24,8 +24,6 @@ public class GridSystemTest : MonoBehaviour
         
         gridSystem.CreateDebugOjbects(debugObject);
 
-        Debug.Log(gridSystem.GetGridGameObjectsArray()[1, 1].ToString());
-
     }
 
     public GridPosition GetGridPosition(Vector3 worldPosition)
@@ -38,9 +36,13 @@ public class GridSystemTest : MonoBehaviour
         return gridSystem.GetWorldPosition(gridPosition);
     }
 
+    public Transform[,] GetGridGameOjbectsArray()
+    {
+        return gridSystem.GetGridGameObjectsArray();
+    }
+
     public GridSystem GetGridSystem()
     {
-        Debug.Log("work");
         return this.gridSystem;
     }
 }

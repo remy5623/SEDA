@@ -9,6 +9,8 @@ public class Resource : PlaceableObject
 
     private void Start()
     {
+        Impact();
+
         if ( !resourceData.isResourceTapped )
         {
             TimeSystem.AddMonthlyEvent(UpdateResources);
@@ -22,7 +24,6 @@ public class Resource : PlaceableObject
     {
         Inventory.food += Mathf.FloorToInt(resourceData.baseOutputFood * resourceData.buildingLevelMulti * resourceData.buildingOutputStage * (1+buff));
         Inventory.constructionMaterials += Mathf.FloorToInt(resourceData.baseOutputConstruction * resourceData.buildingLevelMulti * resourceData.buildingOutputStage * (1+buff));
-        print(Inventory.constructionMaterials);
     }
     
     public void PayUpkeep()
@@ -43,16 +44,17 @@ public class Resource : PlaceableObject
         GridPosition pos = owningGridObject.GridPosition;
         int radius = resourceData.impactRadiusTiles;
         
-        for (int x = pos.x - radius; x <= pos.x + radius; x++)
+        for (int x = pos.x - radius; x < pos.x + radius; x++)
         {
-            for (int z = pos.z - radius; z <= pos.z + radius; z++)
+            for (int z = pos.z - radius; z < pos.z + radius; z++)
             {
                 // TODO: Filter by structure type
                 Resource objectInRadius;
-                if (objectInRadius = owningGridObject.GridSystem.gridObjectsArray[x, z].objectOnTile as Resource)
+                if ((objectInRadius = owningGridObject.GridSystem.GetGridObject(new GridPosition(x, z)).objectOnTile as Resource) && (new GridPosition(x, z) != pos))
                 {
                     objectInRadius.TransferFood(resourceData.transferFood);
                     objectInRadius.TransferMaterials(resourceData.transferConstruction);
+                    SetBuffs(objectInRadius);
                 }
             }
         }

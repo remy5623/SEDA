@@ -120,7 +120,7 @@ public class TimeSystem : MonoBehaviour
                     events[i].timeLeft = events[i].timeToRun;
                 }
 
-                break;
+                continue;
             }
         }
     }

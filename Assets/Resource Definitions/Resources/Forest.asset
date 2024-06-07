@@ -51,7 +51,7 @@ MonoBehaviour:
   transferConstruction: 5
   structureOfTypeInRadius: {fileID: 0}
   impactSource: 1
-  buffAmount: 0
+  buffAmount: 0.5
   nerfAmount: 0
   tileImpactBuff:
   - {fileID: 0}

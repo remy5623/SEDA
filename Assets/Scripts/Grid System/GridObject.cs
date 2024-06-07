@@ -6,20 +6,18 @@ using UnityEngine;
 
 public class GridObject : UnityEngine.Object
 {
-    private GridPosition gridPosition;
-    private GridSystem gridSystem;
-    private List<TileBase> tileBaseList;
+    public GridPosition GridPosition { get; private set; }
+    public GridSystem GridSystem { get; private set; }
+    public PlaceableObject objectOnTile;
 
     public GridObject(GridPosition gridPosition,GridSystem gridSystem)
     {
-        this.gridPosition = gridPosition;
-        this.gridSystem = gridSystem;
-
-        tileBaseList = new List<TileBase>();
+        GridPosition = gridPosition;
+        GridSystem = gridSystem;
     }
 
     public override string ToString()
     {
-        return gridPosition.ToString();
+        return GridPosition.ToString();
     }
 }

@@ -24,4 +24,30 @@ public class Inventory : MonoBehaviour
             Destroy(this);
         }
     }
+
+    private void Update()
+    {
+        print("Food: " + food);
+        print("Mats: " + constructionMaterials);
+    }
+
+    public static void SpendFood(int foodSpent)
+    {
+        food -= foodSpent;
+        
+        if (food < 0)
+        {
+            food = 0;
+        }
+    }
+
+    public static void SpendMaterials(int materialSpent)
+    {
+        constructionMaterials -= materialSpent;
+
+        if (constructionMaterials < 0)
+        {
+            constructionMaterials = 0;
+        }
+    }
 }

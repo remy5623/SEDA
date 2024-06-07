@@ -45,11 +45,11 @@ public class TileBaseEditor : Editor
     SerializedProperty hasTileImpact;
     SerializedProperty impactRadiusTiles;
     SerializedProperty structureOfTypeInRadius;
-    SerializedProperty transferResources;
+    SerializedProperty transferFood;
+    SerializedProperty transferConstruction;
     SerializedProperty buildingOutputMulti;
     SerializedProperty buildingLevelMulti;
     SerializedProperty buildingOutputStage;
-    SerializedProperty buildingCalcOutput;
     
     //Impact
     SerializedProperty impactSource;
@@ -98,11 +98,11 @@ public class TileBaseEditor : Editor
         upKeepCostConstruction = serializedObject.FindProperty("upKeepCostConstruction");
         impactRadiusTiles = serializedObject.FindProperty("impactRadiusTiles");
         structureOfTypeInRadius = serializedObject.FindProperty("structureOfTypeInRadius");
-        transferResources = serializedObject.FindProperty("transferResources");
+        transferFood = serializedObject.FindProperty("transferFood");
+        transferConstruction = serializedObject.FindProperty("transferConstruction");
         buildingOutputMulti = serializedObject.FindProperty("buildingOutputMulti");
         buildingLevelMulti = serializedObject.FindProperty("buildingLevelMulti");
         buildingOutputStage = serializedObject.FindProperty("buildingOutputStage");
-        buildingCalcOutput = serializedObject.FindProperty("buildingCalcOutput");
         //Impact
         impactSource = serializedObject.FindProperty("impactSource");
         buffAmount = serializedObject.FindProperty("buffAmount");
@@ -161,7 +161,6 @@ public class TileBaseEditor : Editor
             EditorGUILayout.PropertyField(buildingOutputMulti,true);
             EditorGUILayout.PropertyField(buildingLevelMulti,true);
             EditorGUILayout.PropertyField(buildingOutputStage,true);
-            EditorGUILayout.PropertyField(buildingCalcOutput,true);
         }
 
         EditorGUILayout.PropertyField(hasTileImpact);
@@ -170,7 +169,8 @@ public class TileBaseEditor : Editor
         {
             EditorGUILayout.PropertyField(impactRadiusTiles,true);
             EditorGUILayout.PropertyField(structureOfTypeInRadius,true);
-            EditorGUILayout.PropertyField(transferResources,true);
+            EditorGUILayout.PropertyField(transferFood,true);
+            EditorGUILayout.PropertyField(transferConstruction,true);
             EditorGUILayout.PropertyField(impactSource,true);
             if(impactSource.boolValue)
             {

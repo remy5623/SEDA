@@ -44,9 +44,13 @@ public class TileBase : ScriptableObject
     public List<TileTerrainTypes> tileTerrainTypes;
     public enum TileTerrainTypes
     {
-        TypeA,
-        TypeB,
-        TypeC
+        Grassland,
+        Wetland,
+        Highland,
+        River,
+        Barrens,
+        Mountain,
+        Water
     }
 
     

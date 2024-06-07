@@ -21,7 +21,7 @@ public enum TerrainTypes
 
 public class Terrainsystem : MonoBehaviour
 {
-    [SerializeField] public TileBase TerrainTile;
+    
 
     [SerializeField] public TerrainTypes TerrainTypes;
     //if the tile has energy
@@ -72,8 +72,8 @@ public class Terrainsystem : MonoBehaviour
 
     private void Start()
     {
-        energy = TerrainTile.baseOutputEnergy;
-        radius = TerrainTile.impactRadiusTiles;
+        //energy = TerrainTile.baseOutputEnergy;
+        //radius = TerrainTile.impactRadiusTiles;
         //idPosition gridPosition = new GridPosition
         GridPosition position = gridSystem.GetGridSystem().GetGridPosition(transform.position);
 

@@ -178,7 +178,7 @@
                 "m_Node": {
                     "m_Id": "9681788558c74349ad95da3440a45864"
                 },
-                "m_SlotId": 1
+                "m_SlotId": 0
             }
         },
         {
@@ -346,7 +346,7 @@
                 "m_Node": {
                     "m_Id": "9681788558c74349ad95da3440a45864"
                 },
-                "m_SlotId": 0
+                "m_SlotId": 1
             }
         },
         {
@@ -673,7 +673,7 @@
         "preventRotation": false
     },
     "m_Path": "Shader Graphs",
-    "m_GraphPrecision": 2,
+    "m_GraphPrecision": 0,
     "m_PreviewMode": 2,
     "m_OutputNode": {
         "m_Id": ""
@@ -725,10 +725,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -1844.9998779296875,
-            "y": -889.0,
-            "width": 208.0,
-            "height": 314.99993896484377
+            "x": -1845.0001220703125,
+            "y": -1335.0,
+            "width": 206.0,
+            "height": 131.0
         }
     },
     "m_Slots": [
@@ -740,7 +740,7 @@
         "location"
     ],
     "m_Precision": 1,
-    "m_PreviewExpanded": true,
+    "m_PreviewExpanded": false,
     "m_DismissedVersion": 0,
     "m_PreviewMode": 2,
     "m_CustomColors": {
@@ -877,7 +877,7 @@
     "m_CustomColors": {
         "m_SerializableColors": []
     },
-    "m_Space": 2
+    "m_Space": 0
 }
 
 {
@@ -2138,8 +2138,8 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -2575.0,
-            "y": -753.0,
+            "x": -2597.0,
+            "y": -746.0,
             "width": 153.0,
             "height": 173.0
         }
@@ -2485,7 +2485,7 @@
     "m_RenderFace": 2,
     "m_AlphaClip": true,
     "m_CastShadows": true,
-    "m_ReceiveShadows": false,
+    "m_ReceiveShadows": true,
     "m_SupportsLODCrossFade": false,
     "m_CustomEditorGUI": "",
     "m_SupportVFX": false
@@ -5053,8 +5053,8 @@
     },
     "m_Color": {
         "color": {
-            "r": 0.5239375233650208,
-            "g": 1.4980392456054688,
+            "r": 0.2619687616825104,
+            "g": 0.7490196228027344,
             "b": 0.0,
             "a": 0.0
         },

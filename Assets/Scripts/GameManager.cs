@@ -10,8 +10,6 @@ public class GameManager : MonoBehaviour
     private SaveData dataManager;
     private GameData gameData;
 
-    [SerializeField] GameObject LevelSelectUI;
-
     public int aaa;
     public float bbb;
     public string ccc;
@@ -91,10 +89,5 @@ public class GameManager : MonoBehaviour
         bb = gameData.b;
         cc = gameData.c;
         dd = gameData.d;    
-    }
-
-    public void OpenLevelSelectScreen()
-    {
-        Instantiate(LevelSelectUI);
     }
 }

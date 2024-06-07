@@ -253,6 +253,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dayDisplay: {fileID: 308509051910046984}
   monthDisplay: {fileID: 4153656629280287200}
+  timeRemainingDisplay: {fileID: 6556105636049188400}
+  LevelSelectPrefab: {fileID: 4173627645841210842, guid: 48ac44b5a574f9b4d8033e0774c9dad1,
+    type: 3}
 --- !u!1 &5522185489252415911
 GameObject:
   m_ObjectHideFlags: 0

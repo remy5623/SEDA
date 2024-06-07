@@ -34,6 +34,7 @@ public class LevelSettings : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            Inventory.levelTime = levelTimeStore;
         }
         else
         {

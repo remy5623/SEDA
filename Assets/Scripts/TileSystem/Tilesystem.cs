@@ -1,15 +1,42 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem.Switch;
 using UnityEngine.Rendering.Universal;
 
-public class Tilesystem : MonoBehaviour
+
+public enum TerrainTypes
 {
-    [SerializeField] public TileBase Tileystem;
-    public bool energy =false;
+    Grassland,
+    Wetland,
+    Highland,
+    River,
+    Barren,
+    Mountain,
+    Glen,
+    Loch,
+    Shore
+}
+
+public class Terrainsystem : MonoBehaviour
+{
+    [SerializeField] public TileBase TerrainTile;
+
+    [SerializeField] public TerrainTypes TerrainTypes;
+    //if the tile has energy
+    public bool energy = false;
+
+    //the radius in which it gives off energy
     public int radius;
-    float health;
+
+    //the total health of the soil (A to E grade)
+    int health;
+    
+    //boolean to determine if the building can be build on that terrain
     bool build;
+
+    //reference to Gridsystem GRID
 
     public SoilType soilType;
     public enum SoilType
@@ -21,7 +48,7 @@ public class Tilesystem : MonoBehaviour
         E = 90
     }
 
-    public WaterType waterType;
+    /*public WaterType waterType;
     public enum WaterType
     {
         A = 110,
@@ -29,7 +56,7 @@ public class Tilesystem : MonoBehaviour
         C = 100,
         D = 95,
         E = 90
-    }
+    }*/
 
     enum Grade
     {
@@ -42,40 +69,49 @@ public class Tilesystem : MonoBehaviour
 
     private void Start()
     {
-        energy = Tileystem.baseOutputEnergy;
-        build = Tileystem.canBuild;
-        
+        energy = TerrainTile.baseOutputEnergy;
+        radius = TerrainTile.impactRadiusTiles;
     }
 
     private void TriggerEnergy()
     {
-        if (energy)
+        //if the terrain has energy being emitted, then set all the terraintiles' energy bool true.
+        if(energy)
         {
-            radius = Tileystem.impactRadiusTiles;
-            if(radius !=0)
+            for (int x = -(radius); x != radius; x++)
             {
-                /*//reference to Grid USING FOR LOOP.
-                grid[x , y+1].tile.bool = true;
-                grid[x,y].tile.bool = true;
-                grid[x , y-1].tile.bool = true;
-                grid[x+1, y-1].tile.bool = true;
-                grid[x+1, y].tile.bool = true;
-                grid[x+1, y+1].tile.bool = true;
-                grid[x-1, y+1].tile.bool = true;
-                grid[x-1, y].tile.bool = true;
-                grid[x-1, y-1].tile.bool = true;*/
-
+                for(int y = -radius;y!= radius;y++)
+                {
+                    //Tile[x,y].energy = true;
+                }
             }
+
         }
     }
 
     void TileHealth()
     {
-        health = (((int)waterType) + ((int)soilType)) - 100;
+        health = (int)soilType;
 
         //reference to Resource, to reduce it by (health)
-
-
-        
+        switch(health)
+        {
+            case int n when (n >= 105 && n <= 110):
+                Debug.Log("A grade soil");
+                break;
+            case int n when (n >= 100 && n <= 105):
+                Debug.Log("B grade soil");
+                break;
+            case int n when (n >= 95 && n <= 100):
+                Debug.Log("C grade soil");
+                break;
+            case int n when (n >= 90 && n <= 95):
+                Debug.Log("D grade soil");
+                break;
+            case int n when (n >= 85 && n <= 90):
+                Debug.Log("E grade soil");
+                break;
+        }
+    
     }
 }

@@ -27,7 +27,11 @@ Transform:
   m_GameObject: {fileID: 466029128164653730}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+<<<<<<< Updated upstream:Assets/VFX/Pictish Stone/Stone_Idle/Willo'Wisps.prefab
   m_LocalPosition: {x: 0, y: 0, z: -0.55000013}
+=======
+  m_LocalPosition: {x: -8.8, y: 0, z: -4.8}
+>>>>>>> Stashed changes:Assets/VFX/Pictish Stone/Stone_Idle/Pictstone Idle VFX.prefab
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -223,7 +227,11 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
+<<<<<<< Updated upstream:Assets/VFX/Pictish Stone/Stone_Idle/Willo'Wisps.prefab
       maxColor: {r: 0.41037738, g: 0.9999997, b: 1, a: 1}
+=======
+      maxColor: {r: 0, g: 0.5897913, b: 1, a: 0.5803922}
+>>>>>>> Stashed changes:Assets/VFX/Pictish Stone/Stone_Idle/Pictstone Idle VFX.prefab
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -4947,8 +4955,13 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
+<<<<<<< Updated upstream:Assets/VFX/Pictish Stone/Stone_Idle/Willo'Wisps.prefab
       scalar: 0.7
       minScalar: 0.5
+=======
+      scalar: 1
+      minScalar: 0.7
+>>>>>>> Stashed changes:Assets/VFX/Pictish Stone/Stone_Idle/Pictstone Idle VFX.prefab
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -4999,9 +5012,15 @@ ParticleSystem:
         m_RotationOrder: 4
     startSpeed:
       serializedVersion: 2
+<<<<<<< Updated upstream:Assets/VFX/Pictish Stone/Stone_Idle/Willo'Wisps.prefab
       minMaxState: 0
       scalar: 7
       minScalar: 7
+=======
+      minMaxState: 3
+      scalar: 1.2
+      minScalar: 0.8
+>>>>>>> Stashed changes:Assets/VFX/Pictish Stone/Stone_Idle/Pictstone Idle VFX.prefab
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -5054,7 +5073,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 1, g: 0.8160377, b: 0.9989954, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -5171,8 +5190,13 @@ ParticleSystem:
     startSizeY:
       serializedVersion: 2
       minMaxState: 3
+<<<<<<< Updated upstream:Assets/VFX/Pictish Stone/Stone_Idle/Willo'Wisps.prefab
       scalar: 1.4
       minScalar: 1.6
+=======
+      scalar: 0.2
+      minScalar: 0.25
+>>>>>>> Stashed changes:Assets/VFX/Pictish Stone/Stone_Idle/Pictstone Idle VFX.prefab
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -5701,8 +5725,13 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
+<<<<<<< Updated upstream:Assets/VFX/Pictish Stone/Stone_Idle/Willo'Wisps.prefab
       scalar: 1
       minScalar: 10
+=======
+      scalar: 0
+      minScalar: 0.2
+>>>>>>> Stashed changes:Assets/VFX/Pictish Stone/Stone_Idle/Pictstone Idle VFX.prefab
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -5804,8 +5833,129 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
+<<<<<<< Updated upstream:Assets/VFX/Pictish Stone/Stone_Idle/Willo'Wisps.prefab
     m_BurstCount: 0
     m_Bursts: []
+=======
+    m_BurstCount: 2
+    m_Bursts:
+    - serializedVersion: 2
+      time: 0.1
+      countCurve:
+        serializedVersion: 2
+        minMaxState: 0
+        scalar: 0
+        minScalar: 30
+        maxCurve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        minCurve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+      cycleCount: 0
+      repeatInterval: 1
+      probability: 0.3
+    - serializedVersion: 2
+      time: 0.5
+      countCurve:
+        serializedVersion: 2
+        minMaxState: 0
+        scalar: 0
+        minScalar: 30
+        maxCurve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        minCurve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+      cycleCount: 0
+      repeatInterval: 2
+      probability: 0.2
+>>>>>>> Stashed changes:Assets/VFX/Pictish Stone/Stone_Idle/Pictstone Idle VFX.prefab
   SizeModule:
     enabled: 0
     curve:
@@ -7520,7 +7670,11 @@ ParticleSystem:
     strength:
       serializedVersion: 2
       minMaxState: 0
+<<<<<<< Updated upstream:Assets/VFX/Pictish Stone/Stone_Idle/Willo'Wisps.prefab
       scalar: 0.5
+=======
+      scalar: 0.3
+>>>>>>> Stashed changes:Assets/VFX/Pictish Stone/Stone_Idle/Pictstone Idle VFX.prefab
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -7677,8 +7831,13 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     separateAxes: 0
+<<<<<<< Updated upstream:Assets/VFX/Pictish Stone/Stone_Idle/Willo'Wisps.prefab
     frequency: 0.5
     damping: 1
+=======
+    frequency: 0.65
+    damping: 0
+>>>>>>> Stashed changes:Assets/VFX/Pictish Stone/Stone_Idle/Pictstone Idle VFX.prefab
     octaves: 1
     octaveMultiplier: 0.5
     octaveScale: 2
@@ -10534,9 +10693,15 @@ ParticleSystem:
     serializedVersion: 4
     rateOverTime:
       serializedVersion: 2
+<<<<<<< Updated upstream:Assets/VFX/Pictish Stone/Stone_Idle/Willo'Wisps.prefab
       minMaxState: 3
       scalar: 10
       minScalar: 5
+=======
+      minMaxState: 0
+      scalar: 1.4
+      minScalar: 10
+>>>>>>> Stashed changes:Assets/VFX/Pictish Stone/Stone_Idle/Pictstone Idle VFX.prefab
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -10973,12 +11138,21 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
+<<<<<<< Updated upstream:Assets/VFX/Pictish Stone/Stone_Idle/Willo'Wisps.prefab
         key0: {r: 0.9718761, g: 0.990566, b: 0.6775098, a: 0}
         key1: {r: 0.9718761, g: 0.990566, b: 0.6775098, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 1}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 1}
+=======
+        key0: {r: 1, g: 1, b: 1, a: 0}
+        key1: {r: 1, g: 1, b: 1, a: 0.11764706}
+        key2: {r: 1, g: 1, b: 1, a: 0.039215688}
+        key3: {r: 0, g: 0, b: 0, a: 0.11764706}
+        key4: {r: 0, g: 0, b: 0, a: 0}
+        key5: {r: 0, g: 0, b: 0, a: 0.27450982}
+>>>>>>> Stashed changes:Assets/VFX/Pictish Stone/Stone_Idle/Pictstone Idle VFX.prefab
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
         ctime0: 0
@@ -10990,12 +11164,21 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 0
+<<<<<<< Updated upstream:Assets/VFX/Pictish Stone/Stone_Idle/Willo'Wisps.prefab
         atime1: 12336
         atime2: 23516
         atime3: 37779
         atime4: 48766
         atime5: 56090
         atime6: 65535
+=======
+        atime1: 27098
+        atime2: 32287
+        atime3: 41512
+        atime4: 65535
+        atime5: 65535
+        atime6: 0
+>>>>>>> Stashed changes:Assets/VFX/Pictish Stone/Stone_Idle/Pictstone Idle VFX.prefab
         atime7: 0
         m_Mode: 0
         m_ColorSpace: 0

@@ -51,23 +51,31 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Foam_amount: 0.61
+    - _Float: 0
+    - _Foam_amount: 0.757
     - _Foam_cutoff: 1.1
-    - _Foam_scroll_speed: 0.012
+    - _Foam_scroll_speed: 0.007
     - _Foam_speed: 1.07
-    - _Foamscale: 27
+    - _Foamscale: 85.7
+    - _Gradient_Noise_Scale: -2.6
+    - _Gradient_Noise_scale: -2.85
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Ripple_Density: 1
     - _Ripple_Speed: 1
     - _Texture_Turbulence: 1.6
+    - _Voronoi_Scale: -2.65
     - _Water_Texture_Scale: 2.3
+    - _Wave_Speed2: 1.27
     - _Wave_intensity: 1
-    - _Wave_scale: 80
+    - _Wave_scale: 3.22
     - _Wave_smoothing: 8
-    - _Wave_speed: 0.0057
+    - _Wave_speed: 0
+    - _Wave_speed1: 0.58
+    - _Wave_speed_1: 1.06
+    - _Wave_speed_2: 0.1
     m_Colors:
     - _FoamColor: {r: 0.8867924, g: 0.8867924, b: 0.8867924, a: 1}
-    - _Water_Color1: {r: 0.057849757, g: 0.28199643, b: 0.49056602, a: 1}
-    - _Water_color2: {r: 0, g: 0.2144654, b: 0.2924528, a: 1}
+    - _Water_Color1: {r: 0.22116414, g: 0.31413624, b: 0.6603774, a: 1}
+    - _Water_color2: {r: 0.23696157, g: 0.68470323, b: 0.7075472, a: 1}
   m_BuildTextureStacks: []

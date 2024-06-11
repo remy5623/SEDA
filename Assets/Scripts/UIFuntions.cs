@@ -72,7 +72,7 @@ public class UIFuntions : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadScene("Blockout_Island_A_1");
+        SceneManager.LoadScene("Island_A");
     }
 
     public void QuitGame()

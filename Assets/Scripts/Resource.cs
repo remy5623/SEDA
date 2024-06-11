@@ -43,18 +43,21 @@ public class Resource : PlaceableObject
     {
         GridPosition pos = owningGridObject.GridPosition;
         int radius = resourceData.impactRadiusTiles;
-        
+
         for (int x = pos.x - radius; x < pos.x + radius; x++)
         {
             for (int z = pos.z - radius; z < pos.z + radius; z++)
             {
-                // TODO: Filter by structure type
-                Resource objectInRadius;
-                if ((objectInRadius = owningGridObject.GridSystem.GetGridObject(new GridPosition(x, z)).objectOnTile as Resource) && (new GridPosition(x, z) != pos))
+                if (x >= 0 && z >= 0 && x < owningGridObject.GridSystem.gridGameObjectsArray.Length && z < owningGridObject.GridSystem.gridGameObjectsArray.LongLength)
                 {
-                    objectInRadius.TransferFood(resourceData.transferFood);
-                    objectInRadius.TransferMaterials(resourceData.transferConstruction);
-                    SetBuffs(objectInRadius);
+                    // TODO: Filter by structure type
+                    Resource objectInRadius;
+                    if ((objectInRadius = owningGridObject.GridSystem.GetGridObject(new GridPosition(x, z)).objectOnTile as Resource) && (new GridPosition(x, z) != pos))
+                    {
+                        objectInRadius.TransferFood(resourceData.transferFood);
+                        objectInRadius.TransferMaterials(resourceData.transferConstruction);
+                        SetBuffs(objectInRadius);
+                    }
                 }
             }
         }

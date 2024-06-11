@@ -8,8 +8,8 @@ public class GridSystemTest : MonoBehaviour
     public static GridSystemTest Instance {get; private set;}
     public GridSystem gridSystem;
     public Transform debugObject;
-    public int GridLength;
-    public int GridWidth;
+    public int GridLength = 12;
+    public int GridWidth = 12;
     public void Start()
     {
         if(Instance!=null)

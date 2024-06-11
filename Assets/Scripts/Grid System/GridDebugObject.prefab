@@ -169,6 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textMeshPro: {fileID: 9012438476803015128}
   tilebase: {fileID: 11400000, guid: d4dc5fcd7ffb0eb409b00f32cfa2bf0a, type: 2}
+  terrainsystem: {fileID: 0}
 --- !u!1 &5320785216153729655
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,7 +187,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5624655757520328068
 RectTransform:
   m_ObjectHideFlags: 0

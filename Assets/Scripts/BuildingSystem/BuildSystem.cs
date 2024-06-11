@@ -14,6 +14,7 @@ public class BuildSystem : MonoBehaviour
     InputActionAsset actionAsset;
 
     InputAction placeAction;
+    InputAction tapLocation;
 
     public GridSystemTest grid;
 
@@ -21,6 +22,8 @@ public class BuildSystem : MonoBehaviour
     {
         placeAction = actionAsset.FindAction("PossessCamera");
         placeAction.performed += ctx => PlaceBuilding();
+
+        tapLocation = actionAsset.FindAction("PanCamera");
     }
 
     void Update()
@@ -33,7 +36,7 @@ public class BuildSystem : MonoBehaviour
 
     void PlaceBuilding()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+        Ray ray = Camera.main.ScreenPointToRay(tapLocation.ReadValue<UnityEngine.Vector2>());
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag == "Gird" && GameObject.Find("Canvas").GetComponent<BuildingTypeSelect>().isSetB1)
         {

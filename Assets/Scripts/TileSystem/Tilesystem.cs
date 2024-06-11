@@ -25,6 +25,7 @@ public class Terrainsystem : MonoBehaviour
     [SerializeField] public TerrainTypes TerrainTypes;
     //if the tile has energy
     public bool energy = false;
+
     public GridObject Terain_gridObject;
     public GridSystemTest gridSystem;
 

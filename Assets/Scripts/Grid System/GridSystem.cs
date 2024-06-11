@@ -8,7 +8,7 @@ using UnityEngine.Rendering.UI;
 
 public class GridSystem
 {
-    private int width;
+    public int width;
     private int Length;
     private float cellSize;
     public GridObject[,] gridObjectsArray;
@@ -102,5 +102,15 @@ public class GridSystem
             Mathf.RoundToInt(worldPosition.x/cellSize),
             Mathf.RoundToInt(worldPosition.z/cellSize)
         );        
+    }
+
+    public int GetWidth()
+    {
+        return width;
+    }
+
+    public int GetLength()
+    {
+        return Length;
     }
 }

@@ -48,7 +48,7 @@ public class Resource : PlaceableObject
         {
             for (int z = pos.z - radius; z < pos.z + radius; z++)
             {
-                if (x >= 0 && z >= 0 && x < owningGridObject.GridSystem.gridGameObjectsArray.Length && z < owningGridObject.GridSystem.gridGameObjectsArray.LongLength)
+                if (x >= 0 && z >= 0 && x < owningGridObject.GridSystem.GetWidth() && z < owningGridObject.GridSystem.GetLength())
                 {
                     // TODO: Filter by structure type
                     Resource objectInRadius;

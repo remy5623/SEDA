@@ -3,8 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.UIElements;
 
 enum Month
 {
@@ -27,7 +25,6 @@ class TimedEvent
     public Action action;
     public int timeToRun = 1;
     public bool isRepeating = false;
-
     public int timeLeft = 1;
 }
 

@@ -563,8 +563,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialOverworldTime: 10
-  foodDisplay: {fileID: 0}
-  constructionMaterialDisplay: {fileID: 0}
 --- !u!1001 &1696145915301475831
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -767,6 +765,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 55837928}
+    - target: {fileID: 3637331440749907168, guid: 48ac44b5a574f9b4d8033e0774c9dad1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Level1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3637331440749907168, guid: 48ac44b5a574f9b4d8033e0774c9dad1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIFuntions, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 4071262506834313755, guid: 48ac44b5a574f9b4d8033e0774c9dad1,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

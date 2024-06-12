@@ -1,9 +1,11 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelSelect : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI timeDisplay;
+    [SerializeField] GameObject infoDisplay;
 
     private LevelSelect instance;
 
@@ -40,5 +42,17 @@ public class LevelSelect : MonoBehaviour
         {
             Time.timeScale = 1f;    // Unpause when the level selection menu is closed
         }
+    }
+
+    public void DisplayInfo()
+    {
+        infoDisplay.SetActive(true);
+    }
+
+    public void LoadLevel()
+    {
+        Inventory.overworldTime--;
+        Inventory.levelTime++;
+        SceneManager.LoadSceneAsync(1);
     }
 }

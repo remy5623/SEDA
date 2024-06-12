@@ -38,9 +38,6 @@ public class Inventory : MonoBehaviour
     [InspectorName("Initial Overworld Time (years)")]
     private int initialOverworldTime;
 
-    [SerializeField] TextMeshProUGUI foodDisplay;
-    [SerializeField] TextMeshProUGUI constructionMaterialDisplay;
-
 
     /** The Inventory is a singleton
      *  There is only one Inventory active at any given time
@@ -57,12 +54,6 @@ public class Inventory : MonoBehaviour
         {
             Destroy(this);
         }
-    }
-
-    private void Update()
-    {
-        foodDisplay.text = "Food: " + food;
-        constructionMaterialDisplay.text = "Construction Materials: " + constructionMaterials;
     }
 
     public static void SpendFood(int foodSpent)

@@ -1,9 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class LevelSelect : MonoBehaviour
 {
+    [SerializeField] TextMeshProUGUI timeDisplay;
+
     private LevelSelect instance;
 
     /** The level select menu is a singleton
@@ -25,6 +26,11 @@ public class LevelSelect : MonoBehaviour
     void Start()
     {
         Time.timeScale = 0f;
+    }
+
+    private void Update()
+    {
+        timeDisplay.text = "Time Left: " + Inventory.overworldTime.ToString() + " Years";
     }
 
     /** When the active instance of the level select menu is closed, game time will resume */

@@ -280,9 +280,9 @@ GameObject:
   - component: {fileID: 3256485237518481575}
   - component: {fileID: 2204828225968712039}
   - component: {fileID: 6370538835593493115}
-  - component: {fileID: 4520157217554788544}
+  - component: {fileID: 1093860868797071331}
   m_Layer: 5
-  m_Name: Inventory
+  m_Name: ResourceUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -372,7 +372,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &4520157217554788544
+--- !u!114 &1093860868797071331
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -381,8 +381,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 8717328597725006873}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8707555a64b37a64cab8a706cfc55ba9, type: 3}
+  m_Script: {fileID: 11500000, guid: df940b246d511bc4ca59b115b71ffc7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foodDisplay: {fileID: 0}
-  constructionMaterialDisplay: {fileID: 0}
+  foodDisplay: {fileID: 7625660497347705683}
+  materialsDisplay: {fileID: 7810134710237030055}

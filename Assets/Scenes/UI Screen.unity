@@ -527,7 +527,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2129995925}
-  - component: {fileID: 2129995924}
+  - component: {fileID: 2129995926}
   m_Layer: 0
   m_Name: Inventory
   m_TagString: Untagged
@@ -535,19 +535,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2129995924
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2129995923}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a88ccb0d5a6ac8b4ca7323a28e3b82ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initialOverworldTime: 10
 --- !u!4 &2129995925
 Transform:
   m_ObjectHideFlags: 0
@@ -563,6 +550,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2129995926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2129995923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8707555a64b37a64cab8a706cfc55ba9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialOverworldTime: 10
+  foodDisplay: {fileID: 0}
+  constructionMaterialDisplay: {fileID: 0}
 --- !u!1001 &1696145915301475831
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -730,6 +732,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 55837928}
+    - target: {fileID: 798955350709911060, guid: 48ac44b5a574f9b4d8033e0774c9dad1,
+        type: 3}
+      propertyPath: timeDisplay
+      value: 
+      objectReference: {fileID: 385475941}
     - target: {fileID: 919600065488660796, guid: 48ac44b5a574f9b4d8033e0774c9dad1,
         type: 3}
       propertyPath: m_IsActive

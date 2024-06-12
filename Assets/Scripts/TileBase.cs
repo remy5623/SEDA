@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
-using UnityEditor;
-using UnityEditor.TerrainTools;
 using UnityEngine;
 
 [CreateAssetMenu(fileName ="TileBase",menuName ="TileBase")]

@@ -189,7 +189,7 @@ public class Terrainsystem : MonoBehaviour
         if (terraintype == TerrainTypes.River || terraintype == TerrainTypes.Loch || terraintype == TerrainTypes.Glen)
         {
             Terrain_gridStatus.canBuild = false;
-            print("Can Build? " + Terrain_gridStatus.canBuild);
+            //print("Can Build? " + Terrain_gridStatus.canBuild);
         }
     }
 }

@@ -6,7 +6,7 @@ public class BuildingCost : MonoBehaviour
 {
     private static BuildingCost instance;
     [Header("Building consumption")]
-    public static int build1CostFood = 0;
+    public static int build1CostFood = 50;
     public static int build1CostMaterials = 0;
     public static int build2CostFood = 0;
     public static int build2CostMaterials = 0;

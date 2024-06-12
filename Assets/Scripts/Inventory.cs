@@ -7,7 +7,7 @@ public class Inventory : MonoBehaviour
 {
     private static Inventory instance;
 
-    public static int food;
+    public static int food = 100;
     public static int constructionMaterials;
 
     [SerializeField] TextMeshProUGUI foodDisplay;

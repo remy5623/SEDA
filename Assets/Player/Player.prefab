@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 9166301667502255693}
   - component: {fileID: 5611501984820414187}
   - component: {fileID: 427194203050079870}
-  - component: {fileID: -7800258086899767045}
   m_Layer: 0
   m_Name: Player
   m_TagString: MainCamera
@@ -196,15 +195,3 @@ MonoBehaviour:
   panLimit: {x: 10, y: 10}
   minZoomDistance: 3.5
   maxZoomDistance: 10
---- !u!114 &-7800258086899767045
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6230094191815337267}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a88ccb0d5a6ac8b4ca7323a28e3b82ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

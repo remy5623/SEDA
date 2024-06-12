@@ -77,7 +77,7 @@ public class UIFuntions : MonoBehaviour
     {
         Inventory.overworldTime--;
         Inventory.levelTime++;
-        SceneManager.LoadScene("Blockout_Island_A_1");
+        SceneManager.LoadSceneAsync(1);
     }
 
     public void QuitGame()

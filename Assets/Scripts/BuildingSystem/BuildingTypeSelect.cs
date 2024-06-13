@@ -55,6 +55,7 @@ public class BuildingTypeSelect : MonoBehaviour
             button3.GetComponent<Image>().color = Color.white;
         }
     }
+
     public void SelectBuildingOne()
     {
         if (!isSetB1)
@@ -103,18 +104,18 @@ public class BuildingTypeSelect : MonoBehaviour
         }
     }
 
-    void BuildingCanPlace(int buildingType, Transform[,] girdArray)
+    void BuildingCanPlace(int buildingType, GirdStatus[,] girdArray)
     {
-        foreach (Transform element in girdArray)
+        foreach (GirdStatus element in girdArray )
         {
-            element.Find("Quad").gameObject.GetComponent<GirdStatus>().canBuildStatus = true;
+            element.gameObject.GetComponent<GirdStatus>().Buildmode = true;
         }
     }
-    void BuildingCantPlace(int buildingType, Transform[,] girdArray)
+    void BuildingCantPlace(int buildingType, GirdStatus[,] girdArray)
     {
-        foreach (Transform element in girdArray)
+        foreach (GirdStatus element in girdArray)
         {
-            element.Find("Quad").gameObject.GetComponent<GirdStatus>().canBuildStatus = false;
+            element.gameObject.GetComponent<GirdStatus>().Buildmode = false;
         }
     }
 

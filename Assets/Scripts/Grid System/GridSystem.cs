@@ -12,7 +12,7 @@ public class GridSystem : MonoBehaviour
 
     private GridObject[,] gridTiles;
 
-    private void Update()
+    public void MakeItWork()
     {
         ClearGrid();
         gridTiles = new GridObject[gridLength, gridWidth];

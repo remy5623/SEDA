@@ -5,32 +5,42 @@ using UnityEngine;
 public class GirdStatus : MonoBehaviour
 {
 
-    public bool canBuild ;
-    public bool canBuildStatus ;
+    public bool canBuild ; // gets ref from grid
+    public bool Buildmode ;
     void Start()
     {
         
-        canBuildStatus = false;
+        Buildmode = false;
 
     }
-    private void Awake()
+
+   /* private void Awake()
     {
         //canBuild = GetComponentInParent<GridDebugObject>().tilebase.canBuild;
-    }
-    // Update is called once per frame
+    }*/
+
+    
     void Update()
     {
-        if (!canBuildStatus)
+        Color transparentWhite = new Color(1, 1, 1, 0f);
+        Color transparentGreen = new Color(0, 1, 0, 0.3f);
+        Color transparentRed = new Color(1, 0, 0, 0.3f);
+
+        if (!Buildmode)
         {
-            gameObject.GetComponent<MeshRenderer>().material.color = Color.white;
+            gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
+                //material.color = transparentWhite;
         }
-        else if(canBuild&&canBuildStatus)
+        else if (canBuild)
         {
-            gameObject.GetComponent<MeshRenderer>().material.color = Color.green;
+
+            gameObject.GetComponentInChildren<MeshRenderer>().enabled = true;
+            gameObject.GetComponentInChildren<MeshRenderer>().material.color = transparentGreen;
         }
-        else if (!canBuild && canBuildStatus)
+        else
         {
-            gameObject.GetComponent<MeshRenderer>().material.color = Color.red;
+            gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
+            gameObject.GetComponentInChildren<MeshRenderer>().material.color = transparentRed;
         }
     }
 }

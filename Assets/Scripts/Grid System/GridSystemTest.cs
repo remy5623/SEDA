@@ -7,9 +7,10 @@ public class GridSystemTest : MonoBehaviour
 {
     public static GridSystemTest Instance {get; private set;}
     public GridSystem gridSystem;
-    public Transform debugObject;
+    public GirdStatus debugObject;
     public int GridLength = 12;
     public int GridWidth = 12;
+
     public void Start()
     {
         if(Instance!=null)
@@ -24,7 +25,7 @@ public class GridSystemTest : MonoBehaviour
         
         gridSystem.CreateDebugOjbects(debugObject);
 
-        Debug.Log(gridSystem.GetGridGameObjectsArray()[1, 1].ToString());
+        //Debug.Log(gridSystem.GetGridGameObjectsArray()[1, 1].ToString());
 
     }
 
@@ -40,7 +41,7 @@ public class GridSystemTest : MonoBehaviour
 
     public GridSystem GetGridSystem()
     {
-        Debug.Log("work");
-        return this.gridSystem;
+        //Debug.Log("work");
+        return gridSystem;
     }
 }

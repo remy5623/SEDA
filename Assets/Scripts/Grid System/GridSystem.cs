@@ -12,7 +12,7 @@ public class GridSystem
     private int Length;
     private float cellSize;
     public GridObject[,] gridObjectsArray;
-    public Transform[,] gridGameObjectsArray;
+    public GirdStatus[,] gridGameObjectsArray;
     
     public GridSystem(int width, int Length, float cellSize)
     {
@@ -41,9 +41,9 @@ public class GridSystem
         SetGridObjectArray(gridObjectsArray);
     }
 
-    public void CreateDebugOjbects(Transform debugObject)
+    public void CreateDebugOjbects(GirdStatus debugObject)
     {
-        gridGameObjectsArray = new Transform[2 * width + 1, 2 * Length + 1];
+        gridGameObjectsArray = new GirdStatus[2 * width + 1, 2 * Length + 1];
 
         for(int x = -width;x <=width;x++)
         {
@@ -55,7 +55,8 @@ public class GridSystem
                 GridPosition gridPosition = new GridPosition(x,z);
 
                 //gridGameObjectsArray[arrayX, arrayY] = GameObject.Instantiate(debugObject,GetWorldPosition(gridPosition) + Vector3.up, quaternion.identity);
-                gridGameObjectsArray[arrayX, arrayY] = GameObject.Instantiate(debugObject,GetWorldPosition(gridPosition) + Vector3.up * 0.5f, quaternion.identity);
+                Vector3 initRotation = new Vector3(90f, 0f, 0f);
+                gridGameObjectsArray[arrayX, arrayY] = GameObject.Instantiate(debugObject,GetWorldPosition(gridPosition) + Vector3.up * 0.5f, Quaternion.Euler(initRotation));
 
                 GridDebugObject gridDebugObject = gridGameObjectsArray[arrayX, arrayY].GetComponent<GridDebugObject>();
 
@@ -68,33 +69,35 @@ public class GridSystem
 
     public void SetGridObjectArray(GridObject[,] gridObjects)
     {
-        this.gridObjectsArray = gridObjects;
+        gridObjectsArray = gridObjects;
     }
+
     public GridObject[,] GetGridObjectArray()
     {
         return gridObjectsArray;
     }
 
-    public void SetGridGameObjectsArray(Transform[,] gridGameObjects)
+    public void SetGridGameObjectsArray(GirdStatus[,] gridGameObjects)
     {
-        this.gridGameObjectsArray = gridGameObjects;
+        gridGameObjectsArray = gridGameObjects;
     }
 
-    public Transform[,] GetGridGameObjectsArray()
+    public GirdStatus[,] GetGridGameObjectsArray()
     {
         return gridGameObjectsArray;
     }
 
-
     public GridObject GetGridObject(GridPosition gridPosition)
     {
-        Debug.Log("X: " + (gridPosition.x + width) + ", Y: " + (gridPosition.z + Length));
+        //Debug.Log("X: " + (gridPosition.x + width) + ", Y: " + (gridPosition.z + Length));
         return gridObjectsArray[gridPosition.x+width,gridPosition.z + Length];
     }
+
     public Vector3 GetWorldPosition(GridPosition gridPosition)
     {
-        return new Vector3(gridPosition.x,0,gridPosition.z) * cellSize;
+        return new Vector3(gridPosition.x,0.25f,gridPosition.z) * cellSize;
     }
+
     public GridPosition GetGridPosition(Vector3 worldPosition)
     {
         return new GridPosition(
@@ -112,4 +115,5 @@ public class GridSystem
     {
         return Length;
     }
+
 }

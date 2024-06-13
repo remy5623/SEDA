@@ -30,8 +30,8 @@ public class Inventory : MonoBehaviour
 
     public static int overworldTime;
     public static int levelTime;
-
-    public static int food;
+    
+    public static int food = 100;
     public static int constructionMaterials;
 
     [SerializeField]

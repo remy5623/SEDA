@@ -35,8 +35,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -188, y: -16}
-  m_SizeDelta: {x: 180, y: 50}
+  m_AnchoredPosition: {x: -313, y: -1521}
+  m_SizeDelta: {x: 174.709, y: 40.2075}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &4125302708729597775
 CanvasRenderer:
@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: September
+  m_text: 'HealthBar:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -129,7 +129,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 0, w: -0.000061035156}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -147,9 +147,9 @@ GameObject:
   - component: {fileID: 3789662418927069456}
   - component: {fileID: 7840100171894491806}
   - component: {fileID: 6733036917422828784}
-  - component: {fileID: 2668331355018421366}
+  - component: {fileID: -1504902468339135588}
   m_Layer: 5
-  m_Name: TimeDisplay
+  m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -238,7 +238,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &2668331355018421366
+--- !u!114 &-1504902468339135588
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -247,11 +247,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 2774573402824247454}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8262216fec09f6540bef5bcd101357aa, type: 3}
+  m_Script: {fileID: 11500000, guid: 20734eb64323aa94da8bac38e0324d84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dayDisplay: {fileID: 308509051910046984}
-  monthDisplay: {fileID: 4153656629280287200}
+  soilType: 0
+  allowedSoilGrade: 
+  ResourceAffect: 0
+  terraintype: 0
+  energy: 0
+  gridSystem: {fileID: 0}
+  Terran_gridObject: {fileID: 0}
+  radius: 0
 --- !u!1 &7957524118831500415
 GameObject:
   m_ObjectHideFlags: 0
@@ -286,8 +292,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -50, y: 0}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchoredPosition: {x: 175.82446, y: 0}
+  m_SizeDelta: {x: 57.6765, y: 40.208}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &8601780180483616287
 CanvasRenderer:
@@ -380,7 +386,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 0, w: 0.19665527}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

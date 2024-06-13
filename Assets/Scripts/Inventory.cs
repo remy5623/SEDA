@@ -75,4 +75,10 @@ public class Inventory : MonoBehaviour
             constructionMaterials = 0;
         }
     }
+
+    public static void ClearResources()
+    {
+        food = 0;
+        constructionMaterials = 0;
+    }
 }

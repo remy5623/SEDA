@@ -52,7 +52,8 @@ public class LevelSelect : MonoBehaviour
     public void LoadLevel()
     {
         Inventory.overworldTime--;
-        Inventory.levelTime++;
+        Inventory.levelTime += 12;
+        Inventory.ClearResources();
         SceneManager.LoadSceneAsync(1);
     }
 }

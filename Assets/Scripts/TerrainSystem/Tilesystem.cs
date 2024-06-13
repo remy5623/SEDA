@@ -74,8 +74,8 @@ public class Terrainsystem : MonoBehaviour
 
     private void Start()
     {
-        GridPosition pos = gridSystem.GetGridPosition(transform.position);
-        Terrain_gridStatus = gridSystem.GetGridSystem().GetGridGameObjectsArray()[pos.x + gridSystem.GridWidth, pos.z + gridSystem.GridLength];
+        //GridPosition pos = gridSystem.GetGridPosition(transform.position);
+        //Terrain_gridStatus = gridSystem.GetGridSystem().GetGridGameObjectsArray()[pos.x + gridSystem.GridWidth, pos.z + gridSystem.GridLength];
 
         InitialTerrainList();
 

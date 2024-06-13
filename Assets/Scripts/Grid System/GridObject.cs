@@ -1,23 +1,18 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-
-public class GridObject : UnityEngine.Object
+[ExecuteAlways]
+public class GridObject : MonoBehaviour
 {
-    public GridPosition GridPosition { get; private set; }
-    public GridSystem GridSystem { get; private set; }
-    public PlaceableObject objectOnTile;
+    [SerializeField] Terrainsystem terrainType;
+    [SerializeField] PlaceableObject building;
 
-    public GridObject(GridPosition gridPosition,GridSystem gridSystem)
+    private void Update()
     {
-        GridPosition = gridPosition;
-        GridSystem = gridSystem;
+        
     }
 
-    public override string ToString()
+    public bool CanBuildOnTile()
     {
-        return GridPosition.ToString();
+        return true;
     }
 }

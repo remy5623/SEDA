@@ -4,22 +4,31 @@ using UnityEngine;
 
 public class GirdStatus : MonoBehaviour
 {
-    public bool canBuild = false;
-    public bool canBuildStatus = false;
+
+    public bool canBuild ;
+    public bool canBuildStatus ;
     void Start()
     {
-        canBuild = true;
+        
+        canBuildStatus = false;
 
     }
-
+    private void Awake()
+    {
+        //canBuild = GetComponentInParent<GridDebugObject>().tilebase.canBuild;
+    }
     // Update is called once per frame
     void Update()
     {
-        if(canBuild&&canBuildStatus)
+        if (!canBuildStatus)
+        {
+            gameObject.GetComponent<MeshRenderer>().material.color = Color.white;
+        }
+        else if(canBuild&&canBuildStatus)
         {
             gameObject.GetComponent<MeshRenderer>().material.color = Color.green;
         }
-        if (canBuild && !canBuildStatus)
+        else if (!canBuild && canBuildStatus)
         {
             gameObject.GetComponent<MeshRenderer>().material.color = Color.red;
         }

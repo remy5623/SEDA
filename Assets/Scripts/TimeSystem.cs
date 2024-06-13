@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UIElements;
 
 enum Month
 {
@@ -25,6 +27,7 @@ class TimedEvent
     public Action action;
     public int timeToRun = 1;
     public bool isRepeating = false;
+
     public int timeLeft = 1;
 }
 
@@ -40,11 +43,7 @@ public class TimeSystem : MonoBehaviour
     // UI display
     [SerializeField] TextMeshProUGUI dayDisplay;
     [SerializeField] TextMeshProUGUI monthDisplay;
-    [SerializeField] TextMeshProUGUI timeRemainingDisplay;
-
-    // Level select UI prefab
-    [SerializeField] GameObject LevelSelectPrefab;
-
+    
     int day = 1;
     float timeElapsed = 0f;
     float tickTime = 1f;
@@ -75,8 +74,6 @@ public class TimeSystem : MonoBehaviour
     {
         SetDay();
         SetMonth();
-        SetTimeRemainingDisplay();
-        AddMonthlyEvent(CountDownLevelTime, 1, false);
         StartCoroutine(DailyTick());
     }
 
@@ -90,7 +87,7 @@ public class TimeSystem : MonoBehaviour
     /** Call this method to add an event to the Time Manager's daily tick queue */
     public static void AddDailyEvent(Action action, int days=1, bool repeat=true)
     {
-        dailyEvents.Add(new TimedEvent{ action = action, timeToRun = days, isRepeating = repeat, timeLeft = days });
+        dailyEvents.Add(new TimedEvent{ action = action, timeToRun = days, isRepeating = repeat, timeLeft = days});
     }
 
     /** Call this method to add an event to the Time Manager's monthly tick queue */
@@ -123,7 +120,7 @@ public class TimeSystem : MonoBehaviour
                     events[i].timeLeft = events[i].timeToRun;
                 }
 
-                continue;
+                break;
             }
         }
     }
@@ -137,6 +134,11 @@ public class TimeSystem : MonoBehaviour
             RunEvents(dailyEvents);
             yield return new WaitForSeconds(tickTime);
         }
+    }
+
+    void MonthlyTick()
+    {
+        RunEvents(monthlyEvents);
     }
 
     /** Set day, based on timeElapsed, and  */
@@ -198,25 +200,5 @@ public class TimeSystem : MonoBehaviour
         {
             numOfDaysInMonth = 31;
         }
-    }
-
-    void CountDownLevelTime()
-    {
-        Inventory.levelTime--;
-        SetTimeRemainingDisplay();
-
-        if (Inventory.levelTime < 1 )
-        {
-            Instantiate(LevelSelectPrefab);
-        }
-        else
-        {
-            AddMonthlyEvent(CountDownLevelTime, 1, false);
-        }
-    }
-
-    void SetTimeRemainingDisplay()
-    {
-        timeRemainingDisplay.text = "Time Remaining in Level: " + Inventory.levelTime + " months.";
     }
 }

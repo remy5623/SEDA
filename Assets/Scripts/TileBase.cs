@@ -1,4 +1,8 @@
+using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
+using UnityEditor;
+using UnityEditor.TerrainTools;
 using UnityEngine;
 
 [CreateAssetMenu(fileName ="TileBase",menuName ="TileBase")]
@@ -12,11 +16,11 @@ public class TileBase : ScriptableObject
     public string tileName;                                       
     [Tooltip("Image (drag and drop to here) (Resolution of Images in UI Spec Sheet")]
     public Sprite icon;                                       
-    [Tooltip("GameObject with 3D static Mesh (Drag and Drop) (Scale See Metrics & Scale (See Grid scale)")]
+    [Tooltip("GameObject with 3D static Mesh (Drag and Drop) (Scale See Metrics & Scale(See Grid scale)")]
     public GameObject mesh;    
     [Tooltip("Number of Tiles on grid Width")]                              
     public int sizeWidth;     
-    [Tooltip("Number of Tiles on grid Length")]
+    [Tooltip("number of Tiles on grid Length")]
     public int sizeLength;                                
     [Tooltip("Structure Types")]
     public StructureTypes structureTypes;                                 
@@ -29,7 +33,7 @@ public class TileBase : ScriptableObject
         Restoration
     }
     [Tooltip("Grab reference and information of the tile under the structure/ the tile this structure is placed on top of.")]
-    public GridObject tileUnder; 
+    public GameObject tileUnder; 
     [Tooltip("List of biomesTypes(levels) this structure can be build within.")]                                 
     public List<BiomeType> biomesTypes;
     public enum BiomeType
@@ -40,17 +44,13 @@ public class TileBase : ScriptableObject
         Highland
     }
 
-    [Tooltip("List of tileTerrainTypes this structure can be placed on.")]
+    [Tooltip(" List of tileTerrainTypes this structure can be placed on.")]
     public List<TileTerrainTypes> tileTerrainTypes;
     public enum TileTerrainTypes
     {
-        Grassland,
-        Wetland,
-        Highland,
-        River,
-        Barrens,
-        Mountain,
-        Water
+        TypeA,
+        TypeB,
+        TypeC
     }
 
     
@@ -100,18 +100,18 @@ public class TileBase : ScriptableObject
     public int baseOutputFood;                        
     [Tooltip("BaseOutput-Construction")]
     public int baseOutputConstruction;                
-    [Tooltip("Multiplier of resources when receiving transferred resources (%)")]
+    [Tooltip("Multiplier of resources when receiving transfererResources (%)")]
     public float buildingOutputMulti;            
     [Tooltip("Multiplier to output resource per level (%)")]
     public float buildingLevelMulti;
     [Tooltip("What stage of production is this structure (1- earliest to 3 latest) Cannot transfer to lower stages.")]
     public int buildingOutputStage;              
-    //[Tooltip("Full output of resources after the full calculation is done.")]
-    //public int buildingCalcOutput;
+    [Tooltip("Full output of resources after the full calculation is done.")]
+    public int buildingCalcOutput;                  
 
     [Header("ResourceCost")]
     [Tooltip("Monthly upkeep cost of sustaining building-Energy?")]
-    public bool upKeepCostEnergy;                      
+    public int upKeepCostEnergy;                      
     [Tooltip("Monthly upkeep cost of sustaining building-Food")]
     public int upKeepCostFood;                       
     [Tooltip("Monthly upkeep cost of sustaining building-Construction")]
@@ -122,10 +122,8 @@ public class TileBase : ScriptableObject
     public bool hasTileImpact;
     [Tooltip("Number of tiles in each direction that this building can Impact. (all 8 directions from centre).")]
     public int impactRadiusTiles;                
-    [Tooltip("Transfers the output food and applies it to the output of the structures in radius.")]
-    public int transferFood;
-    [Tooltip("Transfers the output Construction Materials and applies them to the output of structures in radius.")]
-    public int transferConstruction;
+    [Tooltip("Transfers the output Resource and applies it to the output of the ?")]
+    public int transferResources;                    
     [Tooltip("the object will be impacted.")]
     public GameObject structureOfTypeInRadius;
     [Tooltip("Is this a source of Buffs or nerfs for other structures?")]
@@ -137,5 +135,5 @@ public class TileBase : ScriptableObject
     [Tooltip("list of objects this applies the buff to if insideImpactRadius")]
     public List<TileBase> tileImpactBuff;                            
     [Tooltip("list of objects this applies the nerf to if insideImpactRadius")]
-    public List<TileBase> tileImpactNerf;
+    public List<TileBase> tileImpactNerf;    
 }

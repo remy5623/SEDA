@@ -2,12 +2,6 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 
-# Probuilder user settings
-/[Pp]rojectSettings/Packages/com.unity.probuilder/Settings.json
-
-#Polybrush user settings
-/[Pp]rojectSettings/Packages/com.unity.polybrush/Settings.json
-
 #
 /[Ll]ibrary/
 /[Tt]emp/

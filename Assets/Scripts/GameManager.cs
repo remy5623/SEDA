@@ -4,12 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // GameManager is a singleton with only one instance
-    private GameManager instance;
-
     private SaveData dataManager;
     private GameData gameData;
-
     public int aaa;
     public float bbb;
     public string ccc;
@@ -25,15 +21,7 @@ public class GameManager : MonoBehaviour
     public bool issave;
     private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-            dataManager = GetComponent<SaveData>();
-        }
-        else
-        {
-            Destroy(this);
-        }
+        dataManager = GetComponent<SaveData>();
     }
 
     private void Start()

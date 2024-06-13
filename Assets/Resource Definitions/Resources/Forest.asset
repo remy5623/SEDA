@@ -42,16 +42,16 @@ MonoBehaviour:
   buildingOutputMulti: 0
   buildingLevelMulti: 1
   buildingOutputStage: 1
-  buildingCalcOutput: 0
   upKeepCostEnergy: 0
   upKeepCostFood: 0
   upKeepCostConstruction: 0
   hasTileImpact: 1
   impactRadiusTiles: 5
-  transferResources: 5
+  transferFood: 0
+  transferConstruction: 5
   structureOfTypeInRadius: {fileID: 0}
   impactSource: 1
-  buffAmount: 0
+  buffAmount: 0.5
   nerfAmount: 0
   tileImpactBuff:
   - {fileID: 0}

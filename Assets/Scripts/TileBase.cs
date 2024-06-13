@@ -111,7 +111,7 @@ public class TileBase : ScriptableObject
 
     [Header("ResourceCost")]
     [Tooltip("Monthly upkeep cost of sustaining building-Energy?")]
-    public int upKeepCostEnergy;                      
+    public bool upKeepCostEnergy;                      
     [Tooltip("Monthly upkeep cost of sustaining building-Food")]
     public int upKeepCostFood;                       
     [Tooltip("Monthly upkeep cost of sustaining building-Construction")]

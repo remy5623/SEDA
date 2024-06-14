@@ -5,14 +5,19 @@ public class GridSystem : MonoBehaviour
 {
     [SerializeField] int gridLength = 1;
     [SerializeField] int gridWidth = 1;
-    [SerializeField] int gridHeight = 0;
+    [SerializeField] float gridHeight = 0f;
     [SerializeField] int cellSize = 1;
 
     [SerializeField] GridObject gridObjectPrefab;
 
-    private GridObject[,] gridTiles;
+    GridObject[,] gridTiles;
 
-    public void MakeItWork()
+    private void OnEnable()
+    {
+        GenerateGrid();
+    }
+
+    public void GenerateGrid()
     {
         ClearGrid();
         gridTiles = new GridObject[gridLength, gridWidth];
@@ -21,13 +26,10 @@ public class GridSystem : MonoBehaviour
 
     private void ClearGrid()
     {
-        if (gridTiles != null)
+        gridTiles = null;
+        for (int i = gameObject.transform.childCount - 1; i >= 0; i--)
         {
-            foreach (GridObject gridTile in gridTiles)
-            {
-                DestroyImmediate(gridTile.gameObject);
-            }
-            gridTiles = null;
+            DestroyImmediate(gameObject.transform.GetChild(i).gameObject);
         }
     }
 
@@ -43,12 +45,31 @@ public class GridSystem : MonoBehaviour
                 gridTiles[x, y] = Instantiate(gridObjectPrefab, new Vector3(x * cellSize, gridHeight, y * cellSize), Quaternion.Euler(tileRotation));
                 gridTiles[x, y].transform.localScale = new Vector3(cellSize, cellSize, cellSize);
                 gridTiles[x, y].transform.parent = gameObject.transform;
+                gridTiles[x, y].SetOwningGridSystem(this);
             }
         }
     }
 
-    private void OnDestroy()
+    public GridObject GetGridObject(int x, int z)
     {
-        ClearGrid();
+        if (x < GetGridLength() && z < GetGridWidth())
+            return gridTiles[x, z];
+        else return null;
+    }
+
+    public int GetGridLength() { return gridLength; }
+    public int GetGridWidth() {  return gridWidth; }
+
+    public void ToggleBuildMode(Building buildingType)
+    {
+        BuildSystem.isInBuildMode = !BuildSystem.isInBuildMode;
+
+        for (int x = 0; x < gridLength; x++)
+        { 
+            for (int y = 0; y < gridWidth; y++)
+            {
+                gridTiles[x, y].ToggleBuildModePerTile(buildingType);
+            }
+        }
     }
 }

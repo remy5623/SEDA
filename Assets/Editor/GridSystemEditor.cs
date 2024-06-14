@@ -32,7 +32,7 @@ public class GridSystemEditor : Editor
         
         if(GUILayout.Button("Generate Grid"))
         {
-            _target.MakeItWork();
+            _target.GenerateGrid();
         }
 
     }

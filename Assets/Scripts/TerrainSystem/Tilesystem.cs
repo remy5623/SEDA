@@ -8,6 +8,7 @@ using static UnityEditor.PlayerSettings;
 
 public enum TerrainTypes
 {
+    None,
     Grassland,
     Wetland,
     Highland,
@@ -61,9 +62,7 @@ public class Terrainsystem : MonoBehaviour
     //if the tile has energy
     public bool energy = false;
 
-    private GirdStatus Terrain_gridStatus;
-    public GridSystemTest gridSystem;
-    public GridObject Terran_gridObject;
+    public GridObject owningGridObject;
 
     //the radius in which it gives off energy
     public int radius;
@@ -79,30 +78,24 @@ public class Terrainsystem : MonoBehaviour
             TimeSystem.AddMonthlyEvent(HealthBar);
         }
 
-        //GridPosition pos = gridSystem.GetGridPosition(transform.position);
-        //Terrain_gridStatus = gridSystem.GetGridSystem().GetGridGameObjectsArray()[pos.x + gridSystem.GridWidth, pos.z + gridSystem.GridLength];
-
         InitialTerrainList();
 
-        BuildOnLand();
-        Terran_gridObject = gridSystem.GetGridSystem().GetGridObject(pos);
-        Terran_gridObject.terraintile = this;
         StartCoroutine(Stupidity());
     }
 
     private void TriggerEnergy()
     {
-        GridPosition pos = gridSystem.GetGridPosition(transform.position);
-
         //if the terrain has energy being emitted, then set all the terraintiles' energy bool true.
         if (energy)
         {
+            GridPosition pos = owningGridObject.GetGridPosition();
+
             for (int x = pos.x - radius; x <= pos.x + radius; x++)
             {
                 for (int z = pos.z - radius; z <= pos.z + radius; z++)
                 {
-                    GridObject Energyobj = gridSystem.GetGridSystem().GetGridObject(new GridPosition(x, z));
-                    Energyobj.terraintile.energy = true;
+                    GridObject Energyobj = owningGridObject.GetOwningGridSystem().GetGridObject(x, z);
+                    Energyobj.SetTerrainEnergy(true);
                 }
             }
         }
@@ -207,15 +200,6 @@ public class Terrainsystem : MonoBehaviour
             i++;
         }
         while (i < allowedSoilGrade.Count);
-    }
-
-    void BuildOnLand()
-    {
-        if (terraintype == TerrainTypes.River || terraintype == TerrainTypes.Loch || terraintype == TerrainTypes.Glen)
-        {
-            Terrain_gridStatus.canBuild = false;
-            //print("Can Build? " + Terrain_gridStatus.canBuild);
-        }
     }
 }
 

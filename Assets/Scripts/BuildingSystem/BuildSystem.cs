@@ -6,9 +6,9 @@ using UnityEngine.InputSystem;
 
 public class BuildSystem : MonoBehaviour
 {
-    public GameObject BuildingType1;
-    public GameObject BuildingType2;
-    public GameObject BuildingType3;
+    public Building BuildingType1;
+    public Building BuildingType2;
+    public Building BuildingType3;
 
     [SerializeField]
     InputActionAsset actionAsset;
@@ -16,7 +16,7 @@ public class BuildSystem : MonoBehaviour
     InputAction placeAction;
     InputAction tapLocation;
 
-    public GridSystemTest grid;
+    public static bool isInBuildMode = false;
 
     private void Start()
     {
@@ -34,51 +34,29 @@ public class BuildSystem : MonoBehaviour
         if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag == "Grid" && GameObject.Find("Canvas").GetComponent<BuildingTypeSelect>().isSetB1)
         {
 
-            //Debug.Log(Inventory.food);
-            if (hit.collider.gameObject.GetComponent<GirdStatus>().canBuild && Inventory.food >= BuildingCost.build1CostFood && Inventory.constructionMaterials >= BuildingCost.build1CostMaterials)
+            GridObject hitGridObject;
+            if (hitGridObject = hit.collider.gameObject.GetComponent<GridObject>())
             {
-                GameObject building1 = Instantiate(BuildingType1, hit.collider.gameObject.transform);
-                building1.transform.localPosition = new UnityEngine.Vector3(0, 0, 0);
-                AssignGridObject(building1.GetComponent<PlaceableObject>());
-                Inventory.food -= BuildingCost.build1CostFood;
-                Inventory.constructionMaterials -= BuildingCost.build1CostMaterials;
-                hit.collider.gameObject.GetComponent<GirdStatus>().canBuild = false;
+                hitGridObject.TryBuild(BuildingType1);
             }
         }
 
         else if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag == "Grid" && GameObject.Find("Canvas").GetComponent<BuildingTypeSelect>().isSetB2)
         {
-            if (hit.collider.gameObject.GetComponent<GirdStatus>().canBuild && Inventory.food >= BuildingCost.build2CostFood && Inventory.constructionMaterials >= BuildingCost.build2CostMaterials)
+            GridObject hitGridObject;
+            if (hitGridObject = hit.collider.gameObject.GetComponent<GridObject>())
             {
-                GameObject building2 = Instantiate(BuildingType2, hit.collider.gameObject.transform);
-                building2.transform.localPosition = new UnityEngine.Vector3(0, 0, 0);
-                AssignGridObject(building2.GetComponent<PlaceableObject>());
-                Inventory.food -= BuildingCost.build2CostFood;
-                Inventory.constructionMaterials -= BuildingCost.build2CostMaterials;
-                hit.collider.gameObject.GetComponent<GirdStatus>().canBuild = false;
+                hitGridObject.TryBuild(BuildingType2);
             }
         }
 
         else if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag == "Grid" && GameObject.Find("Canvas").GetComponent<BuildingTypeSelect>().isSetB3)
         {
-            if (hit.collider.gameObject.GetComponent<GirdStatus>().canBuild && Inventory.food >= BuildingCost.build3CostFood && Inventory.constructionMaterials >= BuildingCost.build3CostMaterials)
+            GridObject hitGridObject;
+            if (hitGridObject = hit.collider.gameObject.GetComponent<GridObject>())
             {
-                GameObject building3 = Instantiate(BuildingType3, hit.collider.gameObject.transform);
-                building3.transform.localPosition = new UnityEngine.Vector3(0, 0, 0);
-                AssignGridObject(building3.GetComponent<PlaceableObject>());
-                Inventory.food -= BuildingCost.build3CostFood;
-                Inventory.constructionMaterials -= BuildingCost.build3CostMaterials;
-                hit.collider.gameObject.GetComponent<GirdStatus>().canBuild = false;
+                hitGridObject.TryBuild(BuildingType3);
             }
         }
     }
-
-    void AssignGridObject(PlaceableObject builtObject)
-    {
-        if (builtObject)
-        {
-            //builtObject.SetGridObject(grid.GetGridSystem().GetGridObject(grid.GetGridSystem().GetGridPosition(builtObject.transform.position)));
-        }
-    }
-
 }

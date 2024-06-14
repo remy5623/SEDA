@@ -63,12 +63,12 @@ public class BuildingTypeSelect : MonoBehaviour
             isSetB1 = true;
             isSetB2 = false;
             isSetB3 = false;
-            BuildingCanPlace(1, gridSystem.GetGridGameObjectsArray());
+            //BuildingCanPlace(1, gridSystem.GetGridGameObjectsArray());
         }
         else if(isSetB1 )
         {
             isSetB1 = false;
-            BuildingCantPlace(1, gridSystem.GetGridGameObjectsArray());
+            //BuildingCantPlace(1, gridSystem.GetGridGameObjectsArray());
         }
     }
 
@@ -79,12 +79,12 @@ public class BuildingTypeSelect : MonoBehaviour
             isSetB2 = true;
             isSetB1 = false;
             isSetB3 = false;
-            BuildingCanPlace(2, gridSystem.GetGridGameObjectsArray());
+            //BuildingCanPlace(2, gridSystem.GetGridGameObjectsArray());
         }
         else if (isSetB2 )
         {
             isSetB2 = false;
-            BuildingCantPlace(2, gridSystem.GetGridGameObjectsArray());
+            //BuildingCantPlace(2, gridSystem.GetGridGameObjectsArray());
         }
     }
 
@@ -95,12 +95,12 @@ public class BuildingTypeSelect : MonoBehaviour
             isSetB3 = true;
             isSetB1 = false;
             isSetB2 = false;
-            BuildingCanPlace(3, gridSystem.GetGridGameObjectsArray());
+            //BuildingCanPlace(3, gridSystem.GetGridGameObjectsArray());
         }
         else if (isSetB3)
         {
             isSetB3 = false;
-            BuildingCantPlace(3, gridSystem.GetGridGameObjectsArray());
+            //BuildingCantPlace(3, gridSystem.GetGridGameObjectsArray());
         }
     }
 

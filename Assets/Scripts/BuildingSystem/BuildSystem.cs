@@ -77,7 +77,7 @@ public class BuildSystem : MonoBehaviour
     {
         if (builtObject)
         {
-            builtObject.SetGridObject(grid.GetGridSystem().GetGridObject(grid.GetGridSystem().GetGridPosition(builtObject.transform.position)));
+            //builtObject.SetGridObject(grid.GetGridSystem().GetGridObject(grid.GetGridSystem().GetGridPosition(builtObject.transform.position)));
         }
     }
 

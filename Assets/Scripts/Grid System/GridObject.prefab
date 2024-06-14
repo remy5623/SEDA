@@ -12,10 +12,9 @@ GameObject:
   - component: {fileID: 1486895880491653406}
   - component: {fileID: 1258229375505464589}
   - component: {fileID: 6627486431839341230}
-  - component: {fileID: 4849597586462865825}
-  - component: {fileID: 3444997789527377548}
+  - component: {fileID: 958931572466477354}
   m_Layer: 7
-  m_Name: GridDebugObject
+  m_Name: GridObject
   m_TagString: Grid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 486092991726400782}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.02, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -108,7 +107,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &4849597586462865825
+--- !u!114 &958931572466477354
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -117,23 +116,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 486092991726400782}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c5e63ef8e7d0d242a696a8de0a5837a, type: 3}
+  m_Script: {fileID: 11500000, guid: c7814512a3fb24041b21654c4d0e1f12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textMeshPro: {fileID: 0}
-  tilebase: {fileID: 11400000, guid: d4dc5fcd7ffb0eb409b00f32cfa2bf0a, type: 2}
-  terrainsystem: {fileID: 0}
---- !u!114 &3444997789527377548
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 486092991726400782}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ab1b1873fb3ff349943ba6e8cc4d2b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canBuild: 1
-  Buildmode: 0

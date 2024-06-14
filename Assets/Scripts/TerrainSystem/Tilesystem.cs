@@ -217,6 +217,7 @@ public class Terrainsystem : MonoBehaviour
             Terrain_gridStatus.canBuild = false;
             //print("Can Build? " + Terrain_gridStatus.canBuild);
         }
+        
     }
 }
 

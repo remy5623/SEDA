@@ -9,6 +9,7 @@ public class Building : MonoBehaviour
     private void Start()
     {
         PayConstructionCosts();
+        resourceData.tileUnder.GetOwningGridSystem().ToggleBuildMode(this, true);
         //Impact();
 
         if ( !resourceData.isResourceTapped )

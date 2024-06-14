@@ -42,7 +42,7 @@ public class GridSystem : MonoBehaviour
         {
             for (int y = 0;  y < gridWidth; y++)
             {
-                gridTiles[x, y] = Instantiate(gridObjectPrefab, new Vector3(x * cellSize, gridHeight, y * cellSize), Quaternion.Euler(tileRotation));
+                gridTiles[x, y] = Instantiate(gridObjectPrefab, new Vector3(gameObject.transform.position.x + x * cellSize, gridHeight, gameObject.transform.position.z + y * cellSize), Quaternion.Euler(tileRotation));
                 gridTiles[x, y].transform.localScale = new Vector3(cellSize, cellSize, cellSize);
                 gridTiles[x, y].transform.parent = gameObject.transform;
                 gridTiles[x, y].SetOwningGridSystem(this);
@@ -60,9 +60,10 @@ public class GridSystem : MonoBehaviour
     public int GetGridLength() { return gridLength; }
     public int GetGridWidth() {  return gridWidth; }
 
-    public void ToggleBuildMode(Building buildingType)
+    public void ToggleBuildMode(Building buildingType, bool BuildModeOn)
     {
-        BuildSystem.isInBuildMode = !BuildSystem.isInBuildMode;
+       
+        BuildSystem.isInBuildMode = BuildModeOn;
 
         for (int x = 0; x < gridLength; x++)
         { 

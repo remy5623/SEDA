@@ -22,10 +22,10 @@ MonoBehaviour:
   tileUnder: {fileID: 0}
   biomesTypes: 02000000
   tileTerrainTypes: 
-  canBuild: 0
+  canBuild: 1
   buildTime: 0
   buildingCostEnergy: 0
-  buildingCostFood: 0
+  buildingCostFood: 20
   buildingCostConstruction: 0
   buildingUpgradeCostEnergy: 0
   buildingUpgradeCostFood: 0

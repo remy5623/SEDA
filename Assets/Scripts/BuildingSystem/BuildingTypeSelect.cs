@@ -58,10 +58,11 @@ public class BuildingTypeSelect : MonoBehaviour
             isSetB1 = true;
             isSetB2 = false;
             isSetB3 = false;
-            gridSystem.ToggleBuildMode(buildingPrefab);
+            gridSystem.ToggleBuildMode(buildingPrefab, true);
         }
         else if(isSetB1 )
         {
+            gridSystem.ToggleBuildMode(buildingPrefab, false);
             isSetB1 = false;
             //BuildingCantPlace(1, gridSystem.GetGridGameObjectsArray());
         }
@@ -74,10 +75,12 @@ public class BuildingTypeSelect : MonoBehaviour
             isSetB2 = true;
             isSetB1 = false;
             isSetB3 = false;
-            gridSystem.ToggleBuildMode(buildingPrefab);
+            gridSystem.ToggleBuildMode(buildingPrefab, true);
         }
         else if (isSetB2 )
         {
+            gridSystem.ToggleBuildMode(buildingPrefab, false);
+
             isSetB2 = false;
         }
     }
@@ -89,10 +92,12 @@ public class BuildingTypeSelect : MonoBehaviour
             isSetB3 = true;
             isSetB1 = false;
             isSetB2 = false;
-            gridSystem.ToggleBuildMode(buildingPrefab);
+            gridSystem.ToggleBuildMode(buildingPrefab, true);
         }
         else if (isSetB3)
         {
+            gridSystem.ToggleBuildMode(buildingPrefab, false);
+
             isSetB3 = false;
             //BuildingCantPlace(3, gridSystem.GetGridGameObjectsArray());
         }

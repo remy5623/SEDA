@@ -10,6 +10,7 @@ public class GridObject : MonoBehaviour
 
     private void Start()
     {
+        gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
         // Check for the terrain type under this GridObject, and set references to it
         RaycastHit hit;
         if (Physics.Raycast(transform.position, Vector3.down, out hit, Mathf.Infinity, LayerMask.GetMask("Terrain")))
@@ -29,19 +30,21 @@ public class GridObject : MonoBehaviour
     public void ToggleBuildModePerTile(Building buildingType)
     {
         Color transparentWhite = new Color(1, 1, 1, 0f);
-        Color transparentGreen = new Color(0, 1, 0, 0.3f);
-        Color transparentRed = new Color(1, 0, 0, 0.3f);
+        Color transparentGreen = new Color(0, 1, 0, 0.5f);
+        Color transparentRed = new Color(1, 0, 0, 0.5f);
 
         if (!BuildSystem.isInBuildMode)
         {
-            gameObject.GetComponentInChildren<MeshRenderer>().material.color = transparentWhite;
+            gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
         }
         else if (CanBuildOnTile(buildingType))
         {
+            gameObject.GetComponentInChildren<MeshRenderer>().enabled = true;
             gameObject.GetComponentInChildren<MeshRenderer>().material.color = transparentGreen;
         }
         else
         {
+            gameObject.GetComponentInChildren<MeshRenderer>().enabled = true;
             gameObject.GetComponentInChildren<MeshRenderer>().material.color = transparentRed;
         }
     }
@@ -64,7 +67,6 @@ public class GridObject : MonoBehaviour
             buildingInstance = Instantiate(building.gameObject, transform).GetComponent<Building>();
             buildingInstance.transform.localPosition = Vector3.zero;
             buildingInstance.SetGridObject(this);
-            ToggleBuildModePerTile(building);
             return true;
         }
         return false;

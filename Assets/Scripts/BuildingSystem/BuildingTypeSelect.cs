@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class BuildingTypeSelect : MonoBehaviour
 {
-    private GridSystem gridSystem;
+    public GridSystem gridSystem;
     [Header("Three Button")]
     public GameObject building1Button;
     public GameObject building2Button;
@@ -19,11 +19,6 @@ public class BuildingTypeSelect : MonoBehaviour
     public bool isSetB3;
     public GameObject array;
     public Transform[,] gridGameObjectsArray;
-    public void Start()
-    {
-        gridSystem = array.GetComponent<GridSystemTest>().GetGridSystem();
-
-    }
     void Update()
     {
         ColorChange(building1Button, building2Button, building3Button);
@@ -56,49 +51,62 @@ public class BuildingTypeSelect : MonoBehaviour
         }
     }
 
-    public void SelectBuildingOne()
+    public void SelectBuildingOne(Building buildingPrefab)
     {
         if (!isSetB1)
         {
             isSetB1 = true;
             isSetB2 = false;
             isSetB3 = false;
-            BuildingCanPlace(1, gridSystem.GetGridGameObjectsArray());
+
+            gridSystem.ToggleBuildMode(buildingPrefab, true);
+
         }
         else if(isSetB1 )
         {
+            gridSystem.ToggleBuildMode(buildingPrefab, false);
             isSetB1 = false;
             BuildingCantPlace(1, gridSystem.GetGridGameObjectsArray());
         }
     }
 
-    public void SelectBuildingTwo()
+    public void SelectBuildingTwo(Building buildingPrefab)
     {
         if (!isSetB2 )
         {
             isSetB2 = true;
             isSetB1 = false;
             isSetB3 = false;
-            BuildingCanPlace(2, gridSystem.GetGridGameObjectsArray());
+
+            gridSystem.ToggleBuildMode(buildingPrefab, true);
+
         }
         else if (isSetB2 )
         {
+            gridSystem.ToggleBuildMode(buildingPrefab, false);
+
             isSetB2 = false;
+
             BuildingCantPlace(2, gridSystem.GetGridGameObjectsArray());
+
         }
     }
 
-    public void SelectBuildingThree()
+    public void SelectBuildingThree(Building buildingPrefab)
     {
         if (!isSetB3)
         {
             isSetB3 = true;
             isSetB1 = false;
             isSetB2 = false;
-            BuildingCanPlace(3, gridSystem.GetGridGameObjectsArray());
+
+            gridSystem.ToggleBuildMode(buildingPrefab, true);
+
         }
         else if (isSetB3)
         {
+            gridSystem.ToggleBuildMode(buildingPrefab, false);
+
             isSetB3 = false;
             BuildingCantPlace(3, gridSystem.GetGridGameObjectsArray());
         }

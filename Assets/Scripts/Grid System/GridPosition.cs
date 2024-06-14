@@ -7,10 +7,10 @@ public struct GridPosition : IEquatable<GridPosition>
 {
     public int x;
     public int z;
-    public GridPosition(int x,int z)
+    public GridPosition(float x,float z)
     {
-        this.x=x;
-        this.z=z;
+        this.x=Mathf.RoundToInt(x);
+        this.z=Mathf.RoundToInt(z);
     }
     public override string ToString()
     {

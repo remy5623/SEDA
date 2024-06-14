@@ -6,6 +6,8 @@ public class Resource : PlaceableObject
     TileBase resourceData;
 
     float buff;
+    float nerf;
+
 
     private void Start()
     {
@@ -22,8 +24,8 @@ public class Resource : PlaceableObject
     /** Generate resources according to the following equation: Base Output * Building Level * Building Stage */
     public void UpdateResources()
     {
-        Inventory.food += Mathf.FloorToInt(resourceData.baseOutputFood * resourceData.buildingLevelMulti * resourceData.buildingOutputStage * (1+buff));
-        Inventory.constructionMaterials += Mathf.FloorToInt(resourceData.baseOutputConstruction * resourceData.buildingLevelMulti * resourceData.buildingOutputStage * (1+buff));
+        Inventory.food += Mathf.FloorToInt(resourceData.baseOutputFood * resourceData.buildingLevelMulti * resourceData.buildingOutputStage * (1+buff+ nerf));
+        Inventory.constructionMaterials += Mathf.FloorToInt(resourceData.baseOutputConstruction * resourceData.buildingLevelMulti * resourceData.buildingOutputStage * (1+buff+ nerf));
     }
     
     public void PayUpkeep()

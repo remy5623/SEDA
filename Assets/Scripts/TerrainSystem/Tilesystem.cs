@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using static UnityEditor.PlayerSettings;
 
 
 public enum TerrainTypes
@@ -23,11 +24,11 @@ public class Terrainsystem : MonoBehaviour
     public SoilType soilType;
     public enum SoilType
     {
-        A = 110,
-        B = 105,
-        C = 100,
-        D = 95,
-        E = 90
+        A = 100,
+        B = 80,
+        C = 60,
+        D = 40,
+        E = 20
     }
 
     public List<SoilType> allowedSoilGrade;
@@ -35,7 +36,7 @@ public class Terrainsystem : MonoBehaviour
  
     private SoilType soiltype = new SoilType();
     public bool ResourceAffect;
-    private GameObject terraintyp;
+    
 
     /*enum WaterType
     {
@@ -56,12 +57,13 @@ public class Terrainsystem : MonoBehaviour
 
     [SerializeField] public TerrainTypes terraintype;
 
-
+   
     //if the tile has energy
     public bool energy = false;
 
     private GirdStatus Terrain_gridStatus;
     public GridSystemTest gridSystem;
+    public GridObject Terran_gridObject;
 
     //the radius in which it gives off energy
     public int radius;
@@ -69,34 +71,55 @@ public class Terrainsystem : MonoBehaviour
     //the total health of the soil (A to E grade)
     int health;
 
-    //reference to Gridsystem GRID
-
 
     private void Start()
     {
+        if (ResourceAffect)
+        {
+            TimeSystem.AddMonthlyEvent(HealthBar);
+        }
+
         //GridPosition pos = gridSystem.GetGridPosition(transform.position);
         //Terrain_gridStatus = gridSystem.GetGridSystem().GetGridGameObjectsArray()[pos.x + gridSystem.GridWidth, pos.z + gridSystem.GridLength];
 
         InitialTerrainList();
 
         BuildOnLand();
+        Terran_gridObject = gridSystem.GetGridSystem().GetGridObject(pos);
+        Terran_gridObject.terraintile = this;
+        StartCoroutine(Stupidity());
     }
 
     private void TriggerEnergy()
     {
+        GridPosition pos = gridSystem.GetGridPosition(transform.position);
+
         //if the terrain has energy being emitted, then set all the terraintiles' energy bool true.
         if (energy)
         {
-            for (int x = -(radius); x != radius; x++)
+            for (int x = pos.x - radius; x <= pos.x + radius; x++)
             {
-                for (int y = -radius; y != radius; y++)
+                for (int z = pos.z - radius; z <= pos.z + radius; z++)
                 {
-                    Debug.Log(radius);
-                    //Tile[x,y].energy = true;
+                    GridObject Energyobj = gridSystem.GetGridSystem().GetGridObject(new GridPosition(x, z));
+                    Energyobj.terraintile.energy = true;
                 }
             }
-
         }
+    }
+
+    IEnumerator Stupidity()
+    {
+        yield return new WaitForSeconds(10);
+        //TriggerEnergy();
+        //HealthBar();
+    }
+
+    void HealthBar()
+    {
+        Inventory.count++;
+        Inventory.totalhealth += (int)soilType; 
+        Inventory.HealthBarChange();
     }
 
     void InitialTerrainList()
@@ -143,6 +166,8 @@ public class Terrainsystem : MonoBehaviour
                     break;
                 }
         }
+
+        
     }
 
     void ChangeinGrade()

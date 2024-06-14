@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1258229375505464589}
   - component: {fileID: 6627486431839341230}
   - component: {fileID: 4849597586462865825}
-  - component: {fileID: 3444997789527377548}
+  - component: {fileID: 2543459140847164777}
   m_Layer: 7
   m_Name: GridDebugObject
   m_TagString: Grid
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 486092991726400782}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c5e63ef8e7d0d242a696a8de0a5837a, type: 3}
   m_Name: 
@@ -123,7 +123,7 @@ MonoBehaviour:
   textMeshPro: {fileID: 0}
   tilebase: {fileID: 11400000, guid: d4dc5fcd7ffb0eb409b00f32cfa2bf0a, type: 2}
   terrainsystem: {fileID: 0}
---- !u!114 &3444997789527377548
+--- !u!114 &2543459140847164777
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -132,8 +132,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 486092991726400782}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ab1b1873fb3ff349943ba6e8cc4d2b4, type: 3}
+  m_Script: {fileID: 11500000, guid: c7814512a3fb24041b21654c4d0e1f12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBuild: 1
-  Buildmode: 0

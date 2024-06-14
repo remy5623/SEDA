@@ -52,7 +52,7 @@ public class GridSystem : MonoBehaviour
 
     public GridObject GetGridObject(int x, int z)
     {
-        if (x < GetGridLength() && z < GetGridWidth())
+        if (x >= 0 && z >= 0 && x < GetGridLength() && z < GetGridWidth())
             return gridTiles[x, z];
         else return null;
     }
@@ -73,4 +73,7 @@ public class GridSystem : MonoBehaviour
             }
         }
     }
+
+    public int GetCellSize()
+    { return cellSize; }
 }

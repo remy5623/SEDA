@@ -107,7 +107,7 @@ public class GridObject : MonoBehaviour
 
     public GridPosition GetGridPosition()
     {
-        return new GridPosition(transform.position.x, transform.position.z);
+        return new GridPosition(transform.localPosition.x / GetOwningGridSystem().GetCellSize(), transform.localPosition.z / GetOwningGridSystem().GetCellSize());
     }
 
     public Building GetBuilding()

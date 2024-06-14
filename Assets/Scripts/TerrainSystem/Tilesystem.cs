@@ -97,7 +97,10 @@ public class Terrainsystem : MonoBehaviour
                 for (int z = pos.z - radius; z <= pos.z + radius; z++)
                 {
                     GridObject Energyobj = owningGridObject.GetOwningGridSystem().GetGridObject(x, z);
-                    Energyobj.SetTerrainEnergy(true);
+                    if (Energyobj != null)
+                    {
+                        Energyobj.SetTerrainEnergy(true);
+                    }
                 }
             }
         }
@@ -106,7 +109,7 @@ public class Terrainsystem : MonoBehaviour
     IEnumerator Stupidity()
     {
         yield return new WaitForSeconds(10);
-        //TriggerEnergy();
+        TriggerEnergy();
         //HealthBar();
     }
 

@@ -66,7 +66,7 @@ public class BuildingTypeSelect : MonoBehaviour
         {
             gridSystem.ToggleBuildMode(buildingPrefab, false);
             isSetB1 = false;
-            BuildingCantPlace(1, gridSystem.GetGridGameObjectsArray());
+
         }
     }
 
@@ -87,7 +87,7 @@ public class BuildingTypeSelect : MonoBehaviour
 
             isSetB2 = false;
 
-            BuildingCantPlace(2, gridSystem.GetGridGameObjectsArray());
+            
 
         }
     }
@@ -108,7 +108,7 @@ public class BuildingTypeSelect : MonoBehaviour
             gridSystem.ToggleBuildMode(buildingPrefab, false);
 
             isSetB3 = false;
-            BuildingCantPlace(3, gridSystem.GetGridGameObjectsArray());
+            
         }
     }
 

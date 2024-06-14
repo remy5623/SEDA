@@ -11,7 +11,7 @@ public class Resource : PlaceableObject
 
     private void Start()
     {
-        //Impact();
+        Impact();
 
         if ( !resourceData.isResourceTapped )
         {
@@ -38,10 +38,10 @@ public class Resource : PlaceableObject
     {
         base.SetGridObject(gridObject);
         resourceData.tileUnder = gridObject;
-        //gridObject.objectOnTile = this;
+        gridObject.objectOnTile = this;
     }
 
-/*    public void Impact()
+    public void Impact()
     {
         GridPosition pos = owningGridObject.GridPosition;
         int radius = resourceData.impactRadiusTiles;
@@ -63,7 +63,7 @@ public class Resource : PlaceableObject
                 }
             }
         }
-    }*/
+    }
 
     public void TransferFood(int food)
     {

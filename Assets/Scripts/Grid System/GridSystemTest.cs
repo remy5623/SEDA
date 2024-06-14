@@ -21,15 +21,15 @@ public class GridSystemTest : MonoBehaviour
 
         Instance = this;
 
-        //gridSystem = new GridSystem(GridLength, GridWidth, 2);
+        gridSystem = new GridSystem(GridLength, GridWidth, 2);
         
-        //gridSystem.CreateDebugOjbects(debugObject);
+        gridSystem.CreateDebugOjbects(debugObject);
 
         //Debug.Log(gridSystem.GetGridGameObjectsArray()[1, 1].ToString());
 
     }
 
-/*    public GridPosition GetGridPosition(Vector3 worldPosition)
+    public GridPosition GetGridPosition(Vector3 worldPosition)
     {
         return gridSystem.GetGridPosition(worldPosition);
     }
@@ -37,7 +37,7 @@ public class GridSystemTest : MonoBehaviour
     public Vector3 GetWorldPosition(GridPosition gridPosition)
     {
         return gridSystem.GetWorldPosition(gridPosition);
-    }*/
+    }
 
     public GridSystem GetGridSystem()
     {

@@ -33,11 +33,11 @@ public class MouseWorld : MonoBehaviour
     //Once mouse clicked, return value based on where the mouse is.
     public void DebugMouseClick()
     {
-/*        if(Mouse.current.leftButton.isPressed)
+        if(Mouse.current.leftButton.isPressed)
         {
             gridPosition= GridSystemTest.Instance.GetGridPosition(MouseWorld.GetPosition());
             Debug.Log(gridPosition);
-        }*/
+        }
     
     }
 }

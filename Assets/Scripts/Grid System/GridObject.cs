@@ -9,6 +9,7 @@ public class GridObject : UnityEngine.Object
     public GridPosition GridPosition { get; private set; }
     public GridSystem GridSystem { get; private set; }
     public PlaceableObject objectOnTile;
+    public Terrainsystem terraintile;
 
     public GridObject(GridPosition gridPosition,GridSystem gridSystem)
     {

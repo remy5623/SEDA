@@ -30,13 +30,20 @@ public class Inventory : MonoBehaviour
 
     public static int overworldTime;
     public static int levelTime;
-    
     public static int food = 100;
     public static int constructionMaterials;
+    public static int healthBar = 0;
+    public static int totalhealth = 0;
+    public static int count = 0;
+
 
     [SerializeField]
     [InspectorName("Initial Overworld Time (years)")]
     private int initialOverworldTime;
+
+    [SerializeField] TextMeshProUGUI foodDisplay;
+    [SerializeField] TextMeshProUGUI constructionMaterialDisplay;
+    [SerializeField] TextMeshProUGUI healthBarDisplay;
 
 
     /** The Inventory is a singleton
@@ -54,6 +61,13 @@ public class Inventory : MonoBehaviour
         {
             Destroy(this);
         }
+    }
+
+    private void Update()
+    {
+        foodDisplay.text = "Food: " + food;
+        constructionMaterialDisplay.text = "Construction Materials: " + constructionMaterials;
+        healthBarDisplay.text = "HealthBar: " + healthBar;
     }
 
     public static void SpendFood(int foodSpent)
@@ -80,5 +94,13 @@ public class Inventory : MonoBehaviour
     {
         food = 0;
         constructionMaterials = 0;
+    }
+
+    public static void HealthBarChange()
+    {
+        healthBar =  totalhealth  / count;
+        Debug.Log("TotalHealth : " + totalhealth);
+        Debug.Log("Count : " + count);
+        Debug.Log("Healthbar : " + healthBar);
     }
 }

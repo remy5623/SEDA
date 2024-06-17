@@ -24,29 +24,22 @@ public class Inventory : MonoBehaviour
     [SerializeField] TextMeshProUGUI constructionMaterialDisplay;
     [SerializeField] TextMeshProUGUI healthBarDisplay;
 
-
-    /** The Inventory is a singleton
-     *  There is only one Inventory active at any given time
-     */
-    private void Awake()
+    private void Start()
     {
-        if (instance == null)
+        if (initialOverworldTime > 0)
         {
-            instance = this;
             overworldTime = initialOverworldTime;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(this);
         }
     }
 
     private void Update()
     {
-        foodDisplay.text = "Food: " + food;
-        constructionMaterialDisplay.text = "Construction Materials: " + constructionMaterials;
-        healthBarDisplay.text = "HealthBar: " + healthBar;
+        if (foodDisplay && constructionMaterialDisplay && healthBarDisplay)
+        {
+            foodDisplay.text = "Food: " + food;
+            constructionMaterialDisplay.text = "Construction Materials: " + constructionMaterials;
+            healthBarDisplay.text = "HealthBar: " + healthBar;
+        }
     }
 
     public static void SpendFood(int foodSpent)

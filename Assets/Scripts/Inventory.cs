@@ -26,19 +26,14 @@ public class Inventory : MonoBehaviour
 
     private void Start()
     {
-        if (initialOverworldTime > 0)
+        if (instance == null)
         {
+            instance = this;
             overworldTime = initialOverworldTime;
         }
-    }
-
-    private void Update()
-    {
-        if (foodDisplay && constructionMaterialDisplay && healthBarDisplay)
+        else
         {
-            foodDisplay.text = "Food: " + food;
-            constructionMaterialDisplay.text = "Construction Materials: " + constructionMaterials;
-            healthBarDisplay.text = "HealthBar: " + healthBar;
+            Destroy(gameObject);
         }
     }
 

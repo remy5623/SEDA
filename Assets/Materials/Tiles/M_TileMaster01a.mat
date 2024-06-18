@@ -116,8 +116,8 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Hydration: 0.777
-    - _ManualSliders_ForDemo: 0
+    - _Hydration: 1
+    - _ManualSliders_ForDemo: 1
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
@@ -126,7 +126,7 @@ Material:
     - _ReceiveShadows: 1
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
-    - _SoilOutput: 0.827
+    - _SoilOutput: 0.977
     - _SoilQuality: 1
     - _SpecularHighlights: 1
     - _SrcBlend: 1

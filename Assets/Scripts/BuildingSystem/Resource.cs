@@ -29,11 +29,16 @@ public class Resource : MonoBehaviour
         Inventory.SpendMaterials(resourceData.buildingCostConstruction);
     }
 
-    /** Generate resources according to the following equation: Base Output * Building Level * Building Stage */
+    /** Generate resources according to the following equation: Base Output * Building Level * Building Stage * buffs/nerfs * total crop output level */
     public void UpdateResources()
     {
-        Inventory.food += Mathf.FloorToInt(resourceData.baseOutputFood * resourceData.buildingLevelMulti * resourceData.buildingOutputStage * (1+buff+ nerf));
-        Inventory.constructionMaterials += Mathf.FloorToInt(resourceData.baseOutputConstruction * resourceData.buildingLevelMulti * resourceData.buildingOutputStage * (1+buff+ nerf));
+        if (!Inventory.isFlooding)
+        {
+            Inventory.food += Mathf.FloorToInt(resourceData.baseOutputFood * resourceData.buildingLevelMulti * resourceData.buildingOutputStage * (1 + buff + nerf) 
+                * Inventory.cropOutput);
+            Inventory.constructionMaterials += Mathf.FloorToInt(resourceData.baseOutputConstruction * resourceData.buildingLevelMulti * resourceData.buildingOutputStage 
+                * (1 + buff + nerf) * Inventory.cropOutput);
+        }
     }
     
     public void PayUpkeep()

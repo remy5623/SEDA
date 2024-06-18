@@ -22,8 +22,12 @@ public class Inventory : MonoBehaviour
     public static int numOfRocks = 0;
 
     // Weather events status
+    static bool isWeatherEventActive = false;
     static bool hasTornadoHappened = false;
     static bool hasFloodHappened = false;
+
+    public static float cropOutput = 1f;
+    public static bool isFlooding = false;
 
     [SerializeField]
     [InspectorName("Initial Overworld Time (years)")]
@@ -80,16 +84,27 @@ public class Inventory : MonoBehaviour
         Debug.Log("Healthbar : " + healthBar);
     }
 
-    public static void CheckWeather()
+    public static void SetWeather()
     {
-        if (!hasTornadoHappened && numOfLoggingCamps > (numOfForests / 2f))
+        if (isWeatherEventActive)
         {
-            // TODO: Do Tornado
+            isWeatherEventActive = false;
+            cropOutput = 1f;
+            isFlooding = false;
+        }
+        else if (!hasTornadoHappened && numOfLoggingCamps > (numOfForests / 2f))
+        {
+            isWeatherEventActive = true;
+            cropOutput = 0.7f;
+            hasTornadoHappened = true;
         }
         // TODO: Else if Cailleach weather
         else if (!hasFloodHappened && numOfMines > (numOfRocks / 2f))
         {
-            // TODO: Do Flood
+            isWeatherEventActive = true;
+            cropOutput = 0.9f;
+            isFlooding = true;
+            hasFloodHappened = true;
         }
     }
 }

@@ -77,7 +77,7 @@ public class TimeSystem : MonoBehaviour
         SetMonth();
         SetTimeRemainingDisplay();
         AddMonthlyEvent(CountDownLevelTime, 1, false);
-        AddMonthlyEvent(Inventory.CheckWeather);
+        AddMonthlyEvent(Inventory.SetWeather);
         StartCoroutine(DailyTick());
     }
 

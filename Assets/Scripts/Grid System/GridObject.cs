@@ -6,7 +6,7 @@ public class GridObject : MonoBehaviour
 
     Terrainsystem terrain;
     TerrainTypes terrainType;
-    Building buildingInstance;
+    Resource buildingInstance;
 
     private void Start()
     {
@@ -27,7 +27,7 @@ public class GridObject : MonoBehaviour
         }
     }
 
-    public void ToggleBuildModePerTile(Building buildingType)
+    public void ToggleBuildModePerTile(Resource buildingType)
     {
         Color transparentWhite = new Color(1, 1, 1, 0f);
         Color transparentGreen = new Color(0, 1, 0, 0.5f);
@@ -60,11 +60,11 @@ public class GridObject : MonoBehaviour
     }
 
     // Instantiates a building on top of this tile.
-    public bool TryBuild(Building building)
+    public bool TryBuild(Resource building)
     {
         if (CanBuildOnTile(building))
         {
-            buildingInstance = Instantiate(building.gameObject, transform).GetComponent<Building>();
+            buildingInstance = Instantiate(building.gameObject, transform).GetComponent<Resource>();
             buildingInstance.transform.localPosition = Vector3.zero;
             buildingInstance.SetGridObject(this);
             return true;
@@ -73,7 +73,7 @@ public class GridObject : MonoBehaviour
     }
 
     // Returns whether an object can be built on this GridObject
-    public bool CanBuildOnTile(Building building)
+    public bool CanBuildOnTile(Resource building)
     {
         bool canBuild = true;
 
@@ -110,7 +110,7 @@ public class GridObject : MonoBehaviour
         return new GridPosition(transform.localPosition.x / GetOwningGridSystem().GetCellSize(), transform.localPosition.z / GetOwningGridSystem().GetCellSize());
     }
 
-    public Building GetBuilding()
+    public Resource GetBuilding()
     { return buildingInstance; }
 
     public void SetTerrainEnergy(bool hasEnergy)

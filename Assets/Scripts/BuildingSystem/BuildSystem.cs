@@ -6,9 +6,9 @@ using UnityEngine.InputSystem;
 
 public class BuildSystem : MonoBehaviour
 {
-    public Building BuildingType1;
-    public Building BuildingType2;
-    public Building BuildingType3;
+    public Resource BuildingType1;
+    public Resource BuildingType2;
+    public Resource BuildingType3;
 
     [SerializeField]
     InputActionAsset actionAsset;

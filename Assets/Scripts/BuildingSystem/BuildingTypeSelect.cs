@@ -51,7 +51,7 @@ public class BuildingTypeSelect : MonoBehaviour
         }
     }
 
-    public void SelectBuildingOne(Building buildingPrefab)
+    public void SelectBuildingOne(Resource buildingPrefab)
     {
         if (!isSetB1)
         {
@@ -70,7 +70,7 @@ public class BuildingTypeSelect : MonoBehaviour
         }
     }
 
-    public void SelectBuildingTwo(Building buildingPrefab)
+    public void SelectBuildingTwo(Resource buildingPrefab)
     {
         if (!isSetB2 )
         {
@@ -92,7 +92,7 @@ public class BuildingTypeSelect : MonoBehaviour
         }
     }
 
-    public void SelectBuildingThree(Building buildingPrefab)
+    public void SelectBuildingThree(Resource buildingPrefab)
     {
         if (!isSetB3)
         {

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Building : MonoBehaviour
+public class Resource : MonoBehaviour
 {
     public TileBase resourceData;
 
@@ -63,7 +63,7 @@ public class Building : MonoBehaviour
                 if (x >= 0 && z >= 0 && x < GetOwningGridObject().GetOwningGridSystem().GetGridLength() && z < GetOwningGridObject().GetOwningGridSystem().GetGridWidth())
                 {
                     // TODO: Filter by structure type
-                    Building objectInRadius;
+                    Resource objectInRadius;
                     if ((objectInRadius = GetOwningGridObject().GetOwningGridSystem().GetGridObject(x, z).GetBuilding()) && (new GridPosition(x, z) != pos))
                     {
                         objectInRadius.TransferFood(resourceData.transferFood);
@@ -85,7 +85,7 @@ public class Building : MonoBehaviour
         Inventory.constructionMaterials += resourceData.transferConstruction;
     }
 
-    public void SetBuffs(Building resource)
+    public void SetBuffs(Resource resource)
     {
         resource.buff += resourceData.buffAmount;
         resource.buff -= resourceData.nerfAmount;

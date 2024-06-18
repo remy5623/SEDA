@@ -3,6 +3,7 @@ using UnityEngine;
 [ExecuteAlways]
 public class GridSystem : MonoBehaviour
 {
+    [SerializeField] bool isVisibleInEditor = true;
     [SerializeField] int gridLength = 1;
     [SerializeField] int gridWidth = 1;
     [SerializeField] float gridHeight = 0f;
@@ -15,6 +16,14 @@ public class GridSystem : MonoBehaviour
     private void OnEnable()
     {
         GenerateGrid();
+    }
+
+    private void OnValidate()
+    {
+        foreach (GridObject gridTile in gridTiles)
+        {
+            gridTile.gameObject.SetActive(isVisibleInEditor);
+        }
     }
 
     public void GenerateGrid()

@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9befb557d87a0f548a892659159a4652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isVisibleInEditor: 1
   gridLength: 5
   gridWidth: 5
   gridHeight: 0

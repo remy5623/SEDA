@@ -6,52 +6,59 @@ using UnityEngine.InputSystem;
 
 public class BuildSystem : MonoBehaviour
 {
-    public GameObject ab;
-    public GameObject aa;
-    public GameObject bb;
+    public Building BuildingType1;
+    public Building BuildingType2;
+    public Building BuildingType3;
+
+    [SerializeField]
+    InputActionAsset actionAsset;
+
+    InputAction placeAction;
+    InputAction tapLocation;
+
+    public static bool isInBuildMode = false;
+
     private void Start()
     {
-      
+        placeAction = actionAsset.FindAction("PossessCamera");
+        placeAction.performed += ctx => PlaceBuilding();
+
+        tapLocation = actionAsset.FindAction("PanCamera");
     }
-    void Update()
+
+
+    void PlaceBuilding()
     {
-        if (Mouse.current.leftButton.isPressed)
-        {      
-            Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit)&&hit.collider.gameObject.tag == "Gird"&& GameObject.Find("Canvas").GetComponent<BuildingTypeSelect>().isSetB1)
-            {
-                if(hit.collider.gameObject.GetComponent<GirdStatus>().canBuild)
-                {
-                    GameObject build1 = Instantiate(ab, hit.collider.gameObject.transform);
-                    build1.transform.localPosition = new UnityEngine.Vector3(0, 0, 0);
-                    hit.collider.gameObject.GetComponent<GirdStatus>().canBuild = false;
-                }
-            }
-           else if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag == "Gird" && GameObject.Find("Canvas").GetComponent<BuildingTypeSelect>().isSetB2)
-            {
-                if (hit.collider.gameObject.GetComponent<GirdStatus>().canBuild)
-                {
+        Ray ray = Camera.main.ScreenPointToRay(tapLocation.ReadValue<UnityEngine.Vector2>());
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag == "Grid" && GameObject.Find("Canvas").GetComponent<BuildingTypeSelect>().isSetB1)
+        {
 
-                    GameObject build2 = Instantiate(aa, hit.collider.gameObject.transform);
-                    build2.transform.localPosition = new UnityEngine.Vector3(0, 0, 0);
-                    hit.collider.gameObject.GetComponent<GirdStatus>().canBuild = false;
-                }
-            }
-           else if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag == "Gird" && GameObject.Find("Canvas").GetComponent<BuildingTypeSelect>().isSetB3)
+            GridObject hitGridObject;
+            if (hitGridObject = hit.collider.gameObject.GetComponent<GridObject>())
             {
-                if (hit.collider.gameObject.GetComponent<GirdStatus>().canBuild)
-                {
-
-                    GameObject build3 = Instantiate(bb, hit.collider.gameObject.transform);
-                    build3.transform.localPosition = new UnityEngine.Vector3(0, 0, 0);
-                    hit.collider.gameObject.GetComponent<GirdStatus>().canBuild = false;
-                }
+                hitGridObject.TryBuild(BuildingType1);
             }
+        }
 
+        else if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag == "Grid" && GameObject.Find("Canvas").GetComponent<BuildingTypeSelect>().isSetB2)
+        {
+            GridObject hitGridObject;
+            if (hitGridObject = hit.collider.gameObject.GetComponent<GridObject>())
+            {
+                hitGridObject.TryBuild(BuildingType2);
+            }
+        }
+
+        else if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag == "Grid" && GameObject.Find("Canvas").GetComponent<BuildingTypeSelect>().isSetB3)
+        {
+            GridObject hitGridObject;
+            if (hitGridObject = hit.collider.gameObject.GetComponent<GridObject>())
+            {
+                hitGridObject.TryBuild(BuildingType3);
+            }
         }
     }
-
 
 
 }

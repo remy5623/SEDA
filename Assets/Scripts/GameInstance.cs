@@ -1,4 +1,4 @@
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -36,7 +36,7 @@ public class GameInstance : MonoBehaviour
 
     public void Update()
     {
-        /*
+        *//*
        if(gridSystem.gridObjectsArray != gridObjectsArray)
         {
             this.gridObjectsArray = gridSystem.GetGridObjectArray();
@@ -45,6 +45,7 @@ public class GameInstance : MonoBehaviour
         {
             this.gridGameObjectsArray = gridSystem.GetGridGameObjectsArray();
         }
-        */
+        *//*
     }
 }
+*/

@@ -4,7 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Gird
+  - Grid
   layers:
   - Default
   - TransparentFX
@@ -12,7 +12,7 @@ TagManager:
   - Distort
   - Water
   - UI
-  - 
+  - Terrain
   - MousePlane
   - 
   - 

@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c15a7d87bc4ba64478f86a96ca27bff6, type: 3}
+  m_Name: Cailleach
+  m_EditorClassIdentifier: 
+  iD: 0
+  tileName: The Cailleach
+  icon: {fileID: 0}
+  mesh: {fileID: 0}
+  sizeWidth: 1
+  sizeLength: 1
+  structureTypes: 0
+  tileUnder: {fileID: 0}
+  biomesTypes: 
+  tileTerrainTypes: 
+  canBuild: 1
+  buildTime: 2
+  buildingCostEnergy: 0
+  buildingCostFood: 2
+  buildingCostConstruction: 1
+  buildingUpgradeCostEnergy: 0
+  buildingUpgradeCostFood: 1
+  buildingUpgradeCostConstruction: 1
+  buildingUpgradeCostMulti: 2
+  buildingLevelIcon:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  buildingCurrentlevel: 1
+  buildingLevelMax: 3
+  hasResourceOutput: 1
+  isResourceTapped: 0
+  baseOutputEnergy: 0
+  baseOutputFood: 10
+  baseOutputConstruction: 0
+  buildingOutputMulti: 0.5
+  buildingLevelMulti: 1
+  buildingOutputStage: 1
+  upKeepCostEnergy: 0
+  upKeepCostFood: 0
+  upKeepCostConstruction: 0
+  hasTileImpact: 1
+  impactRadiusTiles: 4
+  transferFood: 5
+  transferConstruction: 0
+  structureOfTypeInRadius: {fileID: 0}
+  impactSource: 1
+  buffAmount: 2
+  nerfAmount: 0.5
+  tileImpactBuff:
+  - {fileID: 0}
+  tileImpactNerf:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

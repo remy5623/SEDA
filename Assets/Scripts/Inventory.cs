@@ -118,4 +118,19 @@ public class Inventory : MonoBehaviour
     {
         hasCailleachAppeared = true;
     }
+
+    public static bool IsTornadoActive()
+    {
+        return isWeatherEventActive && hasTornadoHappened;
+    }
+
+    public static bool IsThunderstormActive()
+    {
+        return isWeatherEventActive && !hasCailleachAppeared;
+    }
+
+    public static bool IsFloodActive()
+    {
+        return isWeatherEventActive && hasFloodHappened;
+    }
 }

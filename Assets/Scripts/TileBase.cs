@@ -22,11 +22,10 @@ public class TileBase : ScriptableObject
     public StructureTypes structureTypes;                                 
     public enum StructureTypes
     {
-        Creature,
-        Building,
-        Resource,
-        Farm,
-        Restoration
+        LoggingCamp,
+        Forest,
+        Mine,
+        Rock
     }
     [Tooltip("Grab reference and information of the tile under the structure/ the tile this structure is placed on top of.")]
     public GridObject tileUnder; 

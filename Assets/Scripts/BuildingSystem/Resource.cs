@@ -12,6 +12,7 @@ public class Resource : MonoBehaviour
     {
         PayConstructionCosts();
         resourceData.tileUnder.GetOwningGridSystem().ToggleBuildMode(this, true);
+        UpdateTotalBuildingCount(true);
         //Impact();
 
         if ( !resourceData.isResourceTapped )
@@ -89,5 +90,40 @@ public class Resource : MonoBehaviour
     {
         resource.buff += resourceData.buffAmount;
         resource.buff -= resourceData.nerfAmount;
+    }
+
+    private void UpdateTotalBuildingCount(bool buildingIsBeingCreated)
+    {
+        int changeAmount;
+
+        if (buildingIsBeingCreated)
+        {
+            changeAmount = 1;
+        }
+        else
+        {
+            changeAmount = -1;
+        }
+
+        switch (resourceData.structureTypes)
+        {
+            case TileBase.StructureTypes.LoggingCamp:
+                Inventory.numOfLoggingCamps += changeAmount;
+                break;
+            case TileBase.StructureTypes.Forest:
+                Inventory.numOfForests += changeAmount;
+                break;
+            case TileBase.StructureTypes.Rock:
+                Inventory.numOfRocks += changeAmount;
+                break;
+            case TileBase.StructureTypes.Mine:
+                Inventory.numOfMines += changeAmount;
+                break;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        UpdateTotalBuildingCount(false);
     }
 }

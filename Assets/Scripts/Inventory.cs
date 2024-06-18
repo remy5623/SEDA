@@ -15,6 +15,15 @@ public class Inventory : MonoBehaviour
     public static int totalhealth = 0;
     public static int count = 0;
 
+    // Building Types
+    public static int numOfLoggingCamps = 0;
+    public static int numOfForests = 0;
+    public static int numOfMines = 0;
+    public static int numOfRocks = 0;
+
+    // Weather events status
+    static bool hasTornadoHappened = false;
+    static bool hasFloodHappened = false;
 
     [SerializeField]
     [InspectorName("Initial Overworld Time (years)")]
@@ -69,5 +78,18 @@ public class Inventory : MonoBehaviour
         Debug.Log("TotalHealth : " + totalhealth);
         Debug.Log("Count : " + count);
         Debug.Log("Healthbar : " + healthBar);
+    }
+
+    public static void CheckWeather()
+    {
+        if (!hasTornadoHappened && numOfLoggingCamps > (numOfForests / 2f))
+        {
+            // TODO: Do Tornado
+        }
+        // TODO: Else if Cailleach weather
+        else if (!hasFloodHappened && numOfMines > (numOfRocks / 2f))
+        {
+            // TODO: Do Flood
+        }
     }
 }

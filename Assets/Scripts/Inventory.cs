@@ -24,6 +24,7 @@ public class Inventory : MonoBehaviour
     // Weather events status
     static bool isWeatherEventActive = false;
     static bool hasTornadoHappened = false;
+    static bool hasCailleachAppeared = false;
     static bool hasFloodHappened = false;
 
     public static float cropOutput = 1f;
@@ -98,7 +99,12 @@ public class Inventory : MonoBehaviour
             cropOutput = 0.7f;
             hasTornadoHappened = true;
         }
-        // TODO: Else if Cailleach weather
+        else if (hasCailleachAppeared)
+        {
+            isWeatherEventActive = true;
+            cropOutput = 0.9f;
+            hasCailleachAppeared = false;
+        }
         else if (!hasFloodHappened && numOfMines > (numOfRocks / 2f))
         {
             isWeatherEventActive = true;
@@ -106,5 +112,10 @@ public class Inventory : MonoBehaviour
             isFlooding = true;
             hasFloodHappened = true;
         }
+    }
+
+    public void CailleachAppeared()
+    {
+        hasCailleachAppeared = true;
     }
 }

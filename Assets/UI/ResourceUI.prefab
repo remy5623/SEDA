@@ -414,9 +414,9 @@ GameObject:
   - component: {fileID: 3256485237518481575}
   - component: {fileID: 2204828225968712039}
   - component: {fileID: 6370538835593493115}
-  - component: {fileID: 4520157217554788544}
+  - component: {fileID: 6119632438033436267}
   m_Layer: 5
-  m_Name: Inventory
+  m_Name: ResourceUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -435,8 +435,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4783435134707180668}
-  - {fileID: 7214964349798441322}
   - {fileID: 6604730487396084603}
+  - {fileID: 7214964349798441322}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -507,7 +507,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &4520157217554788544
+--- !u!114 &6119632438033436267
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -516,9 +516,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8717328597725006873}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8707555a64b37a64cab8a706cfc55ba9, type: 3}
+  m_Script: {fileID: 11500000, guid: df940b246d511bc4ca59b115b71ffc7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   foodDisplay: {fileID: 7625660497347705683}
-  constructionMaterialDisplay: {fileID: 7810134710237030055}
+  materialsDisplay: {fileID: 7810134710237030055}
   healthBarDisplay: {fileID: 1268495828326675924}

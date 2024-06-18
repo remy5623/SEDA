@@ -41,19 +41,9 @@ public class TileBase : ScriptableObject
     }
 
     [Tooltip("List of tileTerrainTypes this structure can be placed on.")]
-    public List<TileTerrainTypes> tileTerrainTypes;
-    public enum TileTerrainTypes
-    {
-        Grassland,
-        Wetland,
-        Highland,
-        River,
-        Barrens,
-        Mountain,
-        Water
-    }
-
+    public List<TerrainTypes> tileTerrainTypes;
     
+
     //BuildBase
     [Header("BuildBase")]
     [Tooltip("Checks if a tile is buildable, if not it hides the Building section inengine and in the hierarchy.")]

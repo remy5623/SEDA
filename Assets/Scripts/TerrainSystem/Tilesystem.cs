@@ -30,28 +30,10 @@ public class Terrainsystem : MonoBehaviour
     }
 
     public List<SoilType> allowedSoilGrade;
-
- 
-    private SoilType soiltype = new SoilType();
-    public bool ResourceAffect;
     
-
-    /*enum WaterType
-    {
-        A = 110,
-        B = 105,
-        C = 100,
-        D = 95,
-        E = 90
-    }
-    enum Grade
-    {
-        A = 110,
-        B = 105,
-        C = 100,
-        D = 95,
-        E = 90
-    }*/
+    private SoilType soiltype = new SoilType();
+    
+    public bool ResourceAffect;
 
     [SerializeField] public TerrainTypes terraintype;
 
@@ -75,7 +57,6 @@ public class Terrainsystem : MonoBehaviour
         {
             TimeSystem.AddMonthlyEvent(HealthBar);
         }
-
 
         InitialTerrainList();
 
@@ -128,7 +109,6 @@ public class Terrainsystem : MonoBehaviour
                     allowedSoilGrade.Add(SoilType.C);
                     break;
                 }
-
             case TerrainTypes.Highland:
                 {
                     allowedSoilGrade.Add(SoilType.A);
@@ -161,8 +141,6 @@ public class Terrainsystem : MonoBehaviour
                     break;
                 }
         }
-
-        
     }
 
     void ChangeinGrade()
@@ -204,6 +182,7 @@ public class Terrainsystem : MonoBehaviour
         while (i < allowedSoilGrade.Count);
     }
 
+    
 }
 
 /*void TileHealth()

@@ -38,9 +38,9 @@ public class Terrainsystem : MonoBehaviour
     }
 
     public List<SoilType> allowedSoilGrade;
-    
+
     private SoilType soiltype = new SoilType();
-    
+
     public bool ResourceAffect;
 
     [SerializeField] public TerrainTypes terraintype;
@@ -118,7 +118,7 @@ public class Terrainsystem : MonoBehaviour
     void HealthBar()
     {
         Inventory.count++;
-        Inventory.totalhealth += (int)soilType; 
+        Inventory.totalhealth += (int)soilType;
         Inventory.HealthBarChange();
     }
 
@@ -206,66 +206,53 @@ public class Terrainsystem : MonoBehaviour
         while (i < allowedSoilGrade.Count);
     }
 
-    public void Giantgone()
+    public void Creaturegone()
     {
-        GridPosition pos = owningGridObject.GetGridPosition();
-        GridObject CreatureObj = owningGridObject.GetOwningGridSystem().GetGridObject(pos.x, pos.z);
-
-        if (CreatureObj != null)
+        foreach (Terrainsystem giantTile in FindObjectsByType<Terrainsystem>(FindObjectsSortMode.None))
         {
-            if (Inventory.food >= GiantbribeCostFood && Inventory.constructionMaterials >= GiantbribeCostConstruction)
+            if (giantTile.creaturetype == CreatureTypes.Giant)
             {
-                Debug.Log(this.creaturetype);
-                CreatureObj.SetCreatureGone();
-                //this.creaturetype = CreatureTypes.None;
+                GridPosition pos = giantTile.owningGridObject.GetGridPosition();
+                GridObject CreatureObj = giantTile.owningGridObject.GetOwningGridSystem().GetGridObject(pos.x, pos.z);
+                if (Inventory.food >= GiantbribeCostFood && Inventory.constructionMaterials >= GiantbribeCostConstruction)
+                {
+                    CreatureObj.SetCreatureGone();
 
-                Debug.Log(this.creaturetype);
-
-                //Cue VFX effect..
+                    //Cue VFX effect..
+                }
             }
-            
-        }
 
-       
-    }
-
-    public void Kelpiegone()
-    {
-        GridPosition pos = owningGridObject.GetGridPosition();
-        GridObject CreatureObj = owningGridObject.GetOwningGridSystem().GetGridObject(pos.x, pos.z);
-
-        if (CreatureObj != null)
-        {
-            if (Inventory.food >= KelpiebribeCostFood && Inventory.constructionMaterials >= KelpiebribeCostConstruction)
+            if (giantTile.creaturetype == CreatureTypes.Kelpie)
             {
-                this.creaturetype = CreatureTypes.None;
+                GridPosition pos = giantTile.owningGridObject.GetGridPosition();
+                GridObject CreatureObj = giantTile.owningGridObject.GetOwningGridSystem().GetGridObject(pos.x, pos.z);
+                if (Inventory.food >= KelpiebribeCostFood && Inventory.constructionMaterials >= KelpiebribeCostConstruction)
+                {
+                    CreatureObj.SetCreatureGone();
 
-                Debug.Log("Kelpie GONE");
-
-                //Cue VFX effect..
-            }
-        }
-    }
-
-    public void Cailleachgome()
-    {
-        GridPosition pos = owningGridObject.GetGridPosition();
-        GridObject CreatureObj = owningGridObject.GetOwningGridSystem().GetGridObject(pos.x, pos.z);
-
-        if (CreatureObj != null)
-        {
-            if (Inventory.food >= CailleachbribeCostFood && Inventory.constructionMaterials >= CailleachbribeCostConstruction)
-            {
-                this.creaturetype = CreatureTypes.None;
-
-                Debug.Log("Cailleach GONE");
-
-                //CUE VFX EFFECT....AND VFX ENDS...
-                //WEATHER CHANGE...
+                    //Cue VFX effect..
+                }
 
             }
+
+            if (giantTile.creaturetype == CreatureTypes.Cailleach)
+            {
+                GridPosition pos = giantTile.owningGridObject.GetGridPosition();
+                GridObject CreatureObj = giantTile.owningGridObject.GetOwningGridSystem().GetGridObject(pos.x, pos.z);
+                if (Inventory.food >= CailleachbribeCostFood && Inventory.constructionMaterials >= CailleachbribeCostConstruction)
+                {
+                    CreatureObj.SetCreatureGone();
+
+                    //CUE VFX EFFECT....AND VFX ENDS...
+                    //WEATHER CHANGE...
+                }
+            }
         }
+
+
     }
+
+    
 }
 
 /*void TileHealth()

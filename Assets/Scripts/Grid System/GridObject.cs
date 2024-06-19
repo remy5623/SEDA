@@ -87,7 +87,7 @@ public class GridObject : MonoBehaviour
             canBuild = false;
         }
 
-        if (Inventory.constructionMaterials < building.resourceData.buildingCostConstruction)
+        if (Inventory.constructionMaterials < building.resourceData.buildingCostMaterial)
         {
             canBuild = false;
         }

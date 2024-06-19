@@ -12,46 +12,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c15a7d87bc4ba64478f86a96ca27bff6, type: 3}
   m_Name: WaterWell
   m_EditorClassIdentifier: 
-  iD: 0
   tileName: WaterWell
   icon: {fileID: 0}
-  mesh: {fileID: 0}
-  sizeWidth: 1
-  sizeLength: 1
-  structureTypes: 1
+  inGameAsset: {fileID: 0}
+  sizeWidthTile: 0
+  sizeLengthTile: 0
+  structureType: 0
   tileUnder: {fileID: 0}
-  biomesTypes: 
+  biomeTypes: 
   tileTerrainTypes: 
   canBuild: 1
-  buildTime: 0
-  buildingCostEnergy: 0
   buildingCostFood: 0
-  buildingCostConstruction: 20
-  buildingUpgradeCostEnergy: 0
-  buildingUpgradeCostFood: 0
-  buildingUpgradeCostConstruction: 0
-  buildingUpgradeCostMulti: 0
-  buildingLevelIcon: []
-  buildingCurrentlevel: 0
-  buildingLevelMax: 0
-  hasResourceOutput: 0
+  buildingCostMaterial: 20
+  upKeepCostEnergy: 0
+  upKeepCostWater: 0
+  upKeepCostFood: 0
+  upKeepCostMaterial: 0
   isResourceTapped: 0
   baseOutputEnergy: 0
+  baseOutputWater: 1
   baseOutputFood: 0
-  baseOutputConstruction: 0
+  baseOutputMaterial: 0
   buildingOutputMulti: 0
-  buildingLevelMulti: 0
-  buildingOutputStage: 0
-  upKeepCostEnergy: 0
-  upKeepCostFood: 0
-  upKeepCostConstruction: 0
-  hasTileImpact: 1
-  impactRadiusTiles: 0
-  transferFood: 0
-  transferConstruction: 0
-  structureOfTypeInRadius: {fileID: 0}
-  impactSource: 0
+  impactSource: 1
+  impactRadiusTiles: 1
   buffAmount: 0
   nerfAmount: 0
   tileImpactBuff: []
   tileImpactNerf: []
+  isImpactSoilGrade: 1
+  buffSoilGradeAmount: 20
+  nerfSoilGradeAmount: 0

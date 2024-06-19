@@ -15,65 +15,33 @@ MonoBehaviour:
   tileName: Forest
   icon: {fileID: 0}
   inGameAsset: {fileID: 0}
-  sizeWidthTile: 1
-  sizeLengthTile: 1
+  sizeWidthTile: 0
+  sizeLengthTile: 0
   structureType: 7
   tileUnder: {fileID: 0}
-<<<<<<< HEAD
-  biomesTypes: 02000000
+  biomeTypes: 
   tileTerrainTypes: 
   canBuild: 0
-  buildTime: 0
-  buildingCostEnergy: 0
   buildingCostFood: 0
-  buildingCostConstruction: 0
-  buildingUpgradeCostEnergy: 0
-  buildingUpgradeCostFood: 0
-  buildingUpgradeCostConstruction: 0
-  buildingUpgradeCostMulti: 0
-  buildingLevelIcon: []
-  buildingCurrentlevel: 0
-  buildingLevelMax: 0
-  hasResourceOutput: 1
-=======
-  biomeTypes: 
-  tileTerrainTypes: 00000000
-  canBuild: 1
-  buildingCostFood: 20
   buildingCostMaterial: 0
   upKeepCostEnergy: 0
   upKeepCostWater: 0
   upKeepCostFood: 0
   upKeepCostMaterial: 0
->>>>>>> main
-  isResourceTapped: 0
+  isResourceTapped: 1
   baseOutputEnergy: 0
   baseOutputWater: 0
   baseOutputFood: 0
-  baseOutputMaterial: 0
+  baseOutputMaterial: 5
   buildingOutputMulti: 0
-<<<<<<< HEAD
-  buildingLevelMulti: 1
-  buildingOutputStage: 1
-  upKeepCostEnergy: 0
-  upKeepCostFood: 0
-  upKeepCostConstruction: 0
-  hasTileImpact: 1
+  impactSource: 1
   impactRadiusTiles: 3
-  transferFood: 0
-  transferConstruction: 5
-  structureOfTypeInRadius: {fileID: 0}
-  impactSource: 1
   buffAmount: 2
-=======
-  impactSource: 1
-  impactRadiusTiles: 5
-  buffAmount: 0.5
->>>>>>> main
   nerfAmount: 0
   tileImpactBuff:
-  - {fileID: 11400000, guid: 531889748cd6e0c42b355825ec97afc5, type: 2}
   - {fileID: 11400000, guid: cd1916fecfec7ba4ba50cdc08430342a, type: 2}
+  - {fileID: 11400000, guid: 858503ea41b35eb418da1954022520f6, type: 2}
+  - {fileID: 11400000, guid: bbf0432b9e6835a43ab451a0f7bcfd51, type: 2}
   tileImpactNerf: []
   isImpactSoilGrade: 0
   buffSoilGradeAmount: 0

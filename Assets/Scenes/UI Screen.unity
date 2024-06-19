@@ -563,6 +563,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialOverworldTime: 10
+  initialFood: 100
+  initialConstructionMaterials: 100
+  foodDisplay: {fileID: 0}
+  constructionMaterialDisplay: {fileID: 0}
+  healthBarDisplay: {fileID: 0}
 --- !u!1001 &1696145915301475831
 PrefabInstance:
   m_ObjectHideFlags: 0

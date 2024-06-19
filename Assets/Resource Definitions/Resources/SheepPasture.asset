@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c15a7d87bc4ba64478f86a96ca27bff6, type: 3}
-  m_Name: Cailleach
+  m_Name: SheepPasture
   m_EditorClassIdentifier: 
-  tileName: The Cailleach
+  tileName: SheepPasture
   icon: {fileID: 0}
   inGameAsset: {fileID: 0}
   sizeWidthTile: 0
   sizeLengthTile: 0
-  structureType: 19
+  structureType: 2
   tileUnder: {fileID: 0}
   biomeTypes: 
   tileTerrainTypes: 
-  canBuild: 1
-  buildingCostFood: 2
+  canBuild: 0
+  buildingCostFood: 0
   buildingCostMaterial: 0
   upKeepCostEnergy: 0
   upKeepCostWater: 0
@@ -31,19 +31,15 @@ MonoBehaviour:
   isResourceTapped: 0
   baseOutputEnergy: 0
   baseOutputWater: 0
-  baseOutputFood: 10
+  baseOutputFood: 0
   baseOutputMaterial: 0
-  buildingOutputMulti: 0.5
-  impactSource: 1
-  impactRadiusTiles: 4
-  buffAmount: 2
-  nerfAmount: 0.5
-  tileImpactBuff:
-  - {fileID: 0}
-  tileImpactNerf:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  buildingOutputMulti: 0
+  impactSource: 0
+  impactRadiusTiles: 0
+  buffAmount: 0
+  nerfAmount: 0
+  tileImpactBuff: []
+  tileImpactNerf: []
   isImpactSoilGrade: 0
   buffSoilGradeAmount: 0
   nerfSoilGradeAmount: 0

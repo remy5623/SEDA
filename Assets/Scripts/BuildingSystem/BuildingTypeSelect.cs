@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class BuildingTypeSelect : MonoBehaviour
 {
+    BuildSystem buildSystem;
     public GridSystem gridSystem;
     [Header("Three Button")]
     public GameObject building1Button;
@@ -17,12 +18,18 @@ public class BuildingTypeSelect : MonoBehaviour
     public bool isSetB1;
     public bool isSetB2;
     public bool isSetB3;
-    public GameObject array;
-    public Transform[,] gridGameObjectsArray;
+
+    private void Start()
+    {
+        buildSystem = transform.parent.transform.parent.gameObject.GetComponentInChildren<BuildSystem>();
+    }
+
+    Transform[,] gridGameObjectsArray;
     void Update()
     {
         ColorChange(building1Button, building2Button, building3Button);
     }
+
     public void ColorChange(GameObject button1, GameObject button2,GameObject button3)
     {
         if(isSetB1)
@@ -51,7 +58,7 @@ public class BuildingTypeSelect : MonoBehaviour
         }
     }
 
-    public void SelectBuildingOne(Building buildingPrefab)
+    public void SelectBuildingOne()
     {
         if (!isSetB1)
         {
@@ -59,18 +66,18 @@ public class BuildingTypeSelect : MonoBehaviour
             isSetB2 = false;
             isSetB3 = false;
 
-            gridSystem.ToggleBuildMode(buildingPrefab, true);
+            gridSystem.ToggleBuildMode(buildSystem.BuildingType1, true);
 
         }
         else if(isSetB1 )
         {
-            gridSystem.ToggleBuildMode(buildingPrefab, false);
+            gridSystem.ToggleBuildMode(buildSystem.BuildingType1, false);
             isSetB1 = false;
 
         }
     }
 
-    public void SelectBuildingTwo(Building buildingPrefab)
+    public void SelectBuildingTwo()
     {
         if (!isSetB2 )
         {
@@ -78,21 +85,19 @@ public class BuildingTypeSelect : MonoBehaviour
             isSetB1 = false;
             isSetB3 = false;
 
-            gridSystem.ToggleBuildMode(buildingPrefab, true);
+            gridSystem.ToggleBuildMode(buildSystem.BuildingType2, true);
 
         }
         else if (isSetB2 )
         {
-            gridSystem.ToggleBuildMode(buildingPrefab, false);
+            gridSystem.ToggleBuildMode(buildSystem.BuildingType2, false);
 
             isSetB2 = false;
-
             
-
         }
     }
 
-    public void SelectBuildingThree(Building buildingPrefab)
+    public void SelectBuildingThree()
     {
         if (!isSetB3)
         {
@@ -100,12 +105,12 @@ public class BuildingTypeSelect : MonoBehaviour
             isSetB1 = false;
             isSetB2 = false;
 
-            gridSystem.ToggleBuildMode(buildingPrefab, true);
+            gridSystem.ToggleBuildMode(buildSystem.BuildingType3, true);
 
         }
         else if (isSetB3)
         {
-            gridSystem.ToggleBuildMode(buildingPrefab, false);
+            gridSystem.ToggleBuildMode(buildSystem.BuildingType3, false);
 
             isSetB3 = false;
             

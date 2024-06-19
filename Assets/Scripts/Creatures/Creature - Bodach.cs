@@ -38,7 +38,9 @@ public class Bodach : MonoBehaviour
         if (Inventory.food >= bribeCostFood && Inventory.constructionMaterials >= bribeCostConstruction)
         {
             Destroy(CailleachMonsterr);
+
             Debug.Log("Weather change and things happen..");
+            
             //CUE VFX EFFECT....AND VFX ENDS...
             //WEATHER CHANGE...
 

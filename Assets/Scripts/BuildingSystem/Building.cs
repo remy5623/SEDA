@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using UnityEngine;
+
 
 public class Building : MonoBehaviour
 {
@@ -6,13 +8,20 @@ public class Building : MonoBehaviour
 
     float buff;
     float nerf;
-
+    
+    public Terrainsystem instance;
+    TerrainTypes terrainType;
+    
 
     private void Start()
     {
+        terrainType = instance.terraintype;
+
         PayConstructionCosts();
         resourceData.tileUnder.GetOwningGridSystem().ToggleBuildMode(this, true);
         //Impact();
+
+        resourceData.tileUnder.CanBuildOnTile(this);
 
         if ( !resourceData.isResourceTapped )
         {
@@ -78,4 +87,6 @@ public class Building : MonoBehaviour
         resource.buff += resourceData.buffAmount;
         resource.buff -= resourceData.nerfAmount;
     }
+
+   
 }

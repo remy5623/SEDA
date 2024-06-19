@@ -17,6 +17,14 @@ public enum TerrainTypes
     Shore
 }
 
+public enum CreatureTypes
+{
+    None,
+    Giant,
+    Kelpie,
+    Cailleach
+}
+
 public class Terrainsystem : MonoBehaviour
 {
     public SoilType soilType;
@@ -31,31 +39,14 @@ public class Terrainsystem : MonoBehaviour
 
     public List<SoilType> allowedSoilGrade;
 
- 
     private SoilType soiltype = new SoilType();
-    public bool ResourceAffect;
-    
 
-    /*enum WaterType
-    {
-        A = 110,
-        B = 105,
-        C = 100,
-        D = 95,
-        E = 90
-    }
-    enum Grade
-    {
-        A = 110,
-        B = 105,
-        C = 100,
-        D = 95,
-        E = 90
-    }*/
+    public bool ResourceAffect;
 
     [SerializeField] public TerrainTypes terraintype;
+    [SerializeField] public CreatureTypes creaturetype;
 
-   
+
     //if the tile has energy
     public bool energy = false;
 
@@ -67,6 +58,19 @@ public class Terrainsystem : MonoBehaviour
     //the total health of the soil (A to E grade)
     int health;
 
+    //Creatures
+    /*public GameObject GiantMonsterr;
+    public GameObject KelpieMonsterr;
+    public GameObject CailleachMonsterr;*/
+
+    public int GiantbribeCostFood = 15;
+    public int GiantbribeCostConstruction = 5;
+
+    public int KelpiebribeCostFood = 20;
+    public int KelpiebribeCostConstruction = 0;
+
+    public int CailleachbribeCostFood = 0;
+    public int CailleachbribeCostConstruction = 20;
 
     private void Start()
     {
@@ -76,10 +80,11 @@ public class Terrainsystem : MonoBehaviour
             TimeSystem.AddMonthlyEvent(HealthBar);
         }
 
-
         InitialTerrainList();
 
         StartCoroutine(Stupidity());
+
+
     }
 
     private void TriggerEnergy()
@@ -113,7 +118,7 @@ public class Terrainsystem : MonoBehaviour
     void HealthBar()
     {
         Inventory.count++;
-        Inventory.totalhealth += (int)soilType; 
+        Inventory.totalhealth += (int)soilType;
         Inventory.HealthBarChange();
     }
 
@@ -128,7 +133,6 @@ public class Terrainsystem : MonoBehaviour
                     allowedSoilGrade.Add(SoilType.C);
                     break;
                 }
-
             case TerrainTypes.Highland:
                 {
                     allowedSoilGrade.Add(SoilType.A);
@@ -161,8 +165,6 @@ public class Terrainsystem : MonoBehaviour
                     break;
                 }
         }
-
-        
     }
 
     void ChangeinGrade()
@@ -204,6 +206,53 @@ public class Terrainsystem : MonoBehaviour
         while (i < allowedSoilGrade.Count);
     }
 
+    public void Creaturegone()
+    {
+        foreach (Terrainsystem giantTile in FindObjectsByType<Terrainsystem>(FindObjectsSortMode.None))
+        {
+            if (giantTile.creaturetype == CreatureTypes.Giant)
+            {
+                GridPosition pos = giantTile.owningGridObject.GetGridPosition();
+                GridObject CreatureObj = giantTile.owningGridObject.GetOwningGridSystem().GetGridObject(pos.x, pos.z);
+                if (Inventory.food >= GiantbribeCostFood && Inventory.constructionMaterials >= GiantbribeCostConstruction)
+                {
+                    CreatureObj.SetCreatureGone();
+
+                    //Cue VFX effect..
+                }
+            }
+
+            if (giantTile.creaturetype == CreatureTypes.Kelpie)
+            {
+                GridPosition pos = giantTile.owningGridObject.GetGridPosition();
+                GridObject CreatureObj = giantTile.owningGridObject.GetOwningGridSystem().GetGridObject(pos.x, pos.z);
+                if (Inventory.food >= KelpiebribeCostFood && Inventory.constructionMaterials >= KelpiebribeCostConstruction)
+                {
+                    CreatureObj.SetCreatureGone();
+
+                    //Cue VFX effect..
+                }
+
+            }
+
+            if (giantTile.creaturetype == CreatureTypes.Cailleach)
+            {
+                GridPosition pos = giantTile.owningGridObject.GetGridPosition();
+                GridObject CreatureObj = giantTile.owningGridObject.GetOwningGridSystem().GetGridObject(pos.x, pos.z);
+                if (Inventory.food >= CailleachbribeCostFood && Inventory.constructionMaterials >= CailleachbribeCostConstruction)
+                {
+                    CreatureObj.SetCreatureGone();
+
+                    //CUE VFX EFFECT....AND VFX ENDS...
+                    //WEATHER CHANGE...
+                }
+            }
+        }
+
+
+    }
+
+    
 }
 
 /*void TileHealth()

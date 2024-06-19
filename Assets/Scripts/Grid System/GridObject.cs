@@ -6,7 +6,10 @@ public class GridObject : MonoBehaviour
 
     Terrainsystem terrain;
     TerrainTypes terrainType;
+
     Building buildingInstance;
+
+    
 
     private void Start()
     {
@@ -67,6 +70,7 @@ public class GridObject : MonoBehaviour
             buildingInstance = Instantiate(building.gameObject, transform).GetComponent<Building>();
             buildingInstance.transform.localPosition = Vector3.zero;
             buildingInstance.SetGridObject(this);
+            buildingInstance.instance = terrain;
             return true;
         }
         return false;
@@ -75,7 +79,26 @@ public class GridObject : MonoBehaviour
     // Returns whether an object can be built on this GridObject
     public bool CanBuildOnTile(Building building)
     {
-        bool canBuild = true;
+        bool canBuild = false;
+
+        /*switch(terrainType)
+        {
+            case TerrainTypes.None:
+            case TerrainTypes.River:
+            case TerrainTypes.Loch:
+            case TerrainTypes.Glen:
+                canBuild = false;
+                break;
+        }*/
+
+        for (int i = 0; i < building.resourceData.tileTerrainTypes.Count; i++)
+        {
+            if (terrain && terrain.creaturetype == CreatureTypes.None)
+            {
+                if (terrainType == building.resourceData.tileTerrainTypes[i])
+                    canBuild = true;
+            }
+        }
 
         if (buildingInstance != null)
         {
@@ -92,7 +115,9 @@ public class GridObject : MonoBehaviour
             canBuild = false;
         }
 
-        switch(terrainType)
+        
+
+        /*switch(terrainType)
         {
             case TerrainTypes.None:
             case TerrainTypes.River:
@@ -100,7 +125,9 @@ public class GridObject : MonoBehaviour
             case TerrainTypes.Glen:
                 canBuild = false;
                 break;
-        }
+        }*/
+
+        
 
         return canBuild;
     }
@@ -117,5 +144,10 @@ public class GridObject : MonoBehaviour
     {
         if (terrain != null)
             terrain.energy = hasEnergy;
+    }
+
+    public void SetCreatureGone()
+    {
+        terrain.creaturetype = CreatureTypes.None;
     }
 }

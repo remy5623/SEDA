@@ -17,8 +17,11 @@ public class Inventory : MonoBehaviour
 
 
     [SerializeField]
-    [InspectorName("Initial Overworld Time (years)")]
-    private int initialOverworldTime;
+    int initialOverworldTime;
+    [SerializeField]
+    int initialFood;
+    [SerializeField]
+    int initialConstructionMaterials;
 
     [SerializeField] TextMeshProUGUI foodDisplay;
     [SerializeField] TextMeshProUGUI constructionMaterialDisplay;
@@ -30,6 +33,8 @@ public class Inventory : MonoBehaviour
         {
             instance = this;
             overworldTime = initialOverworldTime;
+            food = initialFood;
+            constructionMaterials = initialConstructionMaterials;
         }
         else
         {

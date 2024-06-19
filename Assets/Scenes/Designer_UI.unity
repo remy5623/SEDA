@@ -474,7 +474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d340082af1f8c947ab943b16d34a83f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ClickedSound: {fileID: 8300000, guid: 74bcec12bf3ff1b43940befa11ca35c9, type: 3}
+  ClickedSound: {fileID: 8300000, guid: 5bedab4e41df3c140b4aa04385dece7a, type: 3}
   HoverSound: {fileID: 0}
 --- !u!1 &51708016
 GameObject:
@@ -977,7 +977,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d340082af1f8c947ab943b16d34a83f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ClickedSound: {fileID: 8300000, guid: 74bcec12bf3ff1b43940befa11ca35c9, type: 3}
+  ClickedSound: {fileID: 8300000, guid: 5bedab4e41df3c140b4aa04385dece7a, type: 3}
   HoverSound: {fileID: 0}
 --- !u!1 &81907970
 GameObject:
@@ -4165,7 +4165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d340082af1f8c947ab943b16d34a83f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ClickedSound: {fileID: 8300000, guid: 74bcec12bf3ff1b43940befa11ca35c9, type: 3}
+  ClickedSound: {fileID: 8300000, guid: 5bedab4e41df3c140b4aa04385dece7a, type: 3}
   HoverSound: {fileID: 0}
 --- !u!1 &473338933
 GameObject:
@@ -5543,7 +5543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d340082af1f8c947ab943b16d34a83f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ClickedSound: {fileID: 8300000, guid: 74bcec12bf3ff1b43940befa11ca35c9, type: 3}
+  ClickedSound: {fileID: 8300000, guid: 5bedab4e41df3c140b4aa04385dece7a, type: 3}
   HoverSound: {fileID: 0}
 --- !u!1 &665457878
 GameObject:
@@ -9611,7 +9611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d340082af1f8c947ab943b16d34a83f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ClickedSound: {fileID: 8300000, guid: 74bcec12bf3ff1b43940befa11ca35c9, type: 3}
+  ClickedSound: {fileID: 8300000, guid: 5bedab4e41df3c140b4aa04385dece7a, type: 3}
   HoverSound: {fileID: 0}
 --- !u!1 &1080789900
 GameObject:
@@ -10890,7 +10890,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d340082af1f8c947ab943b16d34a83f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ClickedSound: {fileID: 8300000, guid: 74bcec12bf3ff1b43940befa11ca35c9, type: 3}
+  ClickedSound: {fileID: 8300000, guid: 5bedab4e41df3c140b4aa04385dece7a, type: 3}
   HoverSound: {fileID: 0}
 --- !u!1 &1220449550
 GameObject:
@@ -11793,7 +11793,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d340082af1f8c947ab943b16d34a83f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ClickedSound: {fileID: 8300000, guid: 74bcec12bf3ff1b43940befa11ca35c9, type: 3}
+  ClickedSound: {fileID: 8300000, guid: 5bedab4e41df3c140b4aa04385dece7a, type: 3}
   HoverSound: {fileID: 0}
 --- !u!1 &1313637092
 GameObject:
@@ -13057,7 +13057,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d340082af1f8c947ab943b16d34a83f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ClickedSound: {fileID: 8300000, guid: 74bcec12bf3ff1b43940befa11ca35c9, type: 3}
+  ClickedSound: {fileID: 8300000, guid: 4819dc2d5094bff4587259d96e975e35, type: 3}
   HoverSound: {fileID: 0}
 --- !u!1 &1446803904
 GameObject:
@@ -13402,7 +13402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d340082af1f8c947ab943b16d34a83f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ClickedSound: {fileID: 8300000, guid: 74bcec12bf3ff1b43940befa11ca35c9, type: 3}
+  ClickedSound: {fileID: 8300000, guid: 4819dc2d5094bff4587259d96e975e35, type: 3}
   HoverSound: {fileID: 0}
 --- !u!1 &1508897795
 GameObject:
@@ -16537,7 +16537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d340082af1f8c947ab943b16d34a83f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ClickedSound: {fileID: 8300000, guid: 74bcec12bf3ff1b43940befa11ca35c9, type: 3}
+  ClickedSound: {fileID: 8300000, guid: 5bedab4e41df3c140b4aa04385dece7a, type: 3}
   HoverSound: {fileID: 0}
 --- !u!1 &1836283676
 GameObject:
@@ -17466,7 +17466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d340082af1f8c947ab943b16d34a83f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ClickedSound: {fileID: 8300000, guid: 74bcec12bf3ff1b43940befa11ca35c9, type: 3}
+  ClickedSound: {fileID: 8300000, guid: 5bedab4e41df3c140b4aa04385dece7a, type: 3}
   HoverSound: {fileID: 0}
 --- !u!1 &1934758107
 GameObject:
@@ -18875,7 +18875,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d340082af1f8c947ab943b16d34a83f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ClickedSound: {fileID: 8300000, guid: 74bcec12bf3ff1b43940befa11ca35c9, type: 3}
+  ClickedSound: {fileID: 8300000, guid: 4819dc2d5094bff4587259d96e975e35, type: 3}
   HoverSound: {fileID: 0}
 --- !u!1 &2050781626
 GameObject:

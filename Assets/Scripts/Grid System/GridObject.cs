@@ -6,6 +6,8 @@ public class GridObject : MonoBehaviour
 
     Terrainsystem terrain;
     TerrainTypes terrainType;
+    CreatureTypes creatureType;
+
     Building buildingInstance;
 
     
@@ -21,11 +23,13 @@ public class GridObject : MonoBehaviour
             {
                 terrain.owningGridObject = this;
                 terrainType = terrain.terraintype;
+                creatureType = terrain.creaturetype;
             }
         }
         else
         {
             terrainType = TerrainTypes.None;
+            creatureType = CreatureTypes.None;
         }
     }
 
@@ -92,8 +96,11 @@ public class GridObject : MonoBehaviour
 
         for (int i = 0; i < building.resourceData.tileTerrainTypes.Count; i++)
         {
-            if (terrainType == building.resourceData.tileTerrainTypes[i])
-                canBuild = true;
+            if (creatureType == CreatureTypes.None)
+            {
+                if (terrainType == building.resourceData.tileTerrainTypes[i])
+                    canBuild = true;
+            }
         }
 
         if (buildingInstance != null)
@@ -140,5 +147,10 @@ public class GridObject : MonoBehaviour
     {
         if (terrain != null)
             terrain.energy = hasEnergy;
+    }
+
+    public void SetCreatureGone()
+    {
+        terrain.creaturetype = CreatureTypes.None;
     }
 }

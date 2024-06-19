@@ -9,29 +9,28 @@ public class WeatherUI : MonoBehaviour
 
     private void Update()
     {
-        if (Inventory.IsTornadoActive())
+        switch(Inventory.GetCurrentWeather())
         {
-            tornadoText.enabled = true;
-            thunderstormText.enabled = true;
-            floodText.enabled = true;
-        }
-        else if (Inventory.IsThunderstormActive())
-        {
-            tornadoText.enabled = false;
-            thunderstormText.enabled = true;
-            floodText.enabled = false;
-        }
-        else if (Inventory.IsFloodActive())
-        {
-            tornadoText.enabled = false;
-            thunderstormText.enabled = false;
-            floodText.enabled = true;
-        }
-        else
-        {
-            tornadoText.enabled = false;
-            thunderstormText.enabled = false;
-            floodText.enabled= false;
+            case WeatherTypes.Tornado:
+                tornadoText.gameObject.SetActive(true);
+                thunderstormText.gameObject.SetActive(false);
+                floodText.gameObject.SetActive(false);
+                break;
+            case WeatherTypes.Thunderstorm:
+                tornadoText.gameObject.SetActive(false);
+                thunderstormText.gameObject.SetActive(true);
+                floodText.gameObject.SetActive(false);
+                break;
+            case WeatherTypes.Flood:
+                tornadoText.gameObject.SetActive(false);
+                thunderstormText.gameObject.SetActive(false);
+                floodText.gameObject.SetActive(true);
+                break;
+            case WeatherTypes.Fair:
+                tornadoText.gameObject.SetActive(false);
+                thunderstormText.gameObject.SetActive(false);
+                floodText.gameObject.SetActive(false);
+                break;
         }
     }
 }

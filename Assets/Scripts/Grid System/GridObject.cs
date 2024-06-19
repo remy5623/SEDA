@@ -27,7 +27,7 @@ public class GridObject : MonoBehaviour
         }
     }
 
-    public void ToggleBuildModePerTile(Resource buildingType)
+    public void ToggleBuildModePerTile(TileBase buildingType)
     {
         Color transparentWhite = new Color(1, 1, 1, 0f);
         Color transparentGreen = new Color(0, 1, 0, 0.5f);
@@ -60,11 +60,13 @@ public class GridObject : MonoBehaviour
     }
 
     // Instantiates a building on top of this tile.
-    public bool TryBuild(Resource building)
+    public bool TryBuild(TileBase building)
     {
         if (CanBuildOnTile(building))
         {
-            buildingInstance = Instantiate(building.gameObject, transform).GetComponent<Resource>();
+            GameObject newBuilding = Instantiate(building.mesh, transform);
+            buildingInstance = newBuilding.AddComponent<Resource>();
+            buildingInstance.resourceData = building;
             buildingInstance.transform.localPosition = Vector3.zero;
             buildingInstance.SetGridObject(this);
             return true;
@@ -73,8 +75,11 @@ public class GridObject : MonoBehaviour
     }
 
     // Returns whether an object can be built on this GridObject
-    public bool CanBuildOnTile(Resource building)
+    public bool CanBuildOnTile(TileBase building)
     {
+        if (building == null)
+        { return false; }
+
         bool canBuild = true;
 
         if (buildingInstance != null)
@@ -82,12 +87,12 @@ public class GridObject : MonoBehaviour
             canBuild = false;
         }
 
-        if (Inventory.food < building.resourceData.buildingCostFood)
+        if (Inventory.food < building.buildingCostFood)
         {
             canBuild = false;
         }
 
-        if (Inventory.constructionMaterials < building.resourceData.buildingCostConstruction)
+        if (Inventory.constructionMaterials < building.buildingCostConstruction)
         {
             canBuild = false;
         }

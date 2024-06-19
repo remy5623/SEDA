@@ -117,9 +117,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e60ca225c0aa05f43aebe3a13987aa2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tornadoText: {fileID: 0}
-  thunderstormText: {fileID: 0}
-  floodText: {fileID: 0}
+  tornadoText: {fileID: 1309064638393124527}
+  thunderstormText: {fileID: 8501956941666185794}
+  floodText: {fileID: 814050540151340728}
 --- !u!1 &5218631406980893874
 GameObject:
   m_ObjectHideFlags: 0

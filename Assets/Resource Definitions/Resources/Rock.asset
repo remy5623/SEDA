@@ -15,10 +15,10 @@ MonoBehaviour:
   iD: 0
   tileName: Rock
   icon: {fileID: 0}
-  mesh: {fileID: 0}
+  mesh: {fileID: 6777488678298449921, guid: e061bc095a0932a48a67cf161c77740f, type: 3}
   sizeWidth: 0
   sizeLength: 0
-  structureTypes: 0
+  structureType: 3
   tileUnder: {fileID: 0}
   biomesTypes: 
   tileTerrainTypes: 

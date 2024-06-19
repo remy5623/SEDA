@@ -6,10 +6,6 @@ using UnityEngine.InputSystem;
 
 public class BuildSystem : MonoBehaviour
 {
-    public Resource BuildingType1;
-    public Resource BuildingType2;
-    public Resource BuildingType3;
-
     [SerializeField]
     InputActionAsset actionAsset;
 
@@ -31,31 +27,13 @@ public class BuildSystem : MonoBehaviour
     {
         Ray ray = Camera.main.ScreenPointToRay(tapLocation.ReadValue<UnityEngine.Vector2>());
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag == "Grid" && GameObject.Find("Canvas").GetComponent<BuildingTypeSelect>().isSetB1)
+        if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag == "Grid")
         {
 
             GridObject hitGridObject;
             if (hitGridObject = hit.collider.gameObject.GetComponent<GridObject>())
             {
-                hitGridObject.TryBuild(BuildingType1);
-            }
-        }
-
-        else if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag == "Grid" && GameObject.Find("Canvas").GetComponent<BuildingTypeSelect>().isSetB2)
-        {
-            GridObject hitGridObject;
-            if (hitGridObject = hit.collider.gameObject.GetComponent<GridObject>())
-            {
-                hitGridObject.TryBuild(BuildingType2);
-            }
-        }
-
-        else if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag == "Grid" && GameObject.Find("Canvas").GetComponent<BuildingTypeSelect>().isSetB3)
-        {
-            GridObject hitGridObject;
-            if (hitGridObject = hit.collider.gameObject.GetComponent<GridObject>())
-            {
-                hitGridObject.TryBuild(BuildingType3);
+                hitGridObject.TryBuild(transform.parent.GetComponentInChildren<BuildingTypeSelect>().currentBuildingType);
             }
         }
     }

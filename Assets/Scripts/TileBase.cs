@@ -19,7 +19,7 @@ public class TileBase : ScriptableObject
     [Tooltip("Number of Tiles on grid Length")]
     public int sizeLength;                                
     [Tooltip("Structure Types")]
-    public StructureTypes structureTypes;                                 
+    public StructureTypes structureType;                                 
     public enum StructureTypes
     {
         LoggingCamp,

@@ -1,12 +1,10 @@
-
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Collections;
 
-public class UIButtonSound : MonoBehaviour, IPointerEnterHandler
+public class UIButtonSound : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler
 {
-
     public AudioClip ClickedSound;
     public AudioClip HoverSound;
 
@@ -15,9 +13,7 @@ public class UIButtonSound : MonoBehaviour, IPointerEnterHandler
     // get audiosource
     private AudioSource source { get { return GetComponent<AudioSource>(); } }
 
-
     void Start()
-
     {
         //bind an AudioSource on its
         gameObject.AddComponent<AudioSource>();
@@ -25,11 +21,6 @@ public class UIButtonSound : MonoBehaviour, IPointerEnterHandler
         source.clip = HoverSound;
 
         source.playOnAwake = false;
-
-
-        button.onClick.AddListener(() => PlayClickSoud());
-
-
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -43,12 +34,14 @@ public class UIButtonSound : MonoBehaviour, IPointerEnterHandler
         source.PlayOneShot(HoverSound);
     }
 
-    void PlayClickSoud()
-
+    public void OnPointerDown(PointerEventData eventData)
     {
+        PlayClickSound();
+    }
 
+    void PlayClickSound()
+    {
         source.clip = ClickedSound;
         source.PlayOneShot(ClickedSound);
-
     }
 }

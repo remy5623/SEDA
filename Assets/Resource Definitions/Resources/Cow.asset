@@ -20,7 +20,7 @@ MonoBehaviour:
   sizeLength: 2
   structureTypes: 2
   tileUnder: {fileID: 0}
-  biomesTypes: 0200000003000000
+  biomesTypes: 02000000
   tileTerrainTypes: 
   canBuild: 1
   buildTime: 2
@@ -42,13 +42,13 @@ MonoBehaviour:
   buildingOutputMulti: 0.5
   buildingLevelMulti: 1
   buildingOutputStage: 1
-  buildingCalcOutput: 0
   upKeepCostEnergy: 0
   upKeepCostFood: 0
   upKeepCostConstruction: 0
   hasTileImpact: 1
   impactRadiusTiles: 4
-  transferResources: 5
+  transferFood: 0
+  transferConstruction: 0
   structureOfTypeInRadius: {fileID: 0}
   impactSource: 1
   buffAmount: 0

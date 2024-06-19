@@ -25,7 +25,7 @@ MonoBehaviour:
   canBuild: 1
   buildTime: 0
   buildingCostEnergy: 0
-  buildingCostFood: 20
+  buildingCostFood: 0
   buildingCostConstruction: 0
   buildingUpgradeCostEnergy: 0
   buildingUpgradeCostFood: 0

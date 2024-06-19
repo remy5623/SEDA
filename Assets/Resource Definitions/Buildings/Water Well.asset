@@ -10,23 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c15a7d87bc4ba64478f86a96ca27bff6, type: 3}
-  m_Name: Oats
+  m_Name: Water Well
   m_EditorClassIdentifier: 
   iD: 0
-  tileName: Oats
+  tileName: WaterWell
   icon: {fileID: 0}
   mesh: {fileID: 0}
   sizeWidth: 1
   sizeLength: 1
-  structureTypes: 2
+  structureTypes: 1
   tileUnder: {fileID: 0}
-  biomesTypes: 02000000
+  biomesTypes: 
   tileTerrainTypes: 
-  canBuild: 0
+  canBuild: 1
   buildTime: 0
   buildingCostEnergy: 0
   buildingCostFood: 0
-  buildingCostConstruction: 0
+  buildingCostConstruction: 20
   buildingUpgradeCostEnergy: 0
   buildingUpgradeCostFood: 0
   buildingUpgradeCostConstruction: 0
@@ -34,26 +34,24 @@ MonoBehaviour:
   buildingLevelIcon: []
   buildingCurrentlevel: 0
   buildingLevelMax: 0
-  hasResourceOutput: 1
+  hasResourceOutput: 0
   isResourceTapped: 0
   baseOutputEnergy: 0
-  baseOutputFood: 10
+  baseOutputFood: 0
   baseOutputConstruction: 0
-  buildingOutputMulti: 0.5
-  buildingLevelMulti: 1
-  buildingOutputStage: 1
+  buildingOutputMulti: 0
+  buildingLevelMulti: 0
+  buildingOutputStage: 0
   upKeepCostEnergy: 0
   upKeepCostFood: 0
   upKeepCostConstruction: 0
   hasTileImpact: 1
-  impactRadiusTiles: 2
+  impactRadiusTiles: 0
   transferFood: 0
   transferConstruction: 0
   structureOfTypeInRadius: {fileID: 0}
-  impactSource: 1
+  impactSource: 0
   buffAmount: 0
   nerfAmount: 0
-  tileImpactBuff:
-  - {fileID: 11400000, guid: cd1916fecfec7ba4ba50cdc08430342a, type: 2}
-  tileImpactNerf:
-  - {fileID: 11400000}
+  tileImpactBuff: []
+  tileImpactNerf: []

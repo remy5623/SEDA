@@ -25,20 +25,20 @@ public class Building : MonoBehaviour
     public void PayConstructionCosts()
     {
         Inventory.SpendFood(resourceData.buildingCostFood);
-        Inventory.SpendMaterials(resourceData.buildingCostConstruction);
+        Inventory.SpendMaterials(resourceData.buildingCostMaterial);
     }
 
     /** Generate resources according to the following equation: Base Output * Building Level * Building Stage */
     public void UpdateResources()
     {
-        Inventory.food += Mathf.FloorToInt(resourceData.baseOutputFood * resourceData.buildingLevelMulti * resourceData.buildingOutputStage * (1+buff+ nerf));
-        Inventory.constructionMaterials += Mathf.FloorToInt(resourceData.baseOutputConstruction * resourceData.buildingLevelMulti * resourceData.buildingOutputStage * (1+buff+ nerf));
+        Inventory.food += Mathf.FloorToInt(resourceData.baseOutputFood * (1+buff+ nerf));
+        Inventory.constructionMaterials += Mathf.FloorToInt(resourceData.baseOutputMaterial * (1+buff+ nerf));
     }
     
     public void PayUpkeep()
     {
         Inventory.SpendFood(resourceData.upKeepCostFood);
-        Inventory.SpendMaterials(resourceData.upKeepCostConstruction);
+        Inventory.SpendMaterials(resourceData.upKeepCostMaterial);
     }
 
     public GridObject GetOwningGridObject()
@@ -66,23 +66,11 @@ public class Building : MonoBehaviour
                     Building objectInRadius;
                     if ((objectInRadius = GetOwningGridObject().GetOwningGridSystem().GetGridObject(x, z).GetBuilding()) && (new GridPosition(x, z) != pos))
                     {
-                        objectInRadius.TransferFood(resourceData.transferFood);
-                        objectInRadius.TransferMaterials(resourceData.transferConstruction);
                         SetBuffs(objectInRadius);
                     }
                 }
             }
         }
-    }
-
-    public void TransferFood(int food)
-    {
-        Inventory.food += resourceData.transferFood;
-    }
-
-    public void TransferMaterials(int materials)
-    {
-        Inventory.constructionMaterials += resourceData.transferConstruction;
     }
 
     public void SetBuffs(Building resource)

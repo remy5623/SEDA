@@ -22,7 +22,7 @@ MonoBehaviour:
   tileUnder: {fileID: 0}
   biomesTypes: 02000000
   tileTerrainTypes: 
-  canBuild: 1
+  canBuild: 0
   buildTime: 0
   buildingCostEnergy: 0
   buildingCostFood: 0
@@ -46,13 +46,14 @@ MonoBehaviour:
   upKeepCostFood: 0
   upKeepCostConstruction: 0
   hasTileImpact: 1
-  impactRadiusTiles: 5
+  impactRadiusTiles: 3
   transferFood: 0
   transferConstruction: 5
   structureOfTypeInRadius: {fileID: 0}
   impactSource: 1
-  buffAmount: 0.5
+  buffAmount: 2
   nerfAmount: 0
   tileImpactBuff:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 531889748cd6e0c42b355825ec97afc5, type: 2}
+  - {fileID: 11400000, guid: cd1916fecfec7ba4ba50cdc08430342a, type: 2}
   tileImpactNerf: []

@@ -76,7 +76,8 @@ public class TimeSystem : MonoBehaviour
         SetDay();
         SetMonth();
         SetTimeRemainingDisplay();
-        AddMonthlyEvent(CountDownLevelTime, 1, false);
+        AddMonthlyEvent(CountDownLevelTime);
+        AddMonthlyEvent(Inventory.SetWeather);
         StartCoroutine(DailyTick());
     }
 
@@ -208,10 +209,7 @@ public class TimeSystem : MonoBehaviour
         if (Inventory.levelTime < 1 )
         {
             Instantiate(LevelSelectPrefab);
-        }
-        else
-        {
-            AddMonthlyEvent(CountDownLevelTime, 1, false);
+            // TODO: Stop Countdown
         }
     }
 

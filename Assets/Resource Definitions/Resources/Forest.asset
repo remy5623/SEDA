@@ -15,10 +15,10 @@ MonoBehaviour:
   iD: 0
   tileName: Forest
   icon: {fileID: 0}
-  mesh: {fileID: 0}
+  mesh: {fileID: 6777488678298449921, guid: e061bc095a0932a48a67cf161c77740f, type: 3}
   sizeWidth: 1
   sizeLength: 1
-  structureTypes: 2
+  structureType: 1
   tileUnder: {fileID: 0}
   biomesTypes: 02000000
   tileTerrainTypes: 

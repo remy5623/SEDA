@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +18,14 @@ public enum TerrainTypes
     Shore
 }
 
+public enum CreatureTypes
+{
+    None,
+    Giant,
+    Kelpie,
+    Cailleach
+}
+
 public class Terrainsystem : MonoBehaviour
 {
     public SoilType soilType;
@@ -31,31 +40,14 @@ public class Terrainsystem : MonoBehaviour
 
     public List<SoilType> allowedSoilGrade;
 
- 
     private SoilType soiltype = new SoilType();
-    public bool ResourceAffect;
-    
 
-    /*enum WaterType
-    {
-        A = 110,
-        B = 105,
-        C = 100,
-        D = 95,
-        E = 90
-    }
-    enum Grade
-    {
-        A = 110,
-        B = 105,
-        C = 100,
-        D = 95,
-        E = 90
-    }*/
+    public bool ResourceAffect;
 
     [SerializeField] public TerrainTypes terraintype;
+    [SerializeField] public CreatureTypes creaturetype;
 
-   
+
     //if the tile has energy
     public bool energy = false;
 
@@ -67,6 +59,19 @@ public class Terrainsystem : MonoBehaviour
     //the total health of the soil (A to E grade)
     int health;
 
+    //Creatures
+    /*public GameObject GiantMonsterr;
+    public GameObject KelpieMonsterr;
+    public GameObject CailleachMonsterr;*/
+
+    public int GiantbribeCostFood = 15;
+    public int GiantbribeCostConstruction = 5;
+
+    public int KelpiebribeCostFood = 20;
+    public int KelpiebribeCostConstruction = 0;
+
+    public int CailleachbribeCostFood = 0;
+    public int CailleachbribeCostConstruction = 20;
 
     private void Start()
     {
@@ -76,10 +81,11 @@ public class Terrainsystem : MonoBehaviour
             TimeSystem.AddMonthlyEvent(HealthBar);
         }
 
-
         InitialTerrainList();
 
         StartCoroutine(Stupidity());
+
+
     }
 
     private void TriggerEnergy()
@@ -113,7 +119,7 @@ public class Terrainsystem : MonoBehaviour
     void HealthBar()
     {
         Inventory.count++;
-        Inventory.totalhealth += (int)soilType; 
+        Inventory.totalhealth += (int)soilType;
         Inventory.HealthBarChange();
     }
 
@@ -128,7 +134,6 @@ public class Terrainsystem : MonoBehaviour
                     allowedSoilGrade.Add(SoilType.C);
                     break;
                 }
-
             case TerrainTypes.Highland:
                 {
                     allowedSoilGrade.Add(SoilType.A);
@@ -161,8 +166,6 @@ public class Terrainsystem : MonoBehaviour
                     break;
                 }
         }
-
-        
     }
 
     void ChangeinGrade()
@@ -204,6 +207,27 @@ public class Terrainsystem : MonoBehaviour
         while (i < allowedSoilGrade.Count);
     }
 
+    public void Creaturegone(TileBase creatureDef)
+    {
+        foreach (Terrainsystem giantTile in FindObjectsByType<Terrainsystem>(FindObjectsSortMode.None))
+        {
+            if (giantTile.creaturetype.ToString() == creatureDef.structureType.ToString())
+            {
+                GridPosition pos = giantTile.owningGridObject.GetGridPosition();
+                GridObject CreatureObj = giantTile.owningGridObject.GetOwningGridSystem().GetGridObject(pos.x, pos.z);
+                if (Inventory.food >= GiantbribeCostFood && Inventory.constructionMaterials >= GiantbribeCostConstruction)
+                {
+                    CreatureObj.SetCreatureGone();
+
+                    //Cue VFX effect..
+                }
+            }
+        }
+
+
+    }
+
+    
 }
 
 /*void TileHealth()

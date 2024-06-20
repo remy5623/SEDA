@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Giant
   m_EditorClassIdentifier: 
   iD: 0
-  tileName: Giant
+  tileName: Magnus the Giant
   icon: {fileID: 0}
   mesh: {fileID: 0}
   sizeWidth: 2
   sizeLength: 3
-  structureTypes: 0
+  structureType: 0
   tileUnder: {fileID: 0}
   biomesTypes: 
   tileTerrainTypes: 
@@ -42,13 +42,13 @@ MonoBehaviour:
   buildingOutputMulti: 0
   buildingLevelMulti: 0
   buildingOutputStage: 0
-  buildingCalcOutput: 0
   upKeepCostEnergy: 0
   upKeepCostFood: 0
   upKeepCostConstruction: 0
   hasTileImpact: 1
   impactRadiusTiles: 2
-  transferResources: 0
+  transferFood: 0
+  transferConstruction: 0
   structureOfTypeInRadius: {fileID: 0}
   impactSource: 0
   buffAmount: 0

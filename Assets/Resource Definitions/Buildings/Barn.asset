@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Barn
   m_EditorClassIdentifier: 
   iD: 0
-  tileName: 
+  tileName: Barn
   icon: {fileID: 0}
   mesh: {fileID: 0}
-  sizeWidth: 0
-  sizeLength: 0
-  structureTypes: 1
+  sizeWidth: 1
+  sizeLength: 1
+  structureType: 0
   tileUnder: {fileID: 0}
   biomesTypes: 
   tileTerrainTypes: 0100000002000000

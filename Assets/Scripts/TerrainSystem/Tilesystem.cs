@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -206,11 +207,11 @@ public class Terrainsystem : MonoBehaviour
         while (i < allowedSoilGrade.Count);
     }
 
-    public void Creaturegone()
+    public void Creaturegone(TileBase creatureDef)
     {
         foreach (Terrainsystem giantTile in FindObjectsByType<Terrainsystem>(FindObjectsSortMode.None))
         {
-            if (giantTile.creaturetype == CreatureTypes.Giant)
+            if (giantTile.creaturetype.ToString() == creatureDef.structureType.ToString())
             {
                 GridPosition pos = giantTile.owningGridObject.GetGridPosition();
                 GridObject CreatureObj = giantTile.owningGridObject.GetOwningGridSystem().GetGridObject(pos.x, pos.z);
@@ -219,32 +220,6 @@ public class Terrainsystem : MonoBehaviour
                     CreatureObj.SetCreatureGone();
 
                     //Cue VFX effect..
-                }
-            }
-
-            if (giantTile.creaturetype == CreatureTypes.Kelpie)
-            {
-                GridPosition pos = giantTile.owningGridObject.GetGridPosition();
-                GridObject CreatureObj = giantTile.owningGridObject.GetOwningGridSystem().GetGridObject(pos.x, pos.z);
-                if (Inventory.food >= KelpiebribeCostFood && Inventory.constructionMaterials >= KelpiebribeCostConstruction)
-                {
-                    CreatureObj.SetCreatureGone();
-
-                    //Cue VFX effect..
-                }
-
-            }
-
-            if (giantTile.creaturetype == CreatureTypes.Cailleach)
-            {
-                GridPosition pos = giantTile.owningGridObject.GetGridPosition();
-                GridObject CreatureObj = giantTile.owningGridObject.GetOwningGridSystem().GetGridObject(pos.x, pos.z);
-                if (Inventory.food >= CailleachbribeCostFood && Inventory.constructionMaterials >= CailleachbribeCostConstruction)
-                {
-                    CreatureObj.SetCreatureGone();
-
-                    //CUE VFX EFFECT....AND VFX ENDS...
-                    //WEATHER CHANGE...
                 }
             }
         }

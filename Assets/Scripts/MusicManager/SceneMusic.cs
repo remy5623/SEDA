@@ -3,12 +3,23 @@ using UnityEngine;
 public class SceneMusic : MonoBehaviour
 {
     public AudioClip backgroundMusic;
+    private AudioSource audioSource;
 
     void Start()
     {
-        if (MusicManager.instance != null && backgroundMusic != null)
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.clip = backgroundMusic;
+        audioSource.loop = true;
+        audioSource.Play();
+    }
+
+    void OnDestroy()
+    {
+        // Õ£÷π“Ù¿÷≤¢œ˙ªŸ AudioSource
+        if (audioSource != null)
         {
-            MusicManager.instance.PlayMusic(backgroundMusic);
+            audioSource.Stop();
+            Destroy(audioSource);
         }
     }
 }

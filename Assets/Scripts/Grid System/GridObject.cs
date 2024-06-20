@@ -6,7 +6,7 @@ public class GridObject : MonoBehaviour
 
     Terrainsystem terrain;
     TerrainTypes terrainType;
-    Resource buildingInstance;
+    Building buildingInstance;
 
     private void Start()
     {
@@ -64,10 +64,16 @@ public class GridObject : MonoBehaviour
         if (CanBuildOnTile(building))
         {
             GameObject newBuilding = Instantiate(building.inGameAsset, transform);
-            buildingInstance = newBuilding.AddComponent<Resource>();
+            buildingInstance = newBuilding.AddComponent<Building>();
             buildingInstance.resourceData = building;
+            
             buildingInstance.transform.localPosition = Vector3.zero;
             buildingInstance.SetGridObject(this);
+            if (buildingInstance.resourceData.isImpactSoilGrade == true)
+            {
+                terrain.ChangeinGrade(buildingInstance.resourceData.buffSoilGradeAmount, buildingInstance.resourceData.nerfSoilGradeAmount, buildingInstance.resourceData.isImpactSoilGrade);
+                buildingInstance.Impact();
+            }
             return true;
         }
         return false;
@@ -78,15 +84,6 @@ public class GridObject : MonoBehaviour
     {
         bool canBuild = false;
 
-        /*switch(terrainType)
-        {
-            case TerrainTypes.None:
-            case TerrainTypes.River:
-            case TerrainTypes.Loch:
-            case TerrainTypes.Glen:
-                canBuild = false;
-                break;
-        }*/
         if (building == null)
         { return false; }
 
@@ -98,8 +95,6 @@ public class GridObject : MonoBehaviour
                     canBuild = true;
             }
         }
-
-       
 
         if (buildingInstance != null)
         {
@@ -116,16 +111,6 @@ public class GridObject : MonoBehaviour
             canBuild = false;
         }
 
-        switch(terrainType)
-        {
-            case TerrainTypes.None:
-            case TerrainTypes.River:
-            case TerrainTypes.Loch:
-            case TerrainTypes.Glen:
-                canBuild = false;
-                break;
-        }
-
         return canBuild;
     }
 
@@ -134,7 +119,12 @@ public class GridObject : MonoBehaviour
         return new GridPosition(transform.localPosition.x / GetOwningGridSystem().GetCellSize(), transform.localPosition.z / GetOwningGridSystem().GetCellSize());
     }
 
-    public Resource GetBuilding()
+    public Terrainsystem GetTerrainType()
+    {
+        return terrain;
+    }
+
+    public Building GetBuilding()
     { return buildingInstance; }
 
     public void SetTerrainEnergy(bool hasEnergy)

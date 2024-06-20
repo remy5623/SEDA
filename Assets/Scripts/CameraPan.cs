@@ -65,11 +65,11 @@ public class CameraPan : MonoBehaviour
 
     [SerializeField]
     [Tooltip("The distance the camera is allowed to zoom in.")]
-    float minZoomDistance = 3.5f;
+    public float minZoomDistance = 3.5f;
 
     [SerializeField]
     [Tooltip("The distance the camera is allowed to zoom out.")]
-    float maxZoomDistance = 10f;
+    public float maxZoomDistance = 10f;
 
     // These function references are necessary for callback registering/deregistering to work properly
     Action<InputAction.CallbackContext> possessCamera;

@@ -64,7 +64,7 @@ public class GridObject : MonoBehaviour
     {
         if (CanBuildOnTile(building))
         {
-            GameObject newBuilding = Instantiate(building.mesh, transform);
+            GameObject newBuilding = Instantiate(building.inGameAsset, transform);
             buildingInstance = newBuilding.AddComponent<Resource>();
             buildingInstance.resourceData = building;
             buildingInstance.transform.localPosition = Vector3.zero;
@@ -77,10 +77,30 @@ public class GridObject : MonoBehaviour
     // Returns whether an object can be built on this GridObject
     public bool CanBuildOnTile(TileBase building)
     {
+        bool canBuild = false;
+
+        /*switch(terrainType)
+        {
+            case TerrainTypes.None:
+            case TerrainTypes.River:
+            case TerrainTypes.Loch:
+            case TerrainTypes.Glen:
+                canBuild = false;
+                break;
+        }*/
         if (building == null)
         { return false; }
 
-        bool canBuild = true;
+        for (int i = 0; i < building.tileTerrainTypes.Count; i++)
+        {
+            if (terrain && terrain.creaturetype == CreatureTypes.None)
+            {
+                if (terrainType == building.tileTerrainTypes[i])
+                    canBuild = true;
+            }
+        }
+
+       
 
         if (buildingInstance != null)
         {
@@ -92,7 +112,7 @@ public class GridObject : MonoBehaviour
             canBuild = false;
         }
 
-        if (Inventory.constructionMaterials < building.buildingCostConstruction)
+        if (Inventory.constructionMaterials < building.buildingCostMaterial)
         {
             canBuild = false;
         }

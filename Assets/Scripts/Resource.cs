@@ -26,7 +26,7 @@ public class Resource : MonoBehaviour
     public void PayConstructionCosts()
     {
         Inventory.SpendFood(resourceData.buildingCostFood);
-        Inventory.SpendMaterials(resourceData.buildingCostConstruction);
+        Inventory.SpendMaterials(resourceData.buildingCostMaterial);
     }
 
     /** Generate resources according to the following equation: Base Output * Building Level * Building Stage * buffs/nerfs * total crop output level */
@@ -34,17 +34,15 @@ public class Resource : MonoBehaviour
     {
         if (!Inventory.isFlooding)
         {
-            Inventory.food += Mathf.FloorToInt(resourceData.baseOutputFood * resourceData.buildingLevelMulti * resourceData.buildingOutputStage * (1 + buff + nerf) 
-                * Inventory.cropOutput);
-            Inventory.constructionMaterials += Mathf.FloorToInt(resourceData.baseOutputConstruction * resourceData.buildingLevelMulti * resourceData.buildingOutputStage 
-                * (1 + buff + nerf) * Inventory.cropOutput);
+            Inventory.food += Mathf.FloorToInt(resourceData.baseOutputFood * (1 + buff + nerf) * Inventory.cropOutput);
+            Inventory.constructionMaterials += Mathf.FloorToInt(resourceData.baseOutputMaterial * (1 + buff + nerf) * Inventory.cropOutput);
         }
     }
     
     public void PayUpkeep()
     {
         Inventory.SpendFood(resourceData.upKeepCostFood);
-        Inventory.SpendMaterials(resourceData.upKeepCostConstruction);
+        Inventory.SpendMaterials(resourceData.upKeepCostMaterial);
     }
 
     public GridObject GetOwningGridObject()
@@ -72,23 +70,11 @@ public class Resource : MonoBehaviour
                     Resource objectInRadius;
                     if ((objectInRadius = GetOwningGridObject().GetOwningGridSystem().GetGridObject(x, z).GetBuilding()) && (new GridPosition(x, z) != pos))
                     {
-                        objectInRadius.TransferFood(resourceData.transferFood);
-                        objectInRadius.TransferMaterials(resourceData.transferConstruction);
                         SetBuffs(objectInRadius);
                     }
                 }
             }
         }
-    }
-
-    public void TransferFood(int food)
-    {
-        Inventory.food += resourceData.transferFood;
-    }
-
-    public void TransferMaterials(int materials)
-    {
-        Inventory.constructionMaterials += resourceData.transferConstruction;
     }
 
     public void SetBuffs(Resource resource)

@@ -123,4 +123,9 @@ public class GridObject : MonoBehaviour
         if (terrain != null)
             terrain.energy = hasEnergy;
     }
+    public void SetCreatureGone()
+    {
+        terrain.creaturetype = CreatureTypes.None;
+    }
+
 }

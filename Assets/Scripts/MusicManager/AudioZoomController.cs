@@ -13,6 +13,9 @@ public class AudioZoomController : MonoBehaviour
 
     private float minZoom;
     private float maxZoom;
+    private bool isMusic2AtMaxVolume = false;
+    private Coroutine music2FadeCoroutine;
+    private float music2OriginalVolume;
 
     void Start()
     {
@@ -29,8 +32,9 @@ public class AudioZoomController : MonoBehaviour
 
         if (orthoCam != null)
         {
-            minZoom = orthoCam.GetComponent<CameraPan>().minZoomDistance;
-            maxZoom = orthoCam.GetComponent<CameraPan>().maxZoomDistance;
+            CameraPan cameraPan = orthoCam.GetComponent<CameraPan>();
+            minZoom = cameraPan.minZoomDistance;
+            maxZoom = cameraPan.maxZoomDistance;
         }
     }
 
@@ -40,13 +44,37 @@ public class AudioZoomController : MonoBehaviour
         {
             float zoomLevel = orthoCam.orthographicSize;
 
-            // Calculate the volumes based on zoom level
-            float volume1 = Mathf.InverseLerp(maxZoom, minZoom, zoomLevel);
-            float volume2 = 1 - volume1;
+            float volume1 = Mathf.InverseLerp(maxZoom - 1, minZoom, zoomLevel);  // »º³åÇø¼ä
+            float volume2 = Mathf.InverseLerp(minZoom + 3, maxZoom, zoomLevel);
 
             StartCoroutine(FadeAudioSource.StartFade(audioSource1, fadeDuration, volume1));
-            StartCoroutine(FadeAudioSource.StartFade(audioSource2, fadeDuration, volume2));
+
+            if (volume2 >= 0.95f && !isMusic2AtMaxVolume)
+            {
+                isMusic2AtMaxVolume = true;
+                music2OriginalVolume = volume2;
+                if (music2FadeCoroutine != null)
+                {
+                    StopCoroutine(music2FadeCoroutine);
+                }
+                music2FadeCoroutine = StartCoroutine(WaitAndLowerVolume(audioSource2, 5.0f, volume2 * 0.4f));
+            }
+            else if (volume2 < 0.95f)
+            {
+                isMusic2AtMaxVolume = false;
+                if (music2FadeCoroutine != null)
+                {
+                    StopCoroutine(music2FadeCoroutine);
+                }
+                StartCoroutine(FadeAudioSource.StartFade(audioSource2, fadeDuration, volume2));
+            }
         }
+    }
+
+    private IEnumerator WaitAndLowerVolume(AudioSource audioSource, float waitTime, float targetVolume)
+    {
+        yield return new WaitForSeconds(waitTime);
+        StartCoroutine(FadeAudioSource.StartFade(audioSource, fadeDuration, targetVolume));
     }
 }
 

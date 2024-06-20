@@ -349,7 +349,6 @@ MonoBehaviour:
   - {fileID: 1273543341674641358}
   - {fileID: 8332177878423990819}
   - {fileID: 3978149025355833499}
-  array: {fileID: 4464705333300583226}
   currentBuildingType: {fileID: 0}
 --- !u!1 &3978149025355833499
 GameObject:
@@ -622,6 +621,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionAsset: {fileID: -944628639613478452, guid: 67f30afa779e22942afacb4ae4197719,
     type: 3}
+  buildingTypeSelect: {fileID: 9071569237073904937}
 --- !u!1 &6252650130776109549
 GameObject:
   m_ObjectHideFlags: 0

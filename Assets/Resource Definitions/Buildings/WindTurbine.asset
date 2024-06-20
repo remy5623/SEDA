@@ -18,7 +18,7 @@ MonoBehaviour:
     type: 3}
   sizeWidthTile: 0
   sizeLengthTile: 0
-  structureType: 0
+  structureType: 8
   tileUnder: {fileID: 0}
   biomeTypes: 
   tileTerrainTypes: 02000000

@@ -2,6 +2,7 @@
 
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum WeatherTypes
 {
@@ -58,11 +59,20 @@ public class Inventory : MonoBehaviour
             overworldTime = initialOverworldTime;
             food = initialFood;
             constructionMaterials = initialConstructionMaterials;
+            SceneManager.sceneLoaded += ReassignInitialVariables;
+            DontDestroyOnLoad(this);
         }
         else
         {
-            Destroy(gameObject);
+            Destroy(this);
         }
+    }
+
+    void ReassignInitialVariables(Scene scene, LoadSceneMode mode)
+    {
+        overworldTime = initialOverworldTime;
+        food = initialFood;
+        constructionMaterials = initialConstructionMaterials;
     }
 
     public static void SpendFood(int foodSpent)

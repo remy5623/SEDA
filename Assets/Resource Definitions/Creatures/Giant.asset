@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c15a7d87bc4ba64478f86a96ca27bff6, type: 3}
   m_Name: Giant
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
   iD: 0
   tileName: Magnus the Giant
   icon: {fileID: 0}
@@ -20,31 +19,27 @@ MonoBehaviour:
   sizeWidth: 2
   sizeLength: 3
   structureType: 0
-=======
-  tileName: Giant
-  icon: {fileID: 0}
-  inGameAsset: {fileID: 0}
-  sizeWidthTile: 0
-  sizeLengthTile: 0
-  structureType: 17
->>>>>>> main
   tileUnder: {fileID: 0}
-  biomeTypes: 
+  biomesTypes: 
   tileTerrainTypes: 
   canBuild: 0
+  buildTime: 0
+  buildingCostEnergy: 0
   buildingCostFood: 0
-  buildingCostMaterial: 0
-  upKeepCostEnergy: 0
-  upKeepCostWater: 0
-  upKeepCostFood: 0
-  upKeepCostMaterial: 0
+  buildingCostConstruction: 0
+  buildingUpgradeCostEnergy: 0
+  buildingUpgradeCostFood: 0
+  buildingUpgradeCostConstruction: 0
+  buildingUpgradeCostMulti: 0
+  buildingLevelIcon: []
+  buildingCurrentlevel: 0
+  buildingLevelMax: 0
+  hasResourceOutput: 0
   isResourceTapped: 0
   baseOutputEnergy: 0
-  baseOutputWater: 0
   baseOutputFood: 0
-  baseOutputMaterial: 0
+  baseOutputConstruction: 0
   buildingOutputMulti: 0
-<<<<<<< HEAD
   buildingLevelMulti: 0
   buildingOutputStage: 0
   upKeepCostEnergy: 0
@@ -55,14 +50,8 @@ MonoBehaviour:
   transferFood: 0
   transferConstruction: 0
   structureOfTypeInRadius: {fileID: 0}
-=======
->>>>>>> main
   impactSource: 0
-  impactRadiusTiles: 2
   buffAmount: 0
   nerfAmount: 0
   tileImpactBuff: []
   tileImpactNerf: []
-  isImpactSoilGrade: 0
-  buffSoilGradeAmount: 0
-  nerfSoilGradeAmount: 0

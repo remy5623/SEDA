@@ -35,12 +35,12 @@ MonoBehaviour:
   baseOutputFood: 50
   baseOutputMaterial: 0
   buildingOutputMulti: 0
-  impactSource: 0
+  impactSource: 1
   impactRadiusTiles: 0
   buffAmount: 0
   nerfAmount: 0
   tileImpactBuff: []
   tileImpactNerf: []
-  isImpactSoilGrade: 0
-  buffSoilGradeAmount: 0
+  isImpactSoilGrade: 1
+  buffSoilGradeAmount: 20
   nerfSoilGradeAmount: 0

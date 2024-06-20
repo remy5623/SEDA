@@ -29,7 +29,6 @@ public class GridObject : MonoBehaviour
 
     public void ToggleBuildModePerTile(TileBase buildingType)
     {
-        Color transparentWhite = new Color(1, 1, 1, 0f);
         Color transparentGreen = new Color(0, 1, 0, 0.5f);
         Color transparentRed = new Color(1, 0, 0, 0.5f);
 

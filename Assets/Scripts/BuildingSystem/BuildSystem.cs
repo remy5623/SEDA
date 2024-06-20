@@ -29,7 +29,6 @@ public class BuildSystem : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag == "Grid")
         {
-
             GridObject hitGridObject;
             if (hitGridObject = hit.collider.gameObject.GetComponent<GridObject>())
             {

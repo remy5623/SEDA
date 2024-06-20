@@ -1,12 +1,14 @@
 using UnityEngine;
 
-public class Resource : MonoBehaviour
+public class Building : MonoBehaviour
 {
     public TileBase resourceData;
+    GridSystem owningGridSystem;
 
     float buff;
     float nerf;
 
+    Terrainsystem Terrainsystem;
 
     private void Start()
     {
@@ -14,7 +16,7 @@ public class Resource : MonoBehaviour
         resourceData.tileUnder.GetOwningGridSystem().ToggleBuildMode(resourceData, true);
         UpdateTotalBuildingCount(true);
         //Impact();
-
+       
         if ( !resourceData.isResourceTapped )
         {
             TimeSystem.AddMonthlyEvent(UpdateResources);
@@ -67,7 +69,7 @@ public class Resource : MonoBehaviour
                 if (x >= 0 && z >= 0 && x < GetOwningGridObject().GetOwningGridSystem().GetGridLength() && z < GetOwningGridObject().GetOwningGridSystem().GetGridWidth())
                 {
                     // TODO: Filter by structure type
-                    Resource objectInRadius;
+                    Building objectInRadius;
                     if ((objectInRadius = GetOwningGridObject().GetOwningGridSystem().GetGridObject(x, z).GetBuilding()) && (new GridPosition(x, z) != pos))
                     {
                         SetBuffs(objectInRadius);
@@ -77,7 +79,7 @@ public class Resource : MonoBehaviour
         }
     }
 
-    public void SetBuffs(Resource resource)
+    public void SetBuffs(Building resource)
     {
         resource.buff += resourceData.buffAmount;
         resource.buff -= resourceData.nerfAmount;

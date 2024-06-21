@@ -27,9 +27,8 @@ public class GridObject : MonoBehaviour
         }
     }
 
-    public void ToggleBuildModePerTile(Building buildingType)
+    public void ToggleBuildModePerTile(TileBase buildingType)
     {
-        Color transparentWhite = new Color(1, 1, 1, 0f);
         Color transparentGreen = new Color(0, 1, 0, 0.5f);
         Color transparentRed = new Color(1, 0, 0, 0.5f);
 
@@ -60,46 +59,56 @@ public class GridObject : MonoBehaviour
     }
 
     // Instantiates a building on top of this tile.
-    public bool TryBuild(Building building)
+    public bool TryBuild(TileBase building)
     {
         if (CanBuildOnTile(building))
         {
-            buildingInstance = Instantiate(building.gameObject, transform).GetComponent<Building>();
+            GameObject newBuilding = Instantiate(building.inGameAsset, transform);
+            buildingInstance = newBuilding.AddComponent<Building>();
+            buildingInstance.resourceData = building;
+            
             buildingInstance.transform.localPosition = Vector3.zero;
             buildingInstance.SetGridObject(this);
+            if (buildingInstance.resourceData.isImpactSoilGrade == true)
+            {
+                terrain.ChangeinGrade(buildingInstance.resourceData.buffSoilGradeAmount, buildingInstance.resourceData.nerfSoilGradeAmount, buildingInstance.resourceData.isImpactSoilGrade);
+                buildingInstance.Impact();
+            }
             return true;
         }
         return false;
     }
 
     // Returns whether an object can be built on this GridObject
-    public bool CanBuildOnTile(Building building)
+    public bool CanBuildOnTile(TileBase building)
     {
-        bool canBuild = true;
+        bool canBuild = false;
+
+        if (building == null)
+        { return false; }
+
+        for (int i = 0; i < building.tileTerrainTypes.Count; i++)
+        {
+            if (terrain && terrain.creaturetype == CreatureTypes.None)
+            {
+                if (terrainType == building.tileTerrainTypes[i])
+                    canBuild = true;
+            }
+        }
 
         if (buildingInstance != null)
         {
             canBuild = false;
         }
 
-        if (Inventory.food < building.resourceData.buildingCostFood)
+        if (Inventory.food < building.buildingCostFood)
         {
             canBuild = false;
         }
 
-        if (Inventory.constructionMaterials < building.resourceData.buildingCostConstruction)
+        if (Inventory.constructionMaterials < building.buildingCostMaterial)
         {
             canBuild = false;
-        }
-
-        switch(terrainType)
-        {
-            case TerrainTypes.None:
-            case TerrainTypes.River:
-            case TerrainTypes.Loch:
-            case TerrainTypes.Glen:
-                canBuild = false;
-                break;
         }
 
         return canBuild;
@@ -110,6 +119,11 @@ public class GridObject : MonoBehaviour
         return new GridPosition(transform.localPosition.x / GetOwningGridSystem().GetCellSize(), transform.localPosition.z / GetOwningGridSystem().GetCellSize());
     }
 
+    public Terrainsystem GetTerrainType()
+    {
+        return terrain;
+    }
+
     public Building GetBuilding()
     { return buildingInstance; }
 
@@ -118,4 +132,9 @@ public class GridObject : MonoBehaviour
         if (terrain != null)
             terrain.energy = hasEnergy;
     }
+    public void SetCreatureGone()
+    {
+        terrain.creaturetype = CreatureTypes.None;
+    }
+
 }

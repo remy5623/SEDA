@@ -1,27 +1,28 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Numerics;
+﻿using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class BuildSystem : MonoBehaviour
 {
-    public Building BuildingType1;
-    public Building BuildingType2;
-    public Building BuildingType3;
-
     [SerializeField]
     InputActionAsset actionAsset;
+
+    [SerializeField]
+    BuildingTypeSelect buildingTypeSelect;
 
     InputAction placeAction;
     InputAction tapLocation;
 
     public static bool isInBuildMode = false;
 
+    // This function reference is necessary for callback registering/deregistering to work properly
+    Action<InputAction.CallbackContext> possessCamera;
+
     private void Start()
     {
         placeAction = actionAsset.FindAction("PossessCamera");
-        placeAction.performed += ctx => PlaceBuilding();
+        possessCamera = ctx => PlaceBuilding();
+        placeAction.performed += possessCamera;
 
         tapLocation = actionAsset.FindAction("PanCamera");
     }
@@ -31,34 +32,18 @@ public class BuildSystem : MonoBehaviour
     {
         Ray ray = Camera.main.ScreenPointToRay(tapLocation.ReadValue<UnityEngine.Vector2>());
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag == "Grid" && GameObject.Find("Canvas").GetComponent<BuildingTypeSelect>().isSetB1)
-        {
-
-            GridObject hitGridObject;
-            if (hitGridObject = hit.collider.gameObject.GetComponent<GridObject>())
-            {
-                hitGridObject.TryBuild(BuildingType1);
-            }
-        }
-
-        else if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag == "Grid" && GameObject.Find("Canvas").GetComponent<BuildingTypeSelect>().isSetB2)
+        if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag == "Grid")
         {
             GridObject hitGridObject;
             if (hitGridObject = hit.collider.gameObject.GetComponent<GridObject>())
             {
-                hitGridObject.TryBuild(BuildingType2);
-            }
-        }
-
-        else if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag == "Grid" && GameObject.Find("Canvas").GetComponent<BuildingTypeSelect>().isSetB3)
-        {
-            GridObject hitGridObject;
-            if (hitGridObject = hit.collider.gameObject.GetComponent<GridObject>())
-            {
-                hitGridObject.TryBuild(BuildingType3);
+                hitGridObject.TryBuild(buildingTypeSelect.currentBuildingType);
             }
         }
     }
 
-
+    private void OnDestroy()
+    {
+        placeAction.performed -= possessCamera;
+    }
 }

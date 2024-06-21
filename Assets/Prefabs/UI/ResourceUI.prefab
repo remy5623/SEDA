@@ -171,8 +171,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1140, y: -69}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 1140, y: -87}
+  m_SizeDelta: {x: 160, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2723220851223188522
 CanvasRenderer:
@@ -259,10 +259,11 @@ MonoBehaviour:
       - m_Target: {fileID: 6336332571992298343}
         m_TargetAssemblyTypeName: Terrainsystem, Assembly-CSharp
         m_MethodName: Creaturegone
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: e089a07e198967d469f5fb8c3e7d0248,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: TileBase, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -331,8 +332,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1140, y: 35}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 1140, y: 54}
+  m_SizeDelta: {x: 160, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1879183450627244571
 CanvasRenderer:
@@ -419,10 +420,11 @@ MonoBehaviour:
       - m_Target: {fileID: 8028181360193612183}
         m_TargetAssemblyTypeName: Terrainsystem, Assembly-CSharp
         m_MethodName: Creaturegone
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: bdaf8c545b368b640bfdfc65a9daae98,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: TileBase, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -898,7 +900,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 1140, y: -15}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 160, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5637093154484833786
 CanvasRenderer:
@@ -985,10 +987,11 @@ MonoBehaviour:
       - m_Target: {fileID: 5512021986120090572}
         m_TargetAssemblyTypeName: Terrainsystem, Assembly-CSharp
         m_MethodName: Creaturegone
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 2c5dacb69f111d446920b31e9470eb2e,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: TileBase, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1301,6 +1304,7 @@ GameObject:
   - component: {fileID: 2204828225968712039}
   - component: {fileID: 6370538835593493115}
   - component: {fileID: 6119632438033436267}
+  - component: {fileID: 4455706443984419483}
   m_Layer: 5
   m_Name: ResourceUI
   m_TagString: Untagged
@@ -1411,3 +1415,16 @@ MonoBehaviour:
   foodDisplay: {fileID: 7625660497347705683}
   materialsDisplay: {fileID: 7810134710237030055}
   healthBarDisplay: {fileID: 1268495828326675924}
+--- !u!114 &4455706443984419483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8717328597725006873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0785df23a47d4b45bb8a15082329e10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelTimeStore: 12

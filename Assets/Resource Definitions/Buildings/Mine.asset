@@ -21,7 +21,7 @@ MonoBehaviour:
   structureType: 22
   tileUnder: {fileID: 0}
   biomeTypes: 
-  tileTerrainTypes: 
+  tileTerrainTypes: 03000000
   canBuild: 0
   buildingCostFood: 0
   buildingCostMaterial: 0

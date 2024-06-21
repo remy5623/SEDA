@@ -35,7 +35,7 @@ MonoBehaviour:
   baseOutputFood: 20
   baseOutputMaterial: 0
   buildingOutputMulti: 1
-  impactSource: 0
+  impactSource: 1
   impactRadiusTiles: 2
   buffAmount: 1.5
   nerfAmount: 0

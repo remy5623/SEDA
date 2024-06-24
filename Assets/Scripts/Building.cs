@@ -3,7 +3,6 @@ using UnityEngine;
 public class Building : MonoBehaviour
 {
     public TileBase resourceData;
-    GridSystem owningGridSystem;
 
     float buff;
     float nerf;
@@ -31,7 +30,7 @@ public class Building : MonoBehaviour
         Inventory.SpendMaterials(resourceData.buildingCostMaterial);
     }
 
-    /** Generate resources according to the following equation: Base Output * Building Level * Building Stage * buffs/nerfs * total crop output level */
+    /** Generate resources according to the following equation: Base Output * buffs/nerfs * total crop output level */
     public void UpdateResources()
     {
         if (!Inventory.isFlooding)

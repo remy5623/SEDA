@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 161634640821574269}
   - component: {fileID: 5593804561185091006}
   - component: {fileID: 524253872072123961}
+  - component: {fileID: 5846586059896934059}
   m_Layer: 5
   m_Name: SettingsButton
   m_TagString: Untagged
@@ -133,6 +134,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5846586059896934059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 21684750408376156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d340082af1f8c947ab943b16d34a83f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ClickedSound: {fileID: 8300000, guid: 74bcec12bf3ff1b43940befa11ca35c9, type: 3}
+  HoverSound: {fileID: 0}
 --- !u!1 &4351175934132562202
 GameObject:
   m_ObjectHideFlags: 0

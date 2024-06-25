@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static Terrainsystem;
 
 
 public enum TerrainTypes
@@ -85,6 +84,8 @@ public class Terrainsystem : MonoBehaviour
         }
 
         InitialTerrainList();
+        health = (int)soilType;
+        SetTerrainMaterialProperties();
 
         StartCoroutine(Stupidity());
        // ChangeinGrade();
@@ -177,6 +178,7 @@ public class Terrainsystem : MonoBehaviour
         if (impact)
     {
             health = (int)soilType + (int)totalChangeInGrade;
+            SetTerrainMaterialProperties();
 
             //reference to Building, to reduce it by (health)
            switch (health)
@@ -211,6 +213,23 @@ public class Terrainsystem : MonoBehaviour
             }
         }
 
+    }
+
+    void SetTerrainMaterialProperties()
+    {
+        MeshRenderer renderer = gameObject.GetComponent<MeshRenderer>();
+
+        if (renderer == null)
+            return;
+
+        Material[] materialsArray = GetComponent<MeshRenderer>().materials;
+
+        float quality = health / 100f;
+
+        foreach (Material mat in materialsArray)
+        {
+            mat.SetFloat("_SoilQuality", quality);
+        }
     }
 
    bool IsSoilGradeAllowed(SoilType soilTypepassed)

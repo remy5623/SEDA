@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using static Terrainsystem;
 
@@ -39,9 +40,10 @@ public class Terrainsystem : MonoBehaviour
         E = 20
     }
 
+    TileBase creaturetile;
     public List<SoilType> allowedSoilGrade;
 
-    
+    SoilType testsoil;
 
     public bool ResourceAffect;
 
@@ -65,14 +67,6 @@ public class Terrainsystem : MonoBehaviour
     public GameObject KelpieMonsterr;
     public GameObject CailleachMonsterr;*/
 
-    public int GiantbribeCostFood = 15;
-    public int GiantbribeCostConstruction = 5;
-
-    public int KelpiebribeCostFood = 20;
-    public int KelpiebribeCostConstruction = 0;
-
-    public int CailleachbribeCostFood = 0;
-    public int CailleachbribeCostConstruction = 20;
 
     private void Start()
     {
@@ -179,52 +173,48 @@ public class Terrainsystem : MonoBehaviour
             health = (int)soilType + (int)totalChangeInGrade;
 
             //reference to Building, to reduce it by (health)
-           switch (health)
+          
+            if(health > 0)
             {
-                case int n when (n >= 81 && n <= 100):
-                    if (IsSoilGradeAllowed(soilType))
-                        break;
-                    break;
+                if (health > 80 && health <= 100)
+                {
+                    testsoil = SoilType.A;
+                    if (allowedSoilGrade.Contains(testsoil))
+                        soilType = SoilType.A;
+                }
 
-                case int n when (n >= 61 && n <= 80):
-                    if (IsSoilGradeAllowed(soilType))
-                        break;
-                    break;
+                else if (health > 60 && health <= 80)
+                {
+                    testsoil = SoilType.B;
+                    if (allowedSoilGrade.Contains(testsoil))
+                        soilType = SoilType.B;
 
-                case int n when (n >= 41 && n <= 60):
-                    if (IsSoilGradeAllowed(soilType))
-                        break;
-                    break;
+                }
+                else if (health > 40 && health <= 60)
+                {
+                    testsoil = SoilType.C;
+                    if (allowedSoilGrade.Contains(testsoil))
+                        soilType = SoilType.C;
 
-                case int n when (n >= 20 && n <= 40):
-                    if (IsSoilGradeAllowed(soilType))
-                        break;
-                    break;
-                    
+                }
+                else if (health > 20 && health <= 40)
+                {
+                    testsoil = SoilType.D;
+                    if (allowedSoilGrade.Contains(testsoil))
+                        soilType = SoilType.D;
 
-                case int n when (n >= 0 && n <= 20):
-                     if (IsSoilGradeAllowed(soilType))
-                        break;
-                    break;
-
-                
+                }
+                else if (health >= 0 && health <= 20)
+                {
+                    testsoil = SoilType.E;
+                    if (allowedSoilGrade.Contains(testsoil))
+                        soilType = SoilType.E;
+                }
             }
         }
 
     }
 
-   bool IsSoilGradeAllowed(SoilType soilTypepassed)
-    {
-        int i=0;
-        foreach (SoilType soil in allowedSoilGrade)
-        {
-            if(soilType == allowedSoilGrade[i])
-            {
-                return true;
-            }
-        }
-        return false;
-    }
 
     public void Creaturegone(TileBase creatureDef)
     {
@@ -234,9 +224,10 @@ public class Terrainsystem : MonoBehaviour
             {
                 GridPosition pos = giantTile.owningGridObject.GetGridPosition();
                 GridObject CreatureObj = giantTile.owningGridObject.GetOwningGridSystem().GetGridObject(pos.x, pos.z);
-                if (Inventory.food >= GiantbribeCostFood && Inventory.constructionMaterials >= GiantbribeCostConstruction)
+                Building creature = giantTile.owningGridObject.GetBuilding();
+                if (Inventory.food >= creature.resourceData.bribeCostFood && Inventory.constructionMaterials >= creaturetile.bribeCostConstruction)
                 {
-                    CreatureObj.SetCreatureGone();
+                    CreatureObj.SetCreatureGone(creature);
 
                     //Cue VFX effect..
                 }
@@ -264,6 +255,7 @@ public class Terrainsystem : MonoBehaviour
                 }
 
             }*/
+    
 }
 
 /*void TileHealth()

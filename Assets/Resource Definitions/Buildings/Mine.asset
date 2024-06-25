@@ -21,14 +21,14 @@ MonoBehaviour:
   structureType: 22
   tileUnder: {fileID: 0}
   biomeTypes: 
-  tileTerrainTypes: 
-  canBuild: 0
+  tileTerrainTypes: 03000000
+  canBuild: 1
   buildingCostFood: 0
   buildingCostMaterial: 0
   upKeepCostEnergy: 0
   upKeepCostWater: 0
-  upKeepCostFood: 0
-  upKeepCostMaterial: 0
+  upKeepCostFood: 10
+  upKeepCostMaterial: 10
   isResourceTapped: 0
   baseOutputEnergy: 0
   baseOutputWater: 0

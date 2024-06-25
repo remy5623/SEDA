@@ -41,7 +41,7 @@ public class Terrainsystem : MonoBehaviour
 
     public List<SoilType> allowedSoilGrade;
 
-    private SoilType soiltype = new SoilType();
+    
 
     public bool ResourceAffect;
 
@@ -175,42 +175,55 @@ public class Terrainsystem : MonoBehaviour
     {
         float totalChangeInGrade = buffamount - nerfamount;
         if (impact)
-        {
-            int i = 0;
-            do
+    {
+            health = (int)soilType + (int)totalChangeInGrade;
+
+            //reference to Building, to reduce it by (health)
+           switch (health)
             {
-                health = (int)soilType + (int)totalChangeInGrade;
+                case int n when (n >= 81 && n <= 100):
+                    if (IsSoilGradeAllowed(soilType))
+                        break;
+                    break;
 
-                //reference to Building, to reduce it by (health)
-                switch (health)
-                {
-                    case int n when (n >= 81 && n <= 100):
-                        soiltype = SoilType.A;
-                        Debug.Log("A grade soil");
+                case int n when (n >= 61 && n <= 80):
+                    if (IsSoilGradeAllowed(soilType))
                         break;
-                    case int n when (n >= 61 && n <= 80):
-                        soiltype = SoilType.B;
-                        Debug.Log("B grade soil");
-                        break;
-                    case int n when (n >= 41 && n <= 60):
-                        soiltype = SoilType.C;
-                        Debug.Log("C grade soil");
-                        break;
-                    case int n when (n >= 20 && n <= 40):
-                        soiltype = SoilType.D;
-                        Debug.Log("D grade soil");
-                        break;
-                    case int n when (n >= 0 && n <= 20):
-                        soiltype = SoilType.E;
-                        Debug.Log("E grade soil");
-                        break;
-                }
+                    break;
 
-                i++;
+                case int n when (n >= 41 && n <= 60):
+                    if (IsSoilGradeAllowed(soilType))
+                        break;
+                    break;
+
+                case int n when (n >= 20 && n <= 40):
+                    if (IsSoilGradeAllowed(soilType))
+                        break;
+                    break;
+                    
+
+                case int n when (n >= 0 && n <= 20):
+                     if (IsSoilGradeAllowed(soilType))
+                        break;
+                    break;
+
+                
             }
-            while ( i < allowedSoilGrade.Count);
         }
 
+    }
+
+   bool IsSoilGradeAllowed(SoilType soilTypepassed)
+    {
+        int i=0;
+        foreach (SoilType soil in allowedSoilGrade)
+        {
+            if(soilType == allowedSoilGrade[i])
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void Creaturegone(TileBase creatureDef)

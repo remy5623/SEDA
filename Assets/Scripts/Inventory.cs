@@ -73,6 +73,17 @@ public class Inventory : MonoBehaviour
         overworldTime = initialOverworldTime;
         food = initialFood;
         constructionMaterials = initialConstructionMaterials;
+
+        numOfLoggingCamps = 0;
+        numOfForests = 0;
+        numOfMines = 0;
+        numOfRocks = 0;
+
+        hasFloodHappened = false;
+        hasCailleachAppeared = false;
+        hasTornadoHappened = false;
+
+        currentWeather = WeatherTypes.Fair;
     }
 
     public static void SpendFood(int foodSpent)

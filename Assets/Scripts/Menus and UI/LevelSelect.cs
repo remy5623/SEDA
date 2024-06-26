@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class LevelSelect : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI timeDisplay;
+    [SerializeField] TextMeshProUGUI levelProgressionDisplay;
     [SerializeField] GameObject infoDisplay;
 
     private LevelSelect instance;
@@ -33,6 +34,7 @@ public class LevelSelect : MonoBehaviour
     private void Update()
     {
         timeDisplay.text = "Time Left: " + Inventory.overworldTime.ToString() + " Years";
+        levelProgressionDisplay.text = "Levels Completed: " + GameManager.levelsCompleted.ToString() + " / 3";
     }
 
     /** When the active instance of the level select menu is closed, game time will resume */

@@ -217,10 +217,4 @@ public class TimeSystem : MonoBehaviour
     {
         timeRemainingDisplay.text = "Time Remaining in Level: " + Inventory.levelTime + " months.";
     }
-
-    private void OnDestroy()
-    {
-        dailyEvents = new List<TimedEvent>();
-        monthlyEvents = new List<TimedEvent>();
-    }
 }

@@ -6,7 +6,7 @@ public class GridObject : MonoBehaviour
 
     Terrainsystem terrain;
     TerrainTypes terrainType;
-    Building buildingInstance;
+    Resource buildingInstance;
 
     private void Start()
     {
@@ -29,12 +29,9 @@ public class GridObject : MonoBehaviour
 
     public void ToggleBuildModePerTile(TileBase buildingType)
     {
-        float alpha = 0.75f;
-
-        Color transparentGreen = new Color(0, 0.3215686f, 0.07343697f, alpha);
-        Color transparentOrange = new Color(0.990566f, 0.5814224f, 0, alpha);
-        Color transparentBrown = new Color(0.3207547f, 0.1755072f, 0, .8f);
-        Color transparentRed = new Color(0.9921568f, 0, 0.02855804f, alpha);
+        Color transparentWhite = new Color(1, 1, 1, 0f);
+        Color transparentGreen = new Color(0, 1, 0, 0.5f);
+        Color transparentRed = new Color(1, 0, 0, 0.5f);
 
         if (!BuildSystem.isInBuildMode)
         {
@@ -43,21 +40,7 @@ public class GridObject : MonoBehaviour
         else if (CanBuildOnTile(buildingType))
         {
             gameObject.GetComponentInChildren<MeshRenderer>().enabled = true;
-
-            switch (terrain.soilType)
-            {
-                case Terrainsystem.SoilType.A:
-                case Terrainsystem.SoilType.B:
-                    gameObject.GetComponentInChildren<MeshRenderer>().material.color = transparentGreen;
-                    break;
-                case Terrainsystem.SoilType.C:
-                case Terrainsystem.SoilType.D:
-                    gameObject.GetComponentInChildren<MeshRenderer>().material.color = transparentOrange;
-                    break;
-                case Terrainsystem.SoilType.E:
-                    gameObject.GetComponentInChildren<MeshRenderer>().material.color = transparentBrown;
-                    break;
-            }
+            gameObject.GetComponentInChildren<MeshRenderer>().material.color = transparentGreen;
         }
         else
         {
@@ -81,17 +64,11 @@ public class GridObject : MonoBehaviour
     {
         if (CanBuildOnTile(building))
         {
-            GameObject newBuilding = Instantiate(building.inGameAsset, transform);
-            buildingInstance = newBuilding.AddComponent<Building>();
+            GameObject newBuilding = Instantiate(building.mesh, transform);
+            buildingInstance = newBuilding.AddComponent<Resource>();
             buildingInstance.resourceData = building;
-            
             buildingInstance.transform.localPosition = Vector3.zero;
             buildingInstance.SetGridObject(this);
-            if (buildingInstance.resourceData.isImpactSoilGrade == true)
-            {
-                terrain.ChangeinGrade(buildingInstance.resourceData.buffSoilGradeAmount, buildingInstance.resourceData.nerfSoilGradeAmount, buildingInstance.resourceData.isImpactSoilGrade);
-                buildingInstance.Impact();
-            }
             return true;
         }
         return false;
@@ -100,19 +77,10 @@ public class GridObject : MonoBehaviour
     // Returns whether an object can be built on this GridObject
     public bool CanBuildOnTile(TileBase building)
     {
-        bool canBuild = false;
-
         if (building == null)
         { return false; }
 
-        for (int i = 0; i < building.tileTerrainTypes.Count; i++)
-        {
-            if (terrain && terrain.creaturetype == CreatureTypes.None)
-            {
-                if (terrainType == building.tileTerrainTypes[i])
-                    canBuild = true;
-            }
-        }
+        bool canBuild = true;
 
         if (buildingInstance != null)
         {
@@ -124,9 +92,19 @@ public class GridObject : MonoBehaviour
             canBuild = false;
         }
 
-        if (Inventory.constructionMaterials < building.buildingCostMaterial)
+        if (Inventory.constructionMaterials < building.buildingCostConstruction)
         {
             canBuild = false;
+        }
+
+        switch(terrainType)
+        {
+            case TerrainTypes.None:
+            case TerrainTypes.River:
+            case TerrainTypes.Loch:
+            case TerrainTypes.Glen:
+                canBuild = false;
+                break;
         }
 
         return canBuild;
@@ -137,12 +115,7 @@ public class GridObject : MonoBehaviour
         return new GridPosition(transform.localPosition.x / GetOwningGridSystem().GetCellSize(), transform.localPosition.z / GetOwningGridSystem().GetCellSize());
     }
 
-    public Terrainsystem GetTerrainType()
-    {
-        return terrain;
-    }
-
-    public Building GetBuilding()
+    public Resource GetBuilding()
     { return buildingInstance; }
 
     public void SetTerrainEnergy(bool hasEnergy)

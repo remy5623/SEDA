@@ -229,7 +229,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: 'GIANT
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -444,6 +446,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourceData: {fileID: 11400000, guid: bdaf8c545b368b640bfdfc65a9daae98, type: 2}
-  canvas: {fileID: 0}
+  satisfybutton: {fileID: 0}
+  giantcreature: {fileID: 0}
   endpoint1: {fileID: 2205551982290252547}
   endpoint2: {fileID: 828482865227884715}

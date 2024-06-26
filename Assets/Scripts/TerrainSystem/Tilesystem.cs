@@ -61,6 +61,9 @@ public class Terrainsystem : MonoBehaviour
 
     //the radius in which it gives off energy
     public int radius;
+    //the radius in which it gives off energy
+    public int Wradius;
+
 
     //the total health of the soil (A to E grade)
     int health;
@@ -106,6 +109,23 @@ public class Terrainsystem : MonoBehaviour
                 }
             }
         }
+        if (Wenergy)
+        {
+            GridPosition pos = owningGridObject.GetGridPosition();
+
+            for (int x = pos.x - Wradius; x <= pos.x + Wradius; x++)
+            {
+                for (int z = pos.z - Wradius; z <= pos.z + Wradius; z++)
+                {
+                    GridObject Energyobj = owningGridObject.GetOwningGridSystem().GetGridObject(x, z);
+                    if (Energyobj != null)
+                    {
+                        Energyobj.SetTerrainWaterEnergy(true);
+                    }
+                }
+            }
+        }
+
     }
 
     IEnumerator Stupidity()

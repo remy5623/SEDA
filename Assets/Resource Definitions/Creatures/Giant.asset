@@ -21,7 +21,7 @@ MonoBehaviour:
   tileUnder: {fileID: 0}
   biomeTypes: 
   tileTerrainTypes: 
-  CreatureTile: 0
+  CreatureTile: 1
   bribeCostFood: 15
   bribeCostConstruction: 5
   canBuild: 0

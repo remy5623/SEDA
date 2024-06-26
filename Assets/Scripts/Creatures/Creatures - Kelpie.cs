@@ -20,15 +20,22 @@ public class Kelpie : Building
 
         ts1.creaturetype = CreatureTypes.Kelpie;
         kelpiecreature.SetActive(false);
-        KelpieImpact();
+        StandingStoneKelpieImpact();
     }
 
-    void KelpieImpact()
+    public void StandingStoneKelpieImpact()
     {
-
+        foreach (Terrainsystem kelpieTile in FindObjectsByType<Terrainsystem>(FindObjectsSortMode.None))
+        {
+            if (kelpieTile.terraintype == TerrainTypes.River)
+            {
+                
+                kelpieTile.Wenergy = false;
+            }
+        }
     }
 
-    public void StandingStoneInteract()
+    public void KelpieInteract()
     {
         Debug.Log("click works");
 
@@ -54,6 +61,15 @@ public class Kelpie : Building
         Inventory.constructionMaterials -= resourceData.bribeCostConstruction;
 
         Destroy(kelpiecreature);
+        foreach (Terrainsystem kelpieTile in FindObjectsByType<Terrainsystem>(FindObjectsSortMode.None))
+        {
+            if (kelpieTile.terraintype == TerrainTypes.River)
+            {
+                /* GridPosition pos = giantTile.owningGridObject.GetGridPosition();
+                 GridObject CreatureObj = giantTile.owningGridObject.GetOwningGridSystem().GetGridObject(pos.x, pos.z);*/
+                kelpieTile.Wenergy = true;
+            }
+        }
         satisfybutton.gameObject.SetActive(false);
         ts1.creaturetype = CreatureTypes.None;
     }

@@ -67,10 +67,10 @@ Material:
     - _Float: -17
     - _Hole_Distortion: 0.061
     - _Hole_distortion_size: 0.83
-    - _Layer1_rotation_speed: 10
-    - _Layer_2_roatation_speed: 20
-    - _OPening_opacity: 0.795
-    - _Opening_size: 0.724
+    - _Layer1_rotation_speed: 4
+    - _Layer_2_roatation_speed: 5.5
+    - _OPening_opacity: 0.835
+    - _Opening_size: 0.84
     - _Overall_opacity: 0
     - _QueueControl: 0
     - _QueueOffset: 0
@@ -86,12 +86,12 @@ Material:
     - _ZWrite: 0
     - _ZWriteControl: 0
     m_Colors:
-    - _Color: {r: 0.78431374, g: 0.69411767, b: 0.89411765, a: 1}
+    - _Color: {r: 0.85490197, g: 0.7490196, b: 1, a: 1}
     - _Color1: {r: 0.007843138, g: 0.5019608, b: 0.5647059, a: 1}
     - _Color2: {r: 0.019607844, g: 0.4, b: 0.5529412, a: 1}
     - _Color3: {r: 0.21359916, g: 0.52664614, b: 0.6037736, a: 0}
-    - _Color_1: {r: 0.95686275, g: 0.9372549, b: 0.98039216, a: 1}
-    - _Color_2: {r: 0.3254902, g: 0.16862746, b: 0.53333336, a: 1}
+    - _Color_1: {r: 0.30980393, g: 0.31764707, b: 0.54901963, a: 1}
+    - _Color_2: {r: 0.23456137, g: 0.22441262, b: 0.38679248, a: 1}
     - _Distortion_speed: {r: 0, g: 5.7, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &2068935277881637581

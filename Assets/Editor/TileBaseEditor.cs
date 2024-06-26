@@ -23,7 +23,7 @@ public class TileBaseEditor : Editor
     SerializedProperty upKeepCostFood;
     SerializedProperty upKeepCostMaterial;
 
-    //Resource
+    //Building
     SerializedProperty isResourceTapped;
     SerializedProperty baseOutputEnergy;
     SerializedProperty baseOutputWater;
@@ -64,7 +64,7 @@ public class TileBaseEditor : Editor
         upKeepCostWater = serializedObject.FindProperty("upKeepCostWater");
         upKeepCostFood = serializedObject.FindProperty("upKeepCostFood");
         upKeepCostMaterial = serializedObject.FindProperty("upKeepCostMaterial");
-        //Resource
+        //Building
         isResourceTapped = serializedObject.FindProperty("isResourceTapped");
         baseOutputEnergy = serializedObject.FindProperty("baseOutputEnergy");
         baseOutputWater = serializedObject.FindProperty("baseOutputWater");

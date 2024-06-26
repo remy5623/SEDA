@@ -12,31 +12,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c15a7d87bc4ba64478f86a96ca27bff6, type: 3}
   m_Name: WindTurbine
   m_EditorClassIdentifier: 
-  tileName: WindTurbine
+  tileName: 
   icon: {fileID: 0}
   inGameAsset: {fileID: 50886030656341932, guid: 1916460652a694643b8a69466725290a,
     type: 3}
-  sizeWidthTile: 1
-  sizeLengthTile: 1
+  sizeWidthTile: 0
+  sizeLengthTile: 0
   structureType: 8
   tileUnder: {fileID: 0}
-  biomeTypes: 00000000
-  tileTerrainTypes: 0300000001000000
+  biomeTypes: 
+  tileTerrainTypes: 02000000
   canBuild: 1
   buildingCostFood: 0
-  buildingCostMaterial: 10
+  buildingCostMaterial: 0
   upKeepCostEnergy: 0
   upKeepCostWater: 0
-  upKeepCostFood: 0
-  upKeepCostMaterial: 0
+  upKeepCostFood: 10
+  upKeepCostMaterial: 10
   isResourceTapped: 0
-  baseOutputEnergy: 1
+  baseOutputEnergy: 0
   baseOutputWater: 0
   baseOutputFood: 0
   baseOutputMaterial: 0
   buildingOutputMulti: 0
-  impactSource: 1
-  impactRadiusTiles: 1
+  impactSource: 0
+  impactRadiusTiles: 0
   buffAmount: 0
   nerfAmount: 0
   tileImpactBuff: []

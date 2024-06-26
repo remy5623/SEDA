@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileName: The Cailleach
   icon: {fileID: 0}
-  inGameAsset: {fileID: 0}
+  inGameAsset: {fileID: 6777488678298449921, guid: e061bc095a0932a48a67cf161c77740f,
+    type: 3}
   sizeWidthTile: 0
   sizeLengthTile: 0
   structureType: 19

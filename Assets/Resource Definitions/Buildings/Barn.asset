@@ -12,35 +12,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c15a7d87bc4ba64478f86a96ca27bff6, type: 3}
   m_Name: Barn
   m_EditorClassIdentifier: 
-  tileName: Barn
+  tileName: 
   icon: {fileID: 0}
   inGameAsset: {fileID: 7543974964756465544, guid: db32af21706196a44a38946adf54b9a8,
     type: 3}
-  sizeWidthTile: 1
-  sizeLengthTile: 1
+  sizeWidthTile: 0
+  sizeLengthTile: 0
   structureType: 0
   tileUnder: {fileID: 0}
   biomeTypes: 
-  tileTerrainTypes: 0100000003000000
+
+  tileTerrainTypes: 0100000002000000
   canBuild: 1
+
   buildingCostFood: 10
-  buildingCostMaterial: 20
-  upKeepCostEnergy: 1
-  upKeepCostWater: 1
+  buildingCostMaterial: 0
+  upKeepCostEnergy: 0
+  upKeepCostWater: 0
   upKeepCostFood: 10
-  upKeepCostMaterial: 0
+  upKeepCostMaterial: 10
   isResourceTapped: 0
   baseOutputEnergy: 0
   baseOutputWater: 0
-  baseOutputFood: 20
+  baseOutputFood: 50
   baseOutputMaterial: 0
-  buildingOutputMulti: 1
+  buildingOutputMulti: 0
   impactSource: 1
-  impactRadiusTiles: 2
-  buffAmount: 1.5
+  impactRadiusTiles: 0
+  buffAmount: 0
   nerfAmount: 0
   tileImpactBuff: []
   tileImpactNerf: []
-  isImpactSoilGrade: 0
-  buffSoilGradeAmount: 0
+  isImpactSoilGrade: 1
+  buffSoilGradeAmount: 20
   nerfSoilGradeAmount: 0

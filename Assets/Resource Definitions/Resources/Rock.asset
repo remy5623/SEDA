@@ -14,20 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileName: Rock
   icon: {fileID: 0}
-  inGameAsset: {fileID: 0}
+  inGameAsset: {fileID: 6777488678298449921, guid: e061bc095a0932a48a67cf161c77740f,
+    type: 3}
   sizeWidthTile: 0
   sizeLengthTile: 0
   structureType: 23
   tileUnder: {fileID: 0}
   biomeTypes: 
-  tileTerrainTypes: 
-  canBuild: 0
+  tileTerrainTypes: 010000000200000003000000
+  canBuild: 1
   buildingCostFood: 0
   buildingCostMaterial: 0
   upKeepCostEnergy: 0
   upKeepCostWater: 0
-  upKeepCostFood: 0
-  upKeepCostMaterial: 0
+  upKeepCostFood: 10
+  upKeepCostMaterial: 10
   isResourceTapped: 0
   baseOutputEnergy: 0
   baseOutputWater: 0

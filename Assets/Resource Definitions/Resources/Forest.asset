@@ -14,15 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileName: Forest
   icon: {fileID: 0}
-  inGameAsset: {fileID: 7543974964756465544, guid: db1ca25da234f254d9830650a317f4f8,
+  inGameAsset: {fileID: 6777488678298449921, guid: e061bc095a0932a48a67cf161c77740f,
     type: 3}
   sizeWidthTile: 0
   sizeLengthTile: 0
   structureType: 7
   tileUnder: {fileID: 0}
-  biomeTypes: 00000000
-  tileTerrainTypes: 0100000003000000
-  canBuild: 0
+  biomeTypes: 
+  tileTerrainTypes: 
+  canBuild: 1
   buildingCostFood: 20
   buildingCostMaterial: 0
   upKeepCostEnergy: 0
@@ -33,16 +33,15 @@ MonoBehaviour:
   baseOutputEnergy: 0
   baseOutputWater: 0
   baseOutputFood: 0
-  baseOutputMaterial: 5
-  buildingOutputMulti: 5
+  baseOutputMaterial: 0
+  buildingOutputMulti: 0
   impactSource: 1
-  impactRadiusTiles: 3
-  buffAmount: 2
+  impactRadiusTiles: 5
+  buffAmount: 0.5
   nerfAmount: 0
   tileImpactBuff:
-  - {fileID: 11400000, guid: cd1916fecfec7ba4ba50cdc08430342a, type: 2}
-  - {fileID: 11400000, guid: e434d313045e6a840a344c33db2e5784, type: 2}
+  - {fileID: 0}
   tileImpactNerf: []
-  isImpactSoilGrade: 1
-  buffSoilGradeAmount: 20
+  isImpactSoilGrade: 0
+  buffSoilGradeAmount: 0
   nerfSoilGradeAmount: 0

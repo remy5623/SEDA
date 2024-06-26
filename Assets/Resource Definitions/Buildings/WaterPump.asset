@@ -29,12 +29,12 @@ MonoBehaviour:
   upKeepCostWater: 0
   upKeepCostFood: 0
   upKeepCostMaterial: 0
-  isResourceTapped: 0
+  isResourceTapped: 1
   baseOutputEnergy: 0
   baseOutputWater: 1
   baseOutputFood: 0
   baseOutputMaterial: 0
-  buildingOutputMulti: 0
+  buildingOutputMulti: 1
   impactSource: 1
   impactRadiusTiles: 1
   buffAmount: 0

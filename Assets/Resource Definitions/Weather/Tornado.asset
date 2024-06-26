@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c15a7d87bc4ba64478f86a96ca27bff6, type: 3}
   m_Name: Tornado
   m_EditorClassIdentifier: 
-  tileName: 
+  tileName: Tornado
   icon: {fileID: 0}
   inGameAsset: {fileID: 0}
   sizeWidthTile: 0
   sizeLengthTile: 0
   structureType: 0
   tileUnder: {fileID: 0}
-  biomeTypes: 
-  tileTerrainTypes: 
+  biomeTypes: 00000000
+  tileTerrainTypes: 01000000020000000300000004000000
   canBuild: 0
   buildingCostFood: 0
   buildingCostMaterial: 0

@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c15a7d87bc4ba64478f86a96ca27bff6, type: 3}
-  m_Name: Forest
+  m_Name: RuinedBuildings
   m_EditorClassIdentifier: 
-  tileName: Forest
+  tileName: Ruined Buildings
   icon: {fileID: 0}
-  inGameAsset: {fileID: 6777488678298449921, guid: e061bc095a0932a48a67cf161c77740f,
+  inGameAsset: {fileID: 7543974964756465544, guid: 77ec303b5caa18940af3643d8eb21693,
     type: 3}
-  sizeWidthTile: 0
-  sizeLengthTile: 0
-  structureType: 7
+  sizeWidthTile: 1
+  sizeLengthTile: 1
+  structureType: 0
   tileUnder: {fileID: 0}
-  biomeTypes: 
+  biomeTypes: 00000000
   tileTerrainTypes: 
-  canBuild: 1
-  buildingCostFood: 20
+  canBuild: 0
+  buildingCostFood: 0
   buildingCostMaterial: 0
   upKeepCostEnergy: 0
   upKeepCostWater: 0
@@ -35,12 +35,11 @@ MonoBehaviour:
   baseOutputFood: 0
   baseOutputMaterial: 0
   buildingOutputMulti: 0
-  impactSource: 1
-  impactRadiusTiles: 5
-  buffAmount: 0.5
+  impactSource: 0
+  impactRadiusTiles: 0
+  buffAmount: 0
   nerfAmount: 0
-  tileImpactBuff:
-  - {fileID: 0}
+  tileImpactBuff: []
   tileImpactNerf: []
   isImpactSoilGrade: 0
   buffSoilGradeAmount: 0

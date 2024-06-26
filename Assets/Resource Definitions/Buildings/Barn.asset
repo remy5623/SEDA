@@ -12,46 +12,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c15a7d87bc4ba64478f86a96ca27bff6, type: 3}
   m_Name: Barn
   m_EditorClassIdentifier: 
-  iD: 0
   tileName: 
   icon: {fileID: 0}
-  mesh: {fileID: 0}
-  sizeWidth: 0
-  sizeLength: 0
-  structureTypes: 1
+  inGameAsset: {fileID: 7543974964756465544, guid: db32af21706196a44a38946adf54b9a8,
+    type: 3}
+  sizeWidthTile: 0
+  sizeLengthTile: 0
+  structureType: 0
   tileUnder: {fileID: 0}
-  biomesTypes: 
+  biomeTypes: 
+
   tileTerrainTypes: 0100000002000000
-  canBuild: 0
-  buildTime: 0
-  buildingCostEnergy: 0
+  canBuild: 1
+
   buildingCostFood: 10
-  buildingCostConstruction: 20
-  buildingUpgradeCostEnergy: 0
-  buildingUpgradeCostFood: 0
-  buildingUpgradeCostConstruction: 0
-  buildingUpgradeCostMulti: 0
-  buildingLevelIcon: []
-  buildingCurrentlevel: 0
-  buildingLevelMax: 0
-  hasResourceOutput: 1
+  buildingCostMaterial: 0
+  upKeepCostEnergy: 0
+  upKeepCostWater: 0
+  upKeepCostFood: 10
+  upKeepCostMaterial: 10
   isResourceTapped: 0
   baseOutputEnergy: 0
+  baseOutputWater: 0
   baseOutputFood: 50
-  baseOutputConstruction: 0
+  baseOutputMaterial: 0
   buildingOutputMulti: 0
-  buildingLevelMulti: 0
-  buildingOutputStage: 0
-  upKeepCostEnergy: 0
-  upKeepCostFood: 0
-  upKeepCostConstruction: 0
-  hasTileImpact: 0
+  impactSource: 1
   impactRadiusTiles: 0
-  transferFood: 0
-  transferConstruction: 0
-  structureOfTypeInRadius: {fileID: 0}
-  impactSource: 0
   buffAmount: 0
   nerfAmount: 0
   tileImpactBuff: []
   tileImpactNerf: []
+  isImpactSoilGrade: 1
+  buffSoilGradeAmount: 20
+  nerfSoilGradeAmount: 0

@@ -3,7 +3,6 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
 
 public class CameraPan : MonoBehaviour
 {
@@ -38,7 +37,7 @@ public class CameraPan : MonoBehaviour
     [Tooltip("Invert Camera Controls when panning on the x-axis.")]
     bool InvertX = true;
     [SerializeField]
-    [Tooltip("InvertCameraControls when panningn on the y-axis.")]
+    [Tooltip("InvertCameraControls when panning on the y-axis.")]
     bool InvertY = true;
 
 

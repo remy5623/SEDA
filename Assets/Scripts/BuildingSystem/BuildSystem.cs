@@ -9,6 +9,9 @@ public class BuildSystem : MonoBehaviour
     public GameObject ab;
     public GameObject aa;
     public GameObject bb;
+    public GameObject Tutorial_Step_5;
+    public GameObject Tutorial_Step_4;
+    public bool Is_Set_Tutorial_Step_5=true;
 
     [SerializeField]
     InputActionAsset actionAsset;
@@ -50,6 +53,7 @@ public class BuildSystem : MonoBehaviour
                 Inventory.food -= BuildingCost.build1CostFood;
                 Inventory.constructionMaterials -= BuildingCost.build1CostMaterials;
                 hit.collider.gameObject.GetComponent<GirdStatus>().canBuild = false;
+                ShowTutorial();// Designer Tutorial test
             }
         }
         else if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag == "Gird" && GameObject.Find("Canvas").GetComponent<BuildingTypeSelect>().isSetB2)
@@ -63,6 +67,7 @@ public class BuildSystem : MonoBehaviour
                 Inventory.food -= BuildingCost.build2CostFood;
                 Inventory.constructionMaterials -= BuildingCost.build2CostMaterials;
                 hit.collider.gameObject.GetComponent<GirdStatus>().canBuild = false;
+                ShowTutorial();// Designer Tutorial test
             }
         }
         else if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag == "Gird" && GameObject.Find("Canvas").GetComponent<BuildingTypeSelect>().isSetB3)
@@ -76,6 +81,7 @@ public class BuildSystem : MonoBehaviour
                 Inventory.food -= BuildingCost.build3CostFood;
                 Inventory.constructionMaterials -= BuildingCost.build3CostMaterials;
                 hit.collider.gameObject.GetComponent<GirdStatus>().canBuild = false;
+                ShowTutorial();// Designer Tutorial test
             }
         }
     }
@@ -85,6 +91,14 @@ public class BuildSystem : MonoBehaviour
         if (builtObject)
         {
             builtObject.SetGridObject(grid.GetGridSystem().GetGridObject(grid.GetGridSystem().GetGridPosition(builtObject.transform.position)));
+        }
+    }
+    public void ShowTutorial()// Designer Tutorial test
+    {
+        if (Is_Set_Tutorial_Step_5)
+        {
+            Tutorial_Step_5.SetActive(true);
+            Tutorial_Step_4.SetActive(false);
         }
     }
 

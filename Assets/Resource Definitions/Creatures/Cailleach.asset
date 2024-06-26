@@ -22,8 +22,8 @@ MonoBehaviour:
   biomeTypes: 
   tileTerrainTypes: 
   CreatureTile: 1
-  bribeCostFood: 15
-  bribeCostConstruction: 5
+  bribeCostFood: 20
+  bribeCostConstruction: 50
   canBuild: 0
   buildingCostFood: 0
   buildingCostMaterial: 0

@@ -20,7 +20,7 @@ public class Cailleach : Building
 
         ts1.creaturetype = CreatureTypes.Cailleach;
         cailleachcreature.SetActive(false);
-        StandingStoneCailleachImpact();
+        //StandingStoneCailleachImpact();
     }
 
     public void StandingStoneCailleachImpact()

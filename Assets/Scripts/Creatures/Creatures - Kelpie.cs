@@ -19,8 +19,8 @@ public class Kelpie : Building
         }
 
         ts1.creaturetype = CreatureTypes.Kelpie;
-        kelpiecreature.SetActive(false);
-        StandingStoneKelpieImpact();
+        //kelpiecreature.SetActive(false);
+        
     }
 
     public void StandingStoneKelpieImpact()

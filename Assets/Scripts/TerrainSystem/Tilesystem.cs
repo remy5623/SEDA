@@ -133,7 +133,7 @@ public class Terrainsystem : MonoBehaviour
         yield return new WaitForSeconds(10);
         TriggerEnergy();
         //ChangeinGrade();
-        //HealthBar();
+        HealthBar();
     }
 
     void HealthBar()

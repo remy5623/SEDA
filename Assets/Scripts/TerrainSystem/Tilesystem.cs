@@ -216,24 +216,7 @@ public class Terrainsystem : MonoBehaviour
     }
 
 
-    public void Creaturegone(TileBase creatureDef)
-    {
-        foreach (Terrainsystem giantTile in FindObjectsByType<Terrainsystem>(FindObjectsSortMode.None))
-        {
-            if (giantTile.creaturetype.ToString() == creatureDef.structureType.ToString())
-            {
-                GridPosition pos = giantTile.owningGridObject.GetGridPosition();
-                GridObject CreatureObj = giantTile.owningGridObject.GetOwningGridSystem().GetGridObject(pos.x, pos.z);
-                Building creature = giantTile.owningGridObject.GetBuilding();
-                if (Inventory.food >= creature.resourceData.bribeCostFood && Inventory.constructionMaterials >= creaturetile.bribeCostConstruction)
-                {
-                    CreatureObj.SetCreatureGone(creature);
-
-                    //Cue VFX effect..
-                }
-            }
-        }
-    }
+    
 
     /*public void Impact()
     {

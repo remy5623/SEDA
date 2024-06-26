@@ -1,13 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Net;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
+using UnityEngine.UI;
 
 public class Giant : Building
 {
+
+    [SerializeField] Button satisfybutton;
     Terrainsystem ts1;
     Terrainsystem ts2;
+
+    public GameObject giantcreature;
 
     [SerializeField] GameObject endpoint1;
     [SerializeField] GameObject endpoint2;
@@ -35,19 +36,29 @@ public class Giant : Building
     public void Interact()
     {
         Debug.Log("click works");
-        //UIpopup.SetActive(true);
 
         if (Inventory.food >= resourceData.bribeCostFood && Inventory.constructionMaterials >= resourceData.bribeCostConstruction)
         {
-            //uibutton.SetActive(true);
+            satisfybutton.gameObject.SetActive(true);
+            Debug.Log(" ENOUGH RESOURCES   " + Inventory.food + resourceData.bribeCostFood);
+            Debug.Log(" ENOUGH RESOURCES    " + Inventory.constructionMaterials + resourceData.bribeCostConstruction);
+        }
+        else
+        {
+            Debug.Log("NOT ENOUGH RESOURCES   " + Inventory.food + resourceData.bribeCostFood);
+            Debug.Log("NOT ENOUGH RESOURCES   " + Inventory.constructionMaterials + resourceData.bribeCostConstruction);
+
+            satisfybutton.gameObject.SetActive(false);
         }
     }
 
-    public void SetCreatureGone(Building creature)
+    public void SetCreatureGone()
     {
-        Inventory.food -= creature.resourceData.bribeCostFood;
-        Inventory.constructionMaterials -= creature.resourceData.bribeCostConstruction;
-        Destroy(creature.gameObject);
+        Inventory.food -= resourceData.bribeCostFood;
+        Inventory.constructionMaterials -=resourceData.bribeCostConstruction;
+        
+        GameObject.Destroy(giantcreature);
+        satisfybutton.gameObject.SetActive(false);
         ts1.creaturetype = CreatureTypes.None; 
         ts2.creaturetype = CreatureTypes.None;
     }

@@ -1,62 +1,60 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Kelpie : MonoBehaviour
+public class Kelpie : Building
 {
-    //Reference to Grid
-    public GameObject KelpieMonsterr;
-
-    public int Kelpie_width;
-    public int Kelpie_length;
-
-    public int bribeCostFood = 20;
-    public int bribeCostConstruction = 0;
-
-    Terrainsystem terrainsystem;
+    [SerializeField] Button satisfybutton;
+    Terrainsystem ts1;
+    
+    public GameObject kelpiecreature;
 
 
     private void Start()
     {
-        //Kelpie_width = Creature.sizeWidth;
-        //Kelpie_length = Creature.sizeLength;
-
-        KelpieMonsterr.SetActive(false);
-
-        /*if(gameObject.tag == "Kelpie")
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, Mathf.Infinity, LayerMask.GetMask("Terrain")))
         {
-            GridObject.canBuild = false;
-        }*/
-
-        
-    }
-
-    public void KelpieCreature()
-    {
-        //CUE VFX FOR KELPIE-ACTIVE
-
-        KelpieMonsterr.SetActive(true);
-
-        /*foreach (TerrainTypes.River in TerrrainTypes)
-        {
-            terrainsystem.energy = false;
-        }*/
-    }
-
-    public void GoawayKelpie()
-    {
-        if (Inventory.food >= bribeCostFood && Inventory.constructionMaterials >= bribeCostConstruction)
-        {
-            Destroy(KelpieMonsterr);
-            //GridObject.canBuild = true;
-
-            //CUE VFX EFFECT....AND VFX ENDS...
-
-            /*foreach (TerrainTypes.River in TerrrainTypes)
-            {
-                terrainsystem.energy = true;
-            }*/
+            //Debug.DrawLine(transform.position, transform.position + Vector3.down * 100, Color.red, 500);
+            ts1 = hit.transform.gameObject.GetComponent<Terrainsystem>();
         }
 
+        ts1.creaturetype = CreatureTypes.Kelpie;
+        kelpiecreature.SetActive(false);
+        KelpieImpact();
+    }
+
+    void KelpieImpact()
+    {
+
+    }
+
+    public void StandingStoneInteract()
+    {
+        Debug.Log("click works");
+
+        if (Inventory.food >= resourceData.bribeCostFood && Inventory.constructionMaterials >= resourceData.bribeCostConstruction)
+        {
+            satisfybutton.gameObject.SetActive(true);
+            Debug.Log(" ENOUGH RESOURCES   " + Inventory.food + resourceData.bribeCostFood);
+            Debug.Log(" ENOUGH RESOURCES    " + Inventory.constructionMaterials + resourceData.bribeCostConstruction);
+        }
+        else
+        {
+            Debug.Log("NOT ENOUGH RESOURCES   " + Inventory.food + resourceData.bribeCostFood);
+            Debug.Log("NOT ENOUGH RESOURCES   " + Inventory.constructionMaterials + resourceData.bribeCostConstruction);
+
+            satisfybutton.gameObject.SetActive(false);
+        }
+    }
+
+
+    public void SetCreatureGone()
+    {
+        Inventory.food -= resourceData.bribeCostFood;
+        Inventory.constructionMaterials -= resourceData.bribeCostConstruction;
+
+        GameObject.Destroy(kelpiecreature);
+        satisfybutton.gameObject.SetActive(false);
+        ts1.creaturetype = CreatureTypes.None;
     }
 }

@@ -25,6 +25,8 @@ public class GridObject : MonoBehaviour
         {
             terrainType = TerrainTypes.None;
         }
+
+        
     }
 
     public void ToggleBuildModePerTile(TileBase buildingType)
@@ -150,12 +152,6 @@ public class GridObject : MonoBehaviour
         if (terrain != null)
             terrain.energy = hasEnergy;
     }
-    public void SetCreatureGone(Building creature)
-    {
-        Inventory.food -= creature.resourceData.bribeCostFood;
-        Inventory.constructionMaterials -= creature.resourceData.bribeCostConstruction;
-        Destroy(creature.gameObject);
-        terrain.creaturetype = CreatureTypes.None;
-    }
+    
 
 }

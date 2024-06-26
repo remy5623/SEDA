@@ -150,7 +150,7 @@ public class GridObject : MonoBehaviour
     public void SetTerrainEnergy(bool hasEnergy)
     {
         if (terrain != null)
-            terrain.energy = hasEnergy;
+            terrain.Lenergy = hasEnergy;
     }
     
 

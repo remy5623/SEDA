@@ -53,7 +53,7 @@ public class Kelpie : Building
         Inventory.food -= resourceData.bribeCostFood;
         Inventory.constructionMaterials -= resourceData.bribeCostConstruction;
 
-        GameObject.Destroy(kelpiecreature);
+        Destroy(kelpiecreature);
         satisfybutton.gameObject.SetActive(false);
         ts1.creaturetype = CreatureTypes.None;
     }

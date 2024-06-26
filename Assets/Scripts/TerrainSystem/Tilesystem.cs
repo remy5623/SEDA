@@ -51,8 +51,11 @@ public class Terrainsystem : MonoBehaviour
     [SerializeField] public CreatureTypes creaturetype;
 
 
-    //if the tile has energy
-    public bool energy = false;
+    //if the tile gives/has land energy
+    public bool Lenergy = false;
+    //if the tile gives/has water energy
+    public bool Wenergy = false;
+
 
     public GridObject owningGridObject;
 
@@ -87,7 +90,7 @@ public class Terrainsystem : MonoBehaviour
     private void TriggerEnergy()
     {
         //if the terrain has energy being emitted, then set all the terraintiles' energy bool true.
-        if (energy)
+        if (Lenergy)
         {
             GridPosition pos = owningGridObject.GetGridPosition();
 

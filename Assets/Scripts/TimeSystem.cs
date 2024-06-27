@@ -43,8 +43,9 @@ public class TimeSystem : MonoBehaviour
     [SerializeField] TextMeshProUGUI timeRemainingDisplay;
 
     // UI prefabs
-    [SerializeField] GameObject levelSelectPrefab;
     [SerializeField] GameObject gameOverPrefab;
+    [SerializeField] GameObject levelCompletePrefab;
+    [SerializeField] GameObject winScreenPrefab;
 
     int day = 1;
     float timeElapsed = 0f;
@@ -212,14 +213,22 @@ public class TimeSystem : MonoBehaviour
             if (LevelManager.AreSuccessConditionsMet())
             {
                 // Win the level
+                GameManager.levelsCompleted++;
+
+                if (GameManager.levelsCompleted >= 3)
+                {
+                    Instantiate(winScreenPrefab);
+                }
+                else
+                {
+                    Instantiate(levelCompletePrefab);
+                }
             }    
             else
             {
                 // Lose the level
                 Instantiate(gameOverPrefab);
             }
-            
-            //Instantiate(LevelSelectPrefab);
             // TODO: Stop Countdown
         }
     }

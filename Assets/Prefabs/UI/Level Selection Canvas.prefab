@@ -1706,6 +1706,9 @@ MonoBehaviour:
   timeDisplay: {fileID: 3386675876517587542}
   levelProgressionDisplay: {fileID: 7744390620660133501}
   infoDisplay: {fileID: 2720514787443877864}
+  level1Button: {fileID: 3637331440749907168}
+  level2Button: {fileID: 4177271377027480333}
+  level3Button: {fileID: 1486615311207333682}
 --- !u!1 &4658835257994832784
 GameObject:
   m_ObjectHideFlags: 0
@@ -1956,7 +1959,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 4323619825095454138}
   m_OnClick:
     m_PersistentCalls:
@@ -2223,7 +2226,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 2500391205981018458}
   m_OnClick:
     m_PersistentCalls:
@@ -2726,7 +2729,7 @@ MonoBehaviour:
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 3.93
+    m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}

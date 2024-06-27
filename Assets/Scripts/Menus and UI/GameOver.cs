@@ -18,7 +18,7 @@ public class GameOver : MonoBehaviour
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
     }
 
-    public void OnDestroy()
+    private void OnDestroy()
     {
         TimeSystem.Unpause();
     }

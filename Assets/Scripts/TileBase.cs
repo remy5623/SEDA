@@ -69,6 +69,17 @@ public class TileBase : ScriptableObject
     public List<TerrainTypes> tileTerrainTypes;
 
     //BuildBase
+    [Header("Creature")]
+    [Tooltip("Checks if a tile is Creature, if not it hides the Building section inengine and in the hierarchy.")]
+    public bool CreatureTile;
+    [Tooltip("Amount of Food to Bribe - Creature")]
+    public int bribeCostFood = 15;
+    [Tooltip("Amount of Construction Material to Bribe - Creature")]
+    public int bribeCostConstruction = 5;
+    
+    
+
+    //BuildBase
     [Header("Building")]
     [Tooltip("Checks if a tile is buildable, if not it hides the Building section inengine and in the hierarchy.")]
     public bool canBuild;

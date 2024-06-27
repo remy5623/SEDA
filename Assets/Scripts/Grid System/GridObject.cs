@@ -31,7 +31,7 @@ public class GridObject : MonoBehaviour
 
     public void ToggleBuildModePerTile(TileBase buildingType)
     {
-        float alpha = 0.75f;
+        float alpha = 0.05f;
 
         Color transparentGreen = new Color(0, 0.3215686f, 0.07343697f, alpha);
         Color transparentOrange = new Color(0.990566f, 0.5814224f, 0, alpha);

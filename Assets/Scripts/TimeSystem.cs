@@ -235,7 +235,7 @@ public class TimeSystem : MonoBehaviour
 
     void SetTimeRemainingDisplay()
     {
-        timeRemainingDisplay.text = "Time Remaining in Level: " + Inventory.levelTime + " months.";
+        timeRemainingDisplay.text = Inventory.levelTime + " months";
     }
 
     public static void Pause()

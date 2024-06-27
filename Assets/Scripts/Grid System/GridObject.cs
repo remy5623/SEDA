@@ -25,11 +25,13 @@ public class GridObject : MonoBehaviour
         {
             terrainType = TerrainTypes.None;
         }
+
+        
     }
 
     public void ToggleBuildModePerTile(TileBase buildingType)
     {
-        float alpha = 0.75f;
+        float alpha = 0.05f;
 
         Color transparentGreen = new Color(0, 0.3215686f, 0.07343697f, alpha);
         Color transparentOrange = new Color(0.990566f, 0.5814224f, 0, alpha);
@@ -148,11 +150,13 @@ public class GridObject : MonoBehaviour
     public void SetTerrainEnergy(bool hasEnergy)
     {
         if (terrain != null)
-            terrain.energy = hasEnergy;
+            terrain.Lenergy = hasEnergy;
     }
-    public void SetCreatureGone()
+    public void SetTerrainWaterEnergy(bool hasEnergy)
     {
-        terrain.creaturetype = CreatureTypes.None;
+        if (terrain != null)
+            terrain.Wenergy = hasEnergy;
     }
+
 
 }

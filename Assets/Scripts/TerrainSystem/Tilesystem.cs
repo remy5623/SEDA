@@ -30,7 +30,8 @@ public enum CreatureTypes
 
 public class Terrainsystem : MonoBehaviour
 {
-    public SoilType soilType;
+   
+    public SoilType CurrentsoilType;
     public enum SoilType
     {
         A = 100,
@@ -68,15 +69,17 @@ public class Terrainsystem : MonoBehaviour
     //the total health of the soil (A to E grade)
     int health;
 
-    //Creatures
-    /*public GameObject GiantMonsterr;
-    public GameObject KelpieMonsterr;
-    public GameObject CailleachMonsterr;*/
+    //VeilSwitch Details
+    public TerrainTypes OldsoilType;
+    public TerrainTypes NewSoilType;
 
 
     private void Start()
     {
-        health = (int)soilType;
+
+        OldsoilType = terraintype;
+
+        health = (int)CurrentsoilType;
         
 
         if (ResourceAffect)
@@ -89,7 +92,7 @@ public class Terrainsystem : MonoBehaviour
         InitialTerrainList();
         HealthBar();
         SetTerrainMaterialProperties();
-
+ 
         StartCoroutine(Stupidity());
         // ChangeinGrade();
     }
@@ -143,7 +146,7 @@ public class Terrainsystem : MonoBehaviour
     void HealthBar()
     {
         Inventory.count++;
-        Inventory.totalhealth += (int)soilType;
+        Inventory.totalhealth += (int)CurrentsoilType;
         Inventory.HealthBarChange();
     }
     void SetTerrainMaterialProperties()
@@ -213,7 +216,7 @@ public class Terrainsystem : MonoBehaviour
         float totalChangeInGrade = buffamount - nerfamount;
         if (impact)
         {
-            health = (int)soilType + (int)totalChangeInGrade;
+            health = (int)CurrentsoilType + (int)totalChangeInGrade;
 
             //reference to Building, to reduce it by (health)
 
@@ -223,43 +226,40 @@ public class Terrainsystem : MonoBehaviour
                 {
                     testsoil = SoilType.A;
                     if (allowedSoilGrade.Contains(testsoil))
-                        soilType = SoilType.A;
+                        CurrentsoilType = SoilType.A;
                 }
 
                 else if (health > 60 && health <= 80)
                 {
                     testsoil = SoilType.B;
                     if (allowedSoilGrade.Contains(testsoil))
-                        soilType = SoilType.B;
+                        CurrentsoilType = SoilType.B;
 
                 }
                 else if (health > 40 && health <= 60)
                 {
                     testsoil = SoilType.C;
                     if (allowedSoilGrade.Contains(testsoil))
-                        soilType = SoilType.C;
+                        CurrentsoilType = SoilType.C;
 
                 }
                 else if (health > 20 && health <= 40)
                 {
                     testsoil = SoilType.D;
                     if (allowedSoilGrade.Contains(testsoil))
-                        soilType = SoilType.D;
+                        CurrentsoilType = SoilType.D;
 
                 }
                 else if (health >= 0 && health <= 20)
                 {
                     testsoil = SoilType.E;
                     if (allowedSoilGrade.Contains(testsoil))
-                        soilType = SoilType.E;
+                        CurrentsoilType = SoilType.E;
                 }
             }
         }
 
     }
-
-
-
 
     /*public void Impact()
     {

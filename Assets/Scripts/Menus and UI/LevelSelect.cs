@@ -1,11 +1,18 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelSelect : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI timeDisplay;
+    [SerializeField] TextMeshProUGUI levelProgressionDisplay;
     [SerializeField] GameObject infoDisplay;
+    
+    // Buttons
+    [SerializeField] Button level1Button;
+    [SerializeField] Button level2Button;
+    [SerializeField] Button level3Button;
 
     private LevelSelect instance;
 
@@ -27,12 +34,27 @@ public class LevelSelect : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Time.timeScale = 0f;
+        TimeSystem.Pause();
+
+        // Set level buttons based on number of levels completed
+        if (GameManager.levelsCompleted == 1)
+        {
+            level1Button.interactable = false;
+            level2Button.interactable = true;
+            level3Button.interactable = false;
+        }
+        else if (GameManager.levelsCompleted == 2)
+        {
+            level1Button.interactable = false;
+            level2Button.interactable = false;
+            level3Button.interactable = true;
+        }
     }
 
     private void Update()
     {
         timeDisplay.text = "Time Left: " + Inventory.overworldTime.ToString() + " Years";
+        levelProgressionDisplay.text = "Levels Completed: " + GameManager.levelsCompleted.ToString() + " / 3";
     }
 
     /** When the active instance of the level select menu is closed, game time will resume */

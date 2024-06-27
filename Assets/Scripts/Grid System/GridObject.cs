@@ -106,9 +106,7 @@ public class GridObject : MonoBehaviour
 
         if (building == null)
         { return false; }
-
         
-
         for (int i = 0; i < building.tileTerrainTypes.Count; i++)
         {
             if (terrain && terrain.creaturetype == CreatureTypes.None)
@@ -131,6 +129,11 @@ public class GridObject : MonoBehaviour
         if (Inventory.constructionMaterials < building.buildingCostMaterial)
         {
             canBuild = false;
+        }
+
+        if(buildingInstance.RequireWaterEnergy && terrain.Wenergy == false)
+        {
+           canBuild = false;
         }
 
         return canBuild;

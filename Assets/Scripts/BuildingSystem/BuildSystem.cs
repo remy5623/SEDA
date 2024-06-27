@@ -27,7 +27,6 @@ public class BuildSystem : MonoBehaviour
         tapLocation = actionAsset.FindAction("PanCamera");
     }
 
-
     void PlaceBuilding()
     {
         Ray ray = Camera.main.ScreenPointToRay(tapLocation.ReadValue<UnityEngine.Vector2>());

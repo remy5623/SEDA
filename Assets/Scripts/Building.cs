@@ -14,6 +14,13 @@ public class Building : MonoBehaviour
 
     Terrainsystem Terrainsystem;
 
+    //does the building required water energy to be able to be built on.
+    public bool RequireWaterEnergy;
+
+    //should it consider the soil grade for the output.
+    public bool IsItBasedOnSoilGrade;
+
+    float soilGradeModifier = 1f;
     
     private void Start()
     {
@@ -45,7 +52,9 @@ public class Building : MonoBehaviour
             Terrainsystem = hit.transform.gameObject.GetComponent<Terrainsystem>();
             Terrainsystem.owningGridObject.buildingInstance = this;
         }
+
         
+
     }
 
     public void PayConstructionCosts()
@@ -57,9 +66,11 @@ public class Building : MonoBehaviour
     /** Generate resources according to the following equation: Base Output * buffs/nerfs * total crop output level */
     public void UpdateResources()
     {
+        IfDependsonSoilGrade();
+
         if (!Inventory.isFlooding)
         {
-            Inventory.food += Mathf.FloorToInt(resourceData.baseOutputFood * (1 + buff + nerf) * Inventory.cropOutput);
+            Inventory.food += Mathf.FloorToInt(resourceData.baseOutputFood * soilGradeModifier * (1 + buff + nerf) * Inventory.cropOutput);
             Inventory.constructionMaterials += Mathf.FloorToInt(resourceData.baseOutputMaterial * (1 + buff + nerf) * Inventory.cropOutput);
         }
     }
@@ -68,6 +79,14 @@ public class Building : MonoBehaviour
     {
         Inventory.SpendFood(resourceData.upKeepCostFood);
         Inventory.SpendMaterials(resourceData.upKeepCostMaterial);
+    }
+
+    public void IfDependsonSoilGrade()
+    {
+        if (IsItBasedOnSoilGrade)
+        {
+            soilGradeModifier = (Terrainsystem.health / 100);
+        }
     }
 
     public GridObject GetOwningGridObject()

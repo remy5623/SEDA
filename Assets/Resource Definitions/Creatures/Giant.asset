@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c15a7d87bc4ba64478f86a96ca27bff6, type: 3}
   m_Name: Giant
   m_EditorClassIdentifier: 
-  tileName: 
+  tileName: Magnus the Giant
   icon: {fileID: 0}
   inGameAsset: {fileID: 0}
-  sizeWidthTile: 0
-  sizeLengthTile: 0
+  sizeWidthTile: 1
+  sizeLengthTile: 2
   structureType: 0
   tileUnder: {fileID: 0}
   biomeTypes: 

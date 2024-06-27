@@ -90,7 +90,7 @@ public class Terrainsystem : MonoBehaviour
        // ChangeinGrade();
     }
 
-    private void TriggerEnergy()
+    public void TriggerEnergy()
     {
         //if the terrain has energy being emitted, then set all the terraintiles' energy bool true.
         if (Lenergy)

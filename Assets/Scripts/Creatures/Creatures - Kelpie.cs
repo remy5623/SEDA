@@ -7,12 +7,13 @@ public class Kelpie : Building
     Terrainsystem ts1;
     
     public GameObject kelpiecreature;
+    [SerializeField] GameObject endpoint2;
 
 
     private void Start()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, Mathf.Infinity, LayerMask.GetMask("Terrain")))
+        if (Physics.Raycast(endpoint2.transform.position, Vector3.down, out hit, Mathf.Infinity, LayerMask.GetMask("Terrain")))
         {
             //Debug.DrawLine(transform.position, transform.position + Vector3.down * 100, Color.red, 500);
             ts1 = hit.transform.gameObject.GetComponent<Terrainsystem>();
@@ -25,6 +26,8 @@ public class Kelpie : Building
 
     public void StandingStoneKelpieImpact()
     {
+        kelpiecreature.SetActive(true);
+
         foreach (Terrainsystem kelpieTile in FindObjectsByType<Terrainsystem>(FindObjectsSortMode.None))
         {
             if (kelpieTile.terraintype == TerrainTypes.River)
@@ -60,7 +63,6 @@ public class Kelpie : Building
         Inventory.food -= resourceData.bribeCostFood;
         Inventory.constructionMaterials -= resourceData.bribeCostConstruction;
 
-        Destroy(kelpiecreature);
         foreach (Terrainsystem kelpieTile in FindObjectsByType<Terrainsystem>(FindObjectsSortMode.None))
         {
             if (kelpieTile.terraintype == TerrainTypes.River)
@@ -68,9 +70,11 @@ public class Kelpie : Building
                 /* GridPosition pos = giantTile.owningGridObject.GetGridPosition();
                  GridObject CreatureObj = giantTile.owningGridObject.GetOwningGridSystem().GetGridObject(pos.x, pos.z);*/
                 kelpieTile.Wenergy = true;
+                kelpieTile.TriggerEnergy();
             }
         }
         satisfybutton.gameObject.SetActive(false);
         ts1.creaturetype = CreatureTypes.None;
+        Destroy(kelpiecreature);
     }
 }

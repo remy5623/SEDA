@@ -57,7 +57,7 @@ public class Giant : Building
         Inventory.food -= resourceData.bribeCostFood;
         Inventory.constructionMaterials -=resourceData.bribeCostConstruction;
         
-        GameObject.Destroy(giantcreature);
+        Destroy(giantcreature);
         satisfybutton.gameObject.SetActive(false);
         ts1.creaturetype = CreatureTypes.None; 
         ts2.creaturetype = CreatureTypes.None;

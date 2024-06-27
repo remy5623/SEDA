@@ -7,8 +7,9 @@ public class StandingStone : MonoBehaviour
     [SerializeField]
     InputActionAsset actionAsset;
 
-    Kelpie kelpie;
-    Cailleach cailleach;
+    [SerializeField] Kelpie kelpie;
+    
+    [SerializeField] Cailleach cailleach;
 
     InputAction placeAction;
     InputAction tapLocation;
@@ -20,8 +21,10 @@ public class StandingStone : MonoBehaviour
 
     private void Start()
     {
-        kelpie = GetComponent<Kelpie>();
-        cailleach = GetComponent<Cailleach>();
+        //kelpie = FindFirstObjectByType<Kelpie>();
+        //cailleach = FindFirstObjectByType<Cailleach>();
+        kelpie.gameObject.SetActive(false);
+        cailleach.gameObject.SetActive(false);
 
         placeAction = actionAsset.FindAction("click");
         click = ctx => Interact();
@@ -52,9 +55,8 @@ public class StandingStone : MonoBehaviour
     {
         if(kelpie != null)
             kelpie.StandingStoneKelpieImpact();
-        else if (cailleach != null)
+        if (cailleach != null)
             cailleach.StandingStoneCailleachImpact();
-
     }
 
 }

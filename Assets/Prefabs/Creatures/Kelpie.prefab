@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 828482865227884715}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.16}
+  m_LocalPosition: {x: 0, y: 0, z: 0.013}
   m_LocalScale: {x: 1, y: 1, z: 0.25}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -384,7 +384,6 @@ GameObject:
   m_Component:
   - component: {fileID: 343062841735719425}
   - component: {fileID: 2796106331772321827}
-  - component: {fileID: 4812389444806552633}
   m_Layer: 0
   m_Name: Kelpie
   m_TagString: Untagged
@@ -431,20 +430,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4812389444806552633
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9027393433305129133}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d6939a72b0a6094e972a99ce13037f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  resourceData: {fileID: 11400000, guid: bdaf8c545b368b640bfdfc65a9daae98, type: 2}
-  satisfybutton: {fileID: 0}
-  giantcreature: {fileID: 0}
-  endpoint1: {fileID: 2205551982290252547}
-  endpoint2: {fileID: 828482865227884715}

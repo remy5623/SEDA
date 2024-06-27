@@ -33,17 +33,17 @@ public class Building : MonoBehaviour
     /** Generate resources according to the following equation: Base Output * buffs/nerfs * total crop output level */
     public void UpdateResources()
     {
-        if (!Inventory.isFlooding)
-        {
-            Inventory.food += Mathf.FloorToInt(resourceData.baseOutputFood * (1 + buff + nerf) * Inventory.cropOutput);
-            Inventory.constructionMaterials += Mathf.FloorToInt(resourceData.baseOutputMaterial * (1 + buff + nerf) * Inventory.cropOutput);
-        }
+        Inventory.food += Mathf.FloorToInt(resourceData.baseOutputFood * (1 + buff + nerf) * Inventory.cropOutput);
+        Inventory.constructionMaterials += Mathf.FloorToInt(resourceData.baseOutputMaterial * (1 + buff + nerf) * Inventory.cropOutput);
     }
     
     public void PayUpkeep()
     {
-        Inventory.SpendFood(resourceData.upKeepCostFood);
-        Inventory.SpendMaterials(resourceData.upKeepCostMaterial);
+        if (resourceData.upKeepCostWater && (Inventory.isFlooding || resourceData.tileUnder.terrain.Wenergy))
+        {
+            Inventory.SpendFood(resourceData.upKeepCostFood);
+            Inventory.SpendMaterials(resourceData.upKeepCostMaterial);
+        }
     }
 
     public GridObject GetOwningGridObject()

@@ -36,6 +36,7 @@ public class Inventory : MonoBehaviour
     static bool hasFloodHappened = false;
 
     public static float cropOutput = 1f;
+    public static int soilGradeWeatherEffect = 0;
     public static bool isFlooding = false;
 
     static WeatherTypes currentWeather;
@@ -122,7 +123,7 @@ public class Inventory : MonoBehaviour
 
     public static void SetWeather()
     {
-        if (!hasTornadoHappened && numOfLoggingCamps > (numOfForests / 2f))
+        if (!hasTornadoHappened && numOfLoggingCamps > 3)
         {
             currentWeather = WeatherTypes.Tornado;
             cropOutput = 0.7f;
@@ -132,12 +133,14 @@ public class Inventory : MonoBehaviour
         {
             currentWeather = WeatherTypes.Thunderstorm;
             cropOutput = 0.9f;
+            soilGradeWeatherEffect = -20;
             hasCailleachAppeared = false;
         }
-        else if (!hasFloodHappened && numOfMines > (numOfRocks / 2f))
+        else if (!hasFloodHappened && healthBar < 60)
         {
             currentWeather = WeatherTypes.Flood;
-            cropOutput = 0.9f;
+            cropOutput = 0.5f;
+            soilGradeWeatherEffect = 20;
             isFlooding = true;
             hasFloodHappened = true;
         }
@@ -145,11 +148,12 @@ public class Inventory : MonoBehaviour
         {
             currentWeather = WeatherTypes.Fair;
             cropOutput = 1f;
+            soilGradeWeatherEffect = 0;
             isFlooding = false;
         }
     }
 
-    public void CailleachAppeared()
+    public static void CailleachAppeared()
     {
         hasCailleachAppeared = true;
     }

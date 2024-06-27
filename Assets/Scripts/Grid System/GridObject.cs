@@ -4,7 +4,7 @@ public class GridObject : MonoBehaviour
 {
     GridSystem owningGridSystem;
 
-    Terrainsystem terrain;
+    public Terrainsystem terrain;
     TerrainTypes terrainType;
     Building buildingInstance;
 

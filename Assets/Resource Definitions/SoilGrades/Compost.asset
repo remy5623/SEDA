@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c15a7d87bc4ba64478f86a96ca27bff6, type: 3}
-  m_Name: Thunderstorm
+  m_Name: Compost
   m_EditorClassIdentifier: 
-  tileName: Thunderstorm
+  tileName: 
   icon: {fileID: 0}
   inGameAsset: {fileID: 0}
   sizeWidthTile: 0

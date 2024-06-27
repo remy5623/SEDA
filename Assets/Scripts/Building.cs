@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Net;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Building : MonoBehaviour
@@ -20,7 +18,8 @@ public class Building : MonoBehaviour
         oldresourceData =  resourceData;
 
         PayConstructionCosts();
-        //resourceData.tileUnder.GetOwningGridSystem().ToggleBuildMode(resourceData, true);
+        resourceData.tileUnder.GetOwningGridSystem().ToggleBuildMode(resourceData, true);
+
         UpdateTotalBuildingCount(true);
         //Impact();
        

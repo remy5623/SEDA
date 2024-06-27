@@ -6,7 +6,7 @@ public class GridObject : MonoBehaviour
 
     public Terrainsystem terrain;
     TerrainTypes terrainType;
-    Building buildingInstance;
+    public Building buildingInstance;
 
     private void Start()
     {
@@ -31,7 +31,7 @@ public class GridObject : MonoBehaviour
 
     public void ToggleBuildModePerTile(TileBase buildingType)
     {
-        float alpha = 0.05f;
+        float alpha = 0.75f;
 
         Color transparentGreen = new Color(0, 0.3215686f, 0.07343697f, alpha);
         Color transparentOrange = new Color(0.990566f, 0.5814224f, 0, alpha);
@@ -46,7 +46,7 @@ public class GridObject : MonoBehaviour
         {
             gameObject.GetComponentInChildren<MeshRenderer>().enabled = true;
 
-            switch (terrain.soilType)
+            switch (terrain.CurrentsoilType)
             {
                 case Terrainsystem.SoilType.A:
                 case Terrainsystem.SoilType.B:
@@ -106,6 +106,8 @@ public class GridObject : MonoBehaviour
 
         if (building == null)
         { return false; }
+
+        
 
         for (int i = 0; i < building.tileTerrainTypes.Count; i++)
         {

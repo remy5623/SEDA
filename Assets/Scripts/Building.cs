@@ -1,18 +1,26 @@
+using System.Collections;
+using System.Net;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Building : MonoBehaviour
 {
     public TileBase resourceData;
+    public TileBase oldresourceData;
+    public TileBase newresourceData;
 
     float buff;
     float nerf;
 
     Terrainsystem Terrainsystem;
 
+    
     private void Start()
     {
+        oldresourceData =  resourceData;
+
         PayConstructionCosts();
-        resourceData.tileUnder.GetOwningGridSystem().ToggleBuildMode(resourceData, true);
+        //resourceData.tileUnder.GetOwningGridSystem().ToggleBuildMode(resourceData, true);
         UpdateTotalBuildingCount(true);
         //Impact();
        
@@ -22,6 +30,22 @@ public class Building : MonoBehaviour
         }
 
         TimeSystem.AddMonthlyEvent(PayUpkeep);
+        StartCoroutine(FindGridObject());
+        
+    }
+
+    IEnumerator FindGridObject()
+    {
+        yield return new WaitForSeconds(1);
+
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, Mathf.Infinity, LayerMask.GetMask("Terrain")))
+        {
+            Debug.DrawLine(transform.position, transform.position + Vector3.down * 100, Color.red, 500);
+            Terrainsystem = hit.transform.gameObject.GetComponent<Terrainsystem>();
+            Terrainsystem.owningGridObject.buildingInstance = this;
+        }
+        
     }
 
     public void PayConstructionCosts()
@@ -117,5 +141,27 @@ public class Building : MonoBehaviour
     private void OnDestroy()
     {
         UpdateTotalBuildingCount(false);
+    }
+
+    public void VeilChangeActivate()
+    {
+        if (newresourceData != null)
+        {
+            resourceData = newresourceData;
+            resourceData.inGameAsset = newresourceData.inGameAsset;
+        }
+        else
+            gameObject.SetActive(false);
+    }
+
+    public void VeilChangeDeactivate()
+    {
+        if (newresourceData != null)
+        {
+            resourceData = oldresourceData;
+            resourceData.inGameAsset = oldresourceData.inGameAsset;
+        }
+        else
+            gameObject.SetActive(true);
     }
 }

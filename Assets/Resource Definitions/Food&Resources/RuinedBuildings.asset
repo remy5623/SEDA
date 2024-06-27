@@ -32,7 +32,7 @@ MonoBehaviour:
   upKeepCostWater: 0
   upKeepCostFood: 0
   upKeepCostMaterial: 0
-  isResourceTapped: 0
+  isResourceTapped: 1
   baseOutputEnergy: 0
   baseOutputWater: 0
   baseOutputFood: 0

@@ -83,8 +83,7 @@ public class GridObject : MonoBehaviour
     {
         if (CanBuildOnTile(building))
         {
-            GameObject newBuilding = Instantiate(building.inGameAsset, transform);
-            buildingInstance = newBuilding.AddComponent<Building>();
+            buildingInstance = Instantiate(building.inGameAsset, transform).GetComponent<Building>();
             buildingInstance.resourceData = building;
             
             buildingInstance.transform.localPosition = Vector3.zero;

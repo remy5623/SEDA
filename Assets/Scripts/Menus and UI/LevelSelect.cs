@@ -76,6 +76,6 @@ public class LevelSelect : MonoBehaviour
         Inventory.overworldTime--;
         Inventory.levelTime += 12;
         Inventory.ClearResources();
-        SceneManager.LoadSceneAsync(1);
+        SceneManager.LoadSceneAsync(GameManager.levelsCompleted + 1);
     }
 }

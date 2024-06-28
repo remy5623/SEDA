@@ -638,6 +638,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourceData: {fileID: 11400000, guid: bdaf8c545b368b640bfdfc65a9daae98, type: 2}
+  oldresourceData: {fileID: 0}
+  newresourceData: {fileID: 0}
   satisfybutton: {fileID: 4294266589071040044}
   giantcreature: {fileID: 0}
   endpoint1: {fileID: 0}
@@ -7135,6 +7137,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourceData: {fileID: 11400000, guid: 8ab010336f35a07468c394c1c207ccf4, type: 2}
+  oldresourceData: {fileID: 0}
+  newresourceData: {fileID: 0}
   satisfybutton: {fileID: 5679598185520242614}
   cailleachcreature: {fileID: 0}
   endpoint2: {fileID: 0}
@@ -8512,6 +8516,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourceData: {fileID: 11400000, guid: 68cc7a81767359e458514a6d1a991c46, type: 2}
+  oldresourceData: {fileID: 0}
+  newresourceData: {fileID: 0}
   satisfybutton: {fileID: 1328298363562232214}
   kelpiecreature: {fileID: 0}
   endpoint2: {fileID: 0}
@@ -12644,6 +12650,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourceData: {fileID: 11400000, guid: 8ab010336f35a07468c394c1c207ccf4, type: 2}
+  oldresourceData: {fileID: 0}
+  newresourceData: {fileID: 0}
   satisfybutton: {fileID: 5679598185520242614}
   cailleachcreature: {fileID: 0}
   endpoint2: {fileID: 0}
@@ -17481,6 +17489,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourceData: {fileID: 11400000, guid: bdaf8c545b368b640bfdfc65a9daae98, type: 2}
+  oldresourceData: {fileID: 0}
+  newresourceData: {fileID: 0}
   satisfybutton: {fileID: 4294266589071040044}
   giantcreature: {fileID: 0}
   endpoint1: {fileID: 0}
@@ -17582,6 +17592,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourceData: {fileID: 11400000, guid: 68cc7a81767359e458514a6d1a991c46, type: 2}
+  oldresourceData: {fileID: 0}
+  newresourceData: {fileID: 0}
   satisfybutton: {fileID: 1328298363562232214}
   kelpiecreature: {fileID: 0}
   endpoint2: {fileID: 0}
@@ -17715,10 +17727,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0785df23a47d4b45bb8a15082329e10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelTimeStore: 1
+  inputs: {fileID: -944628639613478452, guid: 67f30afa779e22942afacb4ae4197719, type: 3}
+  levelTimeStore: 5
   successFoodAmount: 0
   successConstructionMaterialsAmount: 0
   successSoilHealth: 0
+  waterOutline: {fileID: 3200403397222149912, guid: 90500a2c4abf239448889ede4c709d35,
+    type: 3}
+  energyOutline: {fileID: 3707588556636662896, guid: 71565fe5b74998646b47f57ca5fd510b,
+    type: 3}
+  extraOutline: {fileID: 4574647860216747112, guid: 52e3a6e181a0d204ca820053f349ce85,
+    type: 3}
 --- !u!1 &8347872730639019449
 GameObject:
   m_ObjectHideFlags: 0

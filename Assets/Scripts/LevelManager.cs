@@ -24,6 +24,9 @@ public class LevelManager : MonoBehaviour
     [SerializeField] int successConstructionMaterialsAmount;
     [SerializeField] int successSoilHealth;
 
+
+    GameObject outlineParent;
+
     // radius highlight prefabs
     [SerializeField] GameObject waterOutline;
     [SerializeField] GameObject energyOutline;
@@ -54,31 +57,78 @@ public class LevelManager : MonoBehaviour
 
     void SelectTile()
     {
-        float radius = 0;
-        GameObject outline;
+        if (outlineParent)
+        {
+            Destroy(outlineParent);
+            return;
+        }
+
+        int radius = 0;
 
         Ray ray = Camera.main.ScreenPointToRay(tapLocation.ReadValue<Vector2>());
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {
             Building building;
+            GridObject gridTile;
             Terrainsystem terrainTile;
 
-            if (building = hit.transform.gameObject.GetComponent<Building>())
+            if ((building = hit.transform.gameObject.GetComponent<Building>()) && building.resourceData.impactSource)
             {
                 radius = building.resourceData.impactRadiusTiles;
-                outline = Instantiate(extraOutline, building.transform.position, Quaternion.identity);
 
-                if (radius > 0)
-                    outline.transform.localScale *= radius + 3;
+                GridPosition gridPos = building.transform.parent.gameObject.GetComponent<GridObject>().GetGridPosition();
+
+                outlineParent = new GameObject();
+                outlineParent.name = "outlineParent";
+
+                for (int x = gridPos.x - radius; x <= gridPos.x + radius; x++)
+                {
+                    for (int z = gridPos.z - radius; z <= gridPos.z + radius; z++)
+                    {
+                        Vector3 worldPosition = building.GetOwningGridObject().GetOwningGridSystem().GetGridObject(x, z).transform.position;
+                        Instantiate(extraOutline, worldPosition, Quaternion.identity, outlineParent.transform);
+                    }
+                }
             }
-            else if(terrainTile = hit.transform.gameObject.GetComponent<Terrainsystem>())
+            else if ((gridTile = hit.transform.gameObject.GetComponent<GridObject>()) && (terrainTile = gridTile.terrain) && gridTile.terrain.owningGridObject)
             {
-                radius = terrainTile.radius;
-                outline = Instantiate(extraOutline, terrainTile.transform.position, Quaternion.identity);
+                if (terrainTile.Lenergy)
+                {
+                    radius = terrainTile.radius;
 
-                if (radius > 0)
-                    outline.transform.localScale *= radius + 3;
+                    GridPosition gridPos = terrainTile.owningGridObject.GetGridPosition();
+
+                    outlineParent = new GameObject();
+                    outlineParent.name = "outlineParent";
+
+                    for (int x = gridPos.x - radius; x <= gridPos.x + radius; x++)
+                    {
+                        for (int z = gridPos.z - radius; z <= gridPos.z + radius; z++)
+                        {
+                            Vector3 worldPosition = terrainTile.owningGridObject.GetOwningGridSystem().GetGridObject(x, z).transform.position;
+                            Instantiate(energyOutline, worldPosition, Quaternion.identity, outlineParent.transform);
+                        }
+                    }
+                }
+                else if (terrainTile.Wenergy)
+                {
+                    radius = terrainTile.radius;
+
+                    GridPosition gridPos = terrainTile.owningGridObject.GetGridPosition();
+
+                    outlineParent = new GameObject();
+                    outlineParent.name = "outlineParent";
+
+                    for (int x = gridPos.x - radius; x <= gridPos.x + radius; x++)
+                    {
+                        for (int z = gridPos.z - radius; z <= gridPos.z + radius; z++)
+                        {
+                            Vector3 worldPosition = terrainTile.owningGridObject.GetOwningGridSystem().GetGridObject(x, z).transform.position;
+                            Instantiate(waterOutline, worldPosition, Quaternion.identity, outlineParent.transform);
+                        }
+                    }
+                }
             }
         }
     }

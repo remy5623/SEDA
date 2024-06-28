@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c15a7d87bc4ba64478f86a96ca27bff6, type: 3}
   m_Name: Cailleach
   m_EditorClassIdentifier: 
-  tileName: 
+  tileName: The Cailleach
   icon: {fileID: 0}
   inGameAsset: {fileID: 0}
   sizeWidthTile: 0

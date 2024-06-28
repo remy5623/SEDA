@@ -123,7 +123,7 @@ public class Inventory : MonoBehaviour
 
     public static void SetWeather()
     {
-        if (!hasTornadoHappened && numOfLoggingCamps > 3)
+        if (!hasTornadoHappened && numOfLoggingCamps >= 3)
         {
             currentWeather = WeatherTypes.Tornado;
             cropOutput = 0.7f;

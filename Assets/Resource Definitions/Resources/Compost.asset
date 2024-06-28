@@ -10,7 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c15a7d87bc4ba64478f86a96ca27bff6, type: 3}
-<<<<<<<< HEAD:Assets/Resource Definitions/Resources/Compost.asset
   m_Name: Compost
   m_EditorClassIdentifier: 
   tileName: Compost
@@ -33,41 +32,14 @@ MonoBehaviour:
   upKeepCostWater: 0
   upKeepCostFood: 10
   upKeepCostMaterial: 0
-========
-  m_Name: Oats
-  m_EditorClassIdentifier: 
-  tileName: Oats
-  icon: {fileID: 0}
-  inGameAsset: {fileID: 6777488678298449921, guid: e061bc095a0932a48a67cf161c77740f,
-    type: 3}
-  sizeWidthTile: 0
-  sizeLengthTile: 0
-  structureType: 3
-  tileUnder: {fileID: 0}
-  biomeTypes: 
-  tileTerrainTypes: 
-  canBuild: 1
-  buildingCostFood: 0
-  buildingCostMaterial: 0
-  upKeepCostEnergy: 0
-  upKeepCostWater: 0
-  upKeepCostFood: 10
-  upKeepCostMaterial: 10
->>>>>>>> main:Assets/Resource Definitions/Resources/Oats.asset
   isResourceTapped: 0
   baseOutputEnergy: 0
   baseOutputWater: 0
   baseOutputFood: 10
   baseOutputMaterial: 0
-<<<<<<<< HEAD:Assets/Resource Definitions/Resources/Compost.asset
   buildingOutputMulti: 1
   impactSource: 1
   impactRadiusTiles: 5
-========
-  buildingOutputMulti: 0.5
-  impactSource: 1
-  impactRadiusTiles: 2
->>>>>>>> main:Assets/Resource Definitions/Resources/Oats.asset
   buffAmount: 0
   nerfAmount: 0
   tileImpactBuff:

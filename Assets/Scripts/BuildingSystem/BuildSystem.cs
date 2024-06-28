@@ -46,7 +46,7 @@ public class BuildSystem : MonoBehaviour
 
                 hitGridObject.TryBuild(buildingTypeSelect.currentBuildingType);
 
-                ShowTutorial();// Designer Tutorial test
+                //ShowTutorial();// Designer Tutorial test
 
             }
         }

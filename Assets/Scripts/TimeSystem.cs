@@ -247,10 +247,4 @@ public class TimeSystem : MonoBehaviour
     {
         Time.timeScale = 1f;
     }
-
-    private void OnDestroy()
-    {
-        dailyEvents = new List<TimedEvent>();
-        monthlyEvents = new List<TimedEvent>();
-    }
 }

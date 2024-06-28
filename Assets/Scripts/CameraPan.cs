@@ -3,6 +3,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class CameraPan : MonoBehaviour
 {
@@ -37,7 +38,7 @@ public class CameraPan : MonoBehaviour
     [Tooltip("Invert Camera Controls when panning on the x-axis.")]
     bool InvertX = true;
     [SerializeField]
-    [Tooltip("InvertCameraControls when panning on the y-axis.")]
+    [Tooltip("InvertCameraControls when panningn on the y-axis.")]
     bool InvertY = true;
 
 
@@ -64,11 +65,11 @@ public class CameraPan : MonoBehaviour
 
     [SerializeField]
     [Tooltip("The distance the camera is allowed to zoom in.")]
-    float minZoomDistance = 3.5f;
+    public float minZoomDistance = 3.5f;
 
     [SerializeField]
     [Tooltip("The distance the camera is allowed to zoom out.")]
-    float maxZoomDistance = 10f;
+    public float maxZoomDistance = 10f;
 
     // These function references are necessary for callback registering/deregistering to work properly
     Action<InputAction.CallbackContext> possessCamera;

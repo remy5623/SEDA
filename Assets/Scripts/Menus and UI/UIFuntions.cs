@@ -80,7 +80,7 @@ public class UIFuntions : MonoBehaviour
     public void PlayGame()
     {
         Inventory.overworldTime--;
-        Inventory.levelTime += 2;
+        Inventory.levelTime += 36;
         SceneManager.LoadSceneAsync(1);
     }
 

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Giant
   m_EditorClassIdentifier: 
   tileName: Magnus the Giant
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 169ee5614e4666f469b795ba1c9eaf32, type: 3}
   inGameAsset: {fileID: 0}
   sizeWidthTile: 1
   sizeLengthTile: 2

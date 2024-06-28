@@ -119,3 +119,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourceData: {fileID: 11400000, guid: 05dc62b3814d995449330ee42e731943, type: 2}
+  oldresourceData: {fileID: 0}
+  newresourceData: {fileID: 0}

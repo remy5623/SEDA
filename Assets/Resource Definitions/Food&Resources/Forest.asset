@@ -22,7 +22,10 @@ MonoBehaviour:
   tileUnder: {fileID: 0}
   biomeTypes: 00000000
   tileTerrainTypes: 0100000003000000
-  canBuild: 1
+  CreatureTile: 0
+  bribeCostFood: 15
+  bribeCostConstruction: 5
+  canBuild: 0
   buildingCostFood: 20
   buildingCostMaterial: 0
   upKeepCostEnergy: 0

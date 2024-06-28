@@ -83,8 +83,7 @@ public class GridObject : MonoBehaviour
     {
         if (CanBuildOnTile(building))
         {
-            GameObject newBuilding = Instantiate(building.inGameAsset, transform);
-            buildingInstance = newBuilding.AddComponent<Building>();
+            buildingInstance = Instantiate(building.inGameAsset, transform).GetComponent<Building>();
             buildingInstance.resourceData = building;
             
             buildingInstance.transform.localPosition = Vector3.zero;
@@ -106,9 +105,7 @@ public class GridObject : MonoBehaviour
 
         if (building == null)
         { return false; }
-
         
-
         for (int i = 0; i < building.tileTerrainTypes.Count; i++)
         {
             if (terrain && terrain.creaturetype == CreatureTypes.None)
@@ -132,6 +129,11 @@ public class GridObject : MonoBehaviour
         {
             canBuild = false;
         }
+
+        /*if(buildingInstance.RequireWaterEnergy && terrain.Wenergy == false)
+        {
+           canBuild = false;
+        }*/
 
         return canBuild;
     }

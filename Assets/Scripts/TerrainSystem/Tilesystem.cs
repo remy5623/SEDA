@@ -67,7 +67,7 @@ public class Terrainsystem : MonoBehaviour
 
 
     //the total health of the soil (A to E grade)
-    int health;
+    public int health;
 
     //VeilSwitch Details
     public TerrainTypes OldsoilType;
@@ -100,7 +100,7 @@ public class Terrainsystem : MonoBehaviour
     public void TriggerEnergy()
     {
         //if the terrain has energy being emitted, then set all the terraintiles' energy bool true.
-        if (Lenergy)
+        if (Lenergy && owningGridObject)
         {
             GridPosition pos = owningGridObject.GetGridPosition();
 
@@ -116,7 +116,7 @@ public class Terrainsystem : MonoBehaviour
                 }
             }
         }
-        if (Wenergy)
+        if (Wenergy && owningGridObject)
         {
             GridPosition pos = owningGridObject.GetGridPosition();
 

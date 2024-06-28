@@ -16,6 +16,8 @@ public class StandingStone : MonoBehaviour
 
     Terrainsystem TS1;
 
+    [SerializeField] GameObject IslandToChange;
+
     // This function reference is necessary for callback registering/deregistering to work properly
     Action<InputAction.CallbackContext> click;
 
@@ -57,6 +59,30 @@ public class StandingStone : MonoBehaviour
             kelpie.StandingStoneKelpieImpact();
         if (cailleach != null)
             cailleach.StandingStoneCailleachImpact();
-    }
 
+        Terrainsystem[] list = IslandToChange.GetComponentsInChildren<Terrainsystem>();
+
+        foreach (Terrainsystem t in list)
+        {
+            if (t.terraintype == t.OldsoilType)
+                t.terraintype = t.NewSoilType;
+            else
+                t.terraintype = t.OldsoilType;
+        }
+
+        foreach (Terrainsystem t in list)
+        {
+            if (t.owningGridObject != null)
+            {
+                Building building = t.owningGridObject.GetBuilding();
+                if (building != null)
+                {
+                    if (building.resourceData == building.oldresourceData)
+                        building.VeilChangeActivate();
+                    else
+                        building.VeilChangeDeactivate();
+                }
+            }
+        }
+    }
 }

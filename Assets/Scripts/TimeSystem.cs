@@ -42,8 +42,10 @@ public class TimeSystem : MonoBehaviour
     [SerializeField] TextMeshProUGUI monthDisplay;
     [SerializeField] TextMeshProUGUI timeRemainingDisplay;
 
-    // Level select UI prefab
-    [SerializeField] GameObject LevelSelectPrefab;
+    // UI prefabs
+    [SerializeField] GameObject gameOverPrefab;
+    [SerializeField] GameObject levelCompletePrefab;
+    [SerializeField] GameObject winScreenPrefab;
 
     int day = 1;
     float timeElapsed = 0f;
@@ -208,13 +210,47 @@ public class TimeSystem : MonoBehaviour
 
         if (Inventory.levelTime < 1 )
         {
-            Instantiate(LevelSelectPrefab);
+            if (LevelManager.AreSuccessConditionsMet())
+            {
+                // Win the level
+                GameManager.levelsCompleted++;
+
+                if (GameManager.levelsCompleted >= 3)
+                {
+                    Instantiate(winScreenPrefab);
+                }
+                else
+                {
+                    Instantiate(levelCompletePrefab);
+                }
+            }    
+            else
+            {
+                // Lose the level
+                Instantiate(gameOverPrefab);
+            }
             // TODO: Stop Countdown
         }
     }
 
     void SetTimeRemainingDisplay()
     {
-        timeRemainingDisplay.text = "Time Remaining in Level: " + Inventory.levelTime + " months.";
+        timeRemainingDisplay.text = Inventory.levelTime + " months";
+    }
+
+    public static void Pause()
+    {
+        Time.timeScale = 0;
+    }
+
+    public static void Unpause()
+    {
+        Time.timeScale = 1f;
+    }
+
+    private void OnDestroy()
+    {
+        dailyEvents = new List<TimedEvent>();
+        monthlyEvents = new List<TimedEvent>();
     }
 }

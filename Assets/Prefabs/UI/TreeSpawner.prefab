@@ -280,6 +280,7 @@ GameObject:
   - component: {fileID: 7750392499649305766}
   - component: {fileID: 5077240783279982749}
   - component: {fileID: 1329349257558271263}
+  - component: {fileID: 6828567100224704757}
   m_Layer: 5
   m_Name: Spawn Tree
   m_TagString: Untagged
@@ -402,6 +403,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &6828567100224704757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4800373569556728276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d340082af1f8c947ab943b16d34a83f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ClickedSound: {fileID: 8300000, guid: 74bcec12bf3ff1b43940befa11ca35c9, type: 3}
 --- !u!1 &5012266032415021592
 GameObject:
   m_ObjectHideFlags: 0

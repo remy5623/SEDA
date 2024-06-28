@@ -10,33 +10,36 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c15a7d87bc4ba64478f86a96ca27bff6, type: 3}
-  m_Name: Rock
+  m_Name: Warehouse
   m_EditorClassIdentifier: 
-  tileName: Rock
+  tileName: warehouse
   icon: {fileID: 0}
-  inGameAsset: {fileID: 6777488678298449921, guid: e061bc095a0932a48a67cf161c77740f,
+  inGameAsset: {fileID: 679268389524347108, guid: 8c96c13045af6d843b686c866995f6f8,
     type: 3}
-  sizeWidthTile: 0
-  sizeLengthTile: 0
-  structureType: 23
+  sizeWidthTile: 1
+  sizeLengthTile: 1
+  structureType: 22
   tileUnder: {fileID: 0}
-  biomeTypes: 
-  tileTerrainTypes: 010000000200000003000000
+  biomeTypes: 00000000
+  tileTerrainTypes: 0100000003000000
+  CreatureTile: 0
+  bribeCostFood: 15
+  bribeCostConstruction: 5
   canBuild: 1
   buildingCostFood: 0
-  buildingCostMaterial: 0
+  buildingCostMaterial: 10
   upKeepCostEnergy: 0
   upKeepCostWater: 0
-  upKeepCostFood: 10
-  upKeepCostMaterial: 10
+  upKeepCostFood: 0
+  upKeepCostMaterial: 0
   isResourceTapped: 0
   baseOutputEnergy: 0
   baseOutputWater: 0
   baseOutputFood: 0
-  baseOutputMaterial: 0
-  buildingOutputMulti: 0
-  impactSource: 0
-  impactRadiusTiles: 0
+  baseOutputMaterial: 20
+  buildingOutputMulti: 1
+  impactSource: 1
+  impactRadiusTiles: 3
   buffAmount: 0
   nerfAmount: 0
   tileImpactBuff: []

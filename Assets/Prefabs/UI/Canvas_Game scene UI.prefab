@@ -640,6 +640,8 @@ MonoBehaviour:
   resourceData: {fileID: 11400000, guid: bdaf8c545b368b640bfdfc65a9daae98, type: 2}
   oldresourceData: {fileID: 0}
   newresourceData: {fileID: 0}
+  RequireWaterEnergy: 0
+  IsItBasedOnSoilGrade: 0
   satisfybutton: {fileID: 4294266589071040044}
   giantcreature: {fileID: 0}
   endpoint1: {fileID: 0}
@@ -949,7 +951,7 @@ GameObject:
   - component: {fileID: 2586225758916107772}
   - component: {fileID: 6088622656642225544}
   m_Layer: 5
-  m_Name: Season_Current_Text
+  m_Name: Weather_Current_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1002,7 +1004,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Current_Season
+  m_text: Current Weather
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1136,7 +1138,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: weather Iocn
+  m_text: Fair Weather
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4923,7 +4925,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Weather_3Name
+  m_text: Thunderstorm
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5203,7 +5205,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Building 3 Icon
+  m_text: Logging Camp
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7139,6 +7141,8 @@ MonoBehaviour:
   resourceData: {fileID: 11400000, guid: 8ab010336f35a07468c394c1c207ccf4, type: 2}
   oldresourceData: {fileID: 0}
   newresourceData: {fileID: 0}
+  RequireWaterEnergy: 0
+  IsItBasedOnSoilGrade: 0
   satisfybutton: {fileID: 5679598185520242614}
   cailleachcreature: {fileID: 0}
   endpoint2: {fileID: 0}
@@ -7403,7 +7407,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Weather_01Name_introduce
+  m_text: Fair Weather does nothing.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8091,7 +8095,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Weather_4Name
+  m_text: Flood
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8518,6 +8522,8 @@ MonoBehaviour:
   resourceData: {fileID: 11400000, guid: 68cc7a81767359e458514a6d1a991c46, type: 2}
   oldresourceData: {fileID: 0}
   newresourceData: {fileID: 0}
+  RequireWaterEnergy: 0
+  IsItBasedOnSoilGrade: 0
   satisfybutton: {fileID: 1328298363562232214}
   kelpiecreature: {fileID: 0}
   endpoint2: {fileID: 0}
@@ -8586,7 +8592,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Weather_2Name
+  m_text: Tornado
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -10657,7 +10663,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Weather_03Name_introduce
+  m_text: A thunderstorm reduces crop output to 90% and reduces soil grade by 20
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -10684,8 +10690,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -12652,6 +12658,8 @@ MonoBehaviour:
   resourceData: {fileID: 11400000, guid: 8ab010336f35a07468c394c1c207ccf4, type: 2}
   oldresourceData: {fileID: 0}
   newresourceData: {fileID: 0}
+  RequireWaterEnergy: 0
+  IsItBasedOnSoilGrade: 0
   satisfybutton: {fileID: 5679598185520242614}
   cailleachcreature: {fileID: 0}
   endpoint2: {fileID: 0}
@@ -12801,7 +12809,7 @@ GameObject:
   - component: {fileID: 4606863179188207666}
   - component: {fileID: 772053166984195140}
   m_Layer: 5
-  m_Name: Season_Current_Icon
+  m_Name: Weather_Current_Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13661,7 +13669,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Weather_04Name_introduce
+  m_text: A flood reduces crop output to 50%, and boosts soil grade by 20
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -13688,8 +13696,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -17012,6 +17020,7 @@ GameObject:
   - component: {fileID: 4659986863287818846}
   - component: {fileID: 3752806502580915400}
   - component: {fileID: 2153148120910806534}
+  - component: {fileID: 2318185824237464128}
   m_Layer: 5
   m_Name: Weather_Button
   m_TagString: Untagged
@@ -17133,6 +17142,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+--- !u!114 &2318185824237464128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7703884218921381290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e60ca225c0aa05f43aebe3a13987aa2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWeatherButtonText: {fileID: 456286681046872255}
+  currentWeatherText: {fileID: 6088622656642225544}
 --- !u!1 &7782883302253258977
 GameObject:
   m_ObjectHideFlags: 0
@@ -17491,6 +17514,8 @@ MonoBehaviour:
   resourceData: {fileID: 11400000, guid: bdaf8c545b368b640bfdfc65a9daae98, type: 2}
   oldresourceData: {fileID: 0}
   newresourceData: {fileID: 0}
+  RequireWaterEnergy: 0
+  IsItBasedOnSoilGrade: 0
   satisfybutton: {fileID: 4294266589071040044}
   giantcreature: {fileID: 0}
   endpoint1: {fileID: 0}
@@ -17594,6 +17619,8 @@ MonoBehaviour:
   resourceData: {fileID: 11400000, guid: 68cc7a81767359e458514a6d1a991c46, type: 2}
   oldresourceData: {fileID: 0}
   newresourceData: {fileID: 0}
+  RequireWaterEnergy: 0
+  IsItBasedOnSoilGrade: 0
   satisfybutton: {fileID: 1328298363562232214}
   kelpiecreature: {fileID: 0}
   endpoint2: {fileID: 0}
@@ -18539,7 +18566,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Weather_1Name
+  m_text: 'Fair Weather
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -18673,7 +18702,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Weather_02Name_introduce
+  m_text: A tornado reduces crop output to 70%
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

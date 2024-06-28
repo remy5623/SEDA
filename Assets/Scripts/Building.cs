@@ -27,6 +27,14 @@ public class Building : MonoBehaviour
         oldresourceData =  resourceData;
 
         PayConstructionCosts();
+        
+        if (resourceData.tileUnder == null)
+        {
+            RaycastHit hit;
+            Physics.Raycast(transform.position, Vector3.down, out hit);
+            resourceData.tileUnder = hit.transform.gameObject.GetComponent<GridObject>();
+        }
+
         resourceData.tileUnder.GetOwningGridSystem().ToggleBuildMode(resourceData, true);
 
         UpdateTotalBuildingCount(true);

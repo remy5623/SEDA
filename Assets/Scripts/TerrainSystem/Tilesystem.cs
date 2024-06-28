@@ -213,7 +213,7 @@ public class Terrainsystem : MonoBehaviour
 
     public void ChangeinGrade(float buffamount, float nerfamount, bool impact)
     {
-        float totalChangeInGrade = buffamount - nerfamount;
+        float totalChangeInGrade = buffamount - nerfamount + Inventory.soilGradeWeatherEffect;
         if (impact)
         {
             health = (int)CurrentsoilType + (int)totalChangeInGrade;
@@ -222,7 +222,7 @@ public class Terrainsystem : MonoBehaviour
 
             if (health > 0)
             {
-                if (health > 80 && health <= 100)
+                if (health > 80)
                 {
                     testsoil = SoilType.A;
                     if (allowedSoilGrade.Contains(testsoil))

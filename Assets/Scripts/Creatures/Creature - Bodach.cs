@@ -29,6 +29,7 @@ public class Cailleach : Building
         cailleachcreature.SetActive(true);
 
         // Weather conditions..
+        Inventory.CailleachAppeared();
 
         /*foreach (Terrainsystem kelpieTile in FindObjectsByType<Terrainsystem>(FindObjectsSortMode.None))
         {

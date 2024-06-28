@@ -67,7 +67,7 @@ public class Terrainsystem : MonoBehaviour
 
 
     //the total health of the soil (A to E grade)
-    int health;
+    public int health;
 
     //VeilSwitch Details
     public TerrainTypes OldsoilType;

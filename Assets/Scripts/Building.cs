@@ -12,6 +12,15 @@ public class Building : MonoBehaviour
 
     Terrainsystem Terrainsystem;
 
+    int Upkeepmet = 1;
+
+    //does the building required water energy to be able to be built on.
+    public bool RequireWaterEnergy;
+
+    //should it consider the soil grade for the output.
+    public bool IsItBasedOnSoilGrade;
+
+    float soilGradeModifier = 1f;
     
     private void Start()
     {
@@ -44,7 +53,9 @@ public class Building : MonoBehaviour
             Terrainsystem = hit.transform.gameObject.GetComponent<Terrainsystem>();
             Terrainsystem.owningGridObject.buildingInstance = this;
         }
+
         
+
     }
 
     public void PayConstructionCosts()
@@ -56,16 +67,34 @@ public class Building : MonoBehaviour
     /** Generate resources according to the following equation: Base Output * buffs/nerfs * total crop output level */
     public void UpdateResources()
     {
-        Inventory.food += Mathf.FloorToInt(resourceData.baseOutputFood * (1 + buff + nerf) * Inventory.cropOutput);
-        Inventory.constructionMaterials += Mathf.FloorToInt(resourceData.baseOutputMaterial * (1 + buff + nerf) * Inventory.cropOutput);
+        IfDependsonSoilGrade();
+        if (RequireWaterEnergy && (Inventory.isFlooding || resourceData.tileUnder.terrain.Wenergy))
+        {
+            Inventory.food += Mathf.FloorToInt(resourceData.baseOutputFood * soilGradeModifier * (1 + buff + nerf) * Inventory.cropOutput * Upkeepmet);
+            Inventory.constructionMaterials += Mathf.FloorToInt(resourceData.baseOutputMaterial * (1 + buff + nerf) * Inventory.cropOutput * Upkeepmet);
+        }
     }
     
     public void PayUpkeep()
     {
         if (resourceData.upKeepCostWater && (Inventory.isFlooding || resourceData.tileUnder.terrain.Wenergy))
         {
+            Upkeepmet = 1;
             Inventory.SpendFood(resourceData.upKeepCostFood);
             Inventory.SpendMaterials(resourceData.upKeepCostMaterial);
+        }
+        else
+        {
+            Upkeepmet = 0;
+
+        }
+    }
+
+    public void IfDependsonSoilGrade()
+    {
+        if (IsItBasedOnSoilGrade)
+        {
+            soilGradeModifier = (Terrainsystem.health / 100);
         }
     }
 

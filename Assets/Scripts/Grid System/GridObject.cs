@@ -131,10 +131,10 @@ public class GridObject : MonoBehaviour
             canBuild = false;
         }
 
-        if(buildingInstance.RequireWaterEnergy && terrain.Wenergy == false)
+        /*if(buildingInstance.RequireWaterEnergy && terrain.Wenergy == false)
         {
            canBuild = false;
-        }
+        }*/
 
         return canBuild;
     }

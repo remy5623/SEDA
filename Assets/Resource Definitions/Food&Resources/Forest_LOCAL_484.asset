@@ -10,26 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c15a7d87bc4ba64478f86a96ca27bff6, type: 3}
-<<<<<<<< HEAD:Assets/Resource Definitions/Resources/PeasAndBeans.asset
-  m_Name: PeasAndBeans
-  m_EditorClassIdentifier: 
-  tileName: Peas and Beans
-  icon: {fileID: 0}
-  inGameAsset: {fileID: 7543974964756465544, guid: d533b7c6555063943b4e1e2708dc3e42,
-    type: 3}
-  sizeWidthTile: 1
-  sizeLengthTile: 1
-  structureType: 0
-  tileUnder: {fileID: 0}
-  biomeTypes: 00000000
-  tileTerrainTypes: 01000000
-  CreatureTile: 0
-  bribeCostFood: 15
-  bribeCostConstruction: 5
-  canBuild: 1
-  buildingCostFood: 5
-  buildingCostMaterial: 2
-========
   m_Name: Forest
   m_EditorClassIdentifier: 
   tileName: Forest
@@ -42,42 +22,30 @@ MonoBehaviour:
   tileUnder: {fileID: 0}
   biomeTypes: 00000000
   tileTerrainTypes: 0100000003000000
-  canBuild: 1
+  CreatureTile: 0
+  bribeCostFood: 15
+  bribeCostConstruction: 5
+  canBuild: 0
   buildingCostFood: 20
   buildingCostMaterial: 0
->>>>>>>> c82df64e12e276ab91de78b274eb2cbf9f2e5eee:Assets/Resource Definitions/Food&Resources/Forest_BASE_484.asset
   upKeepCostEnergy: 0
-  upKeepCostWater: 1
+  upKeepCostWater: 0
   upKeepCostFood: 0
   upKeepCostMaterial: 0
   isResourceTapped: 0
   baseOutputEnergy: 0
   baseOutputWater: 0
-<<<<<<<< HEAD:Assets/Resource Definitions/Resources/PeasAndBeans.asset
-  baseOutputFood: 2
-  baseOutputMaterial: 0
-  buildingOutputMulti: 2
-  impactSource: 1
-  impactRadiusTiles: 2
-  buffAmount: 0
-========
   baseOutputFood: 0
   baseOutputMaterial: 5
   buildingOutputMulti: 5
   impactSource: 1
   impactRadiusTiles: 3
   buffAmount: 2
->>>>>>>> c82df64e12e276ab91de78b274eb2cbf9f2e5eee:Assets/Resource Definitions/Food&Resources/Forest_BASE_484.asset
   nerfAmount: 0
   tileImpactBuff:
   - {fileID: 11400000, guid: cd1916fecfec7ba4ba50cdc08430342a, type: 2}
   - {fileID: 11400000, guid: e434d313045e6a840a344c33db2e5784, type: 2}
   tileImpactNerf: []
-<<<<<<<< HEAD:Assets/Resource Definitions/Resources/PeasAndBeans.asset
-  isImpactSoilGrade: 0
-  buffSoilGradeAmount: 40
-========
   isImpactSoilGrade: 1
   buffSoilGradeAmount: 20
->>>>>>>> c82df64e12e276ab91de78b274eb2cbf9f2e5eee:Assets/Resource Definitions/Food&Resources/Forest_BASE_484.asset
   nerfSoilGradeAmount: 0

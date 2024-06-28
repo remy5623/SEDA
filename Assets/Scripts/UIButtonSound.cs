@@ -8,7 +8,7 @@ public class UIButtonSound : MonoBehaviour, IPointerEnterHandler
 {
 
     public AudioClip ClickedSound;
-    public AudioClip HoverSound;
+    AudioClip HoverSound;
 
     //get button component
     private Button button { get { return GetComponent<Button>(); } }
@@ -17,17 +17,17 @@ public class UIButtonSound : MonoBehaviour, IPointerEnterHandler
 
 
     void Start()
-
     {
         //bind an AudioSource on its
         gameObject.AddComponent<AudioSource>();
+
         //set default sound
         source.clip = HoverSound;
 
         source.playOnAwake = false;
 
-
-        button.onClick.AddListener(() => PlayClickSoud());
+        if(ClickedSound != null)
+            button.onClick.AddListener(() => PlayClickSoud());
 
 
     }
@@ -39,8 +39,8 @@ public class UIButtonSound : MonoBehaviour, IPointerEnterHandler
             throw new System.ArgumentNullException(nameof(eventData));
         }
 
-        source.clip = HoverSound;
-        source.PlayOneShot(HoverSound);
+        /*source.clip = HoverSound;
+        source.PlayOneShot(HoverSound);*/
     }
 
     void PlayClickSoud()

@@ -55,8 +55,6 @@ public class Building : MonoBehaviour
             Terrainsystem.owningGridObject.buildingInstance = this;
         }
 
-        
-
     }
 
     public void PayConstructionCosts()

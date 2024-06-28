@@ -20377,7 +20377,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7674873866885325708}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -124}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -20391,8 +20391,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -400, y: 725}
-  m_SizeDelta: {x: -800, y: -1450}
+  m_AnchoredPosition: {x: -400, y: 738}
+  m_SizeDelta: {x: -800, y: -1634}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &833143843914765719
 CanvasRenderer:
@@ -21256,10 +21256,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 2560, y: 1660}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -21297,7 +21297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputs: {fileID: -944628639613478452, guid: 67f30afa779e22942afacb4ae4197719, type: 3}
-  levelTimeStore: 5
+  levelTimeStore: 2
   successFoodAmount: 0
   successConstructionMaterialsAmount: 0
   successSoilHealth: 0
@@ -23807,12 +23807,12 @@ PrefabInstance:
     - target: {fileID: 4084978293322197444, guid: 8e6f0950fdf8f5943aa7184f1a0fa814,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.00061035
+      value: 0.0007324219
       objectReference: {fileID: 0}
     - target: {fileID: 4084978293322197444, guid: 8e6f0950fdf8f5943aa7184f1a0fa814,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000061035
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4084978293322197444, guid: 8e6f0950fdf8f5943aa7184f1a0fa814,
         type: 3}

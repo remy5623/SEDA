@@ -77,7 +77,13 @@ public class LevelManager : MonoBehaviour
             {
                 radius = building.resourceData.impactRadiusTiles;
 
-                GridPosition gridPos = building.transform.parent.gameObject.GetComponent<GridObject>().GetGridPosition();
+                GridPosition gridPos;
+                if (building.transform.parent)
+                     gridPos = building.transform.parent.gameObject.GetComponent<GridObject>().GetGridPosition();
+                else
+                {
+                    gridPos = building.GetOwningGridObject().GetGridPosition();
+                }
 
                 outlineParent = new GameObject();
                 outlineParent.name = "outlineParent";

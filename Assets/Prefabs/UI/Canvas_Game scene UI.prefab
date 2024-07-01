@@ -1973,7 +1973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d340082af1f8c947ab943b16d34a83f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ClickedSound: {fileID: 8300000, guid: 74bcec12bf3ff1b43940befa11ca35c9, type: 3}
+  ClickedSound: {fileID: 8300000, guid: 8f51910f06ae56849b4088fbef2f6fe2, type: 3}
 --- !u!1 &535743767474306740
 GameObject:
   m_ObjectHideFlags: 0
@@ -3172,7 +3172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d340082af1f8c947ab943b16d34a83f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ClickedSound: {fileID: 8300000, guid: 74bcec12bf3ff1b43940befa11ca35c9, type: 3}
+  ClickedSound: {fileID: 8300000, guid: 8f51910f06ae56849b4088fbef2f6fe2, type: 3}
 --- !u!1 &1041179243443145579
 GameObject:
   m_ObjectHideFlags: 0
@@ -4398,7 +4398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d340082af1f8c947ab943b16d34a83f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ClickedSound: {fileID: 8300000, guid: 74bcec12bf3ff1b43940befa11ca35c9, type: 3}
+  ClickedSound: {fileID: 8300000, guid: 8f51910f06ae56849b4088fbef2f6fe2, type: 3}
 --- !u!1 &1672876405201423256
 GameObject:
   m_ObjectHideFlags: 0
@@ -7455,7 +7455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d340082af1f8c947ab943b16d34a83f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ClickedSound: {fileID: 8300000, guid: 74bcec12bf3ff1b43940befa11ca35c9, type: 3}
+  ClickedSound: {fileID: 8300000, guid: 8f51910f06ae56849b4088fbef2f6fe2, type: 3}
 --- !u!1 &2802322828782911695
 GameObject:
   m_ObjectHideFlags: 0
@@ -13474,7 +13474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d340082af1f8c947ab943b16d34a83f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ClickedSound: {fileID: 8300000, guid: 74bcec12bf3ff1b43940befa11ca35c9, type: 3}
+  ClickedSound: {fileID: 8300000, guid: 8f51910f06ae56849b4088fbef2f6fe2, type: 3}
 --- !u!1 &5128373080992820517
 GameObject:
   m_ObjectHideFlags: 0
@@ -20699,7 +20699,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d340082af1f8c947ab943b16d34a83f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ClickedSound: {fileID: 8300000, guid: 74bcec12bf3ff1b43940befa11ca35c9, type: 3}
+  ClickedSound: {fileID: 8300000, guid: 8f51910f06ae56849b4088fbef2f6fe2, type: 3}
 --- !u!1 &7782883302253258977
 GameObject:
   m_ObjectHideFlags: 0
@@ -22356,7 +22356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d340082af1f8c947ab943b16d34a83f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ClickedSound: {fileID: 8300000, guid: 74bcec12bf3ff1b43940befa11ca35c9, type: 3}
+  ClickedSound: {fileID: 8300000, guid: 8f51910f06ae56849b4088fbef2f6fe2, type: 3}
 --- !u!1 &8628860854905238120
 GameObject:
   m_ObjectHideFlags: 0

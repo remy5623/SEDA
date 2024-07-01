@@ -33,15 +33,15 @@ MonoBehaviour:
   upKeepCostFood: 0
   upKeepCostMaterial: 0
   isResourceTapped: 0
+  collectorBuildings: 05000000
   baseOutputEnergy: 0
   baseOutputWater: 0
   baseOutputFood: 0
   baseOutputMaterial: 5
   buildingOutputMulti: 5
   impactSource: 1
-  impactRadiusTiles: 3
-  collectorBuildings: 05000000
-  buffAmount: 2
+  impactRadiusTiles: 1
+  buffAmount: 0
   nerfAmount: 0
   tileImpactBuff:
   - {fileID: 11400000, guid: cd1916fecfec7ba4ba50cdc08430342a, type: 2}

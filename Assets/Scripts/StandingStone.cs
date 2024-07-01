@@ -103,4 +103,9 @@ public class StandingStone : MonoBehaviour
             }
         }
     }
+
+    private void OnDestroy()
+    {
+        placeAction.performed -= click;
+    }
 }

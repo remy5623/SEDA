@@ -65,6 +65,4 @@ public class BuildSystem : MonoBehaviour
             Tutorial_Step_4.SetActive(false);
         }
     }
-
-
 }

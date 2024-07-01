@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 5945858021980380688}
   - component: {fileID: 2784038161045735950}
   - component: {fileID: 6336332571992298343}
+  - component: {fileID: 5023452727040812114}
   m_Layer: 5
   m_Name: Cailleach
   m_TagString: Untagged
@@ -281,14 +282,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20734eb64323aa94da8bac38e0324d84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soilType: 0
+  CurrentsoilType: 0
   allowedSoilGrade: 
   ResourceAffect: 0
   terraintype: 0
   creaturetype: 0
-  energy: 0
+  Lenergy: 0
+  Wenergy: 0
   owningGridObject: {fileID: 0}
   radius: 0
+  Wradius: 0
+  health: 0
+  OldsoilType: 0
+  NewSoilType: 0
+--- !u!114 &5023452727040812114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2678498357409048323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d340082af1f8c947ab943b16d34a83f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ClickedSound: {fileID: 8300000, guid: 8f51910f06ae56849b4088fbef2f6fe2, type: 3}
 --- !u!1 &3730613795538579621
 GameObject:
   m_ObjectHideFlags: 0
@@ -302,6 +321,7 @@ GameObject:
   - component: {fileID: 710629550727864418}
   - component: {fileID: 698948914483011490}
   - component: {fileID: 8028181360193612183}
+  - component: {fileID: 8645661121590038460}
   m_Layer: 5
   m_Name: Giant
   m_TagString: Untagged
@@ -436,14 +456,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20734eb64323aa94da8bac38e0324d84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soilType: 0
+  CurrentsoilType: 0
   allowedSoilGrade: 
   ResourceAffect: 0
   terraintype: 0
   creaturetype: 0
-  energy: 0
+  Lenergy: 0
+  Wenergy: 0
   owningGridObject: {fileID: 0}
   radius: 0
+  Wradius: 0
+  health: 0
+  OldsoilType: 0
+  NewSoilType: 0
+--- !u!114 &8645661121590038460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3730613795538579621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d340082af1f8c947ab943b16d34a83f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ClickedSound: {fileID: 8300000, guid: 8f51910f06ae56849b4088fbef2f6fe2, type: 3}
 --- !u!1 &3746918501935664759
 GameObject:
   m_ObjectHideFlags: 0
@@ -863,6 +901,7 @@ GameObject:
   - component: {fileID: 4481943347344890843}
   - component: {fileID: 8690572476029512299}
   - component: {fileID: 5512021986120090572}
+  - component: {fileID: 5738819710965921977}
   m_Layer: 5
   m_Name: Kelpie
   m_TagString: Untagged
@@ -997,14 +1036,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20734eb64323aa94da8bac38e0324d84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soilType: 0
+  CurrentsoilType: 0
   allowedSoilGrade: 
   ResourceAffect: 0
   terraintype: 0
   creaturetype: 0
-  energy: 0
+  Lenergy: 0
+  Wenergy: 0
   owningGridObject: {fileID: 0}
   radius: 0
+  Wradius: 0
+  health: 0
+  OldsoilType: 0
+  NewSoilType: 0
+--- !u!114 &5738819710965921977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7135840828385439368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d340082af1f8c947ab943b16d34a83f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ClickedSound: {fileID: 8300000, guid: 8f51910f06ae56849b4088fbef2f6fe2, type: 3}
 --- !u!1 &8030787996982556111
 GameObject:
   m_ObjectHideFlags: 0
@@ -1409,4 +1466,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0785df23a47d4b45bb8a15082329e10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputs: {fileID: 0}
   levelTimeStore: 12
+  successFoodAmount: 0
+  successConstructionMaterialsAmount: 0
+  successSoilHealth: 0
+  waterOutline: {fileID: 0}
+  energyOutline: {fileID: 0}
+  extraOutline: {fileID: 0}

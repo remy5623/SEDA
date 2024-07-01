@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3582012995276321559}
   - component: {fileID: 2958013600637180556}
   - component: {fileID: 938145542236971866}
+  - component: {fileID: -1801962073596000557}
   m_Layer: 0
   m_Name: RuinedBuildings
   m_TagString: Untagged
@@ -123,3 +124,16 @@ MonoBehaviour:
   newresourceData: {fileID: 0}
   RequireWaterEnergy: 0
   IsItBasedOnSoilGrade: 0
+--- !u!114 &-1801962073596000557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7543974964756465544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bebc810722421c4b8536fe206399898, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 0}

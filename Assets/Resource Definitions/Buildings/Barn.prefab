@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3582012995276321559}
   - component: {fileID: 2958013600637180556}
   - component: {fileID: 938145542236971866}
+  - component: {fileID: 1713051037451381148}
   m_Layer: 0
   m_Name: Barn
   m_TagString: Untagged
@@ -120,3 +121,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourceData: {fileID: 11400000, guid: dfd08522d70fe834c885af0a8cca4b3e, type: 2}
+  oldresourceData: {fileID: 0}
+  newresourceData: {fileID: 0}
+  RequireWaterEnergy: 0
+  IsItBasedOnSoilGrade: 0
+--- !u!114 &1713051037451381148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7543974964756465544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bebc810722421c4b8536fe206399898, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2152043199621515663}
   - component: {fileID: 1029680461366448771}
   - component: {fileID: 6724467558982403004}
+  - component: {fileID: -9073123126127457798}
   m_Layer: 0
   m_Name: WindTurbine
   m_TagString: Untagged
@@ -121,3 +122,18 @@ MonoBehaviour:
   resourceData: {fileID: 11400000, guid: 8d611b304079c844896e2c81e3c3aada, type: 2}
   oldresourceData: {fileID: 0}
   newresourceData: {fileID: 0}
+  RequireWaterEnergy: 0
+  IsItBasedOnSoilGrade: 0
+--- !u!114 &-9073123126127457798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50886030656341932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bebc810722421c4b8536fe206399898, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 0}

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6077579044690510486}
   - component: {fileID: 1870181994173338179}
   - component: {fileID: -3939148624180556249}
+  - component: {fileID: -8053845559644132545}
   m_Layer: 0
   m_Name: Warehouse
   m_TagString: Untagged
@@ -121,3 +122,18 @@ MonoBehaviour:
   resourceData: {fileID: 11400000, guid: bd205cf0ebe380e4c8f12fdf501a6e42, type: 2}
   oldresourceData: {fileID: 0}
   newresourceData: {fileID: 0}
+  RequireWaterEnergy: 0
+  IsItBasedOnSoilGrade: 0
+--- !u!114 &-8053845559644132545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 679268389524347108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bebc810722421c4b8536fe206399898, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 0}

@@ -10,37 +10,37 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c15a7d87bc4ba64478f86a96ca27bff6, type: 3}
-  m_Name: WindTurbine
+  m_Name: RuinedBuildings
   m_EditorClassIdentifier: 
-  tileName: Wind Turbine
+  tileName: Ruined Buildings
   icon: {fileID: 0}
-  inGameAsset: {fileID: 50886030656341932, guid: 1916460652a694643b8a69466725290a,
+  inGameAsset: {fileID: 7543974964756465544, guid: 0ab534e307d88364d97150c7deee9a6b,
     type: 3}
   sizeWidthTile: 1
   sizeLengthTile: 1
-  structureType: 1
+  structureType: 12
   tileUnder: {fileID: 0}
   biomeTypes: 00000000
-  tileTerrainTypes: 0100000003000000
+  tileTerrainTypes: 
   CreatureTile: 0
   bribeCostFood: 15
   bribeCostConstruction: 5
-  canBuild: 1
+  canBuild: 0
   buildingCostFood: 0
-  buildingCostMaterial: 10
+  buildingCostMaterial: 0
   upKeepCostEnergy: 0
   upKeepCostWater: 0
   upKeepCostFood: 0
   upKeepCostMaterial: 0
   isResourceTapped: 0
-  baseOutputEnergy: 1
+  baseOutputEnergy: 0
   baseOutputWater: 0
   baseOutputFood: 0
-  baseOutputMaterial: 0
-  buildingOutputMulti: 1
+  baseOutputMaterial: 15
+  buildingOutputMulti: 2
   impactSource: 1
-  impactRadiusTiles: 1
-  collectorBuildings: 
+  impactRadiusTiles: 0
+  collectorBuildings: 04000000
   buffAmount: 0
   nerfAmount: 0
   tileImpactBuff: []

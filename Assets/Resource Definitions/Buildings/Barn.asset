@@ -22,21 +22,25 @@ MonoBehaviour:
   tileUnder: {fileID: 0}
   biomeTypes: 00000000
   tileTerrainTypes: 0100000003000000
+  CreatureTile: 0
+  bribeCostFood: 15
+  bribeCostConstruction: 5
   canBuild: 1
   buildingCostFood: 0
   buildingCostMaterial: 20
   upKeepCostEnergy: 1
   upKeepCostWater: 1
-  upKeepCostFood: 0
+  upKeepCostFood: 10
   upKeepCostMaterial: 0
-  isResourceTapped: 1
+  isResourceTapped: 0
   baseOutputEnergy: 0
   baseOutputWater: 0
-  baseOutputFood: 0
+  baseOutputFood: 50
   baseOutputMaterial: 0
   buildingOutputMulti: 1
   impactSource: 1
   impactRadiusTiles: 2
+  collectorBuildings: 
   buffAmount: 0
   nerfAmount: 0
   tileImpactBuff: []

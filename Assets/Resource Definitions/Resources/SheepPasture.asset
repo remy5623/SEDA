@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c15a7d87bc4ba64478f86a96ca27bff6, type: 3}
-  m_Name: WindTurbine
+  m_Name: SheepPasture
   m_EditorClassIdentifier: 
-  tileName: Wind Turbine
+  tileName: Sheep pasture
   icon: {fileID: 0}
-  inGameAsset: {fileID: 50886030656341932, guid: 1916460652a694643b8a69466725290a,
+  inGameAsset: {fileID: 7543974964756465544, guid: ce9370c9d214ae1498c2ebda693e6169,
     type: 3}
   sizeWidthTile: 1
   sizeLengthTile: 1
-  structureType: 1
+  structureType: 9
   tileUnder: {fileID: 0}
   biomeTypes: 00000000
   tileTerrainTypes: 0100000003000000
@@ -26,25 +26,26 @@ MonoBehaviour:
   bribeCostFood: 15
   bribeCostConstruction: 5
   canBuild: 1
-  buildingCostFood: 0
-  buildingCostMaterial: 10
+  buildingCostFood: 2
+  buildingCostMaterial: 8
   upKeepCostEnergy: 0
-  upKeepCostWater: 0
+  upKeepCostWater: 1
   upKeepCostFood: 0
   upKeepCostMaterial: 0
   isResourceTapped: 0
-  baseOutputEnergy: 1
+  baseOutputEnergy: 0
   baseOutputWater: 0
-  baseOutputFood: 0
+  baseOutputFood: 10
   baseOutputMaterial: 0
-  buildingOutputMulti: 1
+  buildingOutputMulti: 2
   impactSource: 1
-  impactRadiusTiles: 1
-  collectorBuildings: 
-  buffAmount: 0
-  nerfAmount: 0
-  tileImpactBuff: []
+  impactRadiusTiles: 3
+  collectorBuildings: 01000000
+  buffAmount: 3
+  nerfAmount: 0.5
+  tileImpactBuff:
+  - {fileID: 11400000, guid: 24e9ec8887a10c9488dc222a1f307740, type: 2}
   tileImpactNerf: []
-  isImpactSoilGrade: 0
-  buffSoilGradeAmount: 0
+  isImpactSoilGrade: 1
+  buffSoilGradeAmount: 20
   nerfSoilGradeAmount: 0

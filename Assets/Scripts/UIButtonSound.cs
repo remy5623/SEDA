@@ -1,54 +1,31 @@
-
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using System.Collections;
 
-public class UIButtonSound : MonoBehaviour, IPointerEnterHandler
+public class UIButtonSound : MonoBehaviour, IPointerDownHandler
 {
-
     public AudioClip ClickedSound;
-    AudioClip HoverSound;
 
-    //get button component
     private Button button { get { return GetComponent<Button>(); } }
-    // get audiosource
-    private AudioSource source { get { return GetComponent<AudioSource>(); } }
-
+    private AudioSource source;
 
     void Start()
     {
-        //bind an AudioSource on its
-        gameObject.AddComponent<AudioSource>();
-
-        //set default sound
-        source.clip = HoverSound;
-
+        source = gameObject.AddComponent<AudioSource>();
         source.playOnAwake = false;
-
-        if(ClickedSound != null)
-            button.onClick.AddListener(() => PlayClickSoud());
-
-
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
+    public void OnPointerDown(PointerEventData eventData)
     {
-        if (eventData == null)
+        PlayClickSound();
+    }
+
+    void PlayClickSound()
+    {
+        if (ClickedSound != null)
         {
-            throw new System.ArgumentNullException(nameof(eventData));
+            source.enabled = true; // »∑±£ AudioSource ∆Ù”√
+            source.PlayOneShot(ClickedSound);
         }
-
-        /*source.clip = HoverSound;
-        source.PlayOneShot(HoverSound);*/
-    }
-
-    void PlayClickSoud()
-
-    {
-
-        source.clip = ClickedSound;
-        source.PlayOneShot(ClickedSound);
-
     }
 }

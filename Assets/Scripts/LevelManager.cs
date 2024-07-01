@@ -119,7 +119,7 @@ public class LevelManager : MonoBehaviour
                 }
                 else if (terrainTile.Wenergy)
                 {
-                    radius = terrainTile.radius;
+                    radius = terrainTile.Wradius;
 
                     GridPosition gridPos = terrainTile.owningGridObject.GetGridPosition();
 

@@ -1,6 +1,20 @@
 using System.Collections.Generic;
 using System.ComponentModel;
+using Unity.VisualScripting;
 using UnityEngine;
+
+public enum CollectorType
+{
+    None,
+    Barn,
+    [Description("Wind Turbine")]
+    WindTurbine,
+    [Description("Water Pump")]
+    WaterPump,
+    Warehouse,
+    [Description("Logging Camp")]
+    LoggingCamp
+}
 
 [CreateAssetMenu(fileName = "TileBase", menuName = "TileBase")]
 public class TileBase : ScriptableObject
@@ -14,9 +28,9 @@ public class TileBase : ScriptableObject
     [Tooltip("GameObject with 3D static Mesh (Drag and Drop) (Scale See Metrics & Scale (See Grid scale)")]
     public GameObject inGameAsset;
     [Tooltip("Number of Tiles on grid Width")]
-    public int sizeWidthTile;
+    public int sizeWidthTile = 1;
     [Tooltip("Number of Tiles on grid Length")]
-    public int sizeLengthTile;
+    public int sizeLengthTile = 1;
     [Tooltip("Structure Types")]
     public StructureTypes structureType;
     [Description("Structure Types")]
@@ -117,6 +131,8 @@ public class TileBase : ScriptableObject
     public bool impactSource;
     [Tooltip("Number of tiles in each direction that this building can Impact. (all 8 directions from centre).")]
     public int impactRadiusTiles;
+    [Tooltip("The type of Structure this collects resources from, if any.")]
+    public CollectorType[] collectorBuildings;
     [Tooltip("multiplier to output from the buff Source")]
     public float buffAmount;
     [Tooltip("multiplier to output from the nerf Source")]

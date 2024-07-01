@@ -40,6 +40,7 @@ public class TileBaseEditor : Editor
     //Impact
     SerializedProperty impactSource;
     SerializedProperty impactRadiusTiles;
+    SerializedProperty collectorBuildings;
     SerializedProperty buffAmount;
     SerializedProperty nerfAmount;
     SerializedProperty tileImpactBuff;
@@ -88,6 +89,7 @@ public class TileBaseEditor : Editor
         //Impact
         impactSource = serializedObject.FindProperty("impactSource");
         impactRadiusTiles = serializedObject.FindProperty("impactRadiusTiles");
+        collectorBuildings = serializedObject.FindProperty("collectorBuildings");
         buffAmount = serializedObject.FindProperty("buffAmount");
         nerfAmount = serializedObject.FindProperty("nerfAmount");
         tileImpactBuff = serializedObject.FindProperty("tileImpactBuff");
@@ -148,6 +150,7 @@ public class TileBaseEditor : Editor
         {
             EditorGUILayout.PropertyField(impactRadiusTiles, true);
             EditorGUILayout.PropertyField(buffAmount, true);
+            EditorGUILayout.PropertyField(collectorBuildings, true);
             EditorGUILayout.PropertyField(nerfAmount, true);
             EditorGUILayout.PropertyField(tileImpactBuff, true);
             EditorGUILayout.PropertyField(tileImpactNerf, true);

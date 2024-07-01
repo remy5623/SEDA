@@ -38,11 +38,11 @@ public class Building : MonoBehaviour
         resourceData.tileUnder.GetOwningGridSystem().ToggleBuildMode(resourceData, true);
 
         UpdateTotalBuildingCount(true);
-        //Impact();
+        TimeSystem.AddMonthlyEvent(Impact);
        
         if ( !resourceData.isResourceTapped )
         {
-            TimeSystem.AddMonthlyEvent(UpdateResources);
+            TimeSystem.AddMonthlyEvent(HarvestSurroundingResources);
         }
 
         TimeSystem.AddMonthlyEvent(PayUpkeep);
@@ -61,9 +61,6 @@ public class Building : MonoBehaviour
             Terrainsystem = hit.transform.gameObject.GetComponent<Terrainsystem>();
             Terrainsystem.owningGridObject.buildingInstance = this;
         }
-
-        
-
     }
 
     public void PayConstructionCosts()
@@ -76,16 +73,16 @@ public class Building : MonoBehaviour
     public void UpdateResources()
     {
         IfDependsonSoilGrade();
-        if (RequireWaterEnergy && (Inventory.isFlooding || resourceData.tileUnder.terrain.Wenergy))
+        if (!RequireWaterEnergy || (Inventory.isFlooding || resourceData.tileUnder.terrain.Wenergy))
         {
-            Inventory.food += Mathf.FloorToInt(resourceData.baseOutputFood * soilGradeModifier * (1 + buff + nerf) * Inventory.cropOutput * Upkeepmet);
-            Inventory.constructionMaterials += Mathf.FloorToInt(resourceData.baseOutputMaterial * (1 + buff + nerf) * Inventory.cropOutput * Upkeepmet);
+            Inventory.food += Mathf.FloorToInt(resourceData.baseOutputFood * soilGradeModifier * Inventory.cropOutput * Upkeepmet);
+            Inventory.constructionMaterials += Mathf.FloorToInt(resourceData.baseOutputMaterial * Inventory.cropOutput * Upkeepmet);
         }
     }
     
     public void PayUpkeep()
     {
-        if (resourceData.upKeepCostWater && (Inventory.isFlooding || resourceData.tileUnder.terrain.Wenergy))
+        if (!resourceData.upKeepCostWater || (Inventory.isFlooding || resourceData.tileUnder.terrain.Wenergy))
         {
             Upkeepmet = 1;
             Inventory.SpendFood(resourceData.upKeepCostFood);
@@ -121,9 +118,9 @@ public class Building : MonoBehaviour
         GridPosition pos = GetOwningGridObject().GetGridPosition();
         int radius = resourceData.impactRadiusTiles;
 
-        for (int x = pos.x - radius; x < pos.x + radius; x++)
+        for (int x = pos.x - radius; x <= pos.x + radius; x++)
         {
-            for (int z = pos.z - radius; z < pos.z + radius; z++)
+            for (int z = pos.z - radius; z <= pos.z + radius; z++)
             {
                 if (x >= 0 && z >= 0 && x < GetOwningGridObject().GetOwningGridSystem().GetGridLength() && z < GetOwningGridObject().GetOwningGridSystem().GetGridWidth())
                 {
@@ -140,6 +137,7 @@ public class Building : MonoBehaviour
 
     public void SetBuffs(Building resource)
     {
+        resource.buff = 0;
         resource.buff += resourceData.buffAmount;
         resource.buff -= resourceData.nerfAmount;
     }
@@ -199,5 +197,34 @@ public class Building : MonoBehaviour
         }
         else
             gameObject.SetActive(true);
+    }
+
+    public void HarvestSurroundingResources()
+    {
+        GridPosition pos = GetOwningGridObject().GetGridPosition();
+        int radius = resourceData.impactRadiusTiles;
+
+        for (int x = pos.x - radius; x <= pos.x + radius; x++)
+        {
+            for (int z = pos.z - radius; z <= pos.z + radius; z++)
+            {
+                if (x >= 0 && z >= 0 && x < GetOwningGridObject().GetOwningGridSystem().GetGridLength() && z < GetOwningGridObject().GetOwningGridSystem().GetGridWidth())
+                {
+                    // TODO: Filter by structure type
+                    Building objectInRadius;
+                    if ((objectInRadius = GetOwningGridObject().GetOwningGridSystem().GetGridObject(x, z).GetBuilding()) && (new GridPosition(x, z) != pos))
+                    {
+                        foreach(CollectorType collector in resourceData.collectorBuildings)
+                        {
+                            if (collector.ToString() == objectInRadius.resourceData.structureType.ToString())
+                            {
+                                UpdateResources();
+                                return;
+                            }
+                        }    
+                    }
+                }
+            }
+        }
     }
 }

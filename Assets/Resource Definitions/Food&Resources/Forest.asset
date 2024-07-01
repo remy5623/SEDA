@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileName: Forest
   icon: {fileID: 0}
-  inGameAsset: {fileID: 7543974964756465544, guid: db1ca25da234f254d9830650a317f4f8,
+  inGameAsset: {fileID: 7543974964756465544, guid: bf23c31cc275890418b7c7ce2ee3f100,
     type: 3}
   sizeWidthTile: 1
   sizeLengthTile: 1
@@ -40,6 +40,7 @@ MonoBehaviour:
   buildingOutputMulti: 5
   impactSource: 1
   impactRadiusTiles: 3
+  collectorBuildings: 05000000
   buffAmount: 2
   nerfAmount: 0
   tileImpactBuff:

@@ -4836,7 +4836,7 @@ GameObject:
   - component: {fileID: 1852681457837937076}
   - component: {fileID: 3165649214945112012}
   m_Layer: 5
-  m_Name: Building 4
+  m_Name: Forest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4961,7 +4961,7 @@ MonoBehaviour:
         m_MethodName: SelectBuilding
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: a5db5c930a7529347a3577902e9dc88a,
+          m_ObjectArgument: {fileID: 11400000, guid: 24e9ec8887a10c9488dc222a1f307740,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: TileBase, Assembly-CSharp
           m_IntArgument: 0
@@ -6064,7 +6064,7 @@ GameObject:
   - component: {fileID: 6296025849054243558}
   - component: {fileID: 6506816472066887326}
   m_Layer: 5
-  m_Name: Building 1
+  m_Name: Barn Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6274,7 +6274,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Building 3 Icon
+  m_text: Logging Camp
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -9513,7 +9513,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Building 3 Icon
+  m_text: Forest
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -10826,7 +10826,7 @@ GameObject:
   - component: {fileID: 8339973641821110493}
   - component: {fileID: 5965450275380606904}
   m_Layer: 5
-  m_Name: Building 5
+  m_Name: Logging Camp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15939,7 +15939,7 @@ GameObject:
   - component: {fileID: 1506783070352267667}
   - component: {fileID: 1789671274196351582}
   m_Layer: 5
-  m_Name: Building 6
+  m_Name: Warehouse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17244,7 +17244,7 @@ GameObject:
   - component: {fileID: 5640046680927716569}
   - component: {fileID: 7090869773574093839}
   m_Layer: 5
-  m_Name: Building 3
+  m_Name: Wind Turbine Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18013,7 +18013,7 @@ GameObject:
   - component: {fileID: 857442980491741387}
   - component: {fileID: 295076157589760632}
   m_Layer: 5
-  m_Name: Building 2
+  m_Name: Water Well Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19536,7 +19536,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Building 3 Icon
+  m_text: Warehouse
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

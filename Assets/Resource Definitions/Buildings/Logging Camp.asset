@@ -18,7 +18,7 @@ MonoBehaviour:
     type: 3}
   sizeWidthTile: 1
   sizeLengthTile: 1
-  structureType: 21
+  structureType: 4
   tileUnder: {fileID: 0}
   biomeTypes: 00000000
   tileTerrainTypes: 0100000003000000
@@ -36,11 +36,11 @@ MonoBehaviour:
   baseOutputEnergy: 0
   baseOutputWater: 0
   baseOutputFood: 0
-  baseOutputMaterial: 0
-  buildingOutputMulti: 0
+  baseOutputMaterial: 15
+  buildingOutputMulti: 1
   impactSource: 1
   impactRadiusTiles: 3
-  collectsFrom: 
+  collectorBuildings: 
   buffAmount: 0
   nerfAmount: 0
   tileImpactBuff: []

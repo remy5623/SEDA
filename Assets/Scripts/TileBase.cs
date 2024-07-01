@@ -36,39 +36,31 @@ public class TileBase : ScriptableObject
     [Description("Structure Types")]
     public enum StructureTypes
     {
-        [Description("Stone Circle")]
-        StoneCircle,
+        Barn,
+        [Description("Wind Turbine")]
+        WindTurbine,
+        [Description("Water Pump")]
+        WaterPump,
+        Warehouse,
+        [Description("Logging Camp")]
+        LoggingCamp,
+        Giant,
+        Kelpie,
+        Cailleach,
         [Description("Cow Pasture")]
         CowPasture,
         [Description("Sheep Pasture")]
         SheepPasture,
-        Oats,
-        Barley,
-        Wheat,
-        Blackcurrants,
+        [Description("Spring Barley")]
+        SpringBarley,
         Forest,
-        [Description("Wind Turbine")]
-        WindTurbine,
-        [Description("Solar Panels")]
-        SolarPanels,
-        Tidal,
-        River,
-        Loch,
-        [Description("Water Pump")]
-        WaterPump,
-        [Description("Natural Fertiliser")]
-        NaturalFertiliser,
+        [Description("Ruined Buildings")]
+        RuinedBuildings,
         [Description("Artificial Fertiliser")]
         ArtificialFertiliser,
         [Description("Peas and Beans")]
         PeasAndBeans,
-        Giant,
-        Kelpie,
-        Cailleach,
-        Brownie,
-        LoggingCamp,
-        Mine,
-        Rock
+        Compost
     }
     [Tooltip("Grab reference and information of the tile under the structure/ the tile this structure is placed on top of.")]
     public GridObject tileUnder;
@@ -114,6 +106,8 @@ public class TileBase : ScriptableObject
     [Header("Resources")]
     [Tooltip("checks if the resource will be added to the monthly output (some structures need to be tapped to receive the base output")]
     public bool isResourceTapped;
+    [Tooltip("The type of Structure this collects resources from, if any.")]
+    public CollectorType[] collectorBuildings;
     //ResourceOutput
     [Tooltip("Whether a structure generates energy.")]
     public bool baseOutputEnergy;
@@ -131,8 +125,6 @@ public class TileBase : ScriptableObject
     public bool impactSource;
     [Tooltip("Number of tiles in each direction that this building can Impact. (all 8 directions from centre).")]
     public int impactRadiusTiles;
-    [Tooltip("The type of Structure this collects resources from, if any.")]
-    public CollectorType[] collectorBuildings;
     [Tooltip("multiplier to output from the buff Source")]
     public float buffAmount;
     [Tooltip("multiplier to output from the nerf Source")]

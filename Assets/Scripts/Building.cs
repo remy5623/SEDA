@@ -163,12 +163,6 @@ public class Building : MonoBehaviour
             case TileBase.StructureTypes.Forest:
                 Inventory.numOfForests += changeAmount;
                 break;
-            case TileBase.StructureTypes.Rock:
-                Inventory.numOfRocks += changeAmount;
-                break;
-            case TileBase.StructureTypes.Mine:
-                Inventory.numOfMines += changeAmount;
-                break;
         }
     }
 

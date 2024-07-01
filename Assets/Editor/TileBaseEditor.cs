@@ -31,6 +31,7 @@ public class TileBaseEditor : Editor
 
     //Building
     SerializedProperty isResourceTapped;
+    SerializedProperty collectorBuildings;
     SerializedProperty baseOutputEnergy;
     SerializedProperty baseOutputWater;
     SerializedProperty baseOutputFood;
@@ -40,7 +41,6 @@ public class TileBaseEditor : Editor
     //Impact
     SerializedProperty impactSource;
     SerializedProperty impactRadiusTiles;
-    SerializedProperty collectorBuildings;
     SerializedProperty buffAmount;
     SerializedProperty nerfAmount;
     SerializedProperty tileImpactBuff;
@@ -80,6 +80,7 @@ public class TileBaseEditor : Editor
 
         //Building
         isResourceTapped = serializedObject.FindProperty("isResourceTapped");
+        collectorBuildings = serializedObject.FindProperty("collectorBuildings");
         baseOutputEnergy = serializedObject.FindProperty("baseOutputEnergy");
         baseOutputWater = serializedObject.FindProperty("baseOutputWater");
         baseOutputFood = serializedObject.FindProperty("baseOutputFood");
@@ -89,7 +90,6 @@ public class TileBaseEditor : Editor
         //Impact
         impactSource = serializedObject.FindProperty("impactSource");
         impactRadiusTiles = serializedObject.FindProperty("impactRadiusTiles");
-        collectorBuildings = serializedObject.FindProperty("collectorBuildings");
         buffAmount = serializedObject.FindProperty("buffAmount");
         nerfAmount = serializedObject.FindProperty("nerfAmount");
         tileImpactBuff = serializedObject.FindProperty("tileImpactBuff");
@@ -138,6 +138,7 @@ public class TileBaseEditor : Editor
 
         // Always visible properties
         EditorGUILayout.PropertyField(isResourceTapped, true);
+        EditorGUILayout.PropertyField(collectorBuildings, true);
         EditorGUILayout.PropertyField(baseOutputEnergy, true);
         EditorGUILayout.PropertyField(baseOutputWater, true);
         EditorGUILayout.PropertyField(baseOutputFood, true);
@@ -150,7 +151,6 @@ public class TileBaseEditor : Editor
         {
             EditorGUILayout.PropertyField(impactRadiusTiles, true);
             EditorGUILayout.PropertyField(buffAmount, true);
-            EditorGUILayout.PropertyField(collectorBuildings, true);
             EditorGUILayout.PropertyField(nerfAmount, true);
             EditorGUILayout.PropertyField(tileImpactBuff, true);
             EditorGUILayout.PropertyField(tileImpactNerf, true);

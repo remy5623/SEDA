@@ -10,40 +10,41 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c15a7d87bc4ba64478f86a96ca27bff6, type: 3}
-  m_Name: RuinedBuildings
+  m_Name: WaterPump
   m_EditorClassIdentifier: 
-  tileName: Ruined Buildings
+  tileName: Water Pump
   icon: {fileID: 0}
-  inGameAsset: {fileID: 7543974964756465544, guid: 77ec303b5caa18940af3643d8eb21693,
+  inGameAsset: {fileID: 679268389524347108, guid: 0af38f364f1be8744b08a99f025b1f72,
     type: 3}
   sizeWidthTile: 1
   sizeLengthTile: 1
-  structureType: 23
+  structureType: 2
   tileUnder: {fileID: 0}
   biomeTypes: 00000000
-  tileTerrainTypes: 
+  tileTerrainTypes: 0100000003000000
   CreatureTile: 0
   bribeCostFood: 15
   bribeCostConstruction: 5
-  canBuild: 0
+  canBuild: 1
   buildingCostFood: 0
-  buildingCostMaterial: 0
+  buildingCostMaterial: 20
   upKeepCostEnergy: 0
   upKeepCostWater: 0
   upKeepCostFood: 0
   upKeepCostMaterial: 0
-  isResourceTapped: 1
+  isResourceTapped: 0
   baseOutputEnergy: 0
-  baseOutputWater: 0
+  baseOutputWater: 1
   baseOutputFood: 0
-  baseOutputMaterial: 15
-  buildingOutputMulti: 2
-  impactSource: 0
-  impactRadiusTiles: 0
+  baseOutputMaterial: 0
+  buildingOutputMulti: 1
+  impactSource: 1
+  impactRadiusTiles: 1
+  collectorBuildings: 
   buffAmount: 0
   nerfAmount: 0
   tileImpactBuff: []
   tileImpactNerf: []
   isImpactSoilGrade: 0
-  buffSoilGradeAmount: 0
+  buffSoilGradeAmount: 20
   nerfSoilGradeAmount: 0

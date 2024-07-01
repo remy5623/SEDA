@@ -73,7 +73,8 @@ public class LevelManager : MonoBehaviour
             GridObject gridTile;
             Terrainsystem terrainTile;
 
-            if ((building = hit.transform.gameObject.GetComponent<Building>()) && building.resourceData.impactSource)
+            if ((building = hit.transform.gameObject.GetComponent<Building>()) && building.resourceData.impactSource
+                && building.GetOwningGridObject())
             {
                 radius = building.resourceData.impactRadiusTiles;
 
@@ -119,7 +120,7 @@ public class LevelManager : MonoBehaviour
                 }
                 else if (terrainTile.Wenergy)
                 {
-                    radius = terrainTile.radius;
+                    radius = terrainTile.Wradius;
 
                     GridPosition gridPos = terrainTile.owningGridObject.GetGridPosition();
 

@@ -46,6 +46,7 @@ public class TimeSystem : MonoBehaviour
     [SerializeField] GameObject gameOverPrefab;
     [SerializeField] GameObject levelCompletePrefab;
     [SerializeField] GameObject winScreenPrefab;
+    public GameObject timeSystem;
 
     int day = 1;
     float timeElapsed = 0f;
@@ -75,6 +76,9 @@ public class TimeSystem : MonoBehaviour
     /** Initialise displays and start the daily tick */
     private void Start()
     {
+        if (timeSystem)
+            Pause();
+
         SetDay();
         SetMonth();
         SetTimeRemainingDisplay();

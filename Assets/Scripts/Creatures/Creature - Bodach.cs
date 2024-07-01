@@ -19,7 +19,7 @@ public class Cailleach : Building
             TSC1 = hit.transform.gameObject.GetComponent<Terrainsystem>();
         }
         TSC1.creaturetype = CreatureTypes.Cailleach;
-        cailleachcreature.SetActive(false);
+        //cailleachcreature.SetActive(false);
     }
 
     public void StandingStoneCailleachImpact()

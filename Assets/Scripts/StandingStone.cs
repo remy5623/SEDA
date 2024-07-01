@@ -28,7 +28,7 @@ public class StandingStone : MonoBehaviour
         if(kelpie)
             kelpie.gameObject.SetActive(false);
         if(cailleach)
-            //cailleach.gameObject.SetActive(false);
+            cailleach.gameObject.SetActive(false);
 
         placeAction = actionAsset.FindAction("click");
         click = ctx => Interact();
